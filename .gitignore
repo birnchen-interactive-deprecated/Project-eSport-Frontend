@@ -40,5 +40,5 @@ phpunit.phar
 # The db configuration file
 #config/db.php
 
-#Upload folder
-uploads/
+#db config
+config/db.php

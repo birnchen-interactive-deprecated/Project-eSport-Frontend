@@ -4,7 +4,7 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'Project eSport',
     'language' => 'de-DE',
     'basePath' => dirname(__DIR__),
     'defaultRoute' => '/account/site/index',
@@ -14,6 +14,12 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'defaultTimeZone' => 'Europe/Berlin',
+            'timeZone' => 'Europe/Berlin',
+            'nullDisplay' => ''
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'at5I4u-ZfXzo85LZHzZXbzopgfnhh1ae',
@@ -22,7 +28,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\modules\core\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -45,6 +51,15 @@ $config = [
             ],
         ],
         'db' => $db,
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            // Disable index.php
+            'showScriptName' => false,
+            // Disable r= routes
+            'enablePrettyUrl' => false,
+            'rules' => array(),
+
+        ],
         'i18n' => [
             'translations' => [
                 'app*' => [

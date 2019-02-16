@@ -100,7 +100,6 @@ class m190216_190851_db_scheme extends Migration
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
 
-
         $this->execute("
             CREATE TABLE IF NOT EXISTS `mail_newsletter` (
               `user_id` INT NOT NULL,

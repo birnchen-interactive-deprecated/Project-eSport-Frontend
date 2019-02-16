@@ -4,7 +4,7 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic-console',
+    'id' => 'Project eSport',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
@@ -31,13 +31,18 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
+    'modules' => [
+        'rbac' => [
+            'class' => 'app\modules\rbac\Module',
         ],
-    ],
-    */
+        'api' => 'app\modules\api\Module',
+        'incomeReportValidationController' => [
+            'class' => 'app\modules\upload\Module'
+        ],
+        'upload' => [
+            'class' => 'app\modules\upload\Module'
+        ]
+    ]
 ];
 
 if (YII_ENV_DEV) {

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\modules\core\models\User;
 use Yii;
 use yii\base\Model;
 
