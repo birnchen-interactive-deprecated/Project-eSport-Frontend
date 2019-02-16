@@ -1,0 +1,48 @@
+/** General styles */
+.dashboard-panel-title {
+    border-bottom: 1px solid #ffffff;
+    padding: 1px 5px 6px;
+    margin-bottom: 10px;
+}
+
+.dashboard-panel-title h2 {
+    text-align: center;
+    margin: auto;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.dashboard-panel-title h2 > small {
+    padding-left: 5px;
+}
+
+.navigation-panel a {
+    text-decoration: none !important;
+}
+
+.navigation-panel:hover .thumbnail {
+    background-color: #f8f8f8;
+}
+
+.navigation-label {
+    text-align: center;
+}
+
+.cut-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table, td, th {
+    border: 1px solid white;
+}

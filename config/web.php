@@ -5,7 +5,9 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'language' => 'de-DE',
     'basePath' => dirname(__DIR__),
+    'defaultRoute' => '/account/site/index',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -43,14 +45,24 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'app' => 'app.php'
+                    ],
+                ]
+            ]
         ],
-        */
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager'
+        ]
+    ],
+    'modules' => [
+        'account' => 'app\modules\account\Module',
+        'core' => 'app\modules\core\Module',
+        'rbac' => 'app\modules\rbac\Module'
     ],
     'params' => $params,
 ];

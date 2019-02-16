@@ -1,0 +1,9 @@
+.button-panel {
+    display: flex;
+    align-items: center;
+}
+
+.spinner_position {
+    top: 0 !important;
+    left: 10px;
+}
