@@ -1,0 +1,44 @@
+# phpstorm project files
+.idea
+*.iml
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+vendor
+
+# components css
+components/animate.css/
+components/bootstrap-switch/
+components/bootswatch/
+components/ekko-lightbox/
+components/flag-icon-css/
+components/holder/
+components/jplayer/
+
+# composer itself is not needed
+composer.phar
+composer.lock
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+# The db configuration file
+#config/db.php
+
+#Upload folder
+uploads/
