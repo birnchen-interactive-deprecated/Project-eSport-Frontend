@@ -14,39 +14,114 @@ class m190216_190851_db_scheme extends Migration
     public function safeUp()
     {
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `user` (
-              `user_id` INT NOT NULL AUTO_INCREMENT,
+            CREATE TABLE IF NOT EXISTS `gender` (
+              `gender_id` INT NOT NULL,
+              `name` VARCHAR(45) NULL,
+              PRIMARY KEY (`gender_id`))
+            ENGINE = InnoDB;");
+            
+
+        $this->execute("    CREATE TABLE IF NOT EXISTS `language` (
+              `language_id` INT NOT NULL,
+              `name` VARCHAR(45) NULL,
+              `locale` VARCHAR(45) NULL,
+              PRIMARY KEY (`language_id`))
+            ENGINE = InnoDB;");
+
+
+        $this->execute("
+             CREATE TABLE IF NOT EXISTS `user` (
+              `user_id` INT NOT NULL,
+              `username` VARCHAR(45) NOT NULL,
+              `password` VARCHAR(45) NOT NULL,
+              `birthday` DATE NOT NULL,
+              `gender_id` INT NULL,
               `dt_created` DATETIME NOT NULL,
               `dt_updated` DATETIME NULL,
-              `user_created` INT(11) NOT NULL,
-              `user_updated` INT(11) NULL,
-              `first_name` VARCHAR(255) NOT NULL,
-              `last_name` VARCHAR(255) NOT NULL,
-              `email` VARCHAR(255) NOT NULL,
+              `language_id` INT NULL,
               PRIMARY KEY (`user_id`),
-              UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC))
+              UNIQUE INDEX `username_UNIQUE` (`username` ASC),
+              INDEX `FK_user_gender_id_idx` (`gender_id` ASC),
+              INDEX `FK_user_language_id_idx` (`language_id` ASC),
+              CONSTRAINT `FK_user_gender_id`
+                FOREIGN KEY (`gender_id`)
+                REFERENCES `gender` (`gender_id`)
+                ON DELETE SET NULL
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_user_language_id`
+                FOREIGN KEY (`language_id`)
+                REFERENCES `language` (`language_id`)
+                ON DELETE SET NULL
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB;");
+
+
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `user_data` (
+              `user_id` INT NOT NULL,
+              `pre_name` VARCHAR(45) NULL,
+              `last_name` VARCHAR(45) NULL,
+              `zip_code` VARCHAR(45) NULL,
+              `city` VARCHAR(45) NULL,
+              `street` VARCHAR(45) NULL,
+              UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC),
+              CONSTRAINT `FK_user_data_user_id`
+                FOREIGN KEY (`user_id`)
+                REFERENCES `user` (`user_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB;");
+
+
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `language_i18n` (
+              `id` INT NOT NULL,
+              `language_id` VARCHAR(45) NOT NULL,
+              `name` VARCHAR(45) NULL,
+              PRIMARY KEY (`id`, `language_id`),
+              CONSTRAINT `FK_language_i18n_language_id`
+                FOREIGN KEY (`id`)
+                REFERENCES `language` (`language_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB;");
+
+
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `gender_i18n` (
+              `gender_id` INT NOT NULL,
+              `language_id` VARCHAR(45) NOT NULL,
+              `name` VARCHAR(45) NULL,
+              PRIMARY KEY (`gender_id`, `language_id`),
+              CONSTRAINT `FK_gender_i18n_gender_id`
+                FOREIGN KEY (`gender_id`)
+                REFERENCES `gender` (`gender_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB;");
+
+
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `mail_newsletter` (
+              `user_id` INT NOT NULL,
+              `email` VARCHAR(45) NOT NULL,
+              `newsletter` TINYINT(1) NULL,
+              PRIMARY KEY (`user_id`),
+              UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+              CONSTRAINT `FK_mail_newsletter_user_id`
+                FOREIGN KEY (`user_id`)
+                REFERENCES `user` (`user_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
             ENGINE = InnoDB;
         ");
 
-        $this->addColumn('user', 'password', 'VARCHAR(255) NOT NULL');
-        $this->addColumn('user', 'password_reset_token', 'VARCHAR(255)');
-        $this->addColumn('user', 'access_token', 'VARCHAR(255) NOT NULL');
-        $this->addColumn('user', 'auth_key', 'VARCHAR(255) NOT NULL');
-        $this->addColumn('user', 'username', 'VARCHAR(255) NOT NULL');
-        $this->insert('{{user}}', [
+        $this->insert('user', [
             'dt_created' => new Expression('NOW()'),
             'dt_updated' => new Expression('NOW()'),
             'username' => 'admin',
-            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
-            'user_created' => 1,
-            'first_name' => 'Admin',
-            'last_name' => 'Admin',
-            'email' => 'email@admin.de',
-            'auth_key' => Yii::$app->getSecurity()->generateRandomString(),
-            'access_token' => Yii::$app->getSecurity()->generateRandomString()
+            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin')
         ]);
-
-
     }
 
     /**
@@ -54,8 +129,11 @@ class m190216_190851_db_scheme extends Migration
      */
     public function safeDown()
     {
+        $this->dropTable('gender_i18n');
+        $this->dropTable('language_i18n');
+        $this->dropTable('user_data');
         $this->dropTable('user');
+        $this->dropTable('language');
+        $this->dropTable('gender');
     }
-
-
 }
