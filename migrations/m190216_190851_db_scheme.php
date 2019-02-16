@@ -33,7 +33,7 @@ class m190216_190851_db_scheme extends Migration
              CREATE TABLE IF NOT EXISTS `user` (
               `user_id` INT NOT NULL,
               `username` VARCHAR(45) NOT NULL,
-              `password` VARCHAR(45) NOT NULL,
+              `password` VARCHAR(255) NOT NULL,
               `birthday` DATE NOT NULL,
               `gender_id` INT NULL,
               `dt_created` DATETIME NOT NULL,
@@ -120,6 +120,7 @@ class m190216_190851_db_scheme extends Migration
             'dt_updated' => new Expression('NOW()'),
             'username' => 'admin',
             'password' => Yii::$app->getSecurity()->generatePasswordHash('admin')
+            //AdminPW123!.
         ]);
     }
 
@@ -128,6 +129,7 @@ class m190216_190851_db_scheme extends Migration
      */
     public function safeDown()
     {
+        $this->dropTable('mail_newsletter');
         $this->dropTable('gender_i18n');
         $this->dropTable('language_i18n');
         $this->dropTable('user_data');
