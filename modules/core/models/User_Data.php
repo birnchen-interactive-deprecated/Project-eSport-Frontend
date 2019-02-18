@@ -90,7 +90,7 @@ class User_Data extends ActiveRecord
     /**
      * @inheritdoc
      */
-    public static function findUserDataById($id)
+    public static function findIdentity($id)
     {
         return static::findOne(['user_id' => $id]);
     }

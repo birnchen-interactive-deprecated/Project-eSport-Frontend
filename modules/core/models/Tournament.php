@@ -151,7 +151,7 @@ class Tournament extends ActiveRecord
     /**
      * @inheritdoc
      */
-    public static function findTournamentById($id)
+    public static function findIdentity($id)
     {
         return static::findOne(['tournament_id' => $id]);
     }
@@ -159,11 +159,11 @@ class Tournament extends ActiveRecord
     /**
      * Finds user by username.
      *
-     * @param string $Tournamentname the name
-     * @return static|null the user, if a user with that username exists
+     * @param string $tournamentname the name
+     * @return static|null the tournament, if a tournament with that tournament name exists
      */
-    public static function findTournamentByName($Tournamentname)
+    public static function findByTournamentName($tournamentname)
     {
-        return static::findOne(['tournament_name' => $Tournamentname]);
+        return static::findOne(['tournament_name' => $tournamentname]);
     }
 }
