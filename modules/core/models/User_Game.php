@@ -11,12 +11,12 @@ namespace app\modules\core\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class User_Games
+ * Class User_Game
  * @package app\modules\core\models
  * @property int $user_id
- * @property int $games_id
+ * @property int $game_id
  */
-class User_Games extends ActiveRecord
+class User_Game extends ActiveRecord
 {
     /**
      * @return int the user_id
@@ -27,10 +27,10 @@ class User_Games extends ActiveRecord
     }
 
     /**
-     * @return string the language title
+     * @return int the Game id
      */
-    public function getGamesId()
+    public function getGameId()
     {
-        return $this->games_id;
+        return $this->game_id;
     }
 }

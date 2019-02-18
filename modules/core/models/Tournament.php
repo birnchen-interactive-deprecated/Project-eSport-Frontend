@@ -9,9 +9,10 @@
 namespace app\modules\core\models;
 
 use yii\db\ActiveRecord;
+use Yii;
 
 /**
- * Class Tournaments
+ * Class Tournament
  * @package app\modules\core\models
  *
  * @property int $tournament_id
@@ -27,7 +28,7 @@ use yii\db\ActiveRecord;
  * @property bool $has_password
  * @property string $password
  */
-class Tournaments extends ActiveRecord
+class Tournament extends ActiveRecord
 {
     /**
      * @return array the attribute labels
@@ -145,37 +146,6 @@ class Tournaments extends ActiveRecord
     public function getPassword()
     {
         return $this->password;
-    }
-
-    /**
-     * If this is a new database record, create a random auth key and access token
-     * for this user before we store the record into the database.
-     *
-     * @param boolean $insert true, if this is a new record
-     *
-     * @return boolean true, if the record should be saved
-     * @throws \yii\base\Exception
-     */
-    public function beforeSave($insert)
-    {
-        if (parent::beforeSave($insert)) {
-            if ($insert) {
-                $this->generateAuthKey();
-                $this->generateAccessToken();
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Revokes all authentication assignments after a user has been deleted.
-     */
-    public function afterDelete()
-    {
-        parent::afterDelete();
-
-        Yii::$app->getAuthManager()->revokeAll($this->getId());
     }
 
     /**
