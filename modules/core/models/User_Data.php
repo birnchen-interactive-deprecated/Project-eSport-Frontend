@@ -86,12 +86,4 @@ class User_Data extends ActiveRecord
     {
         return $this->street;
     }
-
-    /**
-     * @inheritdoc
-     */
-    public static function findIdentity($id)
-    {
-        return static::findOne(['user_id' => $id]);
-    }
 }

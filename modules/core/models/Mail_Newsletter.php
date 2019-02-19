@@ -23,13 +23,13 @@ class Mail_Newsletter extends ActiveRecord
      */
     public function getEmail()
     {
-        return $this->user_id;
+        return $this->email;
     }
 
     /**
      * @return bool the newsletter
      */
-    public function getNewsletter()
+    public function hasNewsletter()
     {
         return $this->newsletter;
     }

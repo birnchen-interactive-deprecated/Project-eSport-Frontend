@@ -40,9 +40,9 @@ class User extends AbstractActiveRecord implements IdentityInterface
             'dt_updated' => Yii::t('app', 'dt updated'),
             'username' => Yii::t('app', 'username'),
             'password' => Yii::t('app', 'password'),
-            'birthday' =>Yii::t('app', 'birthday'),
-            'language_id' =>Yii::t('app', 'language'),
-            'gender_id' =>Yii::t('app', 'gender')
+            'birthday' => Yii::t('app', 'birthday'),
+            'language_id' => Yii::t('app', 'language'),
+            'gender_id' => Yii::t('app', 'gender')
         ];
     }
 
@@ -52,6 +52,14 @@ class User extends AbstractActiveRecord implements IdentityInterface
     public function getId()
     {
         return $this->user_id;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserData()
+    {
+        return $this->hasOne(User_Data::className(), ['user_id' => 'user_id']);
     }
 
     /**
@@ -103,9 +111,18 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGender()
+    {
+        return $this->hasOne(Gender::className(), ['gender_id' => 'gender_id']);
+    }
+
+    /**
      * @return int
      */
-    public function getLanguageId(){
+    public function getLanguageId()
+    {
         return $this->language_id;
     }
 
