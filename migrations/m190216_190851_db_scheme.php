@@ -31,7 +31,7 @@ class m190216_190851_db_scheme extends Migration
 
         $this->execute("
              CREATE TABLE IF NOT EXISTS `user` (
-              `user_id` INT NOT NULL,
+              `user_id` INT NOT NULL AUTO_INCREMENT,
               `username` VARCHAR(45) NOT NULL,
               `password` VARCHAR(255) NOT NULL,
               `birthday` DATE NOT NULL,

@@ -127,27 +127,6 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
-     * If this is a new database record, create a random auth key and access token
-     * for this user before we store the record into the database.
-     *
-     * @param boolean $insert true, if this is a new record
-     *
-     * @return boolean true, if the record should be saved
-     * @throws \yii\base\Exception
-     */
-    public function beforeSave($insert)
-    {
-        if (parent::beforeSave($insert)) {
-            if ($insert) {
-                $this->generateAuthKey();
-                $this->generateAccessToken();
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Revokes all authentication assignments after a user has been deleted.
      */
     public function afterDelete()

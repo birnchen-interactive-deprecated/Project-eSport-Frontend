@@ -24,6 +24,15 @@ use Yii;
  */
 class User_Data extends ActiveRecord
 {
+
+    /**
+     * @inheritDoc
+     */
+    public static function tableName()
+    {
+        return '{{%user_data}}';
+    }
+
     /**
      * @return array the attribute labels
      */
