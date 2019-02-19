@@ -122,6 +122,30 @@ class m190216_190851_db_scheme extends Migration
             'password' => Yii::$app->getSecurity()->generatePasswordHash('admin')
             //AdminPW123!.
         ]);
+
+        $this->inser('language',  [
+            'language_id' => '1',
+            'name' => 'Deutsch',
+            'locale' => 'de-DE'
+        ]);
+
+        $this->inser('language',  [
+            'language_id' => '2',
+            'name' => 'English',
+            'locale' => 'en-EN'
+        ]);
+
+        $this->inser('language_i18n',  [
+            'id' => '1',
+            'language_id' => '2',
+            'name' => 'German'
+        ]);
+
+        $this->inser('language_i18n',  [
+            'id' => '2',
+            'language_id' => '1',
+            'name' => 'Englisch'
+        ]);
     }
 
     /**
