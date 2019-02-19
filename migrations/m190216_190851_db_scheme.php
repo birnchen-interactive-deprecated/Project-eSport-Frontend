@@ -123,6 +123,7 @@ class m190216_190851_db_scheme extends Migration
             //AdminPW123!.
         ]);
 
+        /* Base languages English and German as standard German */
         $this->insert('language',  [
             'language_id' => '1',
             'name' => 'Deutsch',
@@ -131,10 +132,11 @@ class m190216_190851_db_scheme extends Migration
 
         $this->insert('language',  [
             'language_id' => '2',
-            'name' => 'English',
+            'name' => 'Englisch',
             'locale' => 'en-EN'
         ]);
 
+        /* i18n Translation for Base Languages */
         $this->insert('language_i18n',  [
             'id' => '1',
             'language_id' => '2',
@@ -143,8 +145,43 @@ class m190216_190851_db_scheme extends Migration
 
         $this->insert('language_i18n',  [
             'id' => '2',
-            'language_id' => '1',
-            'name' => 'Englisch'
+            'language_id' => '2',
+            'name' => 'English'
+        ]);
+
+        /* Gender base German */
+        $this->insert('gender',  [
+            'gender_id' => '1',
+            'name' => 'Männlich'
+        ]);
+
+        $this->insert('gender',  [
+            'gender_id' => '2',
+            'name' => 'Weiblich'
+        ]);
+
+        $this->insert('gender',  [
+            'gender_id' => '3',
+            'name' => 'Divers'
+        ]);
+
+        /* i18n Translation forGender */
+        $this->insert('gender_i18n',  [
+            'gender_id' => '1',
+            'language_id' => '2',
+            'name' => 'Male'
+        ]);
+
+        $this->insert('gender_i18n',  [
+            'gender_id' => '2',
+            'language_id' => '2',
+            'name' => 'Female'
+        ]);
+
+        $this->insert('gender_i18n',  [
+            'gender_id' => '3',
+            'language_id' => '2',
+            'name' => 'Miscellaneous'
         ]);
     }
 
