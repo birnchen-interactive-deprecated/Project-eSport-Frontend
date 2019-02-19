@@ -7,7 +7,6 @@
  */
 
 use yii\db\ActiveRecord;
-use Yii;
 
 /**
  * Class Tournament_Encounter
@@ -21,12 +20,11 @@ use Yii;
  * @property int $team_1_id
  * @property int $team_2_id
  */
-
 class Tournament_Encounter extends ActiveRecord
 {
-/**
-* @return array the attribute labels
-*/
+    /**
+     * @return array the attribute labels
+     */
     public function attributeLabels()
     {
         return [
@@ -35,8 +33,8 @@ class Tournament_Encounter extends ActiveRecord
             'mode_id' => Yii::t('app', 'mode id'),
             'winner_looser' => Yii::t('app', 'winner looser'),
             'tournament_round' => Yii::t('app', 'tournament round'),
-            'team_1_id' =>Yii::t('app', 'team 1 id'),
-            'team_2_id' =>Yii::t('app', 'team 2 id'),
+            'team_1_id' => Yii::t('app', 'team 1 id'),
+            'team_2_id' => Yii::t('app', 'team 2 id'),
         ];
     }
 
@@ -54,6 +52,14 @@ class Tournament_Encounter extends ActiveRecord
     public function getTournamentId()
     {
         return $this->tournament_id;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTournament()
+    {
+        return $this->hasOne(\app\modules\core\models\Tournament::className(), ['tournament_id' => 'tournament_id']);
     }
 
     /**

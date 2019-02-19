@@ -40,9 +40,9 @@ class User extends AbstractActiveRecord implements IdentityInterface
             'dt_updated' => Yii::t('app', 'dt updated'),
             'username' => Yii::t('app', 'username'),
             'password' => Yii::t('app', 'password'),
-            'birthday' =>Yii::t('app', 'birthday'),
-            'language_id' =>Yii::t('app', 'language'),
-            'gender_id' =>Yii::t('app', 'gender')
+            'birthday' => Yii::t('app', 'birthday'),
+            'language_id' => Yii::t('app', 'language'),
+            'gender_id' => Yii::t('app', 'gender')
         ];
     }
 
@@ -52,6 +52,14 @@ class User extends AbstractActiveRecord implements IdentityInterface
     public function getId()
     {
         return $this->user_id;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserData()
+    {
+        return $this->hasOne(User_Data::className(), ['user_id' => 'user_id']);
     }
 
     /**
@@ -103,31 +111,19 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
-     * @return int
+     * @return \yii\db\ActiveQuery
      */
-    public function getLanguageId(){
-        return $this->language_id;
+    public function getGender()
+    {
+        return $this->hasOne(Gender::className(), ['gender_id' => 'gender_id']);
     }
 
     /**
-     * If this is a new database record, create a random auth key and access token
-     * for this user before we store the record into the database.
-     *
-     * @param boolean $insert true, if this is a new record
-     *
-     * @return boolean true, if the record should be saved
-     * @throws \yii\base\Exception
+     * @return int
      */
-    public function beforeSave($insert)
+    public function getLanguageId()
     {
-        if (parent::beforeSave($insert)) {
-            if ($insert) {
-                $this->generateAuthKey();
-                $this->generateAccessToken();
-            }
-            return true;
-        }
-        return false;
+        return $this->language_id;
     }
 
     /**

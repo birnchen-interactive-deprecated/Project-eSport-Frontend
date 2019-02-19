@@ -30,9 +30,9 @@ class Language extends ActiveRecord
     /**
      * @return string the language title
      */
-    public function getTitle()
+    public function getName()
     {
-        return $this->title;
+        return $this->name;
     }
 
     /**

@@ -148,13 +148,6 @@ class Tournament extends ActiveRecord
         return $this->password;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public static function findIdentity($id)
-    {
-        return static::findOne(['tournament_id' => $id]);
-    }
 
     /**
      * Finds user by username.

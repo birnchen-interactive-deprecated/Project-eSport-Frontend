@@ -24,6 +24,15 @@ use Yii;
  */
 class User_Data extends ActiveRecord
 {
+
+    /**
+     * @inheritDoc
+     */
+    public static function tableName()
+    {
+        return '{{%user_data}}';
+    }
+
     /**
      * @return array the attribute labels
      */
@@ -85,13 +94,5 @@ class User_Data extends ActiveRecord
     public function getStreet()
     {
         return $this->street;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public static function findIdentity($id)
-    {
-        return static::findOne(['user_id' => $id]);
     }
 }

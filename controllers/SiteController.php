@@ -2,13 +2,16 @@
 
 namespace app\controllers;
 
+use app\models\ContactForm;
+use app\models\LoginForm;
+use app\modules\core\models\Gender;
+use app\modules\core\models\Language;
+use app\modules\core\models\UserForm;
 use Yii;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -86,8 +89,37 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionRegister(){
+    /**
+     * Register new User action
+     *
+     * @return string
+     * @throws \Throwable
+     * @throws \yii\base\Exception
+     * @throws \yii\db\StaleObjectException
+     */
+    public function actionRegister()
+    {
+        $model = new UserForm();
 
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
+            $this->goHome();
+        }
+
+        $genderList = [];
+        foreach (Gender::find()->all() as $gender) {
+            $genderList[$gender->getGenderId()] = $gender->getName();
+        }
+        $languageList = [];
+        foreach (Language::find()->all() as $language) {
+            $languageList[$language->getLanguageId()] = $language->getName();
+        }
+
+        return $this->render('register',
+            [
+                "model" => $model,
+                'genderList' => $genderList,
+                'languageList' => $languageList
+            ]);
     }
 
     /**
