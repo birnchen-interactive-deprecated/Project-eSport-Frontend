@@ -43,6 +43,13 @@ $this->title = 'Registrieren';
     ]); ?>
 
     <?= $form->field($model, 'genderId')->dropDownList($genderList) ?>
+    <?= $form->field($model, 'languageId')->dropDownList($languageList) ?>
+    <?= $form->field($model, 'preName')->textInput() ?>
+    <?= $form->field($model, 'lastName')->textInput() ?>
+    <?= $form->field($model, 'zipCode')->textInput() ?>
+    <?= $form->field($model, 'city')->textInput() ?>
+    <?= $form->field($model, 'street')->textInput() ?>
+
 
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
