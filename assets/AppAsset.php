@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
 
     public $css = [
         'css/site.css',
-        'css/iziToast.min.css'//
+    //    'css/iziToast.min.css'//
     ];
     //public $js = [
     //    'js/site.js',
