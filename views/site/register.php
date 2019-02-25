@@ -32,6 +32,16 @@ $this->title = 'Registrieren';
 
     <?= $form->field($model, 'email')->textInput() ?>
 
+    <?= $form->field($model, 'birthday')->widget(DatePicker::className(), [
+        'options' => [
+            'class' => 'form-control form-control-color'
+        ],
+        'pluginOptions' => [
+            'autoclose' => true,
+            'format' => 'dd.mm.yyyy'
+        ]
+    ]); ?>
+
     <?= $form->field($model, 'genderId')->dropDownList($genderList) ?>
 
     <div class="form-group">
