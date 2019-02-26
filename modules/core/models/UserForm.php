@@ -34,7 +34,8 @@ class  UserForm extends FormModel
     {
         return [
             [
-                ['username', 'preName', 'lastName', 'email', 'password', 'passwordRepeat', 'zipCode', 'city', 'street'],
+                // ['username', 'preName', 'lastName', 'email', 'password', 'passwordRepeat', 'zipCode', 'city', 'street'],
+                ['username', 'email', 'password', 'passwordRepeat'],
                 'required',
             ],
             [
