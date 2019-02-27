@@ -32,19 +32,19 @@ class m190216_190851_db_scheme extends Migration
         $this->execute("
              CREATE TABLE IF NOT EXISTS `user` (
               `user_id` INT NOT NULL AUTO_INCREMENT,
-              `username` VARCHAR(45) NOT NULL,
+              `username` VARCHAR(255) NOT NULL,
               `password` VARCHAR(255) NOT NULL,
               `birthday` DATE NOT NULL,
               `gender_id` INT NULL,
               `dt_created` DATETIME NOT NULL,
               `dt_updated` DATETIME NULL,
               `language_id` INT NULL,
-              `pre_name` VARCHAR(45) NULL,
-              `last_name` VARCHAR(45) NULL,
-              `zip_code` VARCHAR(45) NULL,
-              `city` VARCHAR(45) NULL,
-              `street` VARCHAR(45) NULL,
-              `email` VARCHAR(45) NULL,
+              `pre_name` VARCHAR(255) NULL,
+              `last_name` VARCHAR(255) NULL,
+              `zip_code` VARCHAR(255) NULL,
+              `city` VARCHAR(255) NULL,
+              `street` VARCHAR(255) NULL,
+              `email` VARCHAR(255) NULL,
               PRIMARY KEY (`user_id`),
               UNIQUE INDEX `username_UNIQUE` (`username` ASC),
               INDEX `FK_user_gender_id_idx` (`gender_id` ASC),
@@ -92,7 +92,9 @@ class m190216_190851_db_scheme extends Migration
             'dt_created' => new Expression('NOW()'),
             'dt_updated' => new Expression('NOW()'),
             'username' => 'admin',
-            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin')
+            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
+            'language_id' => '1',
+            'email' => 'admin@admin.de'
             //AdminPW123!.
         ]);
 
