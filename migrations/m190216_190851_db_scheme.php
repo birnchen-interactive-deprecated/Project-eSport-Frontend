@@ -93,7 +93,6 @@ class m190216_190851_db_scheme extends Migration
             'dt_updated' => new Expression('NOW()'),
             'username' => 'admin',
             'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
-            'language_id' => '1',
             'email' => 'admin@admin.de'
             //AdminPW123!.
         ]);
