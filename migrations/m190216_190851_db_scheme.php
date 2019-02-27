@@ -44,6 +44,7 @@ class m190216_190851_db_scheme extends Migration
               `zip_code` VARCHAR(45) NULL,
               `city` VARCHAR(45) NULL,
               `street` VARCHAR(45) NULL,
+              `email` VARCHAR(45) NULL,
               PRIMARY KEY (`user_id`),
               UNIQUE INDEX `username_UNIQUE` (`username` ASC),
               INDEX `FK_user_gender_id_idx` (`gender_id` ASC),
@@ -86,21 +87,6 @@ class m190216_190851_db_scheme extends Migration
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
-
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `mail_newsletter` (
-              `user_id` INT NOT NULL,
-              `email` VARCHAR(45) NOT NULL,
-              `newsletter` TINYINT(1) NULL,
-              PRIMARY KEY (`user_id`),
-              UNIQUE INDEX `email_UNIQUE` (`email` ASC),
-              CONSTRAINT `FK_mail_newsletter_user_id`
-                FOREIGN KEY (`user_id`)
-                REFERENCES `user` (`user_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB;
-        ");
 
         $this->insert('user', [
             'dt_created' => new Expression('NOW()'),
