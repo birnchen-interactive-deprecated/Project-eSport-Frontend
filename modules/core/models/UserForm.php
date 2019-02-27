@@ -145,6 +145,7 @@ class  UserForm extends FormModel
             $user->zip_code = $this->zipCode;
             $user->city = $this->city;
             $user->street = $this->street;
+            $user->email = $this->email;
 
             $user->save();
 

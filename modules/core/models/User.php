@@ -30,6 +30,7 @@ use yii\web\IdentityInterface;
  * @property string $zip_code
  * @property string $city
  * @property string $street
+ * @property string $email
  */
 class User extends AbstractActiveRecord implements IdentityInterface
 {
@@ -52,7 +53,8 @@ class User extends AbstractActiveRecord implements IdentityInterface
             'last_name' => Yii::t('app', 'last name'),
             'zip_code' => Yii::t('app', 'zip code'),
             'city' => Yii::t('app', 'city'),
-            'street' =>Yii::t('app', 'street')
+            'street' =>Yii::t('app', 'street'),
+            'email' =>Yii::t('app', 'email')
         ];
     }
 
@@ -134,6 +136,14 @@ class User extends AbstractActiveRecord implements IdentityInterface
     public function getLanguageId()
     {
         return $this->language_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
