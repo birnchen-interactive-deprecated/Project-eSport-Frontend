@@ -42,3 +42,4 @@ phpunit.phar
 
 #db config
 config/db.php
+composer.lock
