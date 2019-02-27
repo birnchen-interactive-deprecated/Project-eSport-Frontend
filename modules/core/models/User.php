@@ -25,6 +25,11 @@ use yii\web\IdentityInterface;
  * @property string $birthday
  * @property int $gender_id
  * @property int $language_id
+ * @property string $pre_name
+ * @property string $last_name
+ * @property string $zip_code
+ * @property string $city
+ * @property string $street
  */
 class User extends AbstractActiveRecord implements IdentityInterface
 {
@@ -42,7 +47,12 @@ class User extends AbstractActiveRecord implements IdentityInterface
             'password' => Yii::t('app', 'password'),
             'birthday' => Yii::t('app', 'birthday'),
             'language_id' => Yii::t('app', 'language'),
-            'gender_id' => Yii::t('app', 'gender')
+            'gender_id' => Yii::t('app', 'gender'),
+            'pre_name' => Yii::t('app', 'pre name'),
+            'last_name' => Yii::t('app', 'last name'),
+            'zip_code' => Yii::t('app', 'zip code'),
+            'city' => Yii::t('app', 'city'),
+            'street' =>Yii::t('app', 'street')
         ];
     }
 

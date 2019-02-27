@@ -9,7 +9,10 @@
 namespace app\modules\core\models;
 
 use app\components\FormModel;
+use app\modules\core\Module;
+use app\widgets\Alert;
 use Yii;
+use yii\db\Exception;
 use yii\db\Expression;
 
 class  UserForm extends FormModel
@@ -18,11 +21,11 @@ class  UserForm extends FormModel
     public $passwordRepeat;
     public $username;
     public $email;
-    public $birthday;
     public $genderId;
     public $languageId;
     public $preName;
     public $lastName;
+    public $birthday;
     public $zipCode;
     public $city;
     public $street;
@@ -34,9 +37,12 @@ class  UserForm extends FormModel
     {
         return [
             [
-                // ['username', 'preName', 'lastName', 'email', 'password', 'passwordRepeat', 'zipCode', 'city', 'street'],
-                ['username', 'email', 'password', 'passwordRepeat'],
+                ['username', 'email', 'password', 'passwordRepeat', 'languageId', 'genderId'],
                 'required',
+            ],
+            [
+                ['preName', 'lastName', 'zipCode', 'city', 'street'],
+                'string'
             ],
             [
                 ['password', 'passwordRepeat'],
@@ -123,28 +129,33 @@ class  UserForm extends FormModel
      */
     public function save()
     {
+        $transaction = Yii::$app->db->beginTransaction();
 
-        $user = new User();
+        try {
+            $user = new User();
 
-        $user->dt_created = new Expression("now");
-        $user->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
-        $user->username = $this->username;
-        $user->birthday = date('Y-m-d', strtotime($this->birthday));
-        $user->gender_id = $this->genderId;
-        $user->language_id = $this->languageId;
+            $user->dt_created = new Expression("now");
+            $user->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            $user->username = $this->username;
+            $user->birthday = date('Y-m-d', strtotime($this->birthday));
+            $user->gender_id = $this->genderId;
+            $user->language_id = $this->languageId;
+            $user->pre_name = $this->preName;
+            $user->last_name = $this->lastName;
+            $user->zip_code = $this->zipCode;
+            $user->city = $this->city;
+            $user->street = $this->street;
 
-        $user->save();
+            $user->save();
 
-        $userId = Yii::$app->db->getLastInsertID();
+            $transaction->commit();
 
-        $userData = new User_Data();
-        $userData->user_id = $userId;
-        $userData->pre_name = $this->preName;
-        $userData->last_name = $this->lastName;
-        $userData->zip_code = $this->zipCode;
-        $userData->city = $this->city;
-        $userData->street = $this->street;
-
-        return $userData->save();
+            return true;
+        } catch (Exception $e) {
+            print_r($e->getMessage());
+            $transaction->rollBack();
+            Alert::addError(Module::t("general", "user %s couldn't be saved"), $user->getFirstName() . ' ' . $user->getLastName());
+        }
+        return false;
     }
 }

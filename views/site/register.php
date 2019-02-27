@@ -32,18 +32,8 @@ $this->title = 'Registrieren';
 
     <?= $form->field($model, 'email')->textInput() ?>
 
-    <?= $form->field($model, 'birthday')->widget(DatePicker::className(), [
-        'options' => [
-            'class' => 'form-control form-control-color'
-        ],
-        'pluginOptions' => [
-            'autoclose' => true,
-            'format' => 'dd.mm.yyyy'
-        ]
-    ]); ?>
-
     <?= $form->field($model, 'genderId')->dropDownList($genderList) ?>
-
+    <?= $form->field($model, 'languageId')->dropDownList($languageList) ?>
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
             <?= Html::submitButton('Registrieren', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>

@@ -39,6 +39,11 @@ class m190216_190851_db_scheme extends Migration
               `dt_created` DATETIME NOT NULL,
               `dt_updated` DATETIME NULL,
               `language_id` INT NULL,
+              `pre_name` VARCHAR(45) NULL,
+              `last_name` VARCHAR(45) NULL,
+              `zip_code` VARCHAR(45) NULL,
+              `city` VARCHAR(45) NULL,
+              `street` VARCHAR(45) NULL,
               PRIMARY KEY (`user_id`),
               UNIQUE INDEX `username_UNIQUE` (`username` ASC),
               INDEX `FK_user_gender_id_idx` (`gender_id` ASC),
@@ -54,24 +59,6 @@ class m190216_190851_db_scheme extends Migration
                 ON DELETE SET NULL
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
-
-
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `user_data` (
-              `user_id` INT NOT NULL,
-              `pre_name` VARCHAR(45) NULL,
-              `last_name` VARCHAR(45) NULL,
-              `zip_code` VARCHAR(45) NULL,
-              `city` VARCHAR(45) NULL,
-              `street` VARCHAR(45) NULL,
-              UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC),
-              CONSTRAINT `FK_user_data_user_id`
-                FOREIGN KEY (`user_id`)
-                REFERENCES `user` (`user_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB;");
-
 
         $this->execute("
             CREATE TABLE IF NOT EXISTS `language_i18n` (
@@ -193,7 +180,6 @@ class m190216_190851_db_scheme extends Migration
         $this->dropTable('mail_newsletter');
         $this->dropTable('gender_i18n');
         $this->dropTable('language_i18n');
-        $this->dropTable('user_data');
         $this->dropTable('user');
         $this->dropTable('language');
         $this->dropTable('gender');
