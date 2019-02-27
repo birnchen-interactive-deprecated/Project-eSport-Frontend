@@ -14,14 +14,14 @@ use yii\helpers\Html;
 $this->title = 'Registrieren';
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="col-lg-offset-1"><?= Html::encode($this->title) ?></h1>
 
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-7\">{error}</div>",
+            'labelOptions' => ['class' => 'col-lg-2 control-label'],
         ],
     ]); ?>
 
