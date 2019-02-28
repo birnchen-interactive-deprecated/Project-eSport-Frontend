@@ -9,5 +9,6 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Account Overview';
 ?>
-
-dies ist ein test
+<div class="site-AccountOverview">
+    <h1 class="col-lg-offset-1"><?= Html::encode($this->title) ?></h1>
+</div>
