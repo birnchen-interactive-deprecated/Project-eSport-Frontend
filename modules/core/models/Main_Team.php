@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Birnchen Studios
  * Date: 28.02.2019
- * Time: 13:55
+ * Time: 19:04
  */
 
 namespace app\modules\core\models;
@@ -12,14 +12,15 @@ use yii\db\ActiveRecord;
 use Yii;
 
 /**
- * Class Tournament_Subrule
+ * Class Main_Teams
  * @package app\modules\core\models
  *
- * @property int $subrule_id
+ * @property int $team_id
+ * @property int $owner_id
  * @property string $name
  * @property string $description
  */
-class tournament_subrule extends ActiveRecord
+class Main_Team extends ActiveRecord
 {
     /**
      * @return array the attribute labels
@@ -27,7 +28,8 @@ class tournament_subrule extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'subrule_id' => Yii::t('app', 'subrule id'),
+            'team_id' => Yii::t('app', 'team id'),
+            'owner_id' => Yii::t('app', 'owner id'),
             'name' => Yii::t('app', 'name'),
             'description' => Yii::t('app', 'description')
         ];
@@ -38,13 +40,21 @@ class tournament_subrule extends ActiveRecord
      */
     public function getId()
     {
-        return $this->subrule_id;
+        return $this->team_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOwnerId()
+    {
+        return $this->owner_id;
     }
 
     /**
      * @return string
      */
-    public function getSubruleName()
+    public function getName()
     {
         return $this->name;
     }
@@ -52,7 +62,7 @@ class tournament_subrule extends ActiveRecord
     /**
      * @return string
      */
-    public function getSubruleDescription()
+    public function getDescription()
     {
         return $this->description;
     }

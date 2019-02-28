@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Birnchen Studios
- * Date: 18.02.2019
- * Time: 12:37
+ * Date: 28.02.2019
+ * Time: 16:32
  */
 
 namespace app\modules\core\models;
@@ -11,20 +11,21 @@ namespace app\modules\core\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class Gender
+ * Class Bracket_Mode
  * @package app\modules\core\models
  *
- * @property int $gender_id
+ * @property int $bracket_mode_id
  * @property string $name
+ * @property string $description
  */
-class Gender extends ActiveRecord
+class Bracket_Mode extends ActiveRecord
 {
     /**
      * @return int the gender_id
      */
-    public function getGenderId()
+    public function getId()
     {
-        return $this->gender_id;
+        return $this->bracket_mode_id;
     }
 
     /**
@@ -33,5 +34,13 @@ class Gender extends ActiveRecord
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string the gender name
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

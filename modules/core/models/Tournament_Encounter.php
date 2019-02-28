@@ -7,6 +7,7 @@
  */
 
 use yii\db\ActiveRecord;
+use Yii;
 
 /**
  * Class Tournament_Encounter
@@ -15,9 +16,11 @@ use yii\db\ActiveRecord;
  * @property int $encounter_id
  * @property int $tournament_id
  * @property bool $winner_looser
+ * @property int $matches_to_play
  * @property int $tournament_round
  * @property int $team_1_id
  * @property int $team_2_id
+ * @property bool $completed
  */
 class Tournament_Encounter extends ActiveRecord
 {
@@ -29,11 +32,12 @@ class Tournament_Encounter extends ActiveRecord
         return [
             'encounter_id' => Yii::t('app', 'encounter id'),
             'tournament_id' => Yii::t('app', 'tournament id'),
-            'mode_id' => Yii::t('app', 'mode id'),
             'winner_looser' => Yii::t('app', 'winner looser'),
+            'matches_to_play' => Yii::t('app', 'matches to play'),
             'tournament_round' => Yii::t('app', 'tournament round'),
             'team_1_id' => Yii::t('app', 'team 1 id'),
             'team_2_id' => Yii::t('app', 'team 2 id'),
+            'completed' => Yii::t('app', 'completed')
         ];
     }
 
@@ -51,6 +55,14 @@ class Tournament_Encounter extends ActiveRecord
     public function getTournamentId()
     {
         return $this->tournament_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMatchesToPlay()
+    {
+        return $this->matches_to_play;
     }
 
     /**
@@ -94,9 +106,17 @@ class Tournament_Encounter extends ActiveRecord
     }
 
     /**
+     * @return bool
+     */
+    public function getCompleted()
+    {
+        return $this->completed;
+    }
+
+    /**
      * @inheritdoc
      */
-    public static function findIdentity($id)
+    public static function findById($id)
     {
         return static::findOne(['encounter_id' => $id]);
     }

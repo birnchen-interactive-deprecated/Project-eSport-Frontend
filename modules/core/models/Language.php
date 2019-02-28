@@ -13,6 +13,7 @@ use yii\db\ActiveRecord;
 /**
  * Class Language
  * @package app\modules\core\models
+ *
  * @property int $language_id
  * @property string $title
  * @property string $locale

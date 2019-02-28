@@ -12,7 +12,7 @@ use yii\db\ActiveRecord;
 use Yii;
 
 /**
- * Class Tournament
+ * Class Tournament_Rules
  * @package app\modules\core\models
  *
  * @property int $rules_id
