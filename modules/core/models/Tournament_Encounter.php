@@ -14,7 +14,6 @@ use yii\db\ActiveRecord;
  *
  * @property int $encounter_id
  * @property int $tournament_id
- * @property int $mode_id
  * @property bool $winner_looser
  * @property int $tournament_round
  * @property int $team_1_id
@@ -60,14 +59,6 @@ class Tournament_Encounter extends ActiveRecord
     public function getTournament()
     {
         return $this->hasOne(\app\modules\core\models\Tournament::className(), ['tournament_id' => 'tournament_id']);
-    }
-
-    /**
-     * @return int
-     */
-    public function getModeId()
-    {
-        return $this->mode_id;
     }
 
     /**

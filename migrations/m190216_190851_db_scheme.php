@@ -164,7 +164,6 @@ class m190216_190851_db_scheme extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('mail_newsletter');
         $this->dropTable('gender_i18n');
         $this->dropTable('language_i18n');
         $this->dropTable('user');
