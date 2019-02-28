@@ -38,6 +38,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
+                ['label' => 'Account', 'url' => ['/site/account_test']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -48,9 +49,6 @@ AppAsset::register($this);
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
-                . '</li>'
-                . '<li>'
-                . ['label' => 'Account', 'url' => ['/site/account_test']]
                 . '</li>'
             )
         ],
