@@ -49,6 +49,9 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
+                . '<li>'
+                . ['label' => 'Account', 'url' => ['/site/account_test']]
+                . '</li>'
             )
         ],
     ]);
