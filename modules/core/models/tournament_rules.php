@@ -27,19 +27,44 @@ class tournament_rules
     public function attributeLabels()
     {
         return [
-            'tournament_id' => Yii::t('app', 'tournament id'),
-            'game_id' => Yii::t('app', 'game id'),
-            'mode_id' => Yii::t('app', 'mode id'),
             'rules_id' => Yii::t('app', 'rules id'),
-            'bracket_id' => Yii::t('app', 'bracket id'),
-            'tournament_name' =>Yii::t('app', 'tournament name'),
-            'tournament_description' =>Yii::t('app', 'tournament description'),
-            'dt_starting_time' =>Yii::t('app', 'dt starting time'),
-            'dt_checkin_begin' =>Yii::t('app', 'dt checkin begin'),
-            'dt_checkin_end' =>Yii::t('app', 'dt checkin end'),
-            'has_password' =>Yii::t('app', 'has password'),
-            'password' =>Yii::t('app', 'password')
-
+            'game_id' => Yii::t('app', 'game id'),
+            'name' => Yii::t('app', 'name')
         ];
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->rules_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGameId()
+    {
+        return $this->game_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRulesName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Finds user by username.
+     *
+     * @param string $rulesName the name
+     * @return static|null the tournament, if a tournament with that tournament name exists
+     */
+    public static function findByRulesName($rulesName)
+    {
+        return static::findOne(['name' => $rulesName]);
     }
 }
