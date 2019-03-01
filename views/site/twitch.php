@@ -9,7 +9,7 @@ $this->title = 'Twitch.tv';
 <div class="site-twitch-tv">
     <iframe
         src="https://player.twitch.tv/?channel=stage5_tv"
-        height="720"
+        height="100%"
         width="1280"
         frameborder="0"
         scrolling="no"
