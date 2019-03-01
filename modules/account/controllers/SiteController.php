@@ -46,7 +46,8 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        return $this->render('/site/index');
+        return $this->redirect(array('/site/index'));
+        //return $this->render('site\index');
         //return $this->render('dashboard');
     }
 }
