@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
+
 $this->title = 'Account Overview';
 ?>
 <div class="site-account">

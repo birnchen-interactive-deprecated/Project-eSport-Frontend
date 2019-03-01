@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
+
 $this->title = 'Tournaments Overview';
 ?>
 <div class="site-tournaments">
