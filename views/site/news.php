@@ -4,15 +4,19 @@
 
 use yii\helpers\Html;
 
-$items = array(
-    'Kohaku',
-    'JaePaenda',
+$players = array(
+    'Spieler 1',
+    'SPieler 2',
 );
 
 $this->title = 'News';
 ?>
 <div class="site-news">
     <?php if(!Yii::$app->user->isGuest):?>
+
+        <?php foreach($players as $player): ?>
+            <div clas=""><?php echo $player ?></div>
+        <?php endforeach; ?>
 
     <?php else: ?>
         <div class="LoggingIn">

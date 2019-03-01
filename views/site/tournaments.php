@@ -5,15 +5,15 @@
 use yii\helpers\Html;
 
 $teams = array(
-    'Captain Viper' => array(
-        'Captain',
-        'Mr. Viper',
-        'El_Viper',
+    'Team Name 1' => array(
+        'Spieler 1',
+        'Spieler 2',
+        'Spieler 3',
     ),
-    'Clappers' => array(
-        'Kohaku',
-        'JaePaenda',
-        'Dome',
+    'Team Name 2' => array(
+        'Spieler 1',
+        'Spieler 2',
+        'Spieler 3',
     ),
 );
 
@@ -21,6 +21,14 @@ $this->title = 'Tournaments';
 ?>
 <div class="site-tournaments">
     <?php if(!Yii::$app->user->isGuest):?>
+
+        <?php foreach($teams as $teamname => $memberArr): ?>
+            <div clas=""><?php echo $teamname ?></div>
+            <?php foreach($memberArr as $member): ?>
+                <div clas=""><?php echo $member ?></div>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+
 
     <?php else: ?>
         <div class="LoggingIn">
