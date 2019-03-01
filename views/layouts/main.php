@@ -39,9 +39,11 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
                 ['label' => 'Welcome', 'url' => ['/site/index']],
-                ['label' => '1v1 Teams', 'url' => ['/site/news']],
-                ['label' => '2v2 Teams', 'url' => ['/site/account']],
-                ['label' => '3v3 Teams', 'url' => ['/site/tournament']],
+                ['label' => 'Cups', 'items' => [
+                    ['label' => '1v1 Cup', 'url' => ['/site/news']],
+                    ['label' => '2v2 Cup', 'url' => ['/site/account']],
+                    ['label' => '3v3 Cup', 'url' => ['/site/tournament']],
+                ]],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
