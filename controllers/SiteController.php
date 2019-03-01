@@ -68,6 +68,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays Account.
+     *
+     * @return string
+     */
+    public function actionAccount()
+    {
+        return $this->render('account');
+    }
+
+    /**
      * Login action.
      *
      * @return Response|string

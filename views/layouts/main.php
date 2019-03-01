@@ -40,7 +40,10 @@ AppAsset::register($this);
         'items' => [
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
+            ) :
+                ['label' => '1v1 Teams', 'url' => ['/site/index']],
+                ['label' => '2v2 Teams', 'url' => ['/site/account']],
+                (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
@@ -49,8 +52,8 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            ),
-            ['label' => 'Home', 'url' => ['/site/index']]
+            )
+
         ],
     ]);
     NavBar::end();
