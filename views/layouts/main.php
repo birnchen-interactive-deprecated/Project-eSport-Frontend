@@ -62,10 +62,9 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
         <?= $content ?>
 
-        <?php if(!Yii::$app->user->isGuest)
-        {?>
+        <?php if(!Yii::$app->user->isGuest):?>
             <iframe src="https://docs.google.com/document/d/e/2PACX-1vR66PMmQPCHbttNuV5IuRwPj0wPzrxe03-xBIyu1r-gWfIuBKnZyQ2ELYYEGKZQ4OFaunfwJWQtNOW9/pub?embedded=true"></iframe>>
-        <?php}?>
+        <?php endif; ?>
     </div>
 </div>
 
