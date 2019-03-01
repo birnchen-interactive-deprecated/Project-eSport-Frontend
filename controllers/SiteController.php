@@ -108,6 +108,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays Bracket.
+     *
+     * @return string
+     */
+    public function actionBracket()
+    {
+        return $this->render('bracket');
+    }
+
+    /**
      * Login action.
      *
      * @return Response|string
