@@ -53,7 +53,7 @@ $discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '
                     ['label' => '2v2 Cup', 'url' => ['/site/account']],
                     ['label' => '3v3 Cup', 'url' => ['/site/tournament']],
                 ]],
-                ['label' => 'Twitch.tv', 'url' => ['/site/tournament']],
+                ['label' => 'Twitch.tv', 'url' => ['/site/twitch']],
                 ['label' => 'Bracket', 'url' => ['/site/tournament']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

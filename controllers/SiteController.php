@@ -98,6 +98,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays Twitch.
+     *
+     * @return string
+     */
+    public function actionTwitch()
+    {
+        return $this->render('twitch');
+    }
+
+    /**
      * Login action.
      *
      * @return Response|string
