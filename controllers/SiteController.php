@@ -88,6 +88,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays News.
+     *
+     * @return string
+     */
+    public function actionNews()
+    {
+        return $this->render('news');
+    }
+
+    /**
      * Login action.
      *
      * @return Response|string

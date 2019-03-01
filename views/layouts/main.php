@@ -38,7 +38,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-                ['label' => '1v1 Teams', 'url' => ['/site/index']],
+                ['label' => 'Welcome', 'url' => ['/site/index']],
+                ['label' => '1v1 Teams', 'url' => ['/site/news']],
                 ['label' => '2v2 Teams', 'url' => ['/site/account']],
                 ['label' => '3v3 Teams', 'url' => ['/site/tournament']],
             Yii::$app->user->isGuest ? (
