@@ -5,16 +5,18 @@
 use yii\helpers\Html;
 
 $teams = array(
-    'Team Name 1' => array(
+    'Captain Viper' => array(
+        'logo' => 'images/teams/Captain_Viper.png',
         'main' => array(
-            'Spieler 1',
-            'Spieler 2',
+            'Captain Salty',
+            'Mr. Viper',
         ),
         'subs' => array(
-            'Ersatzspieler 1',
+            'El Viper',
         ),
     ),
     'Team Name 2' => array(
+        'logo' => '',
         'main' => array(
             'Spieler 1',
             'Spieler 2',
@@ -31,19 +33,30 @@ $this->title = 'Account';
 
     <ul>
     <?php foreach($teams as $teamname => $tmpArr): ?>
+        <?php if (isset($tmpArr['logo'])): ?>
+            <?= Html::img($tmpArr['logo'], ['width' => '150px', 'height' => '150px']); ?>
+        <?php endif; ?>
+
         <li class="teamName"><?php echo $teamname ?>
             <ul>
         <?php foreach($tmpArr as $mainSub => $memberArr): ?>
-            <li><?= ($mainSub === 'main') ? 'Mainspieler' : 'Ersatzspieler'; ?>
-                <ul>
-                    <?php foreach($memberArr as $member): ?>
-                    <li class="memberName"><?php echo $member ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </li>
+
+            <?php if ($mainSub === 'main' || $mainSub === 'subs'): ?>
+
+                <li><?= ($mainSub === 'main') ? 'Mainspieler' : 'Ersatzspieler'; ?>
+                    <ul>
+                        <?php foreach($memberArr as $member): ?>
+                        <li class="memberName"><?php echo $member ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
+            <?php endif; ?>
+
         <?php endforeach; ?>
+
             </ul>
         </li>
+        
     <?php endforeach; ?>
     </ul>
 
