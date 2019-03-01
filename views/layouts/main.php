@@ -63,7 +63,12 @@ AppAsset::register($this);
         <?= $content ?>
 
         <?php if(!Yii::$app->user->isGuest):?>
-            <iframe src="https://docs.google.com/document/d/e/2PACX-1vR66PMmQPCHbttNuV5IuRwPj0wPzrxe03-xBIyu1r-gWfIuBKnZyQ2ELYYEGKZQ4OFaunfwJWQtNOW9/pub?embedded=true"></iframe>>
+            <div class="welcomer">
+                Willkommen zum ersten SPieltag der zweiten Season des Gerta Cups. Aufgrund technischer Probleme wird der Checkin über unseren <a href="https://discord.gg/f6NXNFy">Discord</a><br>
+                ablaufen. Alle Registrierten User mögen dort Bitte um 18:00 eintreffen.<br>
+                Checkin ist von 18:00 - 18:15, wer nihct da ist in dieser Zeit wird nicht eingecheckt.<br>
+            </div>
+            <iframe class="regeln" src="https://docs.google.com/document/d/e/2PACX-1vR66PMmQPCHbttNuV5IuRwPj0wPzrxe03-xBIyu1r-gWfIuBKnZyQ2ELYYEGKZQ4OFaunfwJWQtNOW9/pub?embedded=true"></iframe>
         <?php endif; ?>
     </div>
 </div>
