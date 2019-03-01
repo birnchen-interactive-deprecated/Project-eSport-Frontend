@@ -34,11 +34,17 @@ $this->title = 'Tournaments';
 <div class="site-tournaments">
 
     <ul>
-    <?php foreach($teams as $teamname => $memberArr): ?>
+    <?php foreach($teams as $teamname => $tmpArr): ?>
         <li class="teamName"><?php echo $teamname ?>
             <ul>
-        <?php foreach($memberArr['main'] as $member): ?>
-            <li class="memberName"><?php echo $member ?></li>
+        <?php foreach($tmpArr as $mainSub => $memberArr): ?>
+            <li><?= ($mainSub === 'main') ? 'Mainspieler' : 'Ersatzspieler'; ?>
+                <ul>
+                    <?php foreach($memberArr as $member): ?>
+                    <li class="memberName"><?php echo $member ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
         <?php endforeach; ?>
             </ul>
         </li>

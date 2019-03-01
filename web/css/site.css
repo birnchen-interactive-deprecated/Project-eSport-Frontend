@@ -195,6 +195,6 @@ a.desc:after {
 }
 
 /* captain */
-li.teamName ul {
+li.teamName > ul {
     margin: 0 0 20px;
 }
