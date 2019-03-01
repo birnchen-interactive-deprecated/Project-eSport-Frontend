@@ -20,7 +20,7 @@ body {
     background-color: #fff;
 }
 
-.wrap > .container > .welcomer {
+.wrap .site-index .welcome {
     width: 100%;
     height: 130px;
     text-align: center;
@@ -28,16 +28,20 @@ body {
     line-height: 20px;
 }
 
-.wrap > .container > .welcomer > .dclink {
+.wrap .container > .welcome > .dclink {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
     line-height: 20px;
 }
 
-.wrap > .container > .regeln {
+.wrap .container > .regeln {
     width: 100%;
     height: 85%;
+}
+
+.wrap .LoggingIn {
+
 }
 
 .footer {
