@@ -4,6 +4,11 @@
 
 use yii\helpers\Html;
 
+$items = array(
+    'Kohaku',
+    'JaePaenda',
+);
+
 $this->title = 'News';
 ?>
 <div class="site-news">

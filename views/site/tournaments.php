@@ -4,6 +4,19 @@
 
 use yii\helpers\Html;
 
+$teams = array(
+    'Captain Viper' => array(
+        'Captain',
+        'Mr. Viper',
+        'El_Viper',
+    ),
+    'Clappers' => array(
+        'Kohaku',
+        'JaePaenda',
+        'Dome',
+    ),
+);
+
 $this->title = 'Tournaments';
 ?>
 <div class="site-tournaments">
