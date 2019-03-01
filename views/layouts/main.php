@@ -41,7 +41,8 @@ AppAsset::register($this);
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) :
-                
+                ['label' => '1v1 Teams', 'url' => ['/site/index']],
+                ['label' => '2v2 Teams', 'url' => ['/site/account']],
                 (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
