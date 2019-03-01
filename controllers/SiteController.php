@@ -84,7 +84,7 @@ class SiteController extends Controller
      */
     public function actionTournament()
     {
-        return $this->render('tournament');
+        return $this->render('tournaments');
     }
 
     /**
