@@ -6,31 +6,39 @@ use yii\helpers\Html;
 
 $teams = array(
     'Team Name 1' => array(
-        'Spieler 1',
-        'Spieler 2',
+        'main' => array(
+            'Spieler 1',
+            'Spieler 2',
+        ),
+        'subs' => array(
+            'Ersatzspieler 1',
+        ),
     ),
     'Team Name 2' => array(
-        'Spieler 1',
-        'Spieler 2',
+        'main' => array(
+            'Spieler 1',
+            'Spieler 2',
+        ),
+        'subs' => array(
+            'Ersatzspieler 1',
+        ),
     ),
 );
 
 $this->title = 'Account';
 ?>
 <div class="site-account">
-    <?php if(!Yii::$app->user->isGuest):?>
 
-        <?php foreach($teams as $teamname => $memberArr): ?>
-            <div clas=""><?php echo $teamname ?></div>
-            <?php foreach($memberArr as $member): ?>
-                <div clas=""><?php echo $member ?></div>
-            <?php endforeach; ?>
+    <ul>
+    <?php foreach($teams as $teamname => $memberArr): ?>
+        <li class="teamName"><?php echo $teamname ?>
+            <ul>
+        <?php foreach($memberArr['main'] as $member): ?>
+            <li class="memberName"><?php echo $member ?></li>
         <?php endforeach; ?>
+            </ul>
+        </li>
+    <?php endforeach; ?>
+    </ul>
 
-    <?php else: ?>
-        <div class="LoggingIn">
-            Please <?= Html::a("Login", ['login']);?> to see all Informations <br>
-            Bitte <?= Html::a("Logge", ['login']);?> dich ein um alle Informationen zu sehen.
-        </div>
-    <?php endif; ?>
 </div>

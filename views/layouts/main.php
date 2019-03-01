@@ -20,6 +20,13 @@ $twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['targ
 $discordImg = Html::img('images/Discord-Logo-White.png', ['height' => '50px', 'style' => 'padding: 5px 0; ']);
 $discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank']);
 
+$containerClass = '';
+switch ($_REQUEST['r']) {
+    case 'site/bracket':
+        $containerClass = 'bracket';
+        break;
+}
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -72,7 +79,7 @@ $discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '
     NavBar::end();
     ?>
 
-    <div class="container">
+    <div class="container <?= $containerClass; ?>">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>

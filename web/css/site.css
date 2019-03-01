@@ -3,13 +3,23 @@ body {
     height: 100%;
 }
 
+/* captain */
+iframe {
+    display: block;
+}
+
+ul, li {
+    list-style: none;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
     /* captain */
     /*margin: 0 auto -60px;*/
+    /*padding: 0 0 60px;*/
     margin: 0 auto -50px;
-    padding: 0 0 60px;
+    padding: 0 0 50px;
 
     /* captain */
     background-color: #040a2a;
@@ -20,6 +30,15 @@ body {
 
     /* captain */
     background-color: #fff;
+}
+/* captain */
+.wrap > .container.bracket {
+    padding: 51px 0 0;
+}
+@media (min-width: 1200px) {
+    .container.bracket {
+        width: 100%;
+    }
 }
 
 .wrap .site-index .welcome {
@@ -173,4 +192,9 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+/* captain */
+li.teamName ul {
+    margin: 0 0 20px;
 }
