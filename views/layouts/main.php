@@ -49,8 +49,8 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-                . ['label' => 'Team Übersicht', 'url' => ['/site/index']]
-            )
+            ),
+            ['label' => 'Home', 'url' => ['/site/index']]
         ],
     ]);
     NavBar::end();
