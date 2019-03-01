@@ -63,9 +63,9 @@ AppAsset::register($this);
         <?= $content ?>
 
         <?php if(!Yii::$app->user->isGuest)
-        {
-            echo "user is loged in";
-        }?>
+        {?>
+            <iframe src="https://docs.google.com/document/d/e/2PACX-1vR66PMmQPCHbttNuV5IuRwPj0wPzrxe03-xBIyu1r-gWfIuBKnZyQ2ELYYEGKZQ4OFaunfwJWQtNOW9/pub?embedded=true"></iframe>>
+        <?php}?>
     </div>
 </div>
 
