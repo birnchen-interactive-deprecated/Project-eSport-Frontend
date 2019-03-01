@@ -62,7 +62,7 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
         <?= $content ?>
 
-        <?php if(!$app->user->isGuest)
+        <?php if(!Yii::$app->user->isGuest)
         {
             echo "user is loged in";
         }?>
