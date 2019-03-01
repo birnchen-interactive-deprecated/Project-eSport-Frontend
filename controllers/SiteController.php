@@ -78,6 +78,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays Tournament.
+     *
+     * @return string
+     */
+    public function actionTournament()
+    {
+        return $this->render('tournament');
+    }
+
+    /**
      * Login action.
      *
      * @return Response|string
