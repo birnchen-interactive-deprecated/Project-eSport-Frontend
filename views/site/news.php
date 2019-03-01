@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'News Overview';
+$this->title = 'News';
 ?>
 <div class="site-news">
     <?php if(!Yii::$app->user->isGuest):?>

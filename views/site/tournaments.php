@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Tournaments Overview';
+$this->title = 'Tournaments';
 ?>
 <div class="site-tournaments">
     <?php if(!Yii::$app->user->isGuest):?>

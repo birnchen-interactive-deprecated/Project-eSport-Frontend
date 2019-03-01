@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Account Overview';
+$this->title = 'Account';
 ?>
 <div class="site-account">
     <?php if(!Yii::$app->user->isGuest):?>
