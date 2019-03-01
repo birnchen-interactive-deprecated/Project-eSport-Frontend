@@ -5,13 +5,13 @@
 use yii\helpers\Html;
 
 $teams = array(
-    'Captain Viper' => array(
-        'Captain',
-        'Mr. Viper',
+    'Team Name 1' => array(
+        'Spieler 1',
+        'Spieler 2',
     ),
-    'Clappers' => array(
-        'Kohaku',
-        'JaePaenda',
+    'Team Name 2' => array(
+        'Spieler 1',
+        'Spieler 2',
     ),
 );
 
