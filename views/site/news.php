@@ -5,8 +5,17 @@
 use yii\helpers\Html;
 
 $players = array(
-    'Spieler 1',
-    'SPieler 2',
+    'Korazu',
+    'JaePanda',
+    'DerLoard',
+    'Exokiller',
+    'Pist0lpr0',
+    'Aero',
+    'Luzifer',
+    'Captain Salty',
+    'Niyari',
+    'Nexon',
+    'Vxrus',
 );
 
 $this->title = 'News';
