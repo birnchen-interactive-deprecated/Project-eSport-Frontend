@@ -73,18 +73,6 @@ $teams = array(
             '',
         ),
     ),
-    '.' => array(
-        'logo' => '.',
-        'main' => array(
-            '.',
-            '.',
-            '.',
-        ),
-        'subs' => array(
-            '.',
-            '.',
-        ),
-    ),
 );
 
 $this->title = 'Tournaments';

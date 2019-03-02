@@ -65,16 +65,6 @@ $teams = array(
             'Fanta',
         ),
     ),
-    '.' => array(
-        'logo' => '.',
-        'main' => array(
-            '.',
-            '.',
-        ),
-        'subs' => array(
-            '.',
-        ),
-    ),
 );
 
 $this->title = 'Account';
