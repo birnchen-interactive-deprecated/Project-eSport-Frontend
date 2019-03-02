@@ -79,7 +79,7 @@ $teams = array(
         'logo' => 'images/teams/panicflip.jpg',
         'main' => array(
             'Shila ',
-            'Paullingo ^-^',
+            'Toxic',
         ),
         'subs' => array(
             '',
