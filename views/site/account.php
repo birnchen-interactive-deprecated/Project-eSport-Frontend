@@ -75,8 +75,8 @@ $teams = array(
             '',
         ),
     ),
-    'Thunder eSports' => array(
-        'logo' => 'images/teams/panicflip.jpg',
+    'Thunder eSports - Kilian Heinrich' => array(
+        'logo' => 'images/teams/Tanzverbot.png',
         'main' => array(
             'Tanz  ',
             'Verbot ',
