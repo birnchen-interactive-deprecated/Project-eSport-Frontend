@@ -74,10 +74,10 @@ $teams = array(
         ),
     ),
     '.' => array(
-        'logo' => 'images/teams/Thinking.jpg',
+        'logo' => '.',
         'main' => array(
             '.',
-            '.;)',
+            '.',
             '.',
         ),
         'subs' => array(
