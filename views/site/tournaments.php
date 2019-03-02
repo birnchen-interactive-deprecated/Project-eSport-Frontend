@@ -67,7 +67,18 @@ $teams = array(
         'main' => array(
             'Korazu',
             'JaePaenda;)',
+            'Covari',
+        ),
+        'subs' => array(
             'Shila',
+        ),
+    ),
+    'eSport Rhein-Neckar' => array(
+        'logo' => 'images/teams/ern.png',
+        'main' => array(
+            'StevieT',
+            '',
+            '',
         ),
         'subs' => array(
             '',

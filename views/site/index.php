@@ -12,9 +12,9 @@ $this->title = 'Welcome';
             Willkommen zum ersten Spieltag der zweiten Season des Gerta Cups. <br>
             Aufgrund technischer Probleme wird der Checkin über unseren <br>
             <a class="dclink" href="https://discord.gg/f6NXNFy">Discord</a> <br>
-            ablaufen. Alle Registrierten User mögen dort Bitte um 17:15 eintreffen <br>
+            ablaufen. Alle Registrierten User mögen dort Bitte um 16:45 eintreffen <br>
             und im Warteraum warten. <br>
-            Checkin ist von 17:30 - 17:45, wer nicht da ist in dieser Zeit wird nicht eingecheckt. <br>
+            Checkin ist von 17:00 - 17:15, wer nicht da ist in dieser Zeit wird nicht eingecheckt. <br>
         </div>
         <iframe class="regeln" src="https://docs.google.com/document/d/e/2PACX-1vR66PMmQPCHbttNuV5IuRwPj0wPzrxe03-xBIyu1r-gWfIuBKnZyQ2ELYYEGKZQ4OFaunfwJWQtNOW9/pub?embedded=true"></iframe>
     <?php else: ?>
