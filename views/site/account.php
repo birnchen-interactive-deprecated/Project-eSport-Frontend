@@ -46,7 +46,7 @@ $teams = array(
         ),
     ),
     'Thinking' => array(
-        'logo' => 'images/teams/Thinking.jpg',
+        'logo' => 'images/teams/thinking.jpg',
         'main' => array(
             'Korazu',
             'JaePaenda;) ',
@@ -81,33 +81,32 @@ $this->title = 'Account';
 ?>
 <div class="site-account">
 
-    <ul>
-    <?php foreach($teams as $teamname => $tmpArr): ?>
-        <?php if (isset($tmpArr['logo'])): ?>
-            <?= Html::img($tmpArr['logo'], ['width' => '150px', 'height' => '150px']); ?>
-        <?php endif; ?>
+    <?php foreach($teams as $teamName => $tmpArr): ?>
+        <div class="team clearfix">
+            <span class="col-lg-2">
+                <?= Html::img($tmpArr['logo'], ['class' => 'teamLogo', 'width' => '150px', 'height' => '150px']); ?>
+            </span>
 
-        <li class="teamName"><?php echo $teamname ?>
-            <ul>
-        <?php foreach($tmpArr as $mainSub => $memberArr): ?>
+            <ul class="teamList col-lg-10">
+                <li class="teamName">
+                    <?= $teamName; ?>
+                <?php foreach($tmpArr as $mainSub => $memberArr): ?>
 
-            <?php if ($mainSub === 'main' || $mainSub === 'subs'): ?>
+                    <?php if ($mainSub === 'main' || $mainSub === 'subs'): ?>
 
-                <li><?= ($mainSub === 'main') ? 'Mainspieler' : 'Ersatzspieler'; ?>
-                    <ul>
-                        <?php foreach($memberArr as $member): ?>
-                        <li class="memberName"><?php echo $member ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                        <li><?= ($mainSub === 'main') ? 'Mainspieler' : 'Ersatzspieler'; ?>
+                            <ul>
+                                <?php foreach($memberArr as $member): ?>
+                                <li class="memberName"><?php echo $member ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+
+                <?php endforeach; ?>
                 </li>
-            <?php endif; ?>
-
-        <?php endforeach; ?>
-
             </ul>
-        </li>
-        
+        </div>
     <?php endforeach; ?>
-    </ul>
 
 </div>
