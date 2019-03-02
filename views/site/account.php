@@ -65,6 +65,26 @@ $teams = array(
             'Fanta',
         ),
     ),
+    'Panicflip by OG' => array(
+        'logo' => 'images/teams/panicflip.jpg',
+        'main' => array(
+            'VTrayxX ',
+            'OG_PulseGlxy',
+        ),
+        'subs' => array(
+            '',
+        ),
+    ),
+    'Thunder eSports' => array(
+        'logo' => 'images/teams/panicflip.jpg',
+        'main' => array(
+            'Shila ',
+            'Paullingo ^-^',
+        ),
+        'subs' => array(
+            '',
+        ),
+    ),
 );
 
 $this->title = 'Account';
