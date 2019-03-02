@@ -78,8 +78,8 @@ $teams = array(
     'Thunder eSports' => array(
         'logo' => 'images/teams/panicflip.jpg',
         'main' => array(
-            'Shila ',
-            'Toxic',
+            'Tanz  ',
+            'Verbot ',
         ),
         'subs' => array(
             '',
