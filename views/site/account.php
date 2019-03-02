@@ -15,14 +15,64 @@ $teams = array(
             'El Viper',
         ),
     ),
-    'Team Name 2' => array(
-        'logo' => '',
+    'Stealth7 eSports' => array(
+        'logo' => 'images/teams/Stealth7.jpg',
         'main' => array(
-            'Spieler 1',
-            'Spieler 2',
+            'flexxy',
+            'awxkeq',
         ),
         'subs' => array(
-            'Ersatzspieler 1',
+            'noavian',
+        ),
+    ),
+    'AcTive' => array(
+        'logo' => 'images/teams/Active.png',
+        'main' => array(
+            'Vxrus',
+            'Crime',
+        ),
+        'subs' => array(
+            'Rust',
+        ),
+    ),
+    'Team Aspect' => array(
+        'logo' => 'images/teams/Aspect.jpg',
+        'main' => array(
+            'GhostKilla',
+            'OhJayy',
+        ),
+        'subs' => array(
+            '',
+        ),
+    ),
+    'Thinking' => array(
+        'logo' => 'images/teams/Thinking.jpg',
+        'main' => array(
+            'Korazu',
+            'JaePaenda;) ',
+        ),
+        'subs' => array(
+            '',
+        ),
+    ),
+    'Robotic Elite Clan' => array(
+        'logo' => 'images/teams/REC.png',
+        'main' => array(
+            'P1st0lpr0',
+            'Birnchen',
+        ),
+        'subs' => array(
+            'Fanta',
+        ),
+    ),
+    '.' => array(
+        'logo' => '.',
+        'main' => array(
+            '.',
+            '.',
+        ),
+        'subs' => array(
+            '.',
         ),
     ),
 );

@@ -5,7 +5,7 @@
 use yii\helpers\Html;
 
 $teams = array(
-    'Team Name 1' => array(
+    'Captain Viper' => array(
         'logo' => 'images/teams/Captain_Viper.png',
         'main' => array(
             'Captain Salty',
@@ -17,15 +17,72 @@ $teams = array(
             'Marc',
         ),
     ),
-    'Team Name 2' => array(
+    'Stealth7 eSports' => array(
+        'logo' => 'images/teams/Stealth7.jpg',
         'main' => array(
-            'Spieler 1',
-            'Spieler 2',
-            'Spieler 3',
+            'noavian',
+            'awxkeq',
+            'flexxy',
         ),
         'subs' => array(
-            'Ersatzspieler 1',
-            'Ersatzspieler 2',
+            'ZedeX',
+            '',
+        ),
+    ),
+    'AcTive' => array(
+        'logo' => 'images/teams/Active.png',
+        'main' => array(
+            'Vxrus',
+            'Crime',
+            'RUST',
+        ),
+        'subs' => array(
+            'Nexon',
+        ),
+    ),
+    'Team Aspect' => array(
+        'logo' => 'images/teams/Aspect.jpg',
+        'main' => array(
+            'GhostKilla',
+            'Bax',
+            'Zorn',
+        ),
+        'subs' => array(
+            'OhJayy',
+        ),
+    ),
+    'eQuality.' => array(
+        'logo' => 'images/teams/eQuality.png',
+        'main' => array(
+            'Serenity',
+            'SoulSynergy',
+            'Cietrus',
+        ),
+        'subs' => array(
+            '',
+        ),
+    ),
+    'Thinking' => array(
+        'logo' => 'images/teams/Thinking.jpg',
+        'main' => array(
+            'Korazu',
+            'JaePaenda;)',
+            'Shila',
+        ),
+        'subs' => array(
+            '',
+        ),
+    ),
+    '.' => array(
+        'logo' => 'images/teams/Thinking.jpg',
+        'main' => array(
+            '.',
+            '.;)',
+            '.',
+        ),
+        'subs' => array(
+            '.',
+            '.',
         ),
     ),
 );
