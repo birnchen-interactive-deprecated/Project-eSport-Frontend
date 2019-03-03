@@ -207,3 +207,15 @@ li.teamName > ul {
 .team:first-child {
     border-top: 1px solid #ccc;
 }
+
+.site-bracket {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.site-bracket iframe {
+    height: calc(100% - 50px);
+}
