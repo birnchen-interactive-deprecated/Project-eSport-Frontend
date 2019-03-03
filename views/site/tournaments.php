@@ -95,12 +95,34 @@ $teams = array(
             '',
         ),
     ),
-    'GHR Agency' => array(
+    'GHR E-Sports, Team Agency' => array(
         'logo' => 'images/teams/ghr.png',
         'main' => array(
             'leo19993',
-            '',
-            '',
+            'tobi',
+            'eXtr3mer',
+        ),
+        'subs' => array(
+            'Swiches',
+        ),
+    ),
+    'The Dark Start' => array(
+        'logo' => '',
+        'main' => array(
+            'swefli',
+            'Vergot',
+            'Nihil',
+        ),
+        'subs' => array(
+            'Zufall',
+        ),
+    ),
+    'Esport BERG' => array(
+        'logo' => 'images/teams/BERG.png',
+        'main' => array(
+            'pahsi',
+            'Rexonik',
+            'Lexxa',
         ),
         'subs' => array(
             '',
