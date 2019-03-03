@@ -125,7 +125,8 @@ $teams = array(
             'Lexxa',
         ),
         'subs' => array(
-            '',
+            'Celestial',
+            'LiFox',
         ),
     ),
 );
