@@ -70,7 +70,7 @@ $teams = array(
             'Covari',
         ),
         'subs' => array(
-            'Shila',
+            '',
         ),
     ),
     'eSport Rhein-Neckar' => array(
