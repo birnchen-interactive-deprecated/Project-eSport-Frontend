@@ -29,6 +29,18 @@ $teams = array(
             '',
         ),
     ),
+    'Stealth7 eSports - Hoch und Weit' => array(
+        'logo' => 'images/teams/Stealth7.jpg',
+        'main' => array(
+            'Heerscher',
+            'marczi',
+            'emorej',
+        ),
+        'subs' => array(
+            '',
+            '',
+        ),
+    ),
     'AcTive' => array(
         'logo' => 'images/teams/Active.png',
         'main' => array(
