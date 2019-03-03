@@ -33,7 +33,7 @@ $teams = array(
         'logo' => 'images/teams/Stealth7.jpg',
         'main' => array(
             'Heerscher',
-            'marczi',
+            'Maczii',
             'emorej',
         ),
         'subs' => array(
@@ -139,6 +139,30 @@ $teams = array(
         'subs' => array(
             'Celestial',
             'LiFox',
+        ),
+    ),
+    'Timeout Gaming' => array(
+        'logo' => 'images/teams/TimeoutEsports.png',
+        'main' => array(
+            'ZombieEcki',
+            'Hunter',
+            'Aero/Fabi',
+        ),
+        'subs' => array(
+            'IronJulia',
+            '',
+        ),
+    ),
+    'Timeout Gaming - Team Timeout' => array(
+        'logo' => 'images/teams/TimeoutEsports.png',
+        'main' => array(
+            'KapperKater',
+            'FightNight9929',
+            'Krypon',
+        ),
+        'subs' => array(
+            'TiMotay',
+            'Yuko',
         ),
     ),
 );
