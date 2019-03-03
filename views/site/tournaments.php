@@ -77,6 +77,28 @@ $teams = array(
         'logo' => 'images/teams/ern.png',
         'main' => array(
             'StevieT',
+            'Sverin99',
+            'mrtz',
+        ),
+        'subs' => array(
+            'Zignaf',
+        ),
+    ),
+    'Robotic Elite Clan' => array(
+        'logo' => 'images/teams/REC.png',
+        'main' => array(
+            'P1st0lpr0',
+            'Birnchen',
+            'Fanta'
+        ),
+        'subs' => array(
+            '',
+        ),
+    ),
+    'GHR Agency' => array(
+        'logo' => 'images/teams/ghr.png',
+        'main' => array(
+            'leo19993',
             '',
             '',
         ),
