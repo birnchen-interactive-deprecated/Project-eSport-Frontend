@@ -126,7 +126,7 @@ $teams = array(
             'Nihil',
         ),
         'subs' => array(
-            'Zufall',
+            'Nait',
         ),
     ),
     'Esport BERG' => array(
@@ -159,6 +159,18 @@ $teams = array(
             'KapperKater',
             'TiMotay',
             'Krypon',
+        ),
+        'subs' => array(
+            'FightNight9929',
+            'Yuko',
+        ),
+    ),
+    'Safari Force' => array(
+        'logo' => '',
+        'main' => array(
+            'Taubenhaucher',
+            'vandaleon271',
+            'WaterFlame14',
         ),
         'subs' => array(
             'FightNight9929',
