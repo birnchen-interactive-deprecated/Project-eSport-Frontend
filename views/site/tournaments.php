@@ -157,11 +157,11 @@ $teams = array(
         'logo' => 'images/teams/TimeoutEsports.png',
         'main' => array(
             'KapperKater',
-            'FightNight9929',
+            'TiMotay',
             'Krypon',
         ),
         'subs' => array(
-            'TiMotay',
+            'FightNight9929',
             'Yuko',
         ),
     ),
