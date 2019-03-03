@@ -173,8 +173,8 @@ $teams = array(
             'WaterFlame14',
         ),
         'subs' => array(
-            'FightNight9929',
-            'Yuko',
+            '',
+            '',
         ),
     ),
 );
