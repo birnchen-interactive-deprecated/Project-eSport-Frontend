@@ -37,23 +37,23 @@ class m190228_074605_tournaments extends Migration
             ENGINE = InnoDB");
 
         //user_games
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `user_games` (
-              `user_id` INT NOT NULL,
-              `games_id` INT NOT NULL,
-              PRIMARY KEY (`user_id`, `games_id`),
-              INDEX `FK_user_games_games_id_idx` (`games_id` ASC) VISIBLE,
-              CONSTRAINT `FK_user_games_user_id`
-                FOREIGN KEY (`user_id`)
-                REFERENCES `user` (`user_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE,
-              CONSTRAINT `FK_user_games_games_id`
-                FOREIGN KEY (`games_id`)
-                REFERENCES `games` (`games_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB");
+        //$this->execute("
+        //    CREATE TABLE IF NOT EXISTS `user_games` (
+        //      `user_id` INT NOT NULL,
+        //      `games_id` INT NOT NULL,
+        //      PRIMARY KEY (`user_id`, `games_id`),
+        //      INDEX `FK_user_games_games_id_idx` (`games_id` ASC) VISIBLE,
+        //      CONSTRAINT `FK_user_games_user_id`
+        //        FOREIGN KEY (`user_id`)
+        //        REFERENCES `user` (`user_id`)
+        //        ON DELETE CASCADE
+        //        ON UPDATE CASCADE,
+        //      CONSTRAINT `FK_user_games_games_id`
+        //        FOREIGN KEY (`games_id`)
+        //        REFERENCES `games` (`games_id`)
+        //        ON DELETE CASCADE
+        //        ON UPDATE CASCADE)
+        //    ENGINE = InnoDB");
 
         //tournament_mode
         $this->execute("
@@ -170,7 +170,7 @@ class m190228_074605_tournaments extends Migration
         $this->dropTable('bracket_mode');
         $this->dropTable('tournament_mode_i18n');
         $this->dropTable('tournament_mode');
-        $this->dropTable('user_games');
+        //$this->dropTable('user_games');
         $this->dropTable('games_i18n');
         $this->dropTable('games');
 
