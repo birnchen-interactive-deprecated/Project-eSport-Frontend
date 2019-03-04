@@ -111,14 +111,14 @@ class m190216_190851_db_scheme extends Migration
             ENGINE = InnoDB");
 
         /* Base languages English and German as standard German */
-        echo "m190228_074605_tournaments: Insert Language German as standard.\n";
+        echo "m190216_190851_db_scheme: Insert Language German as standard.\n";
         $this->insert('language',  [
             'language_id' => '1',
             'name' => 'Deutsch',
             'locale' => 'de-DE'
         ]);
 
-        echo "m190228_074605_tournaments: Insert Language Englisch as secondary.\n";
+        echo "m190216_190851_db_scheme: Insert Language Englisch as secondary.\n";
         $this->insert('language',  [
             'language_id' => '2',
             'name' => 'Englisch',
@@ -126,14 +126,14 @@ class m190216_190851_db_scheme extends Migration
         ]);
 
         /* i18n Translation for Base Languages */
-        echo "m190228_074605_tournaments: Insert Language i18N German.\n";
+        echo "m190216_190851_db_scheme: Insert Language i18N German.\n";
         $this->insert('language_i18n',  [
             'id' => '1',
             'language_id' => '2',
             'name' => 'German'
         ]);
 
-        echo "m190228_074605_tournaments: Insert Language i18N English.\n";
+        echo "m190216_190851_db_scheme: Insert Language i18N English.\n";
         $this->insert('language_i18n',  [
             'id' => '2',
             'language_id' => '2',
@@ -141,47 +141,47 @@ class m190216_190851_db_scheme extends Migration
         ]);
 
         /* Gender base German */
-        echo "m190228_074605_tournaments: Insert German Gender Male.\n";
+        echo "m190216_190851_db_scheme: Insert German Gender Male.\n";
         $this->insert('gender',  [
             'gender_id' => '1',
             'name' => 'Männlich'
         ]);
 
-        echo "m190228_074605_tournaments: Insert German Gender Female.\n";
+        echo "m190216_190851_db_scheme: Insert German Gender Female.\n";
         $this->insert('gender',  [
             'gender_id' => '2',
             'name' => 'Weiblich'
         ]);
 
-        echo "m190228_074605_tournaments: Insert German Gender Divers.\n";
+        echo "m190216_190851_db_scheme: Insert German Gender Divers.\n";
         $this->insert('gender',  [
             'gender_id' => '3',
             'name' => 'Divers'
         ]);
 
         /* i18n Translation forGender */
-        echo "m190228_074605_tournaments: Insert Gender i18n Englisch Male.\n";
+        echo "m190216_190851_db_scheme: Insert Gender i18n Englisch Male.\n";
         $this->insert('gender_i18n',  [
             'gender_id' => '1',
             'language_id' => '2',
             'name' => 'Male'
         ]);
 
-        echo "m190228_074605_tournaments: Insert Gender i18n Englisch Female.\n";
+        echo "m190216_190851_db_scheme: Insert Gender i18n Englisch Female.\n";
         $this->insert('gender_i18n',  [
             'gender_id' => '2',
             'language_id' => '2',
             'name' => 'Female'
         ]);
 
-        echo "m190228_074605_tournaments: Insert Gender i18n Englisch Divers.\n";
+        echo "m190216_190851_db_scheme: Insert Gender i18n Englisch Divers.\n";
         $this->insert('gender_i18n',  [
             'gender_id' => '3',
             'language_id' => '2',
             'name' => 'Miscellaneous'
         ]);
 
-        echo "m190228_074605_tournaments: Creating Admin User.\n";
+        echo "m190216_190851_db_scheme: Creating Admin User.\n";
         $this->insert('user', [
             'language_id' => '1',
             'gender_id' => '3',
@@ -191,6 +191,21 @@ class m190216_190851_db_scheme extends Migration
             'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
             'email' => 'admin@admin.de'
             //AdminPW123!.
+        ]);
+
+        echo "m190216_190851_db_scheme: Adding Rocket League as first Game\n";
+        $this->insert('games',  [
+            'games_id' => '1',
+            'name' => 'Rocket League',
+            'description' => 'Rocket League from Psyonix'
+        ]);
+
+        echo "m190216_190851_db_scheme: Adding Rocket League Translation\n";
+        $this->insert('games',  [
+            'games_id' => '1',
+            'language_id' => '2',
+            'name' => 'Rocket League',
+            'description' => 'Rocket League from Psyonix'
         ]);
     }
 
