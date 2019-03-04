@@ -20,14 +20,13 @@ class m190216_190851_db_scheme extends Migration
               PRIMARY KEY (`gender_id`))
             ENGINE = InnoDB;");
             
-
-        $this->execute("    CREATE TABLE IF NOT EXISTS `language` (
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `language` (
               `language_id` INT NOT NULL,
               `name` VARCHAR(45) NULL,
               `locale` VARCHAR(45) NULL,
               PRIMARY KEY (`language_id`))
             ENGINE = InnoDB;");
-
 
         $this->execute("
              CREATE TABLE IF NOT EXISTS `user` (
@@ -74,7 +73,6 @@ class m190216_190851_db_scheme extends Migration
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
 
-
         $this->execute("
             CREATE TABLE IF NOT EXISTS `gender_i18n` (
               `gender_id` INT NOT NULL,
@@ -88,22 +86,15 @@ class m190216_190851_db_scheme extends Migration
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
 
-        $this->insert('user', [
-            'dt_created' => new Expression('NOW()'),
-            'dt_updated' => new Expression('NOW()'),
-            'username' => 'admin',
-            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
-            'email' => 'admin@admin.de'
-            //AdminPW123!.
-        ]);
-
         /* Base languages English and German as standard German */
+        echo "m190228_074605_tournaments: Insert Language German as standard.\n";
         $this->insert('language',  [
             'language_id' => '1',
             'name' => 'Deutsch',
             'locale' => 'de-DE'
         ]);
 
+        echo "m190228_074605_tournaments: Insert Language Englisch as secondary.\n";
         $this->insert('language',  [
             'language_id' => '2',
             'name' => 'Englisch',
@@ -111,12 +102,14 @@ class m190216_190851_db_scheme extends Migration
         ]);
 
         /* i18n Translation for Base Languages */
+        echo "m190228_074605_tournaments: Insert Language i18N German.\n";
         $this->insert('language_i18n',  [
             'id' => '1',
             'language_id' => '2',
             'name' => 'German'
         ]);
 
+        echo "m190228_074605_tournaments: Insert Language i18N English.\n";
         $this->insert('language_i18n',  [
             'id' => '2',
             'language_id' => '2',
@@ -124,38 +117,56 @@ class m190216_190851_db_scheme extends Migration
         ]);
 
         /* Gender base German */
+        echo "m190228_074605_tournaments: Insert German Gender Male.\n";
         $this->insert('gender',  [
             'gender_id' => '1',
             'name' => 'Männlich'
         ]);
 
+        echo "m190228_074605_tournaments: Insert German Gender Female.\n";
         $this->insert('gender',  [
             'gender_id' => '2',
             'name' => 'Weiblich'
         ]);
 
+        echo "m190228_074605_tournaments: Insert German Gender Divers.\n";
         $this->insert('gender',  [
             'gender_id' => '3',
             'name' => 'Divers'
         ]);
 
         /* i18n Translation forGender */
+        echo "m190228_074605_tournaments: Insert Gender i18n Englisch Male.\n";
         $this->insert('gender_i18n',  [
             'gender_id' => '1',
             'language_id' => '2',
             'name' => 'Male'
         ]);
 
+        echo "m190228_074605_tournaments: Insert Gender i18n Englisch Female.\n";
         $this->insert('gender_i18n',  [
             'gender_id' => '2',
             'language_id' => '2',
             'name' => 'Female'
         ]);
 
+        echo "m190228_074605_tournaments: Insert Gender i18n Englisch Divers.\n";
         $this->insert('gender_i18n',  [
             'gender_id' => '3',
             'language_id' => '2',
             'name' => 'Miscellaneous'
+        ]);
+
+        echo "m190228_074605_tournaments: Creating Admin User.\n";
+        $this->insert('user', [
+            'language_id' => '1',
+            'gender_id' => '3',
+            'dt_created' => new Expression('NOW()'),
+            'dt_updated' => new Expression('NOW()'),
+            'username' => 'admin',
+            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
+            'email' => 'admin@admin.de'
+            //AdminPW123!.
         ]);
     }
 
