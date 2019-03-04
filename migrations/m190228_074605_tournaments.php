@@ -45,7 +45,7 @@ class m190228_074605_tournaments extends Migration
               INDEX `FK_user_games_games_id_idx` (`games_id` ASC) VISIBLE,
               CONSTRAINT `FK_user_games_user_id`
                 FOREIGN KEY (`user_id`)
-                REFERENCES `Project-eSport`.`user` (`user_id`)
+                REFERENCES `user` (`user_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_user_games_games_id`
