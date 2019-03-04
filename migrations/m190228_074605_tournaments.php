@@ -12,24 +12,48 @@ class m190228_074605_tournaments extends Migration
      */
     public function safeUp()
     {
+        //games
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `games` (
+              `games_id` INT NOT NULL,
+              `name` VARCHAR(45) NULL,
+              `description` VARCHAR(255) NULL,
+              PRIMARY KEY (`games_id`))
+            ENGINE = InnoDB");
+
+        //games i18n
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `games_i18n` (
+              `games_id` INT NOT NULL,
+              `language_id` INT NOT NULL,
+              `name` VARCHAR(45) NULL,
+              `description` VARCHAR(255) NULL,
+              PRIMARY KEY (`games_id`, `language_id`),
+              CONSTRAINT `games_i18n_id`
+                FOREIGN KEY (`games_id`)
+                REFERENCES `games` (`games_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB");
+
         //user_games
-        //$this->execute("
-        //    CREATE TABLE IF NOT EXISTS `user_games` (
-        //      `user_id` INT NOT NULL,
-        //      `games_id` INT NOT NULL,
-        //      PRIMARY KEY (`user_id`, `games_id`),
-        //      INDEX `FK_user_games_games_id_idx` (`games_id` ASC) VISIBLE,
-        //      CONSTRAINT `FK_user_games_user_id`
-        //        FOREIGN KEY (`user_id`)
-        //        REFERENCES `user` (`user_id`)
-        //        ON DELETE CASCADE
-        //        ON UPDATE CASCADE,
-        //      CONSTRAINT `FK_user_games_games_id`
-        //        FOREIGN KEY (`games_id`)
-        //        REFERENCES `games` (`games_id`)
-        //        ON DELETE CASCADE
-        //        ON UPDATE CASCADE)
-        //    ENGINE = InnoDB");
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `user_games` (
+              `user_id` INT NOT NULL,
+              `games_id` INT NOT NULL,
+              PRIMARY KEY (`user_id`, `games_id`),
+              INDEX `FK_user_games_games_id_idx` (`games_id` ASC),
+              CONSTRAINT `FK_user_games_user_id`
+                FOREIGN KEY (`user_id`)
+                REFERENCES `user` (`user_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_user_games_games_id`
+                FOREIGN KEY (`games_id`)
+                REFERENCES `games` (`games_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB");
 
         //tournament_mode
         //$this->execute("
@@ -135,6 +159,22 @@ class m190228_074605_tournaments extends Migration
         //    ENGINE = InnoDB");
 
 
+        /* Games base German */
+        echo "m190216_190851_db_scheme: Adding Rocket League as first Game\n";
+        $this->insert('games',  [
+            'games_id' => '1',
+            'name' => 'Rocket League',
+            'description' => 'Rocket League von Psyonix'
+        ]);
+
+        /* Games i18n base German */
+        echo "m190216_190851_db_scheme: Adding Rocket League Translation\n";
+        $this->insert('games_i18n',  [
+            'games_id' => '1',
+            'language_id' => '2',
+            'name' => 'Rocket League',
+            'description' => 'Rocket League from Psyonix'
+        ]);
     }
 
     /**
@@ -147,8 +187,8 @@ class m190228_074605_tournaments extends Migration
         //$this->dropTable('tournament_mode_i18n');
         //$this->dropTable('tournament_mode');
         //$this->dropTable('user_games');
-        //$this->dropTable('games_i18n');
-        //$this->dropTable('games');
+        $this->dropTable('games_i18n');
+        $this->dropTable('games');
 
         //echo "m190228_074605_tournaments cannot be reverted.\n";
 
