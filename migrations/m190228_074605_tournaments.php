@@ -166,7 +166,10 @@ class m190228_074605_tournaments extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('tournaments');
+        $this->dropTable('bracket_mode_i18n');
+        $this->dropTable('bracket_mode');
+        $this->dropTable('tournament_mode_i18n');
+        $this->dropTable('tournament_mode');
         $this->dropTable('user_games');
         $this->dropTable('games_i18n');
         $this->dropTable('games');
