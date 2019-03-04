@@ -201,7 +201,7 @@ class m190216_190851_db_scheme extends Migration
         ]);
 
         echo "m190216_190851_db_scheme: Adding Rocket League Translation\n";
-        $this->insert('games',  [
+        $this->insert('games_i18n',  [
             'games_id' => '1',
             'language_id' => '2',
             'name' => 'Rocket League',
