@@ -416,7 +416,7 @@ class m190228_074605_tournaments extends Migration
         ]);
 
         $this->insert('bracket_mode',  [
-            'bracket_mode_id' => '1',
+            'bracket_mode_id' => '2',
             'name' => 'Double Elimination',
             'description' => 'Winner und Looser Bracket'
         ]);
