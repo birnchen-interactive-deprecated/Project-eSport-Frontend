@@ -21,21 +21,6 @@ class m190228_074605_tournaments extends Migration
               PRIMARY KEY (`games_id`))
             ENGINE = InnoDB");
 
-        //games i18n
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `games_i18n` (
-              `games_id` INT NOT NULL,
-              `language_id` INT NOT NULL,
-              `name` VARCHAR(45) NULL,
-              `description` VARCHAR(255) NULL,
-              PRIMARY KEY (`games_id`, `language_id`),
-              CONSTRAINT `games_i18n_id`
-                FOREIGN KEY (`games_id`)
-                REFERENCES `games` (`games_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB");
-
         //user_games
         $this->execute("
             CREATE TABLE IF NOT EXISTS `user_games` (
@@ -71,45 +56,15 @@ class m190228_074605_tournaments extends Migration
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
 
-        //tournament_mode_i18n
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `tournament_mode_i18n` (
-              `mode_id` INT NOT NULL,
-              `language_id` INT NOT NULL,
-              `name` VARCHAR(45) NULL,
-              `description` VARCHAR(255) NULL,
-              PRIMARY KEY (`mode_id`, `language_id`),
-              CONSTRAINT `FK_tournament_mode_i18n_id`
-                FOREIGN KEY (`mode_id`)
-                REFERENCES `tournament_mode` (`mode_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB");
-
         //bracketmode
         $this->execute("
             CREATE TABLE IF NOT EXISTS `bracket_mode` (
               `bracket_mode_id` INT NOT NULL,
-            `name` VARCHAR(45) NULL,
+              `name` VARCHAR(45) NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`bracket_mode_id`))
             ENGINE = InnoDB");
 
-        //bracket_mode_i18n////
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `bracket_mode_i18n` (
-              `bracket_mode_id` INT NOT NULL,
-              `language_id` INT NOT NULL,
-              `name` VARCHAR(45) NULL,
-              `description` VARCHAR(45) NULL,
-              PRIMARY KEY (`bracket_mode_id`, `language_id`),
-              CONSTRAINT `FK_bracket_mode_i18n_id`
-                FOREIGN KEY (`bracket_mode_id`)
-                REFERENCES `bracket_mode` (`bracket_mode_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB");
-//
         //tournament_rules
         $this->execute("
             CREATE TABLE IF NOT EXISTS `tournament_rules` (
@@ -137,21 +92,6 @@ class m190228_074605_tournaments extends Migration
               CONSTRAINT `FK_tournament_subrules_id`
                 FOREIGN KEY (`rules_id`)
                 REFERENCES `tournament_rules` (`rules_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB");
-
-        //tournament_subrules_i18n
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `tournament_subrules_i18n` (
-              `subrule_id` INT NOT NULL,
-              `language_id` INT NOT NULL,
-              `name` VARCHAR(45) NULL,
-              `description` VARCHAR(255) NULL,
-              PRIMARY KEY (`subrule_id`, `language_id`),
-              CONSTRAINT `FK_tournament_subrules_i18n_id`
-                FOREIGN KEY (`subrule_id`)
-                REFERENCES `tournament_subrules` (`subrule_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
@@ -440,24 +380,13 @@ class m190228_074605_tournaments extends Migration
             ENGINE = InnoDB");
 
         /* Games base German */
-        echo "m190228_074605_tournaments: Adding Rocket League as first Game\n";
         $this->insert('games',  [
             'games_id' => '1',
             'name' => 'Rocket League',
             'description' => 'Rocket League von Psyonix'
         ]);
 
-        /* Games i18n base German */
-        echo "m190228_074605_tournaments: Adding Rocket League Translation\n";
-        $this->insert('games_i18n',  [
-            'games_id' => '1',
-            'language_id' => '2',
-            'name' => 'Rocket League',
-            'description' => 'Rocket League from Psyonix'
-        ]);
-
         /* Tournament Mode Base German */
-        echo "m190228_074605_tournaments: Adding Rocket League as first Game\n";
         $this->insert('tournament_mode',  [
             'mode_id' => '1',
             'game_id' => '1',
@@ -479,7 +408,77 @@ class m190228_074605_tournaments extends Migration
             'description' => '3v3 Team mit drei Leuten gegen Team mit drei Leuten'
         ]);
 
-        /* Tournament Mode i18n */
+        /* Bracket Mode */
+        $this->insert('bracket_mode',  [
+            'bracket_mode_id' => '1',
+            'name' => 'Single Elimination',
+            'description' => 'Normales Single Elimination'
+        ]);
+
+        $this->insert('bracket_mode',  [
+            'bracket_mode_id' => '1',
+            'name' => 'Double Elimination',
+            'description' => 'Winner und Looser Bracket'
+        ]);
+
+        /* Tournament Ruleset */
+        $this->insert('tournament_rules',  [
+            'rules_id' => '1',
+            'game_id' => '1',
+            'name' => 'Rocket Legaue 1v1 Ruleset'
+        ]);
+
+        $this->insert('tournament_rules',  [
+            'rules_id' => '2',
+            'game_id' => '1',
+            'name' => 'Rocket Legaue 2v2 Ruleset'
+        ]);
+
+        $this->insert('tournament_rules',  [
+            'rules_id' => '3',
+            'game_id' => '1',
+            'name' => 'Rocket Legaue 3v3 Ruleset'
+        ]);
+
+        /* Tournaments */
+        $this->insert('tournaments',  [
+            'tournament_id' => '1',
+            'game_id' => '1',
+            'mode_id' => '1',
+            'rules_id' => '1',
+            'bracket_id' => '2',
+            'tournament_name' => 'GERTA Cup 1v1 Day 1',
+            'tournament_description' => 'Erster Spieltag im 1v1',
+            'dt_starting_time' => '2019-03-01 18:30:00',
+            'dt_checkin_begin' => '2019-03-01 18:00:00',
+            'dt_checkin_ends' => '2019-03-01 18:15:00',
+        ]);
+
+        $this->insert('tournaments',  [
+            'tournament_id' => '2',
+            'game_id' => '1',
+            'mode_id' => '2',
+            'rules_id' => '2',
+            'bracket_id' => '2',
+            'tournament_name' => 'GERTA Cup 2v2 Day 1',
+            'tournament_description' => 'Erster Spieltag im 2v2',
+            'dt_starting_time' => '2019-03-02 18:00:00',
+            'dt_checkin_begin' => '2019-03-02 17:30:00',
+            'dt_checkin_ends' => '2019-03-02 17:45:00',
+        ]);
+
+        $this->insert('tournaments',  [
+            'tournament_id' => '3',
+            'game_id' => '1',
+            'mode_id' => '3',
+            'rules_id' => '3',
+            'bracket_id' => '2',
+            'tournament_name' => 'GERTA Cup 2v2 Day 1',
+            'tournament_description' => 'Erster Spieltag im 2v2',
+            'dt_starting_time' => '2019-03-03 17:30:00',
+            'dt_checkin_begin' => '2019-03-03 17:00:00',
+            'dt_checkin_ends' => '2019-03-03 17:15:00',
+        ]);
     }
 
     /**
@@ -497,15 +496,11 @@ class m190228_074605_tournaments extends Migration
         $this->dropTable('team_member');
         $this->dropTable('main_team');
         $this->dropTable('tournaments');
-        $this->dropTable('tournament_subrules_i18n');
         $this->dropTable('tournament_subrules');
         $this->dropTable('tournament_rules');
-        $this->dropTable('bracket_mode_i18n');
         $this->dropTable('bracket_mode');
-        $this->dropTable('tournament_mode_i18n');
         $this->dropTable('tournament_mode');
         $this->dropTable('user_games');
-        $this->dropTable('games_i18n');
         $this->dropTable('games');
 
         //echo "m190228_074605_tournaments cannot be reverted.\n";

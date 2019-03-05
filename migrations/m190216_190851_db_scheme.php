@@ -60,105 +60,36 @@ class m190216_190851_db_scheme extends Migration
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
 
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `language_i18n` (
-              `id` INT NOT NULL,
-              `language_id` VARCHAR(45) NOT NULL,
-              `name` VARCHAR(45) NULL,
-              PRIMARY KEY (`id`, `language_id`),
-              CONSTRAINT `FK_language_i18n_language_id`
-                FOREIGN KEY (`id`)
-                REFERENCES `language` (`language_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB;");
-
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `gender_i18n` (
-              `gender_id` INT NOT NULL,
-              `language_id` VARCHAR(45) NOT NULL,
-              `name` VARCHAR(45) NULL,
-              PRIMARY KEY (`gender_id`, `language_id`),
-              CONSTRAINT `FK_gender_i18n_gender_id`
-                FOREIGN KEY (`gender_id`)
-                REFERENCES `gender` (`gender_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB;");
-
         /* Base languages English and German as standard German */
-        echo "m190216_190851_db_scheme: Insert Language German as standard.\n";
         $this->insert('language',  [
             'language_id' => '1',
             'name' => 'Deutsch',
             'locale' => 'de-DE'
         ]);
 
-        echo "m190216_190851_db_scheme: Insert Language Englisch as secondary.\n";
         $this->insert('language',  [
             'language_id' => '2',
             'name' => 'Englisch',
             'locale' => 'en-EN'
         ]);
 
-        /* i18n Translation for Base Languages */
-        echo "m190216_190851_db_scheme: Insert Language i18N German.\n";
-        $this->insert('language_i18n',  [
-            'id' => '1',
-            'language_id' => '2',
-            'name' => 'German'
-        ]);
-
-        echo "m190216_190851_db_scheme: Insert Language i18N English.\n";
-        $this->insert('language_i18n',  [
-            'id' => '2',
-            'language_id' => '2',
-            'name' => 'English'
-        ]);
-
         /* Gender base German */
-        echo "m190216_190851_db_scheme: Insert German Gender Male.\n";
         $this->insert('gender',  [
             'gender_id' => '1',
             'name' => 'Männlich'
         ]);
 
-        echo "m190216_190851_db_scheme: Insert German Gender Female.\n";
         $this->insert('gender',  [
             'gender_id' => '2',
             'name' => 'Weiblich'
         ]);
 
-        echo "m190216_190851_db_scheme: Insert German Gender Divers.\n";
         $this->insert('gender',  [
             'gender_id' => '3',
             'name' => 'Divers'
         ]);
 
-        /* i18n Translation forGender */
-        echo "m190216_190851_db_scheme: Insert Gender i18n Englisch Male.\n";
-        $this->insert('gender_i18n',  [
-            'gender_id' => '1',
-            'language_id' => '2',
-            'name' => 'Male'
-        ]);
-
-        echo "m190216_190851_db_scheme: Insert Gender i18n Englisch Female.\n";
-        $this->insert('gender_i18n',  [
-            'gender_id' => '2',
-            'language_id' => '2',
-            'name' => 'Female'
-        ]);
-
-        echo "m190216_190851_db_scheme: Insert Gender i18n Englisch Divers.\n";
-        $this->insert('gender_i18n',  [
-            'gender_id' => '3',
-            'language_id' => '2',
-            'name' => 'Miscellaneous'
-        ]);
-
         /* Creating Admin Users */
-        echo "m190216_190851_db_scheme: Creating Admin User.\n";
         $this->insert('user', [
             'language_id' => '1',
             'gender_id' => '3',
@@ -176,8 +107,6 @@ class m190216_190851_db_scheme extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('gender_i18n');
-        $this->dropTable('language_i18n');
         $this->dropTable('user');
         $this->dropTable('language');
         $this->dropTable('gender');
