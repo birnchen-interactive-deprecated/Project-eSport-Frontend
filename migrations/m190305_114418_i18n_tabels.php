@@ -176,8 +176,6 @@ class m190305_114418_i18n_tabels extends Migration
             'name' => '3v3',
             'description' => '3v3 Team versus Team'
         ]);
-
-
     }
 
     /**

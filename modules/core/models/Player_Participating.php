@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property int $tournament_id
  * @property string $user_id
  * @property bool $cheked_in
+ * @property bool $disqualified
  */
 class Player_Participating extends ActiveRecord
 {
@@ -42,5 +43,13 @@ class Player_Participating extends ActiveRecord
     public function getCheckedIn()
     {
         return $this->cheked_in;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDisqualified()
+    {
+        return $this->disqualified;
     }
 }

@@ -144,6 +144,7 @@ class m190228_074605_tournaments extends Migration
               `team_id` INT NOT NULL,
               `owner_id` INT NOT NULL,
               `name` VARCHAR(255) NOT NULL,
+              `short_code` VARCHAR(32) NOT NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`team_id`),
               INDEX `FK_main_team_owner_id_idx` (`owner_id` ASC),
@@ -216,11 +217,11 @@ class m190228_074605_tournaments extends Migration
               `sub_team_id` INT NOT NULL,
               `user_id` INT NOT NULL,
               `is_sub` TINYINT NULL,
-              PRIMARY KEY (`user_id`),
+              PRIMARY KEY (`user_id`, `sub_team_id`),
               INDEX `FK_sub_team_member_user_id_idx` (`user_id` ASC),
               CONSTRAINT `FK_sub_team_member_sub_team_id`
                 FOREIGN KEY (`sub_team_id`)
-                REFERENCES `sub_team` (`sub_team_id`)
+                REFERENCES `Project-eSport`.`sub_team` (`sub_team_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_sub_team_member_user_id`
@@ -235,7 +236,7 @@ class m190228_074605_tournaments extends Migration
             CREATE TABLE IF NOT EXISTS `player_participating` (
               `tournament_id` INT NOT NULL,
               `user_id` INT NOT NULL,
-              `cheked_in` TINYINT NULL,
+              `checked_in` TINYINT NULL,
               `disqualified` TINYINT NULL,
               PRIMARY KEY (`tournament_id`, `user_id`),
               INDEX `FK_player_participating_user_id_idx` (`user_id` ASC),

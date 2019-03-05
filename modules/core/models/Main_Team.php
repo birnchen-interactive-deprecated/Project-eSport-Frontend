@@ -18,6 +18,7 @@ use Yii;
  * @property int $team_id
  * @property int $owner_id
  * @property string $name
+ * @property string short_code
  * @property string $description
  */
 class Main_Team extends ActiveRecord
@@ -31,6 +32,7 @@ class Main_Team extends ActiveRecord
             'team_id' => Yii::t('app', 'team id'),
             'owner_id' => Yii::t('app', 'owner id'),
             'name' => Yii::t('app', 'name'),
+            'short_code' => Yii::t('app', 'Tag'),
             'description' => Yii::t('app', 'description')
         ];
     }
@@ -57,6 +59,14 @@ class Main_Team extends ActiveRecord
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortCode()
+    {
+        return $this->short_code;
     }
 
     /**

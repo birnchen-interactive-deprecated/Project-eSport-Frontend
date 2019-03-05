@@ -22,6 +22,7 @@ use Yii;
  * @property int $team_captain_id
  * @property string $name
  * @property string $description
+ * @property bool $disqualified
  */
 class Sub_Teams extends ActiveRecord
 {
@@ -95,5 +96,13 @@ class Sub_Teams extends ActiveRecord
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDisqualified()
+    {
+        return $this->disqualified;
     }
 }

@@ -16,8 +16,6 @@ use yii\db\ActiveRecord;
  *
  * @property int $sub_team_id
  * @property int $user_id
- * @property int $game_id
- * @property int $tournament_mode_id
  * @property bool $s_sub
  */
 class Sub_Team_Member extends ActiveRecord
@@ -36,22 +34,6 @@ class Sub_Team_Member extends ActiveRecord
     public function getUserId()
     {
         return $this->user_id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getGameId()
-    {
-        return $this->game_id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTournamentModeId()
-    {
-        return $this->tournament_mode_id;
     }
 
     /**

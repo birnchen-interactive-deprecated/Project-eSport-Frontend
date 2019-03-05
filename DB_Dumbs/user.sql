@@ -155,6 +155,7 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, 
 --
 -- Constraints der Tabelle `user`
 --
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
