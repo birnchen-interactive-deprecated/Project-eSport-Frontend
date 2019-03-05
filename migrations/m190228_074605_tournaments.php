@@ -393,9 +393,11 @@ class m190228_074605_tournaments extends Migration
               `replay_team_2` VARCHAR(255) NULL,
               `accepted` TINYINT NULL,
               `winner_team_id` INT NULL,
+              `winner_player_id` INT NULL,
               PRIMARY KEY (`encounter_points_id`, `encounter_id`, `game_round`),
               INDEX `FK_tournament_encounter_points_encounter_id_idx` (`encounter_id` ASC),
               INDEX `FK_tournament_encounter_points_winner_team_id_idx` (`winner_team_id` ASC),
+              INDEX `FK_tournament_encounter_points_winner_player_id_idx` (`winner_player_id` ASC),
               CONSTRAINT `FK_tournament_encounter_points_encounter_id`
                 FOREIGN KEY (`encounter_id`)
                 REFERENCES `tournament_encounter` (`encounter_id`)
@@ -406,8 +408,8 @@ class m190228_074605_tournaments extends Migration
                 REFERENCES `team_participating` (`sub_team_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
-              CONSTRAINT `FK_tournament_encounter_points_winner_team_id`
-                FOREIGN KEY (`winner_team_id`)
+              CONSTRAINT `FK_tournament_encounter_points_winner_player_id`
+                FOREIGN KEY (`winner_player_id`)
                 REFERENCES `player_participating` (`user_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
