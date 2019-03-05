@@ -141,14 +141,14 @@ class m190305_114418_i18n_tabels extends Migration
         ]);
 
         /* Bracket Mode i18n */
-        $this->insert('bracket_mode',  [
+        $this->insert('bracket_mode_i18n',  [
             'bracket_mode_id' => '1',
             'language_id' => '2',
             'name' => 'Single Elimination',
             'description' => 'Normal Single Elimination'
         ]);
 
-        $this->insert('bracket_mode',  [
+        $this->insert('bracket_mode_i18n',  [
             'bracket_mode_id' => '1',
             'language_id' => '2',
             'name' => 'Double Elimination',
