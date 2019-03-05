@@ -91,7 +91,7 @@ class m190228_074605_tournaments extends Migration
             CREATE TABLE IF NOT EXISTS `bracket_mode` (
               `bracket_mode_id` INT NOT NULL,
             `name` VARCHAR(45) NULL,
-              `description` VARCHAR(45) NULL,
+              `description` VARCHAR(255) NULL,
               PRIMARY KEY (`bracket_mode_id`))
             ENGINE = InnoDB");
 
@@ -133,7 +133,7 @@ class m190228_074605_tournaments extends Migration
               `subrule_id` INT NOT NULL,
               `name` VARCHAR(45) NULL,
               `description` VARCHAR(255) NULL,
-              PRIMARY KEY (`rules_id`, `subrule_id`),
+              PRIMARY KEY (`subrule_id`),
               CONSTRAINT `FK_tournament_subrules_id`
                 FOREIGN KEY (`rules_id`)
                 REFERENCES `tournament_rules` (`rules_id`)
@@ -149,7 +149,7 @@ class m190228_074605_tournaments extends Migration
               `name` VARCHAR(45) NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`subrule_id`, `language_id`),
-              CONSTRAINT `FK_tournament_subrules_i18n_subrule_id`
+              CONSTRAINT `FK_tournament_subrules_i18n_id`
                 FOREIGN KEY (`subrule_id`)
                 REFERENCES `tournament_subrules` (`subrule_id`)
                 ON DELETE CASCADE
