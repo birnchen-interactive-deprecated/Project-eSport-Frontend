@@ -145,7 +145,7 @@ class m190228_074605_tournaments extends Migration
         $this->execute("
             CREATE TABLE IF NOT EXISTS `tournament_subrules_i18n` (
               `subrule_id` INT NOT NULL,
-              `language_id` VARCHAR(45) NOT NULL,
+              `language_id` INT NOT NULL,
               `name` VARCHAR(45) NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`subrule_id`, `language_id`),
