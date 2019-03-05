@@ -339,15 +339,19 @@ class m190228_074605_tournaments extends Migration
               `encounter_id` INT NOT NULL,
               `tournament_id` INT NOT NULL,
               `winner_looser` TINYINT(1) NULL,
+              `completed` TINYINT NULL,
               `matches_to_play` INT NOT NULL,
               `tournament_round` INT NOT NULL,
               `team_1_id` INT NULL,
               `team_2_id` INT NULL,
-              `completed` TINYINT NULL,
+              `player_1_id` INT NULL,
+              `player_2_id` INT NULL,
               PRIMARY KEY (`encounter_id`),
               INDEX `FK_tournament_encounte_tournamentr_id_idx` (`tournament_id` ASC),
               INDEX `FK_tournament_encounter_team_1_id_idx` (`team_1_id` ASC),
               INDEX `FK_tournament_encounter_team_2_id_idx` (`team_2_id` ASC),
+              INDEX `FK_tournament_encounter_player_1_id_idx` (`player_1_id` ASC),
+              INDEX `FK_tournament_encounter_player_2_id_idx` (`player_2_id` ASC),
               CONSTRAINT `FK_tournament_encounte_tournamentr_id`
                 FOREIGN KEY (`tournament_id`)
                 REFERENCES `tournaments` (`tournament_id`)
@@ -363,13 +367,13 @@ class m190228_074605_tournaments extends Migration
                 REFERENCES `team_participating` (`sub_team_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
-              CONSTRAINT `FK_tournament_encounter_team_1_id`
-                FOREIGN KEY (`team_1_id`)
+              CONSTRAINT `FK_tournament_encounter_player_1_id`
+                FOREIGN KEY (`player_1_id`)
                 REFERENCES `player_participating` (`user_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
-              CONSTRAINT `FK_tournament_encounter_team_2_id`
-                FOREIGN KEY (`team_2_id`)
+              CONSTRAINT `FK_tournament_encounter_player_2_id`
+                FOREIGN KEY (`player_2_id`)
                 REFERENCES `player_participating` (`user_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
