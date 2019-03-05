@@ -117,7 +117,7 @@ class m190228_074605_tournaments extends Migration
               `game_id` INT NULL,
               `name` VARCHAR(45) NULL,
               PRIMARY KEY (`rules_id`),
-              UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
+              UNIQUE INDEX `name_UNIQUE` (`name` ASC),
               INDEX `FK_tournament_rules_game_id_idx` (`game_id` ASC),
               CONSTRAINT `FK_tournament_rules_game_id`
                 FOREIGN KEY (`game_id`)
