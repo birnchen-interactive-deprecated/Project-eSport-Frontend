@@ -141,13 +141,15 @@ class m190228_074605_tournaments extends Migration
         //main_team
         $this->execute("
             CREATE TABLE IF NOT EXISTS `main_team` (
-              `team_id` INT NOT NULL,
+              `team_id` INT NOT NULL AUTO_INCREMENT,
               `owner_id` INT NOT NULL,
               `name` VARCHAR(255) NOT NULL,
-              `short_code` VARCHAR(32) NOT NULL,
+              `short_code` VARCHAR(32) NULL,
               `description` VARCHAR(255) NULL,
-              PRIMARY KEY (`team_id`),
+              PRIMARY KEY (`team_id`, `owner_id`),
               INDEX `FK_main_team_owner_id_idx` (`owner_id` ASC),
+              UNIQUE INDEX `owner_id_UNIQUE` (`owner_id` ASC),
+              UNIQUE INDEX `team_id_UNIQUE` (`team_id` ASC),
               CONSTRAINT `FK_main_team_owner_id`
                 FOREIGN KEY (`owner_id`)
                 REFERENCES `user` (`user_id`)
@@ -177,18 +179,20 @@ class m190228_074605_tournaments extends Migration
         //sub_team
         $this->execute("
             CREATE TABLE IF NOT EXISTS `sub_team` (
-              `sub_team_id` INT NOT NULL,
+              `sub_team_id` INT NOT NULL AUTO_INCREMENT,
               `main_team_id` INT NOT NULL,
               `game_id` INT NOT NULL,
               `tournament_mode_id` INT NOT NULL,
               `team_captain_id` INT NOT NULL,
               `name` VARCHAR(255) NULL,
               `description` VARCHAR(255) NULL,
+              `disqualified` TINYINT NULL,
               PRIMARY KEY (`sub_team_id`, `main_team_id`, `game_id`, `tournament_mode_id`),
-              INDEX `FK_sub_team_main_team_id_idx` (`main_team_id` ASC),
-              INDEX `FK_sub_team_game_id_idx` (`game_id` ASC),
+              INDEX `FK_sub_team_main_team_id_idx` (`main_team_id` ASC) VISIBLE,
+              INDEX `FK_sub_team_game_id_idx` (`game_id` ASC) VISIBLE,
               INDEX `FK_sub_team_tournament_mode_id_idx` (`tournament_mode_id` ASC),
               INDEX `FK_sub_team_team_captain_is_idx` (`team_captain_id` ASC),
+              UNIQUE INDEX `sub_team_id_UNIQUE` (`sub_team_id` ASC),
               CONSTRAINT `FK_sub_team_main_team_id`
                 FOREIGN KEY (`main_team_id`)
                 REFERENCES `main_team` (`team_id`)
