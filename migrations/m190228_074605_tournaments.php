@@ -344,7 +344,7 @@ class m190228_074605_tournaments extends Migration
               `team_1_id` INT NULL,
               `team_2_id` INT NULL,
               `completed` TINYINT NULL,
-              PRIMARY KEY (`encounter_id`, `tournament_id`),
+              PRIMARY KEY (`encounter_id`),
               INDEX `FK_tournament_encounte_tournamentr_id_idx` (`tournament_id` ASC),
               INDEX `FK_tournament_encounter_team_1_id_idx` (`team_1_id` ASC),
               INDEX `FK_tournament_encounter_team_2_id_idx` (`team_2_id` ASC),
