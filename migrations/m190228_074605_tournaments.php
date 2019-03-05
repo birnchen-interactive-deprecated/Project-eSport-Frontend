@@ -426,7 +426,7 @@ class m190228_074605_tournaments extends Migration
               `saves` INT NULL,
               `shots` INT NULL,
               PRIMARY KEY (`user_id`, `tournament_encounter_points_id`),
-              INDEX `FK_user_stats_tournament_encounter_points_id_idx` (`tournament_encounter_points_id` ASC,
+              INDEX `FK_user_stats_tournament_encounter_points_id_idx` (`tournament_encounter_points_id` ASC),
               CONSTRAINT `FK_user_stats_user_id`
                 FOREIGN KEY (`user_id`)
                 REFERENCES `user` (`user_id`)
