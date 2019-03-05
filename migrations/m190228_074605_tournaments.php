@@ -105,7 +105,7 @@ class m190228_074605_tournaments extends Migration
               PRIMARY KEY (`bracket_mode_id`, `language_id`),
               CONSTRAINT `FK_bracket_mode_i18n_id`
                 FOREIGN KEY (`bracket_mode_id`)
-                REFERENCES //`bracket_mode` (`bracket_mode_id`)
+                REFERENCES `bracket_mode` (`bracket_mode_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
