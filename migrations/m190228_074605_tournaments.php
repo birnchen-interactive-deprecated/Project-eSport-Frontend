@@ -350,27 +350,27 @@ class m190228_074605_tournaments extends Migration
               INDEX `FK_tournament_encounter_team_2_id_idx` (`team_2_id` ASC),
               CONSTRAINT `FK_tournament_encounte_tournamentr_id`
                 FOREIGN KEY (`tournament_id`)
-                REFERENCES `Project-eSport`.`tournaments` (`tournament_id`)
+                REFERENCES `tournaments` (`tournament_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_tournament_encounter_team_1_id`
                 FOREIGN KEY (`team_1_id`)
-                REFERENCES `Project-eSport`.`team_participating` (`sub_team_id`)
+                REFERENCES `team_participating` (`sub_team_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_tournament_encounter_team_2_id`
                 FOREIGN KEY (`team_2_id`)
-                REFERENCES `Project-eSport`.`team_participating` (`sub_team_id`)
+                REFERENCES `team_participating` (`sub_team_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_tournament_encounter_team_1_id`
                 FOREIGN KEY (`team_1_id`)
-                REFERENCES `Project-eSport`.`player_participating` (`user_id`)
+                REFERENCES `player_participating` (`user_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_tournament_encounter_team_2_id`
                 FOREIGN KEY (`team_2_id`)
-                REFERENCES `Project-eSport`.`player_participating` (`user_id`)
+                REFERENCES `player_participating` (`user_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
