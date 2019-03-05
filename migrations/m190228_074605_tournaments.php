@@ -109,7 +109,7 @@ class m190228_074605_tournaments extends Migration
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
-
+//
         //tournament_rules
         $this->execute("
             CREATE TABLE IF NOT EXISTS `tournament_rules` (
@@ -124,7 +124,7 @@ class m190228_074605_tournaments extends Migration
                 REFERENCES `games` (`games_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
-ENGINE = InnoDB");
+            ENGINE = InnoDB");
 
         //tournament_subrules
         $this->execute("
@@ -142,19 +142,19 @@ ENGINE = InnoDB");
             ENGINE = InnoDB");
 
         //tournament_subrules_i18n
-        $this->execute("
-            CREATE TABLE IF NOT EXISTS `tournament_subrules_i18n` (
-              `subrule_id` INT NOT NULL,
-              `language_id` VARCHAR(45) NOT NULL,
-              `name` VARCHAR(45) NULL,
-              `description` VARCHAR(255) NULL,
-              PRIMARY KEY (`subrule_id`, `language_id`),
-              CONSTRAINT `FK_tournament_subrules_i18n_subrule_id`
-                FOREIGN KEY (`subrule_id`)
-                REFERENCES `tournament_subrules` (`subrule_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE)
-            ENGINE = InnoDB");
+        //$this->execute("
+        //    CREATE TABLE IF NOT EXISTS `tournament_subrules_i18n` (
+        //      `subrule_id` INT NOT NULL,
+        //      `language_id` VARCHAR(45) NOT NULL,
+        //      `name` VARCHAR(45) NULL,
+        //      `description` VARCHAR(255) NULL,
+        //      PRIMARY KEY (`subrule_id`, `language_id`),
+        //      CONSTRAINT `FK_tournament_subrules_i18n_subrule_id`
+        //        FOREIGN KEY (`subrule_id`)
+        //        REFERENCES `tournament_subrules` (`subrule_id`)
+        //        ON DELETE CASCADE
+        //        ON UPDATE CASCADE)
+        //    ENGINE = InnoDB");
 
         //tournaments
         $this->execute("
@@ -505,7 +505,7 @@ ENGINE = InnoDB");
         $this->dropTable('team_member');
         $this->dropTable('main_team');
         $this->dropTable('tournaments');
-        $this->dropTable('tournament_subrules_i18n');
+        //$this->dropTable('tournament_subrules_i18n');
         $this->dropTable('tournament_subrules');
         $this->dropTable('tournament_rules');
         $this->dropTable('bracket_mode_i18n');
