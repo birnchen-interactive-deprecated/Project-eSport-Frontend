@@ -216,7 +216,7 @@ class m190228_074605_tournaments extends Migration
 
         //team_member
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `Project-eSport`.`team_member` (
+            CREATE TABLE IF NOT EXISTS `team_member` (
               `team_id` INT NOT NULL,
               `user_id` INT NOT NULL,
               PRIMARY KEY (`team_id`, `user_id`),
@@ -275,31 +275,17 @@ class m190228_074605_tournaments extends Migration
             CREATE TABLE IF NOT EXISTS `sub_team_member` (
               `sub_team_id` INT NOT NULL,
               `user_id` INT NOT NULL,
-              `game_id` INT NOT NULL,
-              `tournament_mode_id` INT NOT NULL,
               `is_sub` TINYINT NULL,
-              PRIMARY KEY (`user_id`, `game_id`, `tournament_mode_id`),
+              PRIMARY KEY (`user_id`),
               INDEX `FK_sub_team_member_user_id_idx` (`user_id` ASC),
-              INDEX `FK_sub_team_member_game_id_idx` (`game_id` ASC),
-              INDEX `FK_sub_team_member_tournament_mode_id_idx` (`tournament_mode_id` ASC),
               CONSTRAINT `FK_sub_team_member_sub_team_id`
                 FOREIGN KEY (`sub_team_id`)
-                REFERENCES .`sub_team` (`sub_team_id`)
+                REFERENCES `sub_team` (`sub_team_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_sub_team_member_user_id`
                 FOREIGN KEY (`user_id`)
                 REFERENCES `user` (`user_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE,
-              CONSTRAINT `FK_sub_team_member_game_id`
-                FOREIGN KEY (`game_id`)
-                REFERENCES `games` (`games_id`)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE,
-              CONSTRAINT `FK_sub_team_member_tournament_mode_id`
-                FOREIGN KEY (`tournament_mode_id`)
-                REFERENCES `tournament_mode` (`mode_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
