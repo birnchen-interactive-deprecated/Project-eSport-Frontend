@@ -244,8 +244,8 @@ class m190228_074605_tournaments extends Migration
               `name` VARCHAR(255) NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`sub_team_id`, `main_team_id`, `game_id`, `tournament_mode_id`),
-              INDEX `FK_sub_team_main_team_id_idx` (`main_team_id` ASC) VISIBLE,
-              INDEX `FK_sub_team_game_id_idx` (`game_id` ASC) VISIBLE,
+              INDEX `FK_sub_team_main_team_id_idx` (`main_team_id` ASC),
+              INDEX `FK_sub_team_game_id_idx` (`game_id` ASC),
               INDEX `FK_sub_team_tournament_mode_id_idx` (`tournament_mode_id` ASC),
               INDEX `FK_sub_team_team_captain_is_idx` (`team_captain_id` ASC),
               CONSTRAINT `FK_sub_team_main_team_id`
