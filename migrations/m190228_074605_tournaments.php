@@ -142,19 +142,19 @@ class m190228_074605_tournaments extends Migration
             ENGINE = InnoDB");
 
         //tournament_subrules_i18n
-        //$this->execute("
-        //    CREATE TABLE IF NOT EXISTS `tournament_subrules_i18n` (
-        //      `subrule_id` INT NOT NULL,
-        //      `language_id` VARCHAR(45) NOT NULL,
-        //      `name` VARCHAR(45) NULL,
-        //      `description` VARCHAR(255) NULL,
-        //      PRIMARY KEY (`subrule_id`, `language_id`),
-        //      CONSTRAINT `FK_tournament_subrules_i18n_subrule_id`
-        //        FOREIGN KEY (`subrule_id`)
-        //        REFERENCES `tournament_subrules` (`subrule_id`)
-        //        ON DELETE CASCADE
-        //        ON UPDATE CASCADE)
-        //    ENGINE = InnoDB");
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `tournament_subrules_i18n` (
+              `subrule_id` INT NOT NULL,
+              `language_id` VARCHAR(45) NOT NULL,
+              `name` VARCHAR(45) NULL,
+              `description` VARCHAR(255) NULL,
+              PRIMARY KEY (`subrule_id`, `language_id`),
+              CONSTRAINT `FK_tournament_subrules_i18n_subrule_id`
+                FOREIGN KEY (`subrule_id`)
+                REFERENCES `tournament_subrules` (`subrule_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB");
 
         //tournaments
         $this->execute("
@@ -497,7 +497,7 @@ class m190228_074605_tournaments extends Migration
         $this->dropTable('team_member');
         $this->dropTable('main_team');
         $this->dropTable('tournaments');
-        //$this->dropTable('tournament_subrules_i18n');
+        $this->dropTable('tournament_subrules_i18n');
         $this->dropTable('tournament_subrules');
         $this->dropTable('tournament_rules');
         $this->dropTable('bracket_mode_i18n');
