@@ -149,7 +149,7 @@ ENGINE = InnoDB");
               `name` VARCHAR(45) NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`subrule_id`, `language_id`),
-              CONSTRAINT `FK_tournament_subrules_i18n_id`
+              CONSTRAINT `FK_tournament_subrules_i18n_subrule_id`
                 FOREIGN KEY (`subrule_id`)
                 REFERENCES `tournament_subrules` (`subrule_id`)
                 ON DELETE CASCADE
