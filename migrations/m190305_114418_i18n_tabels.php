@@ -149,7 +149,7 @@ class m190305_114418_i18n_tabels extends Migration
         ]);
 
         $this->insert('bracket_mode_i18n',  [
-            'bracket_mode_id' => '1',
+            'bracket_mode_id' => '2',
             'language_id' => '2',
             'name' => 'Double Elimination',
             'description' => 'Winner and Looser Bracket'
