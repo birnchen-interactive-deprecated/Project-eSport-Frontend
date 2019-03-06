@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
 
+
 class SiteController extends Controller
 {
     /**
@@ -111,7 +112,7 @@ class SiteController extends Controller
      */
     public function actionAccount()
     {
-        $model = $this->loadModel(Yii::app()->user->id);
+        $model = new UserForm();
 
         if (Yii::$app->user->isGuest) {
             return $this->render('index');
