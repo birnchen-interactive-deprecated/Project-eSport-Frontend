@@ -7,6 +7,8 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+$model->username = Yii::$app->user->identity->username;
+
 $this->title = 'My Account';
 ?>
 <div class="site-account">
