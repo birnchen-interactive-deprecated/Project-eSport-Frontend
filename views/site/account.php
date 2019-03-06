@@ -24,17 +24,4 @@ $this->title = 'My Account';
     <div class="rightPanel fclear">
         <div class="header"> <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?> </div>
     </div>
-
-
-    <?php $form = ActiveForm::begin([
-        'id' => 'account-form',
-        'layout' => 'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-7\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-2 control-label'],
-        ],
-    ]); ?>
-
-    <?= $form->field($model, 'username')->textInput() ?>
-
 </div>
