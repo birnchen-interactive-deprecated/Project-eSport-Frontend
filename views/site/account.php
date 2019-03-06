@@ -7,15 +7,13 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$test = Yii::$app->user->identity->user_id;
-
 $user = array(
-    'user_id' => $test,
-    'user_avatar' => $test.'.jpg',
+    'user_id' => $userId,
+    'user_avatar' => $userId.'.jpg',
     'nationality_id' => '1',
 );
 
-$playerImage = 'images/nationality/'.$user['user_avatar'];
+$playerImage = 'images/userAvatar/'.$user['user_avatar'];
 $playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
 
 $this->title = 'My Account';
