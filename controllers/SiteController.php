@@ -114,6 +114,7 @@ class SiteController extends Controller
     public function actionAccount()
     {
         $model = new UserForm();
+        $userId = Yii::app()->user->getId();
 
         if (Yii::$app->user->isGuest) {
             return $this->render('index');
@@ -132,6 +133,7 @@ class SiteController extends Controller
         return $this->render('account',
             [
                 "model" => $model,
+                'userId' = $userId,
                 'genderList' => $genderList,
                 'languageList' => $languageList
             ]);

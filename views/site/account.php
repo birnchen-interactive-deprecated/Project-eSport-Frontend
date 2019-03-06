@@ -8,8 +8,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $user = array(
-    'user_id' => Yii::app()->user->getId(),
-    'user_avatar' => Yii::app()->user->getId().'jpg',
+    'user_id' => $userId,
+    'user_avatar' => $userId.'jpg',
     'nationality_id' => '1',
 );
 
