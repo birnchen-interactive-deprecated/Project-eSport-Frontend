@@ -11,7 +11,7 @@ $user = array(
     'nationality_id' => '1.png',
 );
 
-$playerNationality = 'images/nationality/'.$user['logo'];
+$playerNationality = 'images/nationality/'.$user['nationality_id'];
 
 $this->title = 'My Account';
 ?>
