@@ -6,6 +6,7 @@ use app\models\LoginForm;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
 use app\modules\core\models\Main_Team;
+use app\modules\core\models\User;
 use app\modules\core\models\UserForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -114,7 +115,7 @@ class SiteController extends Controller
     public function actionAccount()
     {
         $model = new UserForm();
-        $userId = Yii::app()->user->getId();
+        $userId = Yii::$app->user->identity->getId();
 
         if (Yii::$app->user->isGuest) {
             return $this->render('index');
@@ -189,11 +190,11 @@ class SiteController extends Controller
      */
     public function actionRegister()
     {
-        $model = new UserForm();
+        $model = User::findByUsername(Yii::$app->user->identity->username);
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
-            $this->goHome();
-        }
+        //if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
+        //    $this->goHome();
+        //}
 
         $genderList = [];
         foreach (Gender::find()->all() as $gender) {
