@@ -6,7 +6,6 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-$user = Yii::app()->user;
 
 $this->title = 'My Account';
 ?>
@@ -21,6 +20,6 @@ $this->title = 'My Account';
         ],
     ]); ?>
 
-    <?= $form->field($model, $use->username)->textInput() ?>
+    <?= $form->field($model, 'username')->textInput() ?>
 
 </div>
