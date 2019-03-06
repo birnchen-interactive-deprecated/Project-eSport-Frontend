@@ -189,22 +189,5 @@ class m190305_114418_i18n_tabels extends Migration
         $this->dropTable('games_i18n');
         $this->dropTable('language_i18n');
         $this->dropTable('gender_i18n');
-
-        return false;
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m190305_114418_i18n_tabels cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

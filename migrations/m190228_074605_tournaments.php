@@ -138,21 +138,36 @@ class m190228_074605_tournaments extends Migration
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
 
+        //nationality
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `nationality` (
+              `nationality_id` INT NOT NULL,
+              `name` VARCHAR(255) NULL,
+              PRIMARY KEY (`nationality_id`))
+            ENGINE = InnoDB");
+
         //main_team
         $this->execute("
             CREATE TABLE IF NOT EXISTS `main_team` (
               `team_id` INT NOT NULL AUTO_INCREMENT,
               `owner_id` INT NOT NULL,
+              `headquarter_id` INT NULL,
               `name` VARCHAR(255) NOT NULL,
               `short_code` VARCHAR(32) NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`team_id`, `owner_id`),
-              INDEX `FK_main_team_owner_id_idx` (`owner_id` ASC),
+              INDEX `FK_main_team_owner_id_idx` (`owner_id` ASC) ,
               UNIQUE INDEX `owner_id_UNIQUE` (`owner_id` ASC),
               UNIQUE INDEX `team_id_UNIQUE` (`team_id` ASC),
+              INDEX `FK_main_team_headquarter_id_idx` (`headquarter_id` ASC),
               CONSTRAINT `FK_main_team_owner_id`
                 FOREIGN KEY (`owner_id`)
                 REFERENCES `user` (`user_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_main_team_headquarter_id`
+                FOREIGN KEY (`headquarter_id`)
+                REFERENCES `nationality` (`nationality_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
@@ -178,42 +193,50 @@ class m190228_074605_tournaments extends Migration
 
         //sub_team
         $this->execute("
-              CREATE TABLE IF NOT EXISTS `sub_team` (
-                `sub_team_id` INT NOT NULL AUTO_INCREMENT,
-                `main_team_id` INT NOT NULL,
-                `game_id` INT NOT NULL,
-                `tournament_mode_id` INT NOT NULL,
-                `team_captain_id` INT NOT NULL,
-                `name` VARCHAR(255) NOT NULL,
-                `description` VARCHAR(255) NULL,
-                `disqualified` TINYINT NULL,
-                PRIMARY KEY (`sub_team_id`, `main_team_id`, `game_id`, `team_captain_id`),
-                INDEX `FK_sub_team_main_team_id_idx` (`main_team_id` ASC),
-                INDEX `FK_sub_team_game_id_idx` (`game_id` ASC),
-                INDEX `FK_sub_team_tournament_mode_id_idx` (`tournament_mode_id` ASC),
-                INDEX `FK_sub_team_team_captain_is_idx` (`team_captain_id` ASC),
-                UNIQUE INDEX `sub_team_id_UNIQUE` (`sub_team_id` ASC),
-                CONSTRAINT `FK_sub_team_main_team_id`
-                  FOREIGN KEY (`main_team_id`)
-                  REFERENCES `main_team` (`team_id`)
-                  ON DELETE CASCADE
-                  ON UPDATE CASCADE,
-                CONSTRAINT `FK_sub_team_game_id`
-                  FOREIGN KEY (`game_id`)
-                  REFERENCES `games` (`games_id`)
-                  ON DELETE CASCADE
-                  ON UPDATE CASCADE,
-                CONSTRAINT `FK_sub_team_tournament_mode_id`
-                  FOREIGN KEY (`tournament_mode_id`)
-                  REFERENCES `tournament_mode` (`mode_id`)
-                  ON DELETE CASCADE
-                  ON UPDATE CASCADE,
-                CONSTRAINT `FK_sub_team_team_captain_is`
-                  FOREIGN KEY (`team_captain_id`)
-                  REFERENCES `user` (`user_id`)
-                  ON DELETE CASCADE
-                  ON UPDATE CASCADE)
-              ENGINE = InnoDB");
+            CREATE TABLE IF NOT EXISTS `sub_team` (
+              `sub_team_id` INT NOT NULL AUTO_INCREMENT,
+              `main_team_id` INT NOT NULL,
+              `game_id` INT NOT NULL,
+              `tournament_mode_id` INT NOT NULL,
+              `team_captain_id` INT NOT NULL,
+              `headquarter_id` INT NULL,
+              `name` VARCHAR(255) NOT NULL,
+              `short_code` VARCHAR(32) NULL,
+              `description` VARCHAR(255) NULL,
+              `disqualified` TINYINT NULL,
+              PRIMARY KEY (`sub_team_id`, `main_team_id`, `game_id`, `team_captain_id`),
+              INDEX `FK_sub_team_main_team_id_idx` (`main_team_id` ASC),
+              INDEX `FK_sub_team_game_id_idx` (`game_id` ASC),
+              INDEX `FK_sub_team_tournament_mode_id_idx` (`tournament_mode_id` ASC),
+              INDEX `FK_sub_team_team_captain_is_idx` (`team_captain_id` ASC),
+              UNIQUE INDEX `sub_team_id_UNIQUE` (`sub_team_id` ASC),
+              INDEX `FK_sub_team_headwquarter_id_idx` (`headquarter_id` ASC),
+              CONSTRAINT `FK_sub_team_main_team_id`
+                FOREIGN KEY (`main_team_id`)
+                REFERENCES `main_team` (`team_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_sub_team_game_id`
+                FOREIGN KEY (`game_id`)
+                REFERENCES `games` (`games_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_sub_team_tournament_mode_id`
+                FOREIGN KEY (`tournament_mode_id`)
+                REFERENCES `tournament_mode` (`mode_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_sub_team_team_captain_is`
+                FOREIGN KEY (`team_captain_id`)
+                REFERENCES `user` (`user_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_sub_team_headwquarter_id`
+                FOREIGN KEY (`headquarter_id`)
+                REFERENCES `nationality` (`nationality_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE)
+            ENGINE = InnoDB");
 
         //sub_team_member
         $this->execute("
@@ -445,44 +468,180 @@ class m190228_074605_tournaments extends Migration
             'name' => 'Rocket Legaue 3v3 Ruleset'
         ]);
 
-        /* Tournaments */
-        $this->insert('tournaments',  [
-            'tournament_id' => '1',
-            'game_id' => '1',
-            'mode_id' => '1',
-            'rules_id' => '1',
-            'bracket_id' => '2',
-            'tournament_name' => 'GERTA Cup 1v1 Day 1',
-            'tournament_description' => 'Erster Spieltag im 1v1',
-            'dt_starting_time' => '2019-03-01 18:30:00',
-            'dt_checkin_begin' => '2019-03-01 18:00:00',
-            'dt_checkin_ends' => '2019-03-01 18:15:00',
+        /* Base Nationality */
+        $this->insert('nationality_id',  [
+            'nationality_id' => '1',
+            'name' => 'Deutschland'
         ]);
 
-        $this->insert('tournaments',  [
-            'tournament_id' => '2',
-            'game_id' => '1',
-            'mode_id' => '2',
-            'rules_id' => '2',
-            'bracket_id' => '2',
-            'tournament_name' => 'GERTA Cup 2v2 Day 1',
-            'tournament_description' => 'Erster Spieltag im 2v2',
-            'dt_starting_time' => '2019-03-02 18:00:00',
-            'dt_checkin_begin' => '2019-03-02 17:30:00',
-            'dt_checkin_ends' => '2019-03-02 17:45:00',
+        $this->insert('nationality_id',  [
+            'nationality_id' => '2',
+            'name' => 'Österreich'
         ]);
 
-        $this->insert('tournaments',  [
-            'tournament_id' => '3',
-            'game_id' => '1',
-            'mode_id' => '3',
-            'rules_id' => '3',
-            'bracket_id' => '2',
-            'tournament_name' => 'GERTA Cup 2v2 Day 1',
-            'tournament_description' => 'Erster Spieltag im 2v2',
-            'dt_starting_time' => '2019-03-03 17:30:00',
-            'dt_checkin_begin' => '2019-03-03 17:00:00',
-            'dt_checkin_ends' => '2019-03-03 17:15:00',
+        $this->insert('nationality_id',  [
+            'nationality_id' => '3',
+            'name' => 'Schweiz'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '4',
+            'name' => 'Frankreich'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '5',
+            'name' => 'Gross Britannien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '6',
+            'name' => 'Irland'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '7',
+            'name' => 'Belgien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '8',
+            'name' => 'Italien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '9',
+            'name' => 'Spanien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '10',
+            'name' => 'Portugal'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '11',
+            'name' => 'Island'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '12',
+            'name' => 'Norwegen'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '13',
+            'name' => 'Schweden'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '14',
+            'name' => 'Finnland'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '15',
+            'name' => 'Däemark'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '16',
+            'name' => 'Estland'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '17',
+            'name' => 'Lettland'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '18',
+            'name' => 'Litauen'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '19',
+            'name' => 'Polen'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '20',
+            'name' => 'Belarus'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '21',
+            'name' => 'Niederlande'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '22',
+            'name' => 'Ukraine'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '23',
+            'name' => 'Tschechische Republik'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '24',
+            'name' => 'Slowakische Republik'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '25',
+            'name' => 'Ungarn'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '26',
+            'name' => 'Rumänien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '27',
+            'name' => 'Bulgarien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '28',
+            'name' => 'Kroatien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '29',
+            'name' => 'Bosnien und Herzegowina'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '30',
+            'name' => 'Serbien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '31',
+            'name' => 'Albanien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '32',
+            'name' => 'Griechenland'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '33',
+            'name' => 'Moldau'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '34',
+            'name' => 'Georgien'
+        ]);
+
+        $this->insert('nationality_id',  [
+            'nationality_id' => '35',
+            'name' => 'Monaco'
         ]);
     }
 
@@ -507,24 +666,5 @@ class m190228_074605_tournaments extends Migration
         $this->dropTable('tournament_mode');
         $this->dropTable('user_games');
         $this->dropTable('games');
-
-        //echo "m190228_074605_tournaments cannot be reverted.\n";
-
-        return false;
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m190228_074605_tournaments cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }
