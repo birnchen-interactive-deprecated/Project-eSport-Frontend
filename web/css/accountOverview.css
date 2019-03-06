@@ -22,18 +22,30 @@
 
 .site-account .rightPanel .header {
     float: left;
+    width: 100%;
+    height: 100%;
 }
 
 .site-account .rightPanel .header .nationality-logo {
     float: left;
+    height: 20px;
 }
 
 .site-account .rightPanel .header .username {
     float: left;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    margin-left: 1%;
 }
 
 .site-account .rightPanel .header .userid {
     float: left;
+    height: 20px;
+    font-size: 12px;
+    padding-top: 5px;
+    margin-left: 1%;
+    color: #9d9d9d;
 }
 
 /* helpers */
