@@ -59,17 +59,18 @@ switch ($_REQUEST['r']) {
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
-                   ['label' => 'My Account', 'url' => ['/site/account']],
-                   ['label' => 'My Teams', 'url' => ['/site/news']],
-                   ['label' => 'My Tournaments', 'url' => ['/site/news']],
+                    ['label' => 'My Account', 'url' => ['/site/account']],
+                    ['label' => 'My Teams', 'url' => ['/site/news']],
+                    ['label' => 'My Tournaments', 'url' => ['/site/news']],
+                    ['label' => 'Logout', 'url' => ['/site/logout']],
                     '<li>'
-                   . Html::beginForm(['/site/logout'], 'post')
-                   . Html::submitButton(
-                       'Logout',
-                       ['class' => 'btn btn-link logout']
-                   )
-                   . Html::endForm()
-                   . '</li>'
+                    . Html::beginForm(['/site/logout'], 'post')
+                    . Html::submitButton(
+                        'Logout',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
                ]]
             )
         ],
