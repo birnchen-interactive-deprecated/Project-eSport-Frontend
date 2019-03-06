@@ -129,11 +129,6 @@ class SiteController extends Controller
             $languageList[$language->getLanguageId()] = $language->getName();
         }
 
-        $teamsList = [];
-        foreach(Main_Team::find()->all as $teams) {
-            $teamsList[$teams->getId()] = $teams->getName();
-        }
-
         return $this->render('account',
             [
                 "model" => $model,
