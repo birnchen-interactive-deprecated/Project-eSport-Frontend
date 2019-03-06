@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use app\models\AccountForm;
-use app\models\ContactForm;
 use app\models\LoginForm;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
@@ -102,24 +100,43 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
     /**
-     * Displays Account.
+     * Display User Account INformations
      *
      * @return string
+     * @throws \Throwable
+     * @throws \yii\base\Exception
+     * @throws \yii\db\StaleObjectException
      */
     public function actionAccount()
     {
+        $model = new UserForm();
+
         if (Yii::$app->user->isGuest) {
             return $this->render('index');
             //return $this->goHome();
         }
 
-        $model = new AccountForm();
-        $model->username = Yii::$app->user->identity->username;
-        
-        return $this->render('account', [
-            'model' => $model,
-        ]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
+            $this->goHome();
+        }
+
+        $genderList = [];
+        foreach (Gender::find()->all() as $gender) {
+            $genderList[$gender->getGenderId()] = $gender->getName();
+        }
+        $languageList = [];
+        foreach (Language::find()->all() as $language) {
+            $languageList[$language->getLanguageId()] = $language->getName();
+        }
+
+        return $this->render('account',
+            [
+                "model" => $model,
+                'genderList' => $genderList,
+                'languageList' => $languageList
+            ]);
     }
 
     /**
