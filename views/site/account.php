@@ -7,9 +7,24 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+$user = array(
+    'nationality_id' => '1.png',
+);
+
+$playerNationality = 'images/nationality/'.$user['logo'];
+
 $this->title = 'My Account';
 ?>
 <div class="site-account">
+
+    <div class="leftPanel fclear">
+
+    </div>
+
+    <div class="rightPanel fclear">
+        <div class="header"> <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?> </div>
+    </div>
+
 
     <?php $form = ActiveForm::begin([
         'id' => 'account-form',

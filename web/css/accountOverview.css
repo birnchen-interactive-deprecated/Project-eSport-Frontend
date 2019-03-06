@@ -1,0 +1,36 @@
+.site-account {
+
+}
+
+.site-account .leftPanel {
+
+}
+
+.site-account .leftPanel .nationality-logo {
+
+}
+
+.site-account .rightPanel {
+
+}
+
+/* helpers */
+.fclear:after {
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
