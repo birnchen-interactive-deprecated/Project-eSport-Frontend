@@ -55,7 +55,7 @@ switch ($_REQUEST['r']) {
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'visible' => $visible, 'url' => ['/site/index']],
-            Yii::$app->user-isGues ? (
+            Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
