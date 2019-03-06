@@ -55,6 +55,11 @@ switch ($_REQUEST['r']) {
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
                 ['label' => 'Welcome', 'visible' => $visible, 'url' => ['/site/index']],
+                ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
+                    ['label' => 'My Account', 'url' => ['/site/account']],
+                    ['label' => 'My Teams', 'url' => ['/site/news']],
+                    ['label' => 'My Tournaments', 'url' => ['/site/news']],
+                ]],
                 ['label' => 'Cups', 'visible' => $visible, 'items' => [
                     ['label' => '1v1 Cup', 'url' => ['/site/news']],
                     ['label' => '2v2 Cup', 'url' => ['/site/account']],

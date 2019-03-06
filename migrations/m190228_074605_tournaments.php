@@ -659,6 +659,7 @@ class m190228_074605_tournaments extends Migration
         $this->dropTable('sub_team');
         $this->dropTable('team_member');
         $this->dropTable('main_team');
+        $this->dropTable('nationality');
         $this->dropTable('tournaments');
         $this->dropTable('tournament_subrules');
         $this->dropTable('tournament_rules');
