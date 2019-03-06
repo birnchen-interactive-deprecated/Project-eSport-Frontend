@@ -4,21 +4,31 @@
 
 .site-account .leftPanel {
     float: left;
+    width: 20%;
+    height: 100%;
 }
 
 .site-account .leftPanel .avatar-logo {
-
+    float: left;
+    width: 100%;
 }
 
-.site-account .leftPanel .avatar-logo > img {
+.site-account .leftPanel .avatar-logo img {
 
 }
 
 .site-account .rightPanel {
     float: left;
+    width: 78%;
+    height: 100%;
+    margin-left: 2%;
 }
 
 .site-account .rightPanel .nationality-logo {
+
+}
+
+.site-account .leftPanel .nationality-logo img {
 
 }
 
