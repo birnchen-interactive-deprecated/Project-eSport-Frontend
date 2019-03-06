@@ -10,8 +10,8 @@ use yii\bootstrap\ActiveForm;
 $test = Yii::$app->user->identity->user_id;
 
 $user = array(
-    'user_id' => $userId,
-    'user_avatar' => $userId.'jpg',
+    'user_id' => $test,
+    'user_avatar' => $test.'.jpg',
     'nationality_id' => '1',
 );
 
