@@ -469,177 +469,177 @@ class m190228_074605_tournaments extends Migration
         ]);
 
         /* Base Nationality */
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '1',
             'name' => 'Deutschland'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '2',
             'name' => 'Österreich'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '3',
             'name' => 'Schweiz'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '4',
             'name' => 'Frankreich'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '5',
             'name' => 'Gross Britannien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '6',
             'name' => 'Irland'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '7',
             'name' => 'Belgien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '8',
             'name' => 'Italien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '9',
             'name' => 'Spanien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '10',
             'name' => 'Portugal'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '11',
             'name' => 'Island'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '12',
             'name' => 'Norwegen'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '13',
             'name' => 'Schweden'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '14',
             'name' => 'Finnland'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '15',
             'name' => 'Däemark'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '16',
             'name' => 'Estland'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '17',
             'name' => 'Lettland'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '18',
             'name' => 'Litauen'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '19',
             'name' => 'Polen'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '20',
             'name' => 'Belarus'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '21',
             'name' => 'Niederlande'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '22',
             'name' => 'Ukraine'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '23',
             'name' => 'Tschechische Republik'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '24',
             'name' => 'Slowakische Republik'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '25',
             'name' => 'Ungarn'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '26',
             'name' => 'Rumänien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '27',
             'name' => 'Bulgarien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '28',
             'name' => 'Kroatien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '29',
             'name' => 'Bosnien und Herzegowina'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '30',
             'name' => 'Serbien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '31',
             'name' => 'Albanien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '32',
             'name' => 'Griechenland'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '33',
             'name' => 'Moldau'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '34',
             'name' => 'Georgien'
         ]);
 
-        $this->insert('nationality_id',  [
+        $this->insert('nationality',  [
             'nationality_id' => '35',
             'name' => 'Monaco'
         ]);
