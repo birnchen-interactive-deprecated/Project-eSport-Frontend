@@ -111,7 +111,7 @@ class SiteController extends Controller
      */
     public function actionAccount()
     {
-        $model = new UserForm();
+        $model = $this->loadModel(Yii::app()->user->id);
 
         if (Yii::$app->user->isGuest) {
             return $this->render('index');
