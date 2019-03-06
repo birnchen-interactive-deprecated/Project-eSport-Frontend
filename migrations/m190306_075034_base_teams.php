@@ -132,19 +132,9 @@ class m190306_075034_base_teams extends Migration
             'description' => '',
         ]);
 
-        /* Main Team Esport BERG */
-        $this->insert('main_team',  [
-            'team_id' => '13',
-            'owner_id' => '56',
-            'headquarter_id' => '1',
-            'name' => 'Esport BERG',
-            'short_code' => 'GHR',
-            'description' => '',
-        ]);
-
        /* Main Team Orbital Gaming */
         $this->insert('main_team',  [
-            'team_id' => '14',
+            'team_id' => '13',
             'owner_id' => '42',
             'headquarter_id' => '1',
             'name' => 'Orbital Gaming',
@@ -154,7 +144,7 @@ class m190306_075034_base_teams extends Migration
 
         /* Main Team Stage 5 Gaming */
         $this->insert('main_team',  [
-            'team_id' => '15',
+            'team_id' => '14',
             'owner_id' => '1',
             'headquarter_id' => '1',
             'name' => 'Stage 5 Gaming',
