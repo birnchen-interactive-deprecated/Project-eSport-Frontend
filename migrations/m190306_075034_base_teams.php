@@ -55,7 +55,7 @@ class m190306_075034_base_teams extends Migration
         /* Main Team Ative */
         $this->insert('main_team',  [
             'team_id' => '5',
-            'owner_id' => '33',
+            'owner_id' => '10',
             'headquarter_id' => '1',
             'name' => 'AcTive',
             'short_code' => '',

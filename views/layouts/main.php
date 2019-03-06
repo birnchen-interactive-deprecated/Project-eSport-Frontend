@@ -62,6 +62,14 @@ switch ($_REQUEST['r']) {
                    ['label' => 'My Account', 'url' => ['/site/account']],
                    ['label' => 'My Teams', 'url' => ['/site/news']],
                    ['label' => 'My Tournaments', 'url' => ['/site/news']],
+                    '<li>'
+                   . Html::beginForm(['/site/logout'], 'post')
+                   . Html::submitButton(
+                       'Logout',
+                       ['class' => 'btn btn-link logout']
+                   )
+                   . Html::endForm()
+                   . '</li>'
                ]]
             )
         ],
