@@ -8,17 +8,20 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $user = array(
-    'nationality_id' => '1.png',
+    'user_id' => Yii::app()->user->getId(),
+    'user_avatar' => Yii::app()->user->getId().'jpg',
+    'nationality_id' => '1',
 );
 
-$playerNationality = 'images/nationality/'.$user['nationality_id'];
+$playerImage = 'images/nationality/'.$user['user_avatar'];
+$playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
 
 $this->title = 'My Account';
 ?>
 <div class="site-account">
 
     <div class="leftPanel fclear">
-
+        <?= Html::img($playerNationality, ['class' => 'avatar-logo']); ?>
     </div>
 
     <div class="rightPanel fclear">

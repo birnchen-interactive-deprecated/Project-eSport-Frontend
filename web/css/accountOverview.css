@@ -6,11 +6,19 @@
 
 }
 
-.site-account .leftPanel .nationality-logo {
+.site-account .leftPanel .avatar-logo {
+
+}
+
+.site-account .leftPanel .avatar-logo > img {
 
 }
 
 .site-account .rightPanel {
+
+}
+
+.site-account .rightPanel .nationality-logo {
 
 }
 
