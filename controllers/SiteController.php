@@ -190,7 +190,7 @@ class SiteController extends Controller
      */
     public function actionRegister()
     {
-        $model = User::findByUsername(Yii::$app->user->identity->username);
+        $userModel = User::findByUsername(Yii::$app->user->identity->username);
 
         //if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
         //    $this->goHome();
@@ -207,7 +207,7 @@ class SiteController extends Controller
 
         return $this->render('register',
             [
-                "model" => $model,
+                "userModel" => $userModel,
                 'genderList' => $genderList,
                 'languageList' => $languageList
             ]);
