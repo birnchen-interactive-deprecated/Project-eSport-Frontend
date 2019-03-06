@@ -23,7 +23,7 @@ $this->title = 'My Account';
 <div class="site-account">
 
     <div class="leftPanel fclear">
-        <?= Html::img($playerNationality, ['class' => 'avatar-logo']); ?>
+        <?= Html::img($playerImage, ['class' => 'avatar-logo']); ?>
     </div>
 
     <div class="rightPanel fclear">

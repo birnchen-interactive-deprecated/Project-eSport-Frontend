@@ -3,7 +3,7 @@
 }
 
 .site-account .leftPanel {
-
+    float: left;
 }
 
 .site-account .leftPanel .avatar-logo {
@@ -15,7 +15,7 @@
 }
 
 .site-account .rightPanel {
-
+    float: left;
 }
 
 .site-account .rightPanel .nationality-logo {
