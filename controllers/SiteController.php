@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\LoginForm;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
+use app\modules\core\models\Main_Team;
 use app\modules\core\models\UserForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -119,10 +120,6 @@ class SiteController extends Controller
             //return $this->goHome();
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
-            $this->goHome();
-        }
-
         $genderList = [];
         foreach (Gender::find()->all() as $gender) {
             $genderList[$gender->getGenderId()] = $gender->getName();
@@ -130,6 +127,11 @@ class SiteController extends Controller
         $languageList = [];
         foreach (Language::find()->all() as $language) {
             $languageList[$language->getLanguageId()] = $language->getName();
+        }
+
+        $teamsList = [];
+        foreach(Main_Team::find()->all as $teams) {
+            $teamsList[$teams->getId()] = $teams->getName();
         }
 
         return $this->render('account',
