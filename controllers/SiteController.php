@@ -109,7 +109,7 @@ class SiteController extends Controller
      */
     public function actionAccount()
     {
-        if (!Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest) {
             return $this->render('index');
             //return $this->goHome();
         }
