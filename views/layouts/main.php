@@ -55,7 +55,7 @@ switch ($_REQUEST['r']) {
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
                 ['label' => 'Welcome', 'visible' => $visible, 'url' => ['/site/index']],
-                ['label' => 'Username', 'visible' => $visible, 'items' => [
+                ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
                     ['label' => 'My Account', 'url' => ['/site/account']],
                     ['label' => 'My Teams', 'url' => ['/site/news']],
                     ['label' => 'My Tournaments', 'url' => ['/site/news']],
