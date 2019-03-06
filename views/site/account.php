@@ -25,6 +25,16 @@ $this->title = 'My Account';
     </div>
 
     <div class="rightPanel fclear">
-        <div class="header"> <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?> </div>
+        <div class="fclear">
+            <div class="header">
+                <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?>
+                <div class="username">
+                    <?= $model->username; ?>
+                </div>
+                <div class="userid">
+                    id: <?= $userId; ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -13,10 +13,6 @@
     width: 100%;
 }
 
-.site-account .leftPanel .avatar-logo img {
-
-}
-
 .site-account .rightPanel {
     float: left;
     width: 78%;
@@ -24,12 +20,20 @@
     margin-left: 2%;
 }
 
-.site-account .rightPanel .nationality-logo {
-
+.site-account .rightPanel .header {
+    float: left;
 }
 
-.site-account .leftPanel .nationality-logo img {
+.site-account .rightPanel .header .nationality-logo {
+    float: left;
+}
 
+.site-account .rightPanel .header .username {
+    float: left;
+}
+
+.site-account .rightPanel .header .userid {
+    float: left;
 }
 
 /* helpers */

@@ -114,6 +114,7 @@ class SiteController extends Controller
     public function actionAccount()
     {
         $model = new UserForm();
+        $model->username = Yii::$app->user->identity->username;
         $userId = Yii::$app->user->identity->user_id;
 
         if (Yii::$app->user->isGuest) {
