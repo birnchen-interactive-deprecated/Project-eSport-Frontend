@@ -7,6 +7,8 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+$test = Yii::$app->user->identity->user_id;
+
 $user = array(
     'user_id' => $userId,
     'user_avatar' => $userId.'jpg',
