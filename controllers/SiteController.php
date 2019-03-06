@@ -115,9 +115,11 @@ class SiteController extends Controller
         }
 
         $model = new AccountForm();
-        if($model->load(Yii::$app->request->post()) && $model->username = Yii::$app->user->identity->username){
-            return $this->render('account');
-        }
+        $model->username = Yii::$app->user->identity->username;
+        
+        return $this->render('account', [
+            'model' => $model,
+        ]);
     }
 
     /**
