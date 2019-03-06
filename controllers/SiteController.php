@@ -133,7 +133,7 @@ class SiteController extends Controller
         return $this->render('account',
             [
                 "model" => $model,
-                'userId' = $userId,
+                'userId' => $userId,
                 'genderList' => $genderList,
                 'languageList' => $languageList
             ]);
