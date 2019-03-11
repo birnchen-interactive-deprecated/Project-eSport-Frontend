@@ -166,14 +166,14 @@ class SiteController extends Controller
         foreach ( Sub_Teams::find()->All() as $subTeams) {
             if($subTeams->getTeamCaptainId() == $userId)
             {
-                $OwnedSubTeam['teamID'] = $mainTeam->getId();//
-                $OwnedSubTeam['MainTeammId'] = $mainTeam->getMainTeamId();
-                $OwnedSubTeam['GameID'] = $mainTeam->getGameId();
-                $OwnedSubTeam['TournamentModeId'] = $mainTeam->getTournamentModeId();
-                $OwnedSubTeam['TeamCaptainId'] = $mainTeam->getTeamCaptainId();
-                $OwnedSubTeam['Name'] = $mainTeam->getName();
-                $OwnedSubTeam['Description'] = $mainTeam->getDescription();
-                $OwnedSubTeam['Disqualified'] = $mainTeam->getDisqualified();
+                $OwnedSubTeam['teamID'] = $subTeams->getId();//
+                $OwnedSubTeam['MainTeammId'] = $subTeams->getMainTeamId();
+                $OwnedSubTeam['GameID'] = $subTeams->getGameId();
+                $OwnedSubTeam['TournamentModeId'] = $subTeams->getTournamentModeId();
+                $OwnedSubTeam['TeamCaptainId'] = $subTeams->getTeamCaptainId();
+                $OwnedSubTeam['Name'] = $subTeams->getName();
+                $OwnedSubTeam['Description'] = $subTeams->getDescription();
+                $OwnedSubTeam['Disqualified'] = $subTeams->getDisqualified();
             }
         }
 
