@@ -149,31 +149,33 @@ class SiteController extends Controller
             $nationalityList[$nationality->getId()] = $nationality->getName();
         }
 
-        //$OwnedMainTeam = [];
-        //foreach ( Main_Team::find()->where('ownerID' == $userId) as $mainTeam) {
-//
-        //    $OwnedMainTeam = $mainTeam;
-        //    //if($mainTeam->getOwnerId() == $userId)
-        //    //{
-        //    //    $OwnedMainTeam['teamID'] = $mainTeam->getId();//
-        //    //    $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
-        //    //    $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
-        //    //    $OwnedMainTeam['name'] = $mainTeam->getName();
-        //    //    $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
-        //    //    $OwnedMainTeam['description'] = $mainTeam->getDescription();
-        //    //}
-        //}
+        $OwnedMainTeam = [];
+        foreach ( Main_Team::find()->where('ownerID' == $userId) as $mainTeam) {
+
+            $OwnedMainTeam = $mainTeam;
+            if($mainTeam->getOwnerId() == $userId)
+            {
+                $OwnedMainTeam['teamID'] = $mainTeam->getId();//
+                $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
+                $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
+                $OwnedMainTeam['name'] = $mainTeam->getName();
+                $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
+                $OwnedMainTeam['description'] = $mainTeam->getDescription();
+            }
+        }
 
         $OwnedSubTeam = [];
         foreach ( Sub_Teams::find()->All() as $subTeams) {
             if($subTeams->getTeamCaptainId() == $userId)
             {
-                //$OwnedSubTeam['teamID'] = $mainTeam->getId();//
-                //$OwnedSubTeam['ownerID'] = $mainTeam->getOwnerId();
-                //$OwnedSubTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
-                //$OwnedSubTeam['name'] = $mainTeam->getName();
-                //$OwnedSubTeam['shortCode'] = $mainTeam->getShortCode();
-                //$OwnedSubTeam//['description'] = $mainTeam->getDescription();
+                $OwnedSubTeam['teamID'] = $mainTeam->getId();//
+                $OwnedSubTeam['MainTeammId'] = $mainTeam->getMainTeamId();
+                $OwnedSubTeam['GameID'] = $mainTeam->getGameId();
+                $OwnedSubTeam['TournamentModeId'] = $mainTeam->getTournamentModeId();
+                $OwnedSubTeam['TeamCaptainId'] = $mainTeam->getTeamCaptainId();
+                $OwnedSubTeam['Name'] = $mainTeam->getName();
+                $OwnedSubTeam['Description'] = $mainTeam->getDescription();
+                $OwnedSubTeam['Disqualified'] = $mainTeam->getDisqualified();
             }
         }
 
