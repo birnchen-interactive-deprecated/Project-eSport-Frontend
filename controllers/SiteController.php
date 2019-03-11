@@ -7,6 +7,9 @@ use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
 use app\modules\core\models\Nationality;
 use app\modules\core\models\Main_Team;
+use app\modules\core\models\Main_Team_Member;
+use app\modules\core\models\Sub_Teams;
+use app\modules\core\models\Sub_Team_Member;
 use app\modules\core\models\UserForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -146,19 +149,32 @@ class SiteController extends Controller
             $nationalityList[$nationality->getId()] = $nationality->getName();
         }
 
-        $OwnedMainTeam = [];
-        foreach ( Main_Team::find()->where('ownerID' == $userId) as $mainTeam) {
+        //$OwnedMainTeam = [];
+        //foreach ( Main_Team::find()->where('ownerID' == $userId) as $mainTeam) {
+//
+        //    $OwnedMainTeam = $mainTeam;
+        //    //if($mainTeam->getOwnerId() == $userId)
+        //    //{
+        //    //    $OwnedMainTeam['teamID'] = $mainTeam->getId();//
+        //    //    $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
+        //    //    $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
+        //    //    $OwnedMainTeam['name'] = $mainTeam->getName();
+        //    //    $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
+        //    //    $OwnedMainTeam['description'] = $mainTeam->getDescription();
+        //    //}
+        //}
 
-            $OwnedMainTeam = $mainTeam;
-            //if($mainTeam->getOwnerId() == $userId)
-            //{
-            //    $OwnedMainTeam['teamID'] = $mainTeam->getId();//
-            //    $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
-            //    $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
-            //    $OwnedMainTeam['name'] = $mainTeam->getName();
-            //    $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
-            //    $OwnedMainTeam['description'] = $mainTeam->getDescription();
-            //}
+        $OwnedSubTeam = [];
+        foreach ( Sub_Teams::find()->All() as $mainTeam) {
+            if($mainTeam->getTeamCaptainId() == $userId)
+            {
+                //$OwnedSubTeam['teamID'] = $mainTeam->getId();//
+                //$OwnedSubTeam['ownerID'] = $mainTeam->getOwnerId();
+                //$OwnedSubTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
+                //$OwnedSubTeam['name'] = $mainTeam->getName();
+                //$OwnedSubTeam['shortCode'] = $mainTeam->getShortCode();
+                //$OwnedSubTeam//['description'] = $mainTeam->getDescription();
+            }
         }
 
         return $this->render('myAccount',
