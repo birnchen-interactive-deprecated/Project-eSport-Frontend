@@ -113,7 +113,7 @@ class SiteController extends Controller
      * @throws \yii\base\Exception
      * @throws \yii\db\StaleObjectException
      */
-    public function actionMyAccount()
+    public function actionAccount()
     {
         $model = new UserForm();
 

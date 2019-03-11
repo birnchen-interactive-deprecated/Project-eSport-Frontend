@@ -59,7 +59,7 @@ switch ($_REQUEST['r']) {
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
-                    ['label' => 'My Account', 'url' => ['/site/myAccount']],
+                    ['label' => 'My Account', 'url' => ['/site/account']],
                     ['label' => 'My Teams', 'url' => ['/site/myTeams']],
                     ['label' => 'My Tournaments', 'url' => ['/site/myTournaments']],
                     ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
