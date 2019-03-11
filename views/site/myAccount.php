@@ -2,9 +2,12 @@
 
 /* @var $this yii\web\View *
  * @var $form yii\bootstrap\ActiveForm
+ * @var $userId
+ * @var $creationDate
  * @var $genderList array
  * @var $languageList array
  * @var $nationalityList array
+ * @var $OwnedMainTeam array
  * @var $model app\models\LoginForm
  */
 
@@ -27,6 +30,8 @@ $now = new DateTime();
 
 $ageDiff = $memberBirthdayRaw->diff($now);
 $age = $ageDiff->y;
+
+echo $OwnedMainTeam;
 
 $this->title = 'My Account';
 ?>
