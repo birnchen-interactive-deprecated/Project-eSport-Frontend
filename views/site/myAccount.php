@@ -52,7 +52,7 @@ $this->title = 'My Account';
                 <div class="accountLabel">Nick Name</div><div class="context"><?= $model->username; ?></div>
                 <div class="accountLabel">Mitglied Seit</div><div class="context"><?= $memberDate; ?></div>
                 <div class="accountLabel">Alter / Geschlecht</div><div class="context"><?= $age." / ".$genderList[$model->genderId]; ?></div>
-                <div class="accountLabel">Nationalität</div><div class="context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= $languageList[$user['nationality_id']]; ?></div>
+                <div class="accountLabel">Nationalität</div><div class="context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= $nationalityList[$model->nationalityId]; ?></div>
                 <!-- /*Wohnsitz*/
                 /*Main Team*/
                 /*Website*/ -->
