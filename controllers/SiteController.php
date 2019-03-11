@@ -6,6 +6,7 @@ use app\models\LoginForm;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
 use app\modules\core\models\Nationality;
+use app\modules\core\models\Main_Team;
 use app\modules\core\models\UserForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -144,6 +145,8 @@ class SiteController extends Controller
         foreach (Nationality::find()->all() as $nationality) {
             $nationalityList[$nationality->getId()] = $nationality->getName();
         }
+
+        $OwnedMainTeamID = Main_Team::find()->where("owner_id" == Yii::$app->user->identity->user_id);
 
         return $this->render('myAccount',
             [
