@@ -139,12 +139,18 @@ class SiteController extends Controller
             $languageList[$language->getLanguageId()] = $language->getName();
         }
 
+        $nationalityList = [];
+        foreach (Nationality::find()->all() as $nationality) {
+            $nationalityList[$nationality->getId()] = $nationality->getName();
+        }
+
         return $this->render('myAccount',
             [
                 "model" => $model,
                 'userId' => $userId,
                 'genderList' => $genderList,
                 'languageList' => $languageList,
+                'nationalityList' => $nationalityList
                 'creationDate' => Yii::$app->user->identity->dt_created
             ]);
     }
