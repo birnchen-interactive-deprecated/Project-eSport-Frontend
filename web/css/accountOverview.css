@@ -59,17 +59,20 @@
     float: left;
     height: 25px;
     width: 33%;
+    line-height: 25px;
 }
 
 .site-account .rightPanel .userBody .context {
     float: left;
     height: 25px;
     width: 66%;
+    line-height: 25px;
 }
 
 .site-account .rightPanel .userBody .context .nationality-logo {
     float: left;
-    height: 20px;
+    height: 19px;
+    margin-top: 3px;
 }
 
 /* helpers */
