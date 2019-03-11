@@ -23,7 +23,7 @@ $memberBirthdayRaw = new DateTime($model->birthday);
 $now = new DateTime();
 
 $ageDiff = $memberBirthdayRaw->diff($now);
-$age = $ageDiff['y'];
+$age = $ageDiff->y;
 
 $this->title = 'My Account';
 ?>
