@@ -37,7 +37,7 @@ $this->title = 'My Account';
         <?= Html::img($playerImage, ['class' => 'avatar-logo']); ?>
     </div>
 
-    <div class="rightPanel fclear">
+    <div class="midPanel fclear">
         <div class="fclear">
             <div class="header">
                 <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?>

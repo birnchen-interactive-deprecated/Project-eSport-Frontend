@@ -11,7 +11,7 @@
 
 .site-account .leftPanel {
     float: left;
-    width: 20%;
+    width: 25%;
     height: 100%;
 }
 
@@ -20,25 +20,25 @@
     width: 100%;
 }
 
-.site-account .rightPanel {
+.site-account .midPanel {
     float: left;
-    width: 78%;
+    width: 51%;
     height: 100%;
     margin-left: 2%;
 }
 
-.site-account .rightPanel .header {
+.site-account .midPanel .header {
     float: left;
     width: 100%;
     height: 100%;
 }
 
-.site-account .rightPanel .header .nationality-logo {
+.site-account .midPanel .header .nationality-logo {
     float: left;
     height: 20px;
 }
 
-.site-account .rightPanel .header .username {
+.site-account .midPanel .header .username {
     float: left;
     height: 20px;
     line-height: 20px;
@@ -46,7 +46,7 @@
     margin-left: 1%;
 }
 
-.site-account .rightPanel .header .userid {
+.site-account .midPanel .header .userid {
     float: left;
     height: 20px;
     font-size: 12px;
@@ -55,28 +55,28 @@
     color: #9d9d9d;
 }
 
-.site-account .rightPanel .userBody .accountLabel {
+.site-account .midPanel .userBody .accountLabel {
     float: left;
     height: 25px;
     width: 33%;
     line-height: 25px;
 }
 
-.site-account .rightPanel .userBody .context {
+.site-account .midPanel .userBody .context {
     float: left;
     height: 25px;
     width: 66%;
     line-height: 25px;
 }
 
-.site-account .rightPanel .userBody .context .nationality-logo {
+.site-account .midPanel .userBody .context .nationality-logo {
     float: left;
     height: 19px;
     margin-top: 3px;
     margin-right: 5px;
 }
 
-.site-account .rightPanel .teamHeader {
+.site-account .midPanel .teamHeader {
     float: left;
     width: 100%;
     height: 20px;
@@ -85,11 +85,18 @@
     margin-left: 1%;
 }
 
-.site-account .rightPanel .teamBody .mainTeam {
+.site-account .midPanel .teamBody .mainTeam {
     float: left;
     height: 25px;
     width: 33%;
     line-height: 25px;
+}
+
+.site-account .rightPanel {
+    float: left;
+    width: 20%;
+    height: 100%;
+    margin-left: 2%;
 }
 
 
