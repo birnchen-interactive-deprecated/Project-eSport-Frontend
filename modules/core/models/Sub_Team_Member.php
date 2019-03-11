@@ -21,6 +21,13 @@ use yii\db\ActiveRecord;
 class Sub_Team_Member extends ActiveRecord
 {
     /**
+     * @return string
+     */
+    public static function tableName() {
+        return 'sub_team_member';
+    }
+
+    /**
      * @return int
      */
     public function getSubTeamIdId()

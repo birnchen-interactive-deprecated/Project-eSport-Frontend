@@ -150,8 +150,8 @@ class SiteController extends Controller
             );
         }
 
-        $allSubTeams = Sub_Team::findAll(['team_captain_id' => $model->user_id]);
-        $allMemberTeams = Main_Team_Member::findAll(['user_id' => $model->user_id]);
+        $allSubTeams = Sub_Teams::findAll(['team_captain_id' => $model->user_id]);
+        $allMemberTeams = Sub_Team_Member::findAll(['user_id' => $model->user_id]);
 
         $subTeams = array();
         foreach ($allSubTeams as $key => $subTeam) {
@@ -168,34 +168,6 @@ class SiteController extends Controller
                 'team' => $subTeam,
             );
         }
-
-        // $OwnedMainTeam = [];
-        // foreach ( Main_Team::find()->all() as $mainTeam) {
-        //     if($mainTeam->getOwnerId() == $userId)
-        //     {
-        //         $OwnedMainTeam['teamID'] = $mainTeam->getId();//
-        //         $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
-        //         $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
-        //         $OwnedMainTeam['name'] = $mainTeam->getName();
-        //         $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
-        //         $OwnedMainTeam['description'] = $mainTeam->getDescription();
-        //     }
-        // }
-
-        // $OwnedSubTeam = [];
-        // foreach ( Sub_Teams::find()->All() as $subTeams) {
-        //     if($subTeams->getTeamCaptainId() == $userId)
-        //     {
-        //         $OwnedSubTeam['teamID'] = $subTeams->getId();//
-        //         $OwnedSubTeam['MainTeammId'] = $subTeams->getMainTeamId();
-        //         $OwnedSubTeam['GameID'] = $subTeams->getGameId();
-        //         $OwnedSubTeam['TournamentModeId'] = $subTeams->getTournamentModeId();
-        //         $OwnedSubTeam['TeamCaptainId'] = $subTeams->getTeamCaptainId();
-        //         $OwnedSubTeam['Name'] = $subTeams->getName();
-        //         $OwnedSubTeam['Description'] = $subTeams->getDescription();
-        //         $OwnedSubTeam['Disqualified'] = $subTeams->getDisqualified();
-        //     }
-        // }
 
         return $this->render('myAccount',
             [
