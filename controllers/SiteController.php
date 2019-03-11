@@ -171,7 +171,7 @@ class SiteController extends Controller
                 $OwnedSubTeam['GameID'] = $subTeams->getGameId();
                 $OwnedSubTeam['TournamentModeId'] = $subTeams->getTournamentModeId();
                 $OwnedSubTeam['TeamCaptainId'] = $subTeams->getTeamCaptainId();
-                $OwnedSubTeam['Name'] = $subTeams->getName();
+                $OwnedSubTeam['name'] = $subTeams->getName();
                 $OwnedSubTeam['Description'] = $subTeams->getDescription();
                 $OwnedSubTeam['Disqualified'] = $subTeams->getDisqualified();
             }

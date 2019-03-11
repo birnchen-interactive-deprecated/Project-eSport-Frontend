@@ -8,6 +8,7 @@
  * @var $languageList array
  * @var $nationalityList array
  * @var $OwnedMainTeam array
+ * @var $OwnedSubTeam array
  * @var $model app\models\LoginForm
  */
 
@@ -73,7 +74,10 @@ $this->title = 'My Account';
         <div class="clearfix">
             <div class="teamBody">
                 <?php if(!empty($OwnedMainTeam)) :?>
-                    <div class="mainTeam"><?= $OwnedMainTeam['name'] ?></div><div class="teamPosition">(owner)</div>
+                    <div class="mainTeam"><?= "Main Team: ".$OwnedMainTeam['name'] ?></div><div class="teamPosition">(owner)</div>
+                <?php endif; ?>
+                <?php if(!empty($OwnedSubTeam)) :?>
+                    <div class="mainTeam"><?= "Sub Teams: ".$OwnedMainTeam['name'] ?></div><div class="teamPosition">(owner)</div>
                 <?php endif; ?>
             </div>
         </div>
