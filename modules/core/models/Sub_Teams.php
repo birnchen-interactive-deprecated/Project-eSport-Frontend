@@ -43,6 +43,13 @@ class Sub_Teams extends ActiveRecord
     }
 
     /**
+     * @return string
+     */
+    public static function tableName() {
+        return 'sub_team';
+    }
+
+    /**
      * @return int
      */
     public function getId()

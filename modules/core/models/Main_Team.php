@@ -40,6 +40,13 @@ class Main_Team extends ActiveRecord
     }
 
     /**
+     * @return string
+     */
+    public static function tableName() {
+        return 'main_team';
+    }
+
+    /**
      * @return int
      */
     public function getId()
