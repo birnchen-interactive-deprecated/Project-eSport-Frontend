@@ -13,7 +13,10 @@ $user = array(
     'nationality_id' => '1',
 );
 
-//$memberTime = new DateTime($creationDate);
+$memberDateTime = new DateTime($creationDate);
+$tmp = strtotime($creationDate);
+$memberDate = $memberDateTime->format('m/d/y');
+$memberDate2 = date('m/d/y', $tmp);
 
 $playerImage = 'images/userAvatar/'.$user['user_avatar'];
 $playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
@@ -43,7 +46,8 @@ $this->title = 'My Account';
             <div class="userBody">
                 <div class="name-label">Name</div><div class="nickName"><?= $model->preName; ?></div>
                 <div class="nickName-label">Nick Name</div><div class="nickName"><?= $model->username; ?></div>
-                <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= $creationDate; ?></div>
+                <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= $memberDate; ?></div>
+                <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= $memberDate2; ?></div>
                 /*Mitglied seit*/
                 /*Alter / Geschlecht*/
                 /*Nationalität*/
