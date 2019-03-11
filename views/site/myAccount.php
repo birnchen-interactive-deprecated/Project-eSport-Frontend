@@ -35,12 +35,12 @@ $this->title = 'My Account';
 ?>
 <div class="site-account">
 
-    <div class="leftPanel fclear">
+    <div class="leftPanel clearfix">
         <?= Html::img($playerImage, ['class' => 'avatar-logo']); ?>
     </div>
 
-    <div class="midPanel fclear">
-        <div class="fclear">
+    <div class="midPanel clearfix">
+        <div class="clearfix">
             <div class="header">
                 <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?>
                 <div class="username">
@@ -52,7 +52,7 @@ $this->title = 'My Account';
             </div>
         </div>
         <hr>
-        <div class="fclear">
+        <div class="clearfix">
             <div class="userBody">
                 <div class="accountLabel">Name</div><div class="context"><?= $model->preName; ?></div>
                 <div class="accountLabel">Nick Name</div><div class="context"><?= $model->username; ?></div>
@@ -66,20 +66,20 @@ $this->title = 'My Account';
         </div>
         <hr>
         <hr>
-        <div class="fclear">
+        <div class="clearfix">
             <div class="teamHeader">My Team & Sub-Teams</div>
         </div>
         <hr>
-        <div class="fclear">
+        <div class="clearfix">
             <div class="teamBody">
-                <?php if(empty($OwnedMainTeam)) :?>
+                <?php if(!empty($OwnedMainTeam)) :?>
                     <div class="mainTeam"><?= $OwnedMainTeam['name'] ?></div><div class="teamPosition">(owner)</div>
                 <?php endif; ?>
             </div>
         </div>
     </div>
 
-    <div class="rightPanel fclear">
+    <div class="rightPanel clearfix">
 
     </div>
 </div>
