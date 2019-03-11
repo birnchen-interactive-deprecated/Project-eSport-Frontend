@@ -36,5 +36,11 @@ $this->title = 'My Account';
                 </div>
             </div>
         </div>
+        <hr>
+        <div class="fclear">
+            <div class="userBody">
+
+            </div>
+        </div>
     </div>
 </div>
