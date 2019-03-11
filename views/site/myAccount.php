@@ -72,7 +72,9 @@ $this->title = 'My Account';
         <hr>
         <div class="fclear">
             <div class="teamBody">
-                <div class="mainTeam"><?= $OwnedMainTeam['name'] ?></div>
+                <?php if(empty($OwnedMainTeam)) :?>
+                    <div class="mainTeam"><?= $OwnedMainTeam['name'] ?></div><div class="teamPosition">(owner)</div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
