@@ -31,9 +31,6 @@ $now = new DateTime();
 $ageDiff = $memberBirthdayRaw->diff($now);
 $age = $ageDiff->y;
 
-//echo $OwnedMainTeam;
-print_r($OwnedMainTeam);
-
 $this->title = 'My Account';
 ?>
 <div class="site-account">
@@ -75,7 +72,7 @@ $this->title = 'My Account';
         <hr>
         <div class="fclear">
             <div class="teamBody">
-                <div class="mainTeam">Robotic Elite Clan</div>
+                <div class="mainTeam"><?= $OwnedMainTeam['name'] ?></div>
             </div>
         </div>
     </div>
