@@ -17,6 +17,7 @@ use Yii;
  *
  * @property int $team_id
  * @property int $owner_id
+ * @property int $headquarter_id
  * @property string $name
  * @property string short_code
  * @property string $description
@@ -51,6 +52,14 @@ class Main_Team extends ActiveRecord
     public function getOwnerId()
     {
         return $this->owner_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHeadQuaterId()
+    {
+        return $this->headquarter_id;
     }
 
     /**

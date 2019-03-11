@@ -146,8 +146,18 @@ class SiteController extends Controller
             $nationalityList[$nationality->getId()] = $nationality->getName();
         }
 
-        $OwnedMainTeam = Main_Team::find()->where("owner_id" == Yii::$app->user->identity->user_id);
-        //$OwnedMainTeam[Main_Team::find()->where("owner_id" == Yii::$app->user->identity->user_id)->getId()] = Main_Team::find()->where("owner_id" == Yii::$app->user->identity->user_id)->getName();
+        $OwnedMainTeam = [];
+        foreach ( Main_Team::find()->all() as $mainTeam) {
+            if($mainTeam->getOwnerId() == $userId)
+            {
+                $OwnedMainTeam['teamID'] = $mainTeam->getId();
+                $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
+                $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
+                $OwnedMainTeam['name'] = $mainTeam->getName();
+                $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
+                $OwnedMainTeam['description'] = $mainTeam->getDescription();
+            }
+        }
 
         return $this->render('myAccount',
             [
