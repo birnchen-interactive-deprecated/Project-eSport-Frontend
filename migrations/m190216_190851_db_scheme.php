@@ -70,11 +70,11 @@ class m190216_190851_db_scheme extends Migration
                 FOREIGN KEY (`language_id`)
                 REFERENCES `language` (`language_id`)
                 ON DELETE SET NULL
-                ON UPDATE CASCADE)
+                ON UPDATE CASCADE,
             CONSTRAINT `FK_user_nationality_id`
                 FOREIGN KEY (`nationality_id`)
                 REFERENCES `nationality` (`nationality_id`)
-                ON DELETE CASCADE
+                ON DELETE SET NULL
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
 
