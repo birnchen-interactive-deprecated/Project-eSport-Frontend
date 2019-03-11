@@ -62,5 +62,16 @@ $this->title = 'My Account';
                 /*Website*/ -->
             </div>
         </div>
+        <hr>
+        <hr>
+        <div class="fclear">
+            <div class="teamHeader">My Team & Sub-Teams</div>
+        </div>
+        <hr>
+        <div class="fclear">
+            <div class="teamBody">
+                <div class="mainTeam">Robotic Elite Clan</div>
+            </div>
+        </div>
     </div>
 </div>
