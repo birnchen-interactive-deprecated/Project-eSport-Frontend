@@ -151,8 +151,6 @@ class SiteController extends Controller
 
         $OwnedMainTeam = [];
         foreach ( Main_Team::find()->where('ownerID' == $userId) as $mainTeam) {
-
-            $OwnedMainTeam = $mainTeam;
             if($mainTeam->getOwnerId() == $userId)
             {
                 $OwnedMainTeam['teamID'] = $mainTeam->getId();//
