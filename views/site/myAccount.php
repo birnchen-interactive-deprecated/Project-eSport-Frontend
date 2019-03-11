@@ -16,8 +16,8 @@ $user = array(
 $playerImage = 'images/userAvatar/'.$user['user_avatar'];
 $playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
 
-$memberDateTime = strtotime($creationDate);
-$memberDate = date('d.m.y', $memberDateTime);
+$memberDateTime = new DateTime($creationDate);
+$memberDate = $memberDateTime->format('d.m.y');
 
 $memberBirthdayRaw = strtotime($model->birthday);
 $tdate = time();
