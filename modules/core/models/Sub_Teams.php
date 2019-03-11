@@ -29,7 +29,7 @@ class Sub_Teams extends ActiveRecord
     /**
      * @return array the attribute labels
      */
-    //public function attributeLabels()
+    //public function attributeLabels()//
     //{
     //    return [
     //        'sub_team_id' => Yii::t('app', 'sub team id'),
@@ -77,7 +77,7 @@ class Sub_Teams extends ActiveRecord
     /**
      * @return int
      */
-    public function //()
+    public function getTeamCaptainId()
     {
         return $this->team_captain_id;
     }
