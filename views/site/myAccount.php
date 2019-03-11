@@ -26,9 +26,6 @@ $age = 0;
 while($tdate > $memberBirthdayRaw = strtotime('+1 year', $memberBirthdayRaw))
     ++$age;
 
-
-
-
 $this->title = 'My Account';
 ?>
 <div class="site-account">

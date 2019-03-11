@@ -103,15 +103,17 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+    /* All Actions for the Logged In User */
+
     /**
-     * Display User Account INformations
+     * Display User Account Informations
      *
      * @return string
      * @throws \Throwable
      * @throws \yii\base\Exception
      * @throws \yii\db\StaleObjectException
      */
-    public function actionAccount()
+    public function actionMyAccount()
     {
         $model = new UserForm();
 
@@ -137,7 +139,7 @@ class SiteController extends Controller
             $languageList[$language->getLanguageId()] = $language->getName();
         }
 
-        return $this->render('account',
+        return $this->render('myAccount',
             [
                 "model" => $model,
                 'userId' => $userId,
@@ -148,13 +150,23 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays Tournament.
+     * Displays User Tournaments.
      *
      * @return string
      */
-    public function actionTournament()
+    public function actionMyTournaments()
     {
-        return $this->render('tournaments');
+        return $this->render('myTournaments');
+    }
+
+    /**
+     * Displays User Teams.
+     *
+     * @return string
+     */
+    public function actionMyTeams()
+    {
+        return $this->render('myTeams');
     }
 
     /**
