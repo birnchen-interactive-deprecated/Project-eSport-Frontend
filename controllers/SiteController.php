@@ -154,7 +154,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionMyTournaments()
+    public function actionMy_tournaments()
     {
         return $this->render('myTournaments');
     }
@@ -164,7 +164,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionMyTeams()
+    public function actionMy_teams()
     {
         return $this->render('myTeams');
     }
