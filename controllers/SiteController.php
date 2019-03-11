@@ -147,17 +147,17 @@ class SiteController extends Controller
         }
 
         $OwnedMainTeam = [];
-        foreach ( Main_Team::find()->where('ownerID' == $userId) as $mainTeam) {
+        foreach ( Main_Team::find()->where('ownerID' == $userId//) as $mainTeam) {
 
-            if($mainTeam->getOwnerId() == $userId)
-            {
-                $OwnedMainTeam['teamID'] = $mainTeam->getId();//
-                $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
-                $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
-                $OwnedMainTeam['name'] = $mainTeam->getName();
-                $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
-                $OwnedMainTeam['description'] = $mainTeam->getDescription();
-            }
+            //if($mainTeam->getOwnerId() == $userId)
+            //{
+            //    $OwnedMainTeam['teamID'] = $mainTeam->getId();//
+            //    $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
+            //    $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
+            //    $OwnedMainTeam['name'] = $mainTeam->getName();
+            //    $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
+            //    $OwnedMainTeam['description'] = $mainTeam->getDescription();
+            //}
         }
 
         return $this->render('myAccount',
