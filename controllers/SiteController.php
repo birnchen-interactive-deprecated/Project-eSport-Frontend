@@ -152,10 +152,10 @@ class SiteController extends Controller
             {
                 $OwnedMainTeam['teamID'] = $mainTeam->getId();
                 $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
-                $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
-                $OwnedMainTeam['name'] = $mainTeam->getName();
-                $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
-                $OwnedMainTeam['description'] = $mainTeam->getDescription();
+                //$OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
+                //$OwnedMainTeam['name'] = $mainTeam->getName();
+                //$OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
+                //$OwnedMainTeam['description'] = $mainTeam->getDescription();
             }
         }
 
