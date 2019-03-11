@@ -32,6 +32,7 @@ class Main_Team extends ActiveRecord
         return [
             'team_id' => Yii::t('app', 'team id'),
             'owner_id' => Yii::t('app', 'owner id'),
+            'headquarter_id' => Yii::t('app', 'headquarter id'),
             'name' => Yii::t('app', 'name'),
             'short_code' => Yii::t('app', 'Tag'),
             'description' => Yii::t('app', 'description')
