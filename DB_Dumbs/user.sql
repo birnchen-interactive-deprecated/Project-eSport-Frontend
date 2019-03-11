@@ -27,24 +27,6 @@ SET time_zone = "+00:00";
 --
 -- Tabellenstruktur für Tabelle `user`
 --
-
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE latin1_german1_ci NOT NULL,
-  `password` varchar(255) COLLATE latin1_german1_ci NOT NULL,
-  `birthday` date NOT NULL,
-  `gender_id` int(11) DEFAULT NULL,
-  `dt_created` datetime NOT NULL,
-  `dt_updated` datetime DEFAULT NULL,
-  `language_id` int(11) DEFAULT NULL,
-  `pre_name` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
-  `last_name` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
-  `zip_code` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
-  `city` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
-  `street` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
-
 --
 -- Daten für Tabelle `user`
 --
@@ -140,12 +122,6 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, 
 --
 -- Indizes für die Tabelle `user`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `username_UNIQUE` (`username`),
-  ADD KEY `FK_user_gender_id_idx` (`gender_id`),
-  ADD KEY `FK_user_language_id_idx` (`language_id`);
-
 --
 -- AUTO_INCREMENT für exportierte Tabellen
 --
@@ -153,8 +129,6 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- Constraints der exportierten Tabellen
@@ -163,9 +137,6 @@ ALTER TABLE `user`
 --
 -- Constraints der Tabelle `user`
 --
-ALTER TABLE `user`
-  ADD CONSTRAINT `FK_user_gender_id` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`gender_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_user_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
