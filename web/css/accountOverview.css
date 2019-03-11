@@ -67,6 +67,10 @@
     width: 66%;
 }
 
+.site-account .rightPanel .header .nationality-logo {
+    float: left;
+    height: 20px;
+}
 
 /* helpers */
 .fclear:after {
