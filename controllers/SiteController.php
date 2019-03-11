@@ -5,7 +5,7 @@ namespace app\controllers;
 use app\models\LoginForm;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
-use app\modules\core\models\Main_Team;
+use app\modules\core\models\Nationality;
 use app\modules\core\models\UserForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -224,11 +224,17 @@ class SiteController extends Controller
             $languageList[$language->getLanguageId()] = $language->getName();
         }
 
+        $nationalityList = [];
+        foreach (Nationality::find()->all as $nationality) {
+            $nationalityList[$nationality->getId()] = $nationality->getName();
+        }
+
         return $this->render('register',
             [
                 "model" => $model,
                 'genderList' => $genderList,
-                'languageList' => $languageList
+                'languageList' => $languageList,
+                'nationalityList' => $nationalityList
             ]);
     }
 
