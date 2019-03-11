@@ -165,8 +165,8 @@ class SiteController extends Controller
         //}
 
         $OwnedSubTeam = [];
-        foreach ( Sub_Teams::find()->All() as $mainTeam) {
-            if($mainTeam->getTeamCaptainId() == $userId)
+        foreach ( Sub_Teams::find()->All() as $subTeams) {
+            if($subTeams->getTeamCaptainId() == $userId)
             {
                 //$OwnedSubTeam['teamID'] = $mainTeam->getId();//
                 //$OwnedSubTeam['ownerID'] = $mainTeam->getOwnerId();
