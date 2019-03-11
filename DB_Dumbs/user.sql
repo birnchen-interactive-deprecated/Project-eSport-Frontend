@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Erstellungszeit: 11. Mrz 2019 um 13:29
--- Server-Version: 5.7.25-0ubuntu0.16.04.2
--- PHP-Version: 7.1.14
+-- Host: 127.0.0.1
+-- Erstellungszeit: 11. Mrz 2019 um 14:23
+-- Server-Version: 10.1.38-MariaDB
+-- PHP-Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `Project-eSport`
+-- Datenbank: `project-esport`
 --
 
 -- --------------------------------------------------------
@@ -28,31 +28,32 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `username` varchar(255) COLLATE latin1_german1_ci NOT NULL,
+  `password` varchar(255) COLLATE latin1_german1_ci NOT NULL,
   `birthday` date NOT NULL,
   `gender_id` int(11) DEFAULT NULL,
   `dt_created` datetime NOT NULL,
   `dt_updated` datetime DEFAULT NULL,
   `language_id` int(11) DEFAULT NULL,
-  `pre_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `zip_code` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `street` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `pre_name` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
+  `zip_code` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
+  `street` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 
 --
 -- Daten für Tabelle `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, `dt_created`, `dt_updated`, `language_id`, `pre_name`, `last_name`, `zip_code`, `city`, `street`, `email`) VALUES
-(2, 'Birnchen', '$2y$13$BFuY5ZmWvptagWoiaCg4quNxd5R4HGjkLdibC3r0lYpNLQwNzQ2.6', '1970-01-01', 1, '2019-02-27 22:28:13', '2019-02-27 22:28:13', 1, NULL, NULL, NULL, NULL, NULL, 'p.koehler@birnchen-studios.de'),
+(1, 'admin', '$2y$13$oqxRLMe.raZ1vxzyKVl/fOp5PYF7fHVrGp6tbOiYlsJ28yUcJgvIO', '0000-00-00', 3, '2019-03-11 13:31:45', '2019-03-11 13:31:45', 1, NULL, NULL, NULL, NULL, NULL, 'admin@admin.de'),
+(2, 'Birnchen', '$2y$13$BFuY5ZmWvptagWoiaCg4quNxd5R4HGjkLdibC3r0lYpNLQwNzQ2.6', '1986-03-25', 1, '2019-02-27 22:28:13', '2019-02-27 22:28:13', 1, NULL, NULL, NULL, NULL, NULL, 'p.koehler@birnchen-studios.de'),
 (3, 'Niyari', '$2y$13$uGmCGbRTGoDnH0JNfZlYruYy80DIQda51CpSSJ/QYTu9syCmiEtXa', '1970-01-01', 2, '2019-02-27 22:31:30', '2019-02-27 22:31:30', 1, NULL, NULL, NULL, NULL, NULL, 'l.riehm@birnchen-studios.de'),
-(4, 'Captain Salty', '$2y$13$dkTAbtNib/wF2Dmxqs5nveULRbk9QrRQFJiVkq.cQtB2cCJWAuF4u', '1970-01-01', 1, '2019-02-27 22:34:57', '2019-02-27 22:34:57', 1, NULL, NULL, NULL, NULL, NULL, 'freezerxxl@gmx.net'),
+(4, 'Captain Salty', '$2y$13$dkTAbtNib/wF2Dmxqs5nveULRbk9QrRQFJiVkq.cQtB2cCJWAuF4u', '1984-05-25', 1, '2019-02-27 22:34:57', '2019-02-27 22:34:57', 1, NULL, NULL, NULL, NULL, NULL, 'freezerxxl@gmx.net'),
 (5, 'MeisterSmoje', '$2y$13$DBZM4a2LhirHDM4tUE7g1OxWI87w8r4Xz5hriwQXM0QNb.jsbdnbi', '1970-01-01', 1, '2019-02-27 23:14:27', '2019-02-27 23:14:27', 1, NULL, NULL, NULL, NULL, NULL, 'GamerAndroid951@gmx.de'),
 (6, 'El Viper', '$2y$13$RMCnfBmUvhaLrZUFVNoag.tU3gyeNE4pxHBb2uwco/Zf6vsXggUWe', '1970-01-01', 1, '2019-02-27 23:23:41', '2019-02-27 23:23:41', 1, NULL, NULL, NULL, NULL, NULL, 'pascal-mannstedt@gmx.de'),
 (7, 'JaePaenda;', '$2y$13$j6L.pPWrqjzLs/.lk6KOaePUoY1I7JwMb.muw6vKCUPRnpl/N7wXO', '1970-01-01', 1, '2019-02-27 23:30:40', '2019-02-27 23:30:40', 1, NULL, NULL, NULL, NULL, NULL, 'henni80000@gmx.de'),
@@ -135,9 +136,16 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, 
 --
 -- Indizes der exportierten Tabellen
 --
+
 --
 -- Indizes für die Tabelle `user`
 --
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `username_UNIQUE` (`username`),
+  ADD KEY `FK_user_gender_id_idx` (`gender_id`),
+  ADD KEY `FK_user_language_id_idx` (`language_id`);
+
 --
 -- AUTO_INCREMENT für exportierte Tabellen
 --
@@ -145,10 +153,21 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, 
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+
 --
 -- Constraints der exportierten Tabellen
 --
+
 --
 -- Constraints der Tabelle `user`
 --
+ALTER TABLE `user`
+  ADD CONSTRAINT `FK_user_gender_id` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`gender_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_user_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
