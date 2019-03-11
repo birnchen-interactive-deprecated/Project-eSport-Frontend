@@ -225,7 +225,7 @@ class SiteController extends Controller
         }
 
         $nationalityList = [];
-        foreach (Nationality::find()->all as $nationality) {
+        foreach (Nationality::find()->all() as $nationality) {
             $nationalityList[$nationality->getId()] = $nationality->getName();
         }
 
