@@ -52,10 +52,10 @@ $this->title = 'My Account';
         <hr>
         <div class="fclear">
             <div class="userBody">
-                <div class="label">Name</div><div class="context"><?= $model->preName; ?></div>
-                <div class="label">Nick Name</div><div class="context"><?= $model->username; ?></div>
-                <div class="label">Mitglied Seit</div><div class="context"><?= $memberDate; ?></div>
-                <div class="label">Alter / Geschlecht</div><div class="context"><?= $age." / ".$genderList[$model->genderId]; ?></div>
+                <div class="accountLabel">Name</div><div class="context"><?= $model->preName; ?></div>
+                <div class="accountLabel">Nick Name</div><div class="context"><?= $model->username; ?></div>
+                <div class="accountLabel">Mitglied Seit</div><div class="context"><?= $memberDate; ?></div>
+                <div class="accountLabel">Alter / Geschlecht</div><div class="context"><?= $age." / ".$genderList[$model->genderId]; ?></div>
                 /*Nationalität*/
                 /*Wohnsitz*/
                 /*Main Team*/
