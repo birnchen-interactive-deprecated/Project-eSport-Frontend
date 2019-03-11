@@ -147,7 +147,7 @@ class SiteController extends Controller
         }
 
         $OwnedMainTeam = [];
-        foreach ( Main_Team::find()->all() as $mainTeam) {
+        foreach ( MainTeam::find()->all() as $mainTeam) {
             $nationalityList[$mainTeam->getId()] = $mainTeam->getName();
 
             //if($mainTeam->getOwnerId() == $userId)
