@@ -119,73 +119,52 @@ class SiteController extends Controller
      */
     public function actionMy_account()
     {
-        $model = new UserForm();
 
         if (Yii::$app->user->isGuest) {
-            return $this->render('index');
-            //return $this->goHome();
+            // return $this->render('index');
+            return $this->goHome();
         }
 
-        $userId = Yii::$app->user->identity->user_id;
-        $model->username = Yii::$app->user->identity->username;
-        $model->preName = empty(Yii::$app->user->identity->preName) ? "--" : Yii::$app->user->identity->preName;
+        $model = Yii::$app->user->identity;
 
-        $model->birthday = Yii::$app->user->identity->birthday;
-        $model->genderId = Yii::$app->user->identity->genderId;
-        $model->languageId = Yii::$app->user->identity->genderId;
-        $model->nationalityId = Yii::$app->user->identity->nationalityId;
+        $gender = Gender::findOne(['gender_id' => $model->gender_id]);
+        $language = Language::findOne(['language_id' => $model->language_id]);
+        $nationality = Nationality::findOne(['nationality_id' => $model->nationality_id]);
 
-        $genderList = [];
-        foreach (Gender::find()->all() as $gender) {
-            $genderList[$gender->getGenderId()] = $gender->getName();
-        }
-        $languageList = [];
-        foreach (Language::find()->all() as $language) {
-            $languageList[$language->getLanguageId()] = $language->getName();
-        }
+        // $OwnedMainTeam = [];
+        // foreach ( Main_Team::find()->all() as $mainTeam) {
+        //     if($mainTeam->getOwnerId() == $userId)
+        //     {
+        //         $OwnedMainTeam['teamID'] = $mainTeam->getId();//
+        //         $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
+        //         $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
+        //         $OwnedMainTeam['name'] = $mainTeam->getName();
+        //         $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
+        //         $OwnedMainTeam['description'] = $mainTeam->getDescription();
+        //     }
+        // }
 
-        $nationalityList = [];
-        foreach (Nationality::find()->all() as $nationality) {
-            $nationalityList[$nationality->getId()] = $nationality->getName();
-        }
-
-        $OwnedMainTeam = [];
-        foreach ( Main_Team::find()->all() as $mainTeam) {
-            if($mainTeam->getOwnerId() == $userId)
-            {
-                $OwnedMainTeam['teamID'] = $mainTeam->getId();//
-                $OwnedMainTeam['ownerID'] = $mainTeam->getOwnerId();
-                $OwnedMainTeam['headquarterID'] = $mainTeam->getHeadQuaterId();
-                $OwnedMainTeam['name'] = $mainTeam->getName();
-                $OwnedMainTeam['shortCode'] = $mainTeam->getShortCode();
-                $OwnedMainTeam['description'] = $mainTeam->getDescription();
-            }
-        }
-
-        $OwnedSubTeam = [];
-        foreach ( Sub_Teams::find()->All() as $subTeams) {
-            if($subTeams->getTeamCaptainId() == $userId)
-            {
-                $OwnedSubTeam['teamID'] = $subTeams->getId();//
-                $OwnedSubTeam['MainTeammId'] = $subTeams->getMainTeamId();
-                $OwnedSubTeam['GameID'] = $subTeams->getGameId();
-                $OwnedSubTeam['TournamentModeId'] = $subTeams->getTournamentModeId();
-                $OwnedSubTeam['TeamCaptainId'] = $subTeams->getTeamCaptainId();
-                $OwnedSubTeam['name'] = $subTeams->getName();
-                $OwnedSubTeam['Description'] = $subTeams->getDescription();
-                $OwnedSubTeam['Disqualified'] = $subTeams->getDisqualified();
-            }
-        }
+        // $OwnedSubTeam = [];
+        // foreach ( Sub_Teams::find()->All() as $subTeams) {
+        //     if($subTeams->getTeamCaptainId() == $userId)
+        //     {
+        //         $OwnedSubTeam['teamID'] = $subTeams->getId();//
+        //         $OwnedSubTeam['MainTeammId'] = $subTeams->getMainTeamId();
+        //         $OwnedSubTeam['GameID'] = $subTeams->getGameId();
+        //         $OwnedSubTeam['TournamentModeId'] = $subTeams->getTournamentModeId();
+        //         $OwnedSubTeam['TeamCaptainId'] = $subTeams->getTeamCaptainId();
+        //         $OwnedSubTeam['Name'] = $subTeams->getName();
+        //         $OwnedSubTeam['Description'] = $subTeams->getDescription();
+        //         $OwnedSubTeam['Disqualified'] = $subTeams->getDisqualified();
+        //     }
+        // }
 
         return $this->render('myAccount',
             [
                 "model" => $model,
-                'userId' => $userId,
-                'genderList' => $genderList,
-                'languageList' => $languageList,
-                'nationalityList' => $nationalityList,
-                'creationDate' => Yii::$app->user->identity->dt_created,
-                'OwnedMainTeam' => $OwnedMainTeam,
+                'gender' => $gender,
+                'language' => $language,
+                'nationality' => $nationality,
             ]);
     }
 

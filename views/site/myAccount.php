@@ -1,29 +1,19 @@
 <?php
 
 /* @var $this yii\web\View *
- * @var $form yii\bootstrap\ActiveForm
- * @var $userId
- * @var $creationDate
- * @var $genderList array
- * @var $languageList array
- * @var $nationalityList array
- * @var $OwnedMainTeam array
- * @var $OwnedSubTeam array
- * @var $model app\models\LoginForm
+ * @var $model app\modules\core\models\User
+ * @var $gender app\modules\core\models\Gender
+ * @var $language app\modules\core\models\Language
+ * @var $nationality app\modules\core\models\Nationality
  */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$user = array(
-    'user_id' => $userId,
-    'user_avatar' => $userId.'.jpg',
-);
+$playerImage = 'images/userAvatar/'.$model->user_id;
+$playerNationality = 'images/nationality/'.$model->nationality_id.'.png';
 
-$playerImage = 'images/userAvatar/'.$user['user_avatar'];
-$playerNationality = 'images/nationality/'.$model->nationalityId.'.png';
-
-$memberDateTime = new DateTime($creationDate);
+$memberDateTime = new DateTime($model->dt_created);
 $memberDate = $memberDateTime->format('d.m.y');
 
 $memberBirthdayRaw = new DateTime($model->birthday);
@@ -31,6 +21,9 @@ $now = new DateTime();
 
 $ageDiff = $memberBirthdayRaw->diff($now);
 $age = $ageDiff->y;
+
+//echo $OwnedMainTeam;
+// print_r($OwnedMainTeam);
 
 $this->title = 'My Account';
 ?>
@@ -48,18 +41,18 @@ $this->title = 'My Account';
                     <?= $model->username; ?>
                 </div>
                 <div class="userid">
-                    id: <?= $userId; ?>
+                    id: <?= $model->user_id; ?>
                 </div>
             </div>
         </div>
         <hr>
         <div class="clearfix">
             <div class="userBody">
-                <div class="accountLabel">Name</div><div class="context"><?= $model->preName; ?></div>
+                <div class="accountLabel">Name</div><div class="context"><?= $model->pre_name; ?></div>
                 <div class="accountLabel">Nick Name</div><div class="context"><?= $model->username; ?></div>
                 <div class="accountLabel">Mitglied Seit</div><div class="context"><?= $memberDate; ?></div>
-                <div class="accountLabel">Alter / Geschlecht</div><div class="context"><?= $age." / ".$genderList[$model->genderId]; ?></div>
-                <div class="accountLabel">Nationalität</div><div class="context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= $nationalityList[$model->nationalityId]; ?></div>
+                <div class="accountLabel">Alter / Geschlecht</div><div class="context"><?= $age." / ".$gender->getName(); ?></div>
+                <div class="accountLabel">Nationalität</div><div class="context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= $nationality->getName(); ?></div>
                 <!-- /*Wohnsitz*/
                 /*Main Team*/
                 /*Website*/ -->
