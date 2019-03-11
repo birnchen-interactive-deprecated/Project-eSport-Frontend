@@ -95,7 +95,6 @@ class  UserForm extends FormModel
         ];
     }
 
-
     /**
      * @return array the attribute labels
      */
@@ -123,7 +122,6 @@ class  UserForm extends FormModel
 
         return true;
     }
-
 
     /**
      * Creates a new user, or updates an existing one.

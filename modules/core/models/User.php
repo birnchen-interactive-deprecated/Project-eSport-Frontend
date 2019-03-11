@@ -25,7 +25,7 @@ use yii\web\IdentityInterface;
  * @property string $birthday
  * @property int $gender_id
  * @property int $language_id
- * @property int nationality_id
+ * @property int $nationality_id
  * @property string $pre_name
  * @property string $last_name
  * @property string $zip_code
@@ -50,7 +50,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
             'birthday' => Yii::t('app', 'birthday'),
             'language_id' => Yii::t('app', 'language'),
             'gender_id' => Yii::t('app', 'gender'),
-            'nationality_id' => Yii::t('app', 'nationalität'),
+            'nationality_id' => Yii::t('app', 'nationality'),
             'pre_name' => Yii::t('app', 'pre name'),
             'last_name' => Yii::t('app', 'last name'),
             'zip_code' => Yii::t('app', 'zip code'),
