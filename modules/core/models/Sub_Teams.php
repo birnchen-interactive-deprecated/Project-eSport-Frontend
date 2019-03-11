@@ -12,7 +12,7 @@ use yii\db\ActiveRecord;
 use Yii;
 
 /**
- * Class Sub_Teams
+ * Class Sub Teams
  * @package app\modules\core\models
  *
  * @property int $sub_team_id
@@ -29,18 +29,18 @@ class Sub_Teams extends ActiveRecord
     /**
      * @return array the attribute labels
      */
-    //public function attributeLabels()//
-    //{
-    //    return [
-    //        'sub_team_id' => Yii::t('app', 'sub team id'),
-    //        'main_team_id' => Yii::t('app', 'main team id'),
-    //        'game_id' => Yii::t('app', 'game id'),
-    //        'tournament_mode_id' => Yii::t('app', 'tournament mode id'),
-    //        'team_captain_id' => Yii::t('app', 'team captain id'),
-    //        'name' =>Yii::t('app', 'name'),
-    //        'description' =>Yii::t('app', 'description')
-    //    ];
-    //}
+    public function attributeLabels()//
+    {
+        return [
+            'sub_team_id' => Yii::t('app', 'sub team id'),
+            'main_team_id' => Yii::t('app', 'main team id'),
+            'game_id' => Yii::t('app', 'game id'),
+            'tournament_mode_id' => Yii::t('app', 'tournament mode id'),
+            'team_captain_id' => Yii::t('app', 'team captain id'),
+            'name' =>Yii::t('app', 'name'),
+            'description' =>Yii::t('app', 'description')
+        ];
+    }
 
     /**
      * @return int

@@ -27,17 +27,17 @@ class Main_Team extends ActiveRecord
     /**
      * @return array the attribute labels
      */
-    //public function attributeLabels()
-    //{
-    //    return [
-    //        'team_id' => Yii::t('app', 'team id'),
-    //        'owner_id' => Yii::t('app', 'owner id'),
-    //        'headquarter_id' => Yii::t('app', 'headquarter id'),
-    //        'name' => Yii::t('app', 'name'),
-    //        'short_code' => Yii::t('app', 'Tag'),
-    //        'description' => Yii::t('app', 'description')
-    //    ];
-    //}
+    public function attributeLabels()
+    {
+        return [
+            'team_id' => Yii::t('app', 'team id'),
+            'owner_id' => Yii::t('app', 'owner id'),
+            'headquarter_id' => Yii::t('app', 'headquarter id'),
+            'name' => Yii::t('app', 'name'),
+            'short_code' => Yii::t('app', 'Tag'),
+            'description' => Yii::t('app', 'description')
+        ];
+    }
 
     /**
      * @return int
