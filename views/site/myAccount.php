@@ -19,12 +19,11 @@ $playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
 $memberDateTime = new DateTime($creationDate);
 $memberDate = $memberDateTime->format('d.m.y');
 
-$memberBirthdayRaw = strtotime($model->birthday);
-$tdate = time();
+$memberBirthdayRaw = new DateTime($model->birthday);
+$now = new DateTime();
 
-$age = 0;
-while($tdate > $memberBirthdayRaw = strtotime('+1 year', $memberBirthdayRaw))
-    ++$age;
+$ageDiff = $memberBirthdayRaw->diff($now);
+$age = $ageDiff['y'];
 
 $this->title = 'My Account';
 ?>
