@@ -13,13 +13,21 @@ $user = array(
     'nationality_id' => '1',
 );
 
-$memberDateTime = new DateTime($creationDate);
-$tmp = strtotime($creationDate);
-$memberDate = $memberDateTime->format('d-m-y');
-$memberDate2 = date('d-m-y', $tmp);
-
 $playerImage = 'images/userAvatar/'.$user['user_avatar'];
 $playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
+
+$memberDateTime = strtotime($creationDate);
+$memberDate = date('d.m.y', $memberDateTime);
+
+$memberBirthdayRaw = strtotime($model->birthday);
+$tdate = time();
+
+$age = 0;
+while($tdate > $memberBirthdayRaw = strtotime('+1 year', $memberBirthdayRaw))
+    ++$age;
+
+
+
 
 $this->title = 'My Account';
 ?>
@@ -47,9 +55,7 @@ $this->title = 'My Account';
                 <div class="name-label">Name</div><div class="nickName"><?= $model->preName; ?></div>
                 <div class="nickName-label">Nick Name</div><div class="nickName"><?= $model->username; ?></div>
                 <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= $memberDate; ?></div>
-                <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= $memberDate2; ?></div>
-                /*Mitglied seit*/
-                /*Alter / Geschlecht*/
+                <div class="nickName-label">Alter / Geschlecht</div><div class="nickName"><?= $age." / ".$genderList[$model->genderId]; ?></div>
                 /*Nationalität*/
                 /*Wohnsitz*/
                 /*Main Team*/
