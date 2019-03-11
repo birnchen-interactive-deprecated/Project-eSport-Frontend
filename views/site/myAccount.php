@@ -31,7 +31,8 @@ $now = new DateTime();
 $ageDiff = $memberBirthdayRaw->diff($now);
 $age = $ageDiff->y;
 
-echo $OwnedMainTeam;
+//echo $OwnedMainTeam;
+print_r($OwnedMainTeam);
 
 $this->title = 'My Account';
 ?>
