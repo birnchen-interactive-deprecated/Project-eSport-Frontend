@@ -1,5 +1,8 @@
-hr {
-
+.site-account hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #9d9d9d;
 }
 
 .site-account {
@@ -68,12 +71,4 @@ hr {
 
 .hidden {
     display: none;
-}
-
-.fl {
-    float: left;
-}
-
-.fr {
-    float: right;
 }

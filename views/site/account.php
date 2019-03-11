@@ -39,7 +39,15 @@ $this->title = 'My Account';
         <hr>
         <div class="fclear">
             <div class="userBody">
-
+                <div class="name-label">Name</div><div class="nickName"><?= $model->preName; ?></div>
+                <div class="nickName-label">Nick Name</div><div class="nickName"><?= $model->username; ?></div>
+                <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= $creationDate; ?></div>
+                /*Mitglied seit*/
+                /*Alter / Geschlecht*/
+                /*Nationalität*/
+                /*Wohnsitz*/
+                /*Main Team*/
+                /*Website*/
             </div>
         </div>
     </div>

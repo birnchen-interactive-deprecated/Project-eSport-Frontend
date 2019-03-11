@@ -114,13 +114,19 @@ class SiteController extends Controller
     public function actionAccount()
     {
         $model = new UserForm();
-        $model->username = Yii::$app->user->identity->username;
-        $userId = Yii::$app->user->identity->user_id;
 
         if (Yii::$app->user->isGuest) {
             return $this->render('index');
             //return $this->goHome();
         }
+
+        $userId = Yii::$app->user->identity->user_id;
+        $model->username = Yii::$app->user->identity->username;
+        $model->preName = empty(Yii::$app->user->identity->preName) ? "-" : Yii::$app->user->identity->preName;
+
+        $model->birthday = Yii::$app->user->identity->birthday;
+        $model->genderId = Yii::$app->user->identity->genderId;
+        $model->languageId = Yii::$app->user->identity->genderId;
 
         $genderList = [];
         foreach (Gender::find()->all() as $gender) {
@@ -136,7 +142,8 @@ class SiteController extends Controller
                 "model" => $model,
                 'userId' => $userId,
                 'genderList' => $genderList,
-                'languageList' => $languageList
+                'languageList' => $languageList,
+                'creationDate' => Yii::$app->user->identity->dt_created
             ]);
     }
 
