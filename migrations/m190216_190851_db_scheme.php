@@ -73,7 +73,7 @@ class m190216_190851_db_scheme extends Migration
                 ON UPDATE CASCADE)
             CONSTRAINT `FK_user_nationality_id`
                 FOREIGN KEY (`nationality_id`)
-                REFERENCES `Project-eSport`.`nationality` (`nationality_id`)
+                REFERENCES `nationality` (`nationality_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB;");
