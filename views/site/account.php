@@ -41,7 +41,7 @@ $this->title = 'My Account';
             <div class="userBody">
                 <div class="name-label">Name</div><div class="nickName"><?= $model->preName; ?></div>
                 <div class="nickName-label">Nick Name</div><div class="nickName"><?= $model->username; ?></div>
-                <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= $creationDate; ?></div>
+                <div class="nickName-label">Mitglied Seit</div><div class="nickName"><?= date_format(creationDate); ?></div>
                 /*Mitglied seit*/
                 /*Alter / Geschlecht*/
                 /*Nationalität*/
