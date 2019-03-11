@@ -34,6 +34,7 @@ $this->title = 'Registrieren';
 
     <?= $form->field($model, 'genderId')->dropDownList($genderList) ?>
     <?= $form->field($model, 'languageId')->dropDownList($languageList) ?>
+    <?= $form->field($model, 'nationalityId')->dropDownList($nationalityList) ?>
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
             <?= Html::submitButton('Registrieren', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>

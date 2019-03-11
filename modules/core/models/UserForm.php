@@ -23,6 +23,7 @@ class  UserForm extends FormModel
     public $email;
     public $genderId;
     public $languageId;
+    public $nationalityId;
     public $preName;
     public $lastName;
     public $birthday;
@@ -140,6 +141,7 @@ class  UserForm extends FormModel
             $user->birthday = date('Y-m-d', strtotime($this->birthday));
             $user->gender_id = $this->genderId;
             $user->language_id = $this->languageId;
+            $user->nationality_id = $this->nationalityId;
             $user->pre_name = $this->preName;
             $user->last_name = $this->lastName;
             $user->zip_code = $this->zipCode;
