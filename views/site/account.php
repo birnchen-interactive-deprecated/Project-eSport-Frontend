@@ -15,8 +15,8 @@ $user = array(
 
 $memberDateTime = new DateTime($creationDate);
 $tmp = strtotime($creationDate);
-$memberDate = $memberDateTime->format('m/d/y');
-$memberDate2 = date('m/d/y', $tmp);
+$memberDate = $memberDateTime->format('d-m-y');
+$memberDate2 = date('d-m-y', $tmp);
 
 $playerImage = 'images/userAvatar/'.$user['user_avatar'];
 $playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
