@@ -157,7 +157,7 @@ class SiteController extends Controller
                 'languageList' => $languageList,
                 'nationalityList' => $nationalityList,
                 'creationDate' => Yii::$app->user->identity->dt_created,
-                '$OwnedMainTeamID' => $OwnedMainTeam,
+                'OwnedMainTeam' => $OwnedMainTeam,
             ]);
     }
 
