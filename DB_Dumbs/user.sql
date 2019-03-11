@@ -50,7 +50,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, `dt_created`, `dt_updated`, `language_id`, `pre_name`, `last_name`, `zip_code`, `city`, `street`, `email`) VALUES
-(1, 'admin', '$2y$13$CQqSCYVUGBe5KaGvNMn6Mek1DLOlUsPQCypTQaGY7d4KE.znEF1Se', '0000-00-00', 3, '2019-03-05 14:31:02', '2019-03-05 14:31:02', 1, NULL, NULL, NULL, NULL, NULL, 'admin@admin.de'),
 (2, 'Birnchen', '$2y$13$BFuY5ZmWvptagWoiaCg4quNxd5R4HGjkLdibC3r0lYpNLQwNzQ2.6', '1970-01-01', 1, '2019-02-27 22:28:13', '2019-02-27 22:28:13', 1, NULL, NULL, NULL, NULL, NULL, 'p.koehler@birnchen-studios.de'),
 (3, 'Niyari', '$2y$13$uGmCGbRTGoDnH0JNfZlYruYy80DIQda51CpSSJ/QYTu9syCmiEtXa', '1970-01-01', 2, '2019-02-27 22:31:30', '2019-02-27 22:31:30', 1, NULL, NULL, NULL, NULL, NULL, 'l.riehm@birnchen-studios.de'),
 (4, 'Captain Salty', '$2y$13$dkTAbtNib/wF2Dmxqs5nveULRbk9QrRQFJiVkq.cQtB2cCJWAuF4u', '1970-01-01', 1, '2019-02-27 22:34:57', '2019-02-27 22:34:57', 1, NULL, NULL, NULL, NULL, NULL, 'freezerxxl@gmx.net'),
