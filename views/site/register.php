@@ -4,6 +4,7 @@
  * @var $form yii\bootstrap\ActiveForm
  * @var $genderList array
  * @var $languageList array
+ * @var $nationalityList array
  * @var $model app\models\LoginForm
  */
 

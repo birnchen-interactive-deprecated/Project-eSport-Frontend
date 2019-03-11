@@ -67,7 +67,7 @@ class  UserForm extends FormModel
                 'targetAttribute' => 'language_id'
             ],
             [
-                '$nationalityId',
+                'nationalityId',
                 'exist',
                 'targetClass' => Nationality::className(),
                 'targetAttribute' => 'nationality_id'
