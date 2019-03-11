@@ -131,6 +131,44 @@ class SiteController extends Controller
         $language = Language::findOne(['language_id' => $model->language_id]);
         $nationality = Nationality::findOne(['nationality_id' => $model->nationality_id]);
 
+        $allMainTeams = Main_Team::findAll(['owner_id' => $model->user_id]);
+        $allMemberTeams = Main_Team_Member::findAll(['user_id' => $model->user_id]);
+
+        $mainTeams = array();
+        foreach ($allMainTeams as $key => $mainTeam) {
+            $mainTeams[] = array(
+                'owner' => true,
+                'team' => $mainTeam,
+            );
+        }
+
+        foreach ($allMemberTeams as $key => $memberTeam) {
+            $mainTeam = Main_Team::findOne(['team_id' => $memberTeam->team_id]);
+            $mainTeams[] = array(
+                'owner' => false,
+                'team' => $mainTeam,
+            );
+        }
+
+        $allSubTeams = Sub_Team::findAll(['team_captain_id' => $model->user_id]);
+        $allMemberTeams = Main_Team_Member::findAll(['user_id' => $model->user_id]);
+
+        $subTeams = array();
+        foreach ($allSubTeams as $key => $subTeam) {
+            $subTeams[] = array(
+                'owner' => true,
+                'team' => $subTeam,
+            );
+        }
+
+        foreach ($allMemberTeams as $key => $memberTeam) {
+            $subTeam = Sub_Team::findOne(['sub_team_id' => $memberTeam->sub_team_id]);
+            $subTeams[] = array(
+                'owner' => false,
+                'team' => $subTeam,
+            );
+        }
+
         // $OwnedMainTeam = [];
         // foreach ( Main_Team::find()->all() as $mainTeam) {
         //     if($mainTeam->getOwnerId() == $userId)
@@ -165,6 +203,8 @@ class SiteController extends Controller
                 'gender' => $gender,
                 'language' => $language,
                 'nationality' => $nationality,
+                'mainTeams' => $mainTeams,
+                'subTeams' => $subTeams,
             ]);
     }
 

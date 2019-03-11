@@ -20,6 +20,13 @@ use yii\db\ActiveRecord;
 class Main_Team_Member extends ActiveRecord
 {
     /**
+     * @return string
+     */
+    public static function tableName() {
+        return 'team_member';
+    }
+
+    /**
      * @return int the gender_id
      */
     public function getTeamId()

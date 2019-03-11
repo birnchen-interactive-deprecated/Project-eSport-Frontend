@@ -5,6 +5,8 @@
  * @var $gender app\modules\core\models\Gender
  * @var $language app\modules\core\models\Language
  * @var $nationality app\modules\core\models\Nationality
+ * @var $mainTeams array
+ * @var $subTeams array
  */
 
 use yii\helpers\Html;
@@ -21,9 +23,6 @@ $now = new DateTime();
 
 $ageDiff = $memberBirthdayRaw->diff($now);
 $age = $ageDiff->y;
-
-//echo $OwnedMainTeam;
-// print_r($OwnedMainTeam);
 
 $this->title = 'My Account';
 ?>
