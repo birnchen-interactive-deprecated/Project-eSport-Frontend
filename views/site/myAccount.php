@@ -12,7 +12,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$playerImage = 'images/userAvatar/'.$model->user_id.'.JPG';
+$playerImage = 'images/UserAvatar/'.$model->user_id.'.JPG';
 $playerNationality = 'images/nationality/'.$model->nationality_id.'.png';
 
 $memberDateTime = new DateTime($model->dt_created);
@@ -65,12 +65,18 @@ $this->title = 'My Account';
         <hr>
         <div class="clearfix">
             <div class="teamBody">
-                <?php if(!empty($OwnedMainTeam)) :?>
-                    <div class="mainTeam"><?= "Main Team: ".$OwnedMainTeam['name'] ?></div><div class="teamPosition">(owner)</div>
-                <?php endif; ?>
-                <?php if(!empty($OwnedSubTeam)) :?>
-                    <div class="mainTeam"><?= "Sub Teams: ".$OwnedMainTeam['name'] ?></div><div class="teamPosition">(owner)</div>
-                <?php endif; ?>
+                <?php foreach ($mainTeams as $key => $mainTeam): ?>
+                    <div class="mainTeam"><?= "Main Team: ".$mainTeam['team']->getName(); ?></div>
+                    <?php if($mainTeam['owner']): ?>
+                    <div class="teamPosition">(owner)</div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <?php foreach ($subTeams as $key => $subTeam): ?>
+                    <div class="mainTeam"><?= "Sub Teams: ".$subTeam['team']->getName(); ?></div>
+                    <?php if($subTeam['owner']): ?>
+                    <div class="teamPosition">(Captain)</div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
