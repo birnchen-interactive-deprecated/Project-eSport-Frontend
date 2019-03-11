@@ -143,7 +143,7 @@ class SiteController extends Controller
                 'userId' => $userId,
                 'genderList' => $genderList,
                 'languageList' => $languageList,
-                'creationDate' => date_create(Yii::$app->user->identity->dt_created)
+                'creationDate' => Yii::$app->user->identity->dt_created
             ]);
     }
 
