@@ -10,11 +10,10 @@ use yii\bootstrap\ActiveForm;
 $user = array(
     'user_id' => $userId,
     'user_avatar' => $userId.'.jpg',
-    'nationality_id' => '1',
 );
 
 $playerImage = 'images/userAvatar/'.$user['user_avatar'];
-$playerNationality = 'images/nationality/'.$user['nationality_id'].'.png';
+$playerNationality = 'images/nationality/'.$model->nationalityId.'.png';
 
 $memberDateTime = new DateTime($creationDate);
 $memberDate = $memberDateTime->format('d.m.y');
