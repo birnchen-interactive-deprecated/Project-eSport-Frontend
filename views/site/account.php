@@ -74,4 +74,8 @@ $this->title = 'My Account';
             </div>
         </div>
     </div>
+
+    <div class="rightPanel fclear">
+
+    </div>
 </div>
