@@ -122,7 +122,7 @@ class SiteController extends Controller
 
         $userId = Yii::$app->user->identity->user_id;
         $model->username = Yii::$app->user->identity->username;
-        $model->preName = empty(Yii::$app->user->identity->preName) ? "-" : Yii::$app->user->identity->preName;
+        $model->preName = empty(Yii::$app->user->identity->preName) ? "--" : Yii::$app->user->identity->preName;
 
         $model->birthday = Yii::$app->user->identity->birthday;
         $model->genderId = Yii::$app->user->identity->genderId;
