@@ -129,7 +129,7 @@ class SiteController extends Controller
         $model->birthday = Yii::$app->user->identity->birthday;
         $model->genderId = Yii::$app->user->identity->genderId;
         $model->languageId = Yii::$app->user->identity->genderId;
-        $model->nationalityId = Yii::$app->user->identity->nationality_Id;
+        $model->nationalityId = Yii::$app->user->identity->nationality_id;
 
         $genderList = [];
         foreach (Gender::find()->all() as $gender) {
