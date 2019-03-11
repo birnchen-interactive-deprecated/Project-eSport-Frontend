@@ -22,7 +22,7 @@ use Yii;
  * @property string short_code
  * @property string $description
  */
-class MainTeam extends ActiveRecord
+class Main_Team extends ActiveRecord
 {
     /**
      * @return array the attribute labels
