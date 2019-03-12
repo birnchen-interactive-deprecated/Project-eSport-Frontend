@@ -218,17 +218,6 @@ class SiteController extends Controller
 
     }
 
-    public function actionTournaments2v2() {
-
-        return $this->render('rocketLeague/2v2Tournaments');
-
-    }
-
-    public function actionTournaments3v3() {
-
-        return $this->render('rocketLeague/3v3Tournaments');
-
-    }
     /** End of Rocket League Area **/
 
     /**
