@@ -225,17 +225,17 @@ class m190306_075100_base_team_member extends Migration
             'is_sub' => 0,
         ]);
 
-        /* Timeout 3v3 Team Member TiMoTay user id ändern*/
+        /* Timeout 3v3 Team Member */
         $this->insert('sub_team_member',  [
             'sub_team_id' => '6',
-            'user_id' => '16',
+            'user_id' => '54',
             'is_sub' => 1,
         ]);
 
         /* Timeout 3v3 Team Member Yuko user id ändern*/
         $this->insert('sub_team_member',  [
             'sub_team_id' => '6',
-            'user_id' => '16',
+            'user_id' => '7',
             'is_sub' => 1,
         ]);
 
@@ -281,10 +281,10 @@ class m190306_075100_base_team_member extends Migration
             'user_id' => '39',
         ]);
 
-        /* Timeout Gaming main Team member TiMoTay user id ändern*/
+        /* Timeout Gaming main Team member */
         $this->insert('team_member',  [
             'team_id' => '3',
-            'user_id' => '7',
+            'user_id' => '54',
         ]);
 
         /* Timeout Gaming main Team member Yuko user id ändern*/

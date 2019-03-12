@@ -69,8 +69,8 @@ $this->title = 'My Account';
                 <div class="context"><?= $age . " / " . $gender->getName(); ?></div>
                 <div class="accountLabel">Nationalität</div>
                 <div class="context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= $nationality->getName(); ?></div>
-                <!-- /*Wohnsitz*/
-                /*Main Team*/
+                <div class="context"><?= $model->city; ?></div>
+                <!-- /*Main Team*/
                 /*Website*/ -->
             </div>
         </div>
