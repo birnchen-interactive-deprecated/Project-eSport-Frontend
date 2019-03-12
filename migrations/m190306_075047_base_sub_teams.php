@@ -27,20 +27,6 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* REC 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '1',
-            'user_id' => '22',
-            'is_sub' => 0,
-        ]);
-
-        /* REC 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '1',
-            'user_id' => '2',
-            'is_sub' => 0,
-        ]);
-
         /* 3v3 Sub Team REC */
         $this->insert('sub_team',  [
             'sub_team_id' => '2',
@@ -53,32 +39,6 @@ class m190306_075047_base_sub_teams extends Migration
             'short_code' => 'REC',
             'description' => 'Tripple Action',
             'disqualified' => 0,
-        ]);
-
-        /* REC 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '2',
-            'user_id' => '22',
-            'is_sub' => 0,
-        ]);
-
-        /* REC 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '2',
-            'user_id' => '2',
-            'is_sub' => 0,
-        ]);
-
-        /* REC main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '1',
-            'user_id' => '2',
-        ]);
-
-        /* REC main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '1',
-            'user_id' => '69',
         ]);
 
         /** Team CaptainViper **/
@@ -96,25 +56,18 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* CaptainViper 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '3',
-            'user_id' => '4',
-            'is_sub' => 0,
-        ]);
-
-        /* CaptainViper 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '3',
-            'user_id' => '6',
-            'is_sub' => 0,
-        ]);
-
-        /* CaptainViper 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '3',
-            'user_id' => '13',
-            'is_sub' => 1,
+        /* 2v2 Sub Team CaptainViper - Different Bünzlis */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '15',
+            'main_team_id' => '2',
+            'game_id' => '1',
+            'tournament_mode_id' => '2',
+            'team_captain_id' => '4',
+            'headquarter_id' => '2',
+            'name' => 'Different Bünzlis',
+            'short_code' => 'CV',
+            'description' => 'Das 2v2 Team',
+            'disqualified' => 0,
         ]);
 
         /* 3v3 Sub Team CaptainViper */
@@ -131,65 +84,6 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* CaptainViper 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '4',
-            'user_id' => '4',
-            'is_sub' => 0,
-        ]);
-
-        /* CaptainViper 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '4',
-            'user_id' => '6',
-            'is_sub' => 0,
-        ]);
-
-        /* CaptainViper 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '4',
-            'user_id' => '13',
-            'is_sub' => 0,
-        ]);
-
-        /* CaptainViper 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '4',
-            'user_id' => '11',
-            'is_sub' => 1,
-        ]);
-
-        /* CaptainViper 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '4',
-            'user_id' => '12',
-            'is_sub' => 1,
-        ]);
-
-        /* CaptainViper main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '2',
-            'user_id' => '6',
-        ]);
-
-        /* CaptainViper main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '2',
-            'user_id' => '13',
-        ]);
-
-        /* CaptainViper main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '2',
-            'user_id' => '11',
-        ]);
-
-        /* CaptainViper main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '2',
-            'user_id' => '12',
-        ]);
-
         /** Team Timeout Gaming **/
         /* 2v2 Sub Team Timeout Gaming */
         $this->insert('sub_team',  [
@@ -202,20 +96,7 @@ class m190306_075047_base_sub_teams extends Migration
             'name' => 'Timeout Gaming',
             'short_code' => 'TG',
             'description' => 'Das 2v2 Team',
-        ]);
-
-        /* CTimeout Gaming 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '10',
-            'user_id' => '53',
-            'is_sub' => 0,
-        ]);
-
-        /* CTimeout Gaming 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '10',
-            'user_id' => '30',
-            'is_sub' => 0,
+            'disqualified' => 0,
         ]);
 
         /* 3v3 Sub Team Timeout Gaming */
@@ -232,41 +113,6 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* Timeout Gaming 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '5',
-            'user_id' => '14',
-            'is_sub' => 0,
-        ]);
-
-        /* Timeout Gaming 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '5',
-            'user_id' => '53',
-            'is_sub' => 0,
-        ]);
-
-        /* Timeout Gaming 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '5',
-            'user_id' => '57',
-            'is_sub' => 0,
-        ]);
-
-        /* Timeout Gaming 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '5',
-            'user_id' => '30',
-            'is_sub' => 1,
-        ]);
-
-        /* Timeout Gaming 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '5',
-            'user_id' => '67',
-            'is_sub' => 1,
-        ]);
-
         /* 3v3 Sub Team Timeout Gaming */
         $this->insert('sub_team',  [
             'sub_team_id' => '6',
@@ -280,95 +126,6 @@ class m190306_075047_base_sub_teams extends Migration
             'description' => 'timeout is coming',
             'disqualified' => 0,
         ]);
-
-        /* Timeout 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '6',
-            'user_id' => '15',
-            'is_sub' => 0,
-        ]);
-
-        /* Timeout 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '6',
-            'user_id' => '16',
-            'is_sub' => 0,
-        ]);
-
-        /* Timeout 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '6',
-            'user_id' => '39',
-            'is_sub' => 0,
-        ]);
-
-        /* Timeout 3v3 Team Member TiMoTay*/
-        //$this->insert('sub_team_member',  [
-        //    'sub_team_id' => '6',
-        //    'user_id' => '16',
-        //    'is_sub' => 1,
-        //]);
-
-        /* Timeout 3v3 Team Member Yuko*/
-        //$this->insert('sub_team_member',  [
-        //    'sub_team_id' => '6',
-        //    'user_id' => '16',
-        //    'is_sub' => 1,
-        //]);
-
-        /* Timeout Gaming main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '53',
-        ]);
-
-        /* Timeout Gaming main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '57',
-        ]);
-
-        /* Timeout Gaming main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '30',
-        ]);
-
-        /* Timeout Gaming main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '67',
-        ]);
-
-        /* Timeout Gaming main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '15',
-        ]);
-
-        /* Timeout Gaming main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '16',
-        ]);
-
-        /* Timeout Gaming main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '39',
-        ]);
-
-        /* Timeout Gaming main Team member TiMoTay*/
-        //$this->insert('team_member',  [
-        //    'team_id' => '3',
-        //    'user_id' => '15',
-        //]);
-
-        /* Timeout Gaming main Team member Yuko*/
-        //$this->insert('team_member',  [
-        //    'team_id' => '3',
-        //    'user_id' => '15',
-        //]);
 
         /** Team Stealth7 eSports **/
         /* 3v3 Sub Team Stealth7 eSports */
@@ -385,34 +142,6 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* Stealth7 eSports 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '7',
-            'user_id' => '38',
-            'is_sub' => 0,
-        ]);
-
-        /* Stealth7 eSports 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '7',
-            'user_id' => '35',
-            'is_sub' => 0,
-        ]);
-
-        /* Stealth7 eSports 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '7',
-            'user_id' => '37',
-            'is_sub' => 0,
-        ]);
-
-        /* Stealth7 eSports 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '7',
-            'user_id' => '36',
-            'is_sub' => 1,
-        ]);
-
         /* 3v3 Sub Team Stealth7 eSports - Hoch und Weit */
         $this->insert('sub_team',  [
             'sub_team_id' => '8',
@@ -427,27 +156,6 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* Stealth7 eSports 3v3 Team Member - Hoch und Weit */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '8',
-            'user_id' => '65',
-            'is_sub' => 0,
-        ]);
-
-        /* Stealth7 eSports 3v3 Team Member - Hoch und Weit */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '8',
-            'user_id' => '77',
-            'is_sub' => 0,
-        ]);
-
-        /* Stealth7 eSports 3v3 Team Member - Hoch und Weit */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '8',
-            'user_id' => '25',
-            'is_sub' => 0,
-        ]);
-
         /* 2v2 Sub Team Stealth7 eSports */
         $this->insert('sub_team',  [
             'sub_team_id' => '9',
@@ -460,63 +168,6 @@ class m190306_075047_base_sub_teams extends Migration
             'short_code' => 'S7',
             'description' => 'Das 2v2 Team',
             'disqualified' => 0,
-        ]);
-
-        /* Stealth7 eSports 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '9',
-            'user_id' => '37',
-            'is_sub' => 0,
-        ]);
-
-        /* Stealth7 eSports 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '9',
-            'user_id' => '35',
-            'is_sub' => 0,
-        ]);
-
-        /* Stealth7 eSports 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '9',
-            'user_id' => '38',
-            'is_sub' => 1,
-        ]);
-
-        /* Stealth7 eSports main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '4',
-            'user_id' => '38',
-        ]);
-
-        /* Stealth7 eSports main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '4',
-            'user_id' => '35',
-        ]);
-
-        /* Stealth7 eSports main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '4',
-            'user_id' => '37',
-        ]);
-
-        /* Stealth7 eSports main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '4',
-            'user_id' => '36',
-        ]);
-
-        /* Stealth7 eSports main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '4',
-            'user_id' => '65',
-        ]);
-
-        /* Stealth7 eSports main Team member */
-        $this->insert('team_member',  [
-            'team_id' => '4',
-            'user_id' => '77',
         ]);
 
         /** Team AcTive **/
@@ -534,27 +185,6 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* AcTive 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '9',
-            'user_id' => '33',
-            'is_sub' => 0,
-        ]);
-
-        /* AcTive 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '9',
-            'user_id' => '49',
-            'is_sub' => 0,
-        ]);
-
-        /* AcTive 2v2 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '9',
-            'user_id' => '10',
-            'is_sub' => 1,
-        ]);
-
         /* 3v3 Sub Team AcTive */
         $this->insert('sub_team',  [
             'sub_team_id' => '12',
@@ -569,32 +199,167 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* AcTive 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '8',
-            'user_id' => '33',
-            'is_sub' => 0,
+        /** Team Acpect **/
+        /* 2v2 Sub Team Acpect */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '13',
+            'main_team_id' => '6',
+            'game_id' => '1',
+            'tournament_mode_id' => '2',
+            'team_captain_id' => '19',
+            'headquarter_id' => '1',
+            'name' => 'Team Acpect',
+            'short_code' => '',
+            'description' => '',
+            'disqualified' => 0,
         ]);
 
-        /* AcTive 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '8',
-            'user_id' => '49',
-            'is_sub' => 0,
+        /* 3v3 Sub Team Acpect */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '14',
+            'main_team_id' => '6',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '19',
+            'headquarter_id' => '1',
+            'name' => 'Team Acpect',
+            'short_code' => '',
+            'description' => '',
+            'disqualified' => 0,
         ]);
 
-        /* AcTive 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '8',
-            'user_id' => '10',
-            'is_sub' => 0,
+        /** Team Thinking **/
+        /* 2v2 Sub Team Thinking */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '16',
+            'main_team_id' => '8',
+            'game_id' => '1',
+            'tournament_mode_id' => '2',
+            'team_captain_id' => '9',
+            'headquarter_id' => '1',
+            'name' => 'Thinking',
+            'short_code' => '',
+            'description' => '',
+            'disqualified' => 0,
         ]);
 
-        /* AcTive 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '8',
-            'user_id' => '32',
-            'is_sub' => 1,
+        /* 3v3 Sub Team Thinking */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '17',
+            'main_team_id' => '8',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '9',
+            'headquarter_id' => '1',
+            'name' => 'Thinking',
+            'short_code' => '',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
+
+        /** Team Panicflip by Orbital Gaming **/
+        /* 2v2 Sub Team Panicflip */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '18',
+            'main_team_id' => '13',
+            'game_id' => '1',
+            'tournament_mode_id' => '2',
+            'team_captain_id' => '42',
+            'headquarter_id' => '1',
+            'name' => 'Panicflip',
+            'short_code' => '',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
+
+        /** Team eQuality. **/
+        /* 3v3 Sub Team eQuality. */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '19',
+            'main_team_id' => '7',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '44',
+            'headquarter_id' => '1',
+            'name' => 'eQuality.',
+            'short_code' => '',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
+
+        /** Team eSport Rhein-Neckar **/
+        /* 3v3 Sub Team eSport Rhein-Neckar */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '20',
+            'main_team_id' => '9',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '17',
+            'headquarter_id' => '1',
+            'name' => 'eSport Rhein-Neckar',
+            'short_code' => 'ERN',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
+
+        /** GHR E-Sports - Team Agency **/
+        /* 3v3 Sub Team Agency */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '21',
+            'main_team_id' => '10',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '58',
+            'headquarter_id' => '1',
+            'name' => 'Team Agency',
+            'short_code' => 'GHR',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
+
+        /** Team The Dark Start **/
+        /* 3v3 Sub Team The Dark Start */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '22',
+            'main_team_id' => '11',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '41',
+            'headquarter_id' => '1',
+            'name' => 'The Dark Start',
+            'short_code' => 'TGS',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
+
+        /** Team Esport BERG **/
+        /* 3v3 Sub Team Esport BERG */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '23',
+            'main_team_id' => '12',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '56',
+            'headquarter_id' => '1',
+            'name' => 'Esport BERG',
+            'short_code' => 'BERG',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
+
+        /** Team Safari Force **/
+        /* 3v3 Sub Team Safari Force */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '24',
+            'main_team_id' => '15',
+            'game_id' => '1',
+            'tournament_mode_id' => '3',
+            'team_captain_id' => '71',
+            'headquarter_id' => '1',
+            'name' => 'Safari Force',
+            'short_code' => 'SF',
+            'description' => '',
+            'disqualified' => 0,
         ]);
     }
 
