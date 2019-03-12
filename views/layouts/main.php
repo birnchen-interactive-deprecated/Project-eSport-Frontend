@@ -1,14 +1,15 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
+use app\assets\AppAsset;
 use app\widgets\Alert;
-use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
 
 AppAsset::register($this);
 
@@ -56,48 +57,47 @@ switch ($_REQUEST['r']) {
         'items' => [
             ['label' => 'Home', 'visible' => $visible, 'url' => ['/site/index']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+            ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
-                ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
-                    ['label' => 'Account', 'url' => ['/site/my_account']],
-                    ['label' => 'My Teams', 'url' => ['/site/my_teams']],
-                    ['label' => 'My Tournaments', 'url' => ['/site/my_tournaments']],
-                    ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
-               ]]
+            ['label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => [
+                ['label' => 'Account', 'url' => ['/site/my-account']],
+                ['label' => 'My Teams', 'url' => ['/site/my-teams']],
+                ['label' => 'My Tournaments', 'url' => ['/site/my-tournaments']],
+                ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
+            ]]
             )
         ],
     ]);
 
 
-
-//       'items' => [
-//               ['label' => 'Welcome', 'visible' => $visible, 'url' => ['/site/index']],
-//    //           ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
-//                   ['label' => 'My Account', 'url' => ['/site/account']],
-//                   ['label' => 'My Teams', 'url' => ['/site/news']],
-//                   ['label' => 'My Tournaments', 'url' => ['/site/news']],
-//               ]],
-//               ['label' => 'Cups', 'visible' => $visible, 'items' => [
-//                   ['label' => '1v1 Cup', 'url' => ['/site/news']],
-//                   ['label' => '2v2 Cup', 'url' => ['/site/account']],
-//                   ['label' => '3v3 Cup', 'url' => ['/site/tournament']],
-//               ]],
-//               ['label' => 'Twitch.tv', 'url' => ['/site/twitch']],
-//               ['label' => 'Bracket', 'url' => ['/site/bracket']],
-//           Yii::$app->user->isGuest ? (
-//               ['label' => 'Login', 'url' => ['/site/login']]
-//           ) : (
-//               '<li>'
-//               . Html::beginForm(['/site/logout'], 'post')
-//               . Html::submitButton(
-//                   'Logout (' . Yii::$app->user->identity->username . ')',
-//                   ['class' => 'btn btn-link logout']
-//               )
-//               . Html::endForm()
-//               . '</li>'
-//           )
-//       ],
-//   ]);
+    //       'items' => [
+    //               ['label' => 'Welcome', 'visible' => $visible, 'url' => ['/site/index']],
+    //    //           ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
+    //                   ['label' => 'My Account', 'url' => ['/site/account']],
+    //                   ['label' => 'My Teams', 'url' => ['/site/news']],
+    //                   ['label' => 'My Tournaments', 'url' => ['/site/news']],
+    //               ]],
+    //               ['label' => 'Cups', 'visible' => $visible, 'items' => [
+    //                   ['label' => '1v1 Cup', 'url' => ['/site/news']],
+    //                   ['label' => '2v2 Cup', 'url' => ['/site/account']],
+    //                   ['label' => '3v3 Cup', 'url' => ['/site/tournament']],
+    //               ]],
+    //               ['label' => 'Twitch.tv', 'url' => ['/site/twitch']],
+    //               ['label' => 'Bracket', 'url' => ['/site/bracket']],
+    //           Yii::$app->user->isGuest ? (
+    //               ['label' => 'Login', 'url' => ['/site/login']]
+    //           ) : (
+    //               '<li>'
+    //               . Html::beginForm(['/site/logout'], 'post')
+    //               . Html::submitButton(
+    //                   'Logout (' . Yii::$app->user->identity->username . ')',
+    //                   ['class' => 'btn btn-link logout']
+    //               )
+    //               . Html::endForm()
+    //               . '</li>'
+    //           )
+    //       ],
+    //   ]);
     NavBar::end();
     ?>
 
@@ -113,9 +113,10 @@ switch ($_REQUEST['r']) {
 <footer class="footer">
     <div class="container">
         <div class="col-lg-2">
-            
+
         </div>
-        <div class="col-lg-6 col-lg-offset-1 make-center" style="padding: 15px 0 0;">&copy; Birnchen Interactive 2016 - <?= date('Y') ?></div>
+        <div class="col-lg-6 col-lg-offset-1 make-center" style="padding: 15px 0 0;">&copy; Birnchen Interactive 2016
+            - <?= date('Y') ?></div>
         <div class="col-lg-2 col-lg-offset-1">
             <span><?= $twitterLink; ?></span>
             <span><?= $discordLink; ?></span>

@@ -8,11 +8,11 @@
 
 namespace app\modules\core\models;
 
-use yii\db\ActiveRecord;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
- * Class Sub Teams
+ * Class SubTeam
  * @package app\modules\core\models
  *
  * @property int $sub_team_id
@@ -24,7 +24,7 @@ use Yii;
  * @property string $description
  * @property bool $disqualified
  */
-class Sub_Teams extends ActiveRecord
+class SubTeam extends ActiveRecord
 {
     /**
      * @return array the attribute labels
@@ -37,15 +37,16 @@ class Sub_Teams extends ActiveRecord
             'game_id' => Yii::t('app', 'game id'),
             'tournament_mode_id' => Yii::t('app', 'tournament mode id'),
             'team_captain_id' => Yii::t('app', 'team captain id'),
-            'name' =>Yii::t('app', 'name'),
-            'description' =>Yii::t('app', 'description')
+            'name' => Yii::t('app', 'name'),
+            'description' => Yii::t('app', 'description')
         ];
     }
 
     /**
      * @return string
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'sub_team';
     }
 

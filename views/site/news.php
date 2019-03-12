@@ -2,8 +2,6 @@
 
 /* @var $this yii\web\View */
 
-use yii\helpers\Html;
-
 $players = array(
     'Korazu',
     'JaePanda',
@@ -23,7 +21,7 @@ $this->title = 'News';
 <div class="site-news">
 
     <ul>
-        <?php foreach($players as $player): ?>
+        <?php foreach ($players as $player): ?>
             <li><?= $player; ?></li>
         <?php endforeach; ?>
     </ul>

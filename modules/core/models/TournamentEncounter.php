@@ -7,10 +7,9 @@
  */
 
 use yii\db\ActiveRecord;
-use Yii;
 
 /**
- * Class Tournament_Encounter
+ * Class TournamentEncounter
  * @package app\modules\core\models
  *
  * @property int $encounter_id
@@ -22,7 +21,7 @@ use Yii;
  * @property int $team_2_id
  * @property bool $completed
  */
-class Tournament_Encounter extends ActiveRecord
+class TournamentEncounter extends ActiveRecord
 {
     /**
      * @return array the attribute labels

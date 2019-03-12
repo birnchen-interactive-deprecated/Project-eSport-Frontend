@@ -11,7 +11,7 @@ namespace app\modules\core\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class Games
+ * Class UserStats
  * @package app\modules\core\models
  *
  * @property int $user_id
@@ -22,7 +22,7 @@ use yii\db\ActiveRecord;
  * @property string $saves
  * @property string $shots
  */
-class User_Stats extends ActiveRecord
+class UserStats extends ActiveRecord
 {
     /**
      * @return int

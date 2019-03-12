@@ -8,11 +8,11 @@
 
 namespace app\modules\core\models;
 
-use yii\db\ActiveRecord;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
- * Class Main_Teams
+ * Class MainTeam
  * @package app\modules\core\models
  *
  * @property int $team_id//
@@ -22,7 +22,7 @@ use Yii;
  * @property string short_code
  * @property string $description
  */
-class Main_Team extends ActiveRecord
+class MainTeam extends ActiveRecord
 {
     /**
      * @return array the attribute labels
@@ -42,7 +42,8 @@ class Main_Team extends ActiveRecord
     /**
      * @return string
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'main_team';
     }
 
@@ -65,7 +66,7 @@ class Main_Team extends ActiveRecord
     /**
      * @return int
      */
-    public function getHeadQuaterId()
+    public function getHeadQuarterId()
     {
         return $this->headquarter_id;
     }

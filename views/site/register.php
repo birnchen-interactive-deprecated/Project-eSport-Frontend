@@ -8,7 +8,6 @@
  * @var $model app\models\LoginForm
  */
 
-use kartik\date\DatePicker;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 

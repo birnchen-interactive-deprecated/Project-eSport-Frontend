@@ -38,6 +38,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
 table {
     border-collapse: collapse;
     table-layout: fixed;

@@ -11,19 +11,20 @@ namespace app\modules\core\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class Sub_Team_Member
+ * Class SubTeamMember
  * @package app\modules\core\models
  *
  * @property int $sub_team_id
  * @property int $user_id
  * @property bool $s_sub
  */
-class Sub_Team_Member extends ActiveRecord
+class SubTeamMember extends ActiveRecord
 {
     /**
      * @return string
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'sub_team_member';
     }
 

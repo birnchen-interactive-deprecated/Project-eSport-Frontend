@@ -65,9 +65,9 @@ class m190228_074605_tournaments extends Migration
               PRIMARY KEY (`bracket_mode_id`))
             ENGINE = InnoDB");
 
-        //tournament_rules
+        //tournamentRules
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `tournament_rules` (
+            CREATE TABLE IF NOT EXISTS `tournamentRules` (
               `rules_id` INT NOT NULL,
               `game_id` INT NULL,
               `name` VARCHAR(45) NULL,
@@ -91,7 +91,7 @@ class m190228_074605_tournaments extends Migration
               PRIMARY KEY (`subrule_id`),
               CONSTRAINT `FK_tournament_subrules_id`
                 FOREIGN KEY (`rules_id`)
-                REFERENCES `tournament_rules` (`rules_id`)
+                REFERENCES `tournamentRules` (`rules_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
@@ -123,7 +123,7 @@ class m190228_074605_tournaments extends Migration
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_tournaments_rules_id`
                 FOREIGN KEY (`rules_id`)
-                REFERENCES `tournament_rules` (`rules_id`)
+                REFERENCES `tournamentRules` (`rules_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
               CONSTRAINT `FK_tournament_game_id`
@@ -442,19 +442,19 @@ class m190228_074605_tournaments extends Migration
         ]);
 
         /* Tournament Ruleset */
-        $this->insert('tournament_rules',  [
+        $this->insert('tournamentRules',  [
             'rules_id' => '1',
             'game_id' => '1',
             'name' => 'Rocket Legaue 1v1 Ruleset'
         ]);
 
-        $this->insert('tournament_rules',  [
+        $this->insert('tournamentRules',  [
             'rules_id' => '2',
             'game_id' => '1',
             'name' => 'Rocket Legaue 2v2 Ruleset'
         ]);
 
-        $this->insert('tournament_rules',  [
+        $this->insert('tournamentRules',  [
             'rules_id' => '3',
             'game_id' => '1',
             'name' => 'Rocket Legaue 3v3 Ruleset'
@@ -478,7 +478,7 @@ class m190228_074605_tournaments extends Migration
         $this->dropTable('nationality');
         $this->dropTable('tournaments');
         $this->dropTable('tournament_subrules');
-        $this->dropTable('tournament_rules');
+        $this->dropTable('tournamentRules');
         $this->dropTable('bracket_mode');
         $this->dropTable('tournament_mode');
         $this->dropTable('user_games');

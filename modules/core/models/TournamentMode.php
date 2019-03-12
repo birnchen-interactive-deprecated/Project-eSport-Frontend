@@ -11,7 +11,7 @@ namespace app\modules\core\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class Tournament_Mode
+ * Class TournamentMode
  * @package app\modules\core\models
  *
  * @property int $mode_id
@@ -19,7 +19,7 @@ use yii\db\ActiveRecord;
  * @property string $name
  * @property string $description
  */
-class Tournament_Mode extends ActiveRecord
+class TournamentMode extends ActiveRecord
 {
     /**
      * @return int the gender_id

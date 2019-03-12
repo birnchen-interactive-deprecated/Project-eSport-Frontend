@@ -26,6 +26,7 @@ class UserController extends BaseController
      * @param string $q the query string
      * @param integer $id the id of a given user
      *
+     * @param null $oId
      * @return array the data
      */
     public function actionQuery($q = null, $id = null, $oId = null)
@@ -35,7 +36,7 @@ class UserController extends BaseController
         $out = ['results' => ['id' => '', 'text' => '']];
         $userQuery = User::find();
         if ($oId) {
-            $userQuery->innerJoin('user_organisation',"`user`.`user_id` = `user_organisation`.`user_id` AND `user_organisation`.`organisation_id` = $oId");
+            $userQuery->innerJoin('user_organisation', "`user`.`user_id` = `user_organisation`.`user_id` AND `user_organisation`.`organisation_id` = $oId");
         } else {
             return $out;
         }
@@ -48,8 +49,6 @@ class UserController extends BaseController
                 ->orderBy('first_name');
             $users = $userQuery->all();
 
-            $bla = $userQuery->createCommand()->getSql();
-
             $out['results'] = [];
             /** @var User $user */
             foreach ($users as $user) {
@@ -65,7 +64,7 @@ class UserController extends BaseController
         }
 
 
-            if ($id > 0) {
+        if ($id > 0) {
             $out['results'] = ['id' => $id, 'text' => User::findOne($id)->__toString()];
         }
         return $out;

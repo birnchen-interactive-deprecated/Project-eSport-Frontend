@@ -15,7 +15,7 @@ use yii\db\ActiveRecord;
  * @package app\modules\core\models
  *
  * @property int $language_id
- * @property string $title
+ * @property string $name
  * @property string $locale
  */
 class Language extends ActiveRecord

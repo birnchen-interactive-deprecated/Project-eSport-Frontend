@@ -8,8 +8,6 @@
 
 namespace app\modules\rbac\controllers;
 
-use app\components\Constants;
-use app\modules\core\models\Permission;
 use app\modules\core\models\User;
 use Yii;
 use yii\console\Controller;
@@ -73,7 +71,7 @@ class RbacController extends Controller
      */
     private function initPermissions()
     {
-        $auth = Yii::$app->getAuthManager();
+        /*$auth = Yii::$app->getAuthManager();
         $bla = $auth->getPermissions();
         $permissions = Permission::find()->all();
         foreach ($permissions as $permission) {
@@ -81,6 +79,6 @@ class RbacController extends Controller
                 $createPermission = $auth->createPermission($permission->getPermission());
                 $auth->add($createPermission);
             }
-        }
+        }*/
     }
 }

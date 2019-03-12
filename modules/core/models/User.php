@@ -11,6 +11,7 @@ namespace app\modules\core\models;
 
 use app\components\AbstractActiveRecord;
 use Yii;
+use yii\db\ActiveQuery;
 use yii\web\IdentityInterface;
 
 /**
@@ -55,8 +56,8 @@ class User extends AbstractActiveRecord implements IdentityInterface
             'last_name' => Yii::t('app', 'last name'),
             'zip_code' => Yii::t('app', 'zip code'),
             'city' => Yii::t('app', 'city'),
-            'street' =>Yii::t('app', 'street'),
-            'email' =>Yii::t('app', 'email')
+            'street' => Yii::t('app', 'street'),
+            'email' => Yii::t('app', 'email')
         ];
     }
 
@@ -66,14 +67,6 @@ class User extends AbstractActiveRecord implements IdentityInterface
     public function getId()
     {
         return $this->user_id;
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUserData()
-    {
-        return $this->hasOne(User_Data::className(), ['user_id' => 'user_id']);
     }
 
     /**
@@ -111,6 +104,46 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return string
      */
+    public function getPreName()
+    {
+        return $this->pre_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZipCode()
+    {
+        return $this->zip_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * @return string
+     */
     public function getBirthday()
     {
         return $this->birthday;
@@ -125,7 +158,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getGender()
     {
@@ -141,11 +174,63 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
+     * @return ActiveQuery
+     */
+    public function getNationality()
+    {
+        return $this->hasOne(Nationality::className(), ['nationality_id' => 'nationality_id']);
+    }
+
+    /**
      * @return int
      */
     public function getLanguageId()
     {
         return $this->language_id;
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getLanguage()
+    {
+        return $this->hasOne(Language::className(), ['language_id' => 'language_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getMainTeams()
+    {
+        return $this->hasMany(MainTeam::className(), ['owner_id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function getMemberTeams()
+    {
+        return $this->hasMany(MainTeam::className(), ['team_id' => 'team_id'])
+            ->viaTable('team_member', ['user_id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getSubTeams()
+    {
+        return $this->hasMany(SubTeam::className(), ['team_captain_id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function getSubMemberTeams()
+    {
+        return $this->hasMany(SubTeam::className(), ['sub_team_id' => 'sub_team_id'])
+            ->viaTable('sub_team_member', ['user_id' => 'user_id']);
     }
 
     /**

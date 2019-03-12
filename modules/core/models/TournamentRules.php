@@ -8,18 +8,18 @@
 
 namespace app\modules\core\models;
 
-use yii\db\ActiveRecord;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
- * Class Tournament_Rules
+ * Class TournamentRules
  * @package app\modules\core\models
  *
  * @property int $rules_id
  * @property int $game_id
  * @property string $name
  */
-class tournament_rules extends ActiveRecord
+class tournamentRules extends ActiveRecord
 {
     /**
      * @return array the attribute labels

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Birnchen Studios
  * Date: 28.02.2019
- * Time: 16:39
+ * Time: 16:36
  */
 
 namespace app\modules\core\models;
@@ -11,15 +11,15 @@ namespace app\modules\core\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class Player_Participating
+ * Class PlayerParticipating
  * @package app\modules\core\models
  *
  * @property int $tournament_id
- * @property string $sub_team_id
- * @property bool $checked_in
+ * @property string $user_id
+ * @property bool $cheked_in
  * @property bool $disqualified
  */
-class Team_Participating extends ActiveRecord
+class PlayerParticipating extends ActiveRecord
 {
     /**
      * @return int
@@ -34,7 +34,7 @@ class Team_Participating extends ActiveRecord
      */
     public function getUserId()
     {
-        return $this->sub_team_id;
+        return $this->user_id;
     }
 
     /**
@@ -42,7 +42,7 @@ class Team_Participating extends ActiveRecord
      */
     public function getCheckedIn()
     {
-        return $this->checked_in;
+        return $this->cheked_in;
     }
 
     /**

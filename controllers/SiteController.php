@@ -6,10 +6,7 @@ use app\models\LoginForm;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
 use app\modules\core\models\Nationality;
-use app\modules\core\models\Main_Team;
-use app\modules\core\models\Main_Team_Member;
-use app\modules\core\models\Sub_Teams;
-use app\modules\core\models\Sub_Team_Member;
+use app\modules\core\models\User;
 use app\modules\core\models\UserForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -117,66 +114,64 @@ class SiteController extends Controller
      * @throws \yii\base\Exception
      * @throws \yii\db\StaleObjectException
      */
-    public function actionMy_account()
+    public function actionMyAccount()
     {
-
         if (Yii::$app->user->isGuest) {
             // return $this->render('index');
             return $this->goHome();
         }
 
-        $model = Yii::$app->user->identity;
+        /** @var User $user */
+        $user = Yii::$app->user->identity;
 
-        $gender = Gender::findOne(['gender_id' => $model->gender_id]);
-        $language = Language::findOne(['language_id' => $model->language_id]);
-        $nationality = Nationality::findOne(['nationality_id' => $model->nationality_id]);
+        $gender = $user->getGender()->one();
+        $language = $user->getLanguage()->one();
+        $nationality = $user->getNationality()->one();
 
-        $allMainTeams = Main_Team::findAll(['owner_id' => $model->user_id]);
-        $allMemberTeams = Main_Team_Member::findAll(['user_id' => $model->user_id]);
+        $allMainTeams = $user->getMainTeams()->all();
+        $allMemberTeams = $user->getMemberTeams()->all();
 
-        $mainTeams = array();
-        foreach ($allMainTeams as $key => $mainTeam) {
-            $mainTeams[] = array(
+        $mainTeams = [];
+        foreach ($allMainTeams as $mainTeam) {
+            $mainTeams[] = [
                 'owner' => true,
-                'team' => $mainTeam,
-            );
+                'team' => $mainTeam
+            ];
         }
 
-        foreach ($allMemberTeams as $key => $memberTeam) {
-            $mainTeam = Main_Team::findOne(['team_id' => $memberTeam->team_id]);
-            $mainTeams[] = array(
+        foreach ($allMemberTeams as $memberTeam) {
+            $mainTeams[] = [
                 'owner' => false,
-                'team' => $mainTeam,
-            );
+                'team' => $memberTeam
+            ];
         }
 
-        $allSubTeams = Sub_Teams::findAll(['team_captain_id' => $model->user_id]);
-        $allMemberTeams = Sub_Team_Member::findAll(['user_id' => $model->user_id]);
+        $allSubTeams = $user->getSubTeams()->all();
+        $allMemberTeams = $user->getSubMemberTeams()->all();
 
-        $subTeams = array();
-        foreach ($allSubTeams as $key => $subTeam) {
-            $subTeams[] = array(
+        $subTeams = [];
+        foreach ($allSubTeams as $subTeam) {
+            $subTeams[] = [
                 'owner' => true,
                 'team' => $subTeam,
-            );
+            ];
         }
 
-        foreach ($allMemberTeams as $key => $memberTeam) {
-            $subTeam = Sub_Team::findOne(['sub_team_id' => $memberTeam->sub_team_id]);
+        foreach ($allMemberTeams as $subMemberTeam) {
             $subTeams[] = array(
                 'owner' => false,
-                'team' => $subTeam,
+                'team' => $subMemberTeam,
             );
         }
 
         return $this->render('myAccount',
             [
-                "model" => $model,
+                'model' => $user,
                 'gender' => $gender,
                 'language' => $language,
                 'nationality' => $nationality,
                 'mainTeams' => $mainTeams,
-                'subTeams' => $subTeams,
+                'subTeams' => $subTeams
             ]);
     }
 
@@ -185,7 +180,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionMy_tournaments()
+    public function actionMyTournaments()
     {
         return $this->render('myTournaments');
     }
@@ -195,7 +190,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionMy_teams()
+    public function actionMyTeams()
     {
         return $this->render('myTeams');
     }
@@ -273,27 +268,27 @@ class SiteController extends Controller
      * Displays contact page.
      *
      * @return Response|string
-
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }*/
+     *
+     * public function actionContact()
+     * {
+     * $model = new ContactForm();
+     * if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+     * Yii::$app->session->setFlash('contactFormSubmitted');
+     *
+     * return $this->refresh();
+     * }
+     * return $this->render('contact', [
+     * 'model' => $model,
+     * ]);
+     * }*/
 
     /**
      * Displays about page.
      *
      * @return string
-
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }*/
+     *
+     * public function actionAbout()
+     * {
+     * return $this->render('about');
+     * }*/
 }

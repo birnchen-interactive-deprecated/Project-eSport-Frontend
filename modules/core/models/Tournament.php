@@ -8,8 +8,8 @@
 
 namespace app\modules\core\models;
 
-use yii\db\ActiveRecord;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * Class Tournament
@@ -41,13 +41,13 @@ class Tournament extends ActiveRecord
             'mode_id' => Yii::t('app', 'mode id'),
             'rules_id' => Yii::t('app', 'rules id'),
             'bracket_id' => Yii::t('app', 'bracket id'),
-            'tournament_name' =>Yii::t('app', 'tournament name'),
-            'tournament_description' =>Yii::t('app', 'tournament description'),
-            'dt_starting_time' =>Yii::t('app', 'dt starting time'),
-            'dt_checkin_begin' =>Yii::t('app', 'dt checkin begin'),
-            'dt_checkin_end' =>Yii::t('app', 'dt checkin end'),
-            'has_password' =>Yii::t('app', 'has password'),
-            'password' =>Yii::t('app', 'password')
+            'tournament_name' => Yii::t('app', 'tournament name'),
+            'tournament_description' => Yii::t('app', 'tournament description'),
+            'dt_starting_time' => Yii::t('app', 'dt starting time'),
+            'dt_checkin_begin' => Yii::t('app', 'dt checkin begin'),
+            'dt_checkin_end' => Yii::t('app', 'dt checkin end'),
+            'has_password' => Yii::t('app', 'has password'),
+            'password' => Yii::t('app', 'password')
 
         ];
     }

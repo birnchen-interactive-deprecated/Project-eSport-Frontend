@@ -11,14 +11,14 @@ namespace app\modules\core\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class Bracket_Mode
+ * Class BracketMode
  * @package app\modules\core\models
  *
  * @property int $bracket_mode_id
  * @property string $name
  * @property string $description
  */
-class Bracket_Mode extends ActiveRecord
+class BracketMode extends ActiveRecord
 {
     /**
      * @return int the gender_id

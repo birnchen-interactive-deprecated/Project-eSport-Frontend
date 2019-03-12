@@ -130,38 +130,33 @@ class  UserForm extends FormModel
      * @throws \Exception
      * @throws \Throwable
      * @throws \yii\base\Exception
-     * @throws \yii\db\StaleObjectException
      */
     public function save()
     {
         $transaction = Yii::$app->db->beginTransaction();
+        $user = new User();
+        $user->dt_created = new Expression("now");
+        $user->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+        $user->username = $this->username;
+        $user->birthday = date('Y-m-d', strtotime($this->birthday));
+        $user->gender_id = $this->genderId;
+        $user->language_id = $this->languageId;
+        $user->nationality_id = $this->nationalityId;
+        $user->pre_name = $this->preName;
+        $user->last_name = $this->lastName;
+        $user->zip_code = $this->zipCode;
+        $user->city = $this->city;
+        $user->street = $this->street;
+        $user->email = $this->email;
 
         try {
-            $user = new User();
-
-            $user->dt_created = new Expression("now");
-            $user->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
-            $user->username = $this->username;
-            $user->birthday = date('Y-m-d', strtotime($this->birthday));
-            $user->gender_id = $this->genderId;
-            $user->language_id = $this->languageId;
-            $user->nationality_id = $this->nationalityId;
-            $user->pre_name = $this->preName;
-            $user->last_name = $this->lastName;
-            $user->zip_code = $this->zipCode;
-            $user->city = $this->city;
-            $user->street = $this->street;
-            $user->email = $this->email;
-
             $user->save();
-
             $transaction->commit();
-
             return true;
         } catch (Exception $e) {
             print_r($e->getMessage());
             $transaction->rollBack();
-            Alert::addError(Module::t("general", "user %s couldn't be saved"), $user->getFirstName() . ' ' . $user->getLastName());
+            Alert::addError(Module::t("general", "user %s couldn't be saved"), $user->getPreName() . ' ' . $user->getLastName());
         }
         return false;
     }

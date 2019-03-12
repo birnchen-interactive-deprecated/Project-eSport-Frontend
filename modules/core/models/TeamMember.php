@@ -8,26 +8,28 @@
 
 namespace app\modules\core\models;
 
+
 use yii\db\ActiveRecord;
 
 /**
- * Class Main_Team_Member
+ * Class TeamMember
  * @package app\modules\core\models
  *
  * @property int $team_id
  * @property int $user_id
  */
-class Main_Team_Member extends ActiveRecord
+class TeamMember extends ActiveRecord
 {
     /**
      * @return string
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'team_member';
     }
 
     /**
-     * @return int the gender_id
+     * @return int the team_id
      */
     public function getTeamId()
     {
@@ -35,7 +37,7 @@ class Main_Team_Member extends ActiveRecord
     }
 
     /**
-     * @return int the gender_id
+     * @return int the user_id
      */
     public function getUserId()
     {

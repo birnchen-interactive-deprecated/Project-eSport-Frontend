@@ -8,11 +8,11 @@
 
 namespace app\modules\core\models;
 
-use yii\db\ActiveRecord;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
- * Class Tournament_Encounter_points
+ * Class TournamentEncounterPoints
  * @package app\modules\core\models
  *
  * @property int $encounter_points_id
@@ -27,7 +27,7 @@ use Yii;
  * @property bool $accepted
  * @property int $winner_team_id
  */
-class Tournament_Encounter_Points extends ActiveRecord
+class TournamentEncounterPoints extends ActiveRecord
 {
     /**
      * @return array the attribute labels
@@ -40,8 +40,8 @@ class Tournament_Encounter_Points extends ActiveRecord
             'game_round' => Yii::t('app', 'game round'),
             'goals_team_1' => Yii::t('app', 'goals team 1'),
             'goals_team_2' => Yii::t('app', 'goals team 2'),
-            'accepted' =>Yii::t('app', 'accepted'),
-            'winner_team_id' =>Yii::t('app', 'winner team id')
+            'accepted' => Yii::t('app', 'accepted'),
+            'winner_team_id' => Yii::t('app', 'winner team id')
         ];
     }
 
