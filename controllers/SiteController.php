@@ -205,13 +205,13 @@ class SiteController extends Controller
     }
 
     /** Rocket League Area **/
-    public function action1v1Tournament() {
+    public function action1v1Tournaments() {
 
         return $this->render('rocketLeague/1v1Tournaments');
 
     }
 
-    public function action2v2Tournament() {
+    public function action2v2Tournaments() {
 
         return $this->render('2v2Tournaments');
 
