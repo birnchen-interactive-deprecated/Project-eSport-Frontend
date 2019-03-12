@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View
-    @var $list array<Tournaments>
+    @var $tournamentList array<Tournaments>
 */
 
 $this->title = '1v1 Tournaments';
@@ -9,7 +9,7 @@ $this->title = '1v1 Tournaments';
 <div class="site-news">
 
     1v1 Tournaments
-	<?php foreach ($list as $key => $tournament): ?>
+	<?php foreach ($tournamentList as $key => $tournament): ?>
 		<div><?= $tournament->getTournamentName(); ?></div>
 	<?php endforeach; ?>
 
