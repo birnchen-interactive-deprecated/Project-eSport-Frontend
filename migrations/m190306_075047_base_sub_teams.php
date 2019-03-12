@@ -96,6 +96,7 @@ class m190306_075047_base_sub_teams extends Migration
             'name' => 'Timeout Gaming',
             'short_code' => 'TG',
             'description' => 'Das 2v2 Team',
+            'disqualified' => 0,
         ]);
 
         /* 3v3 Sub Team Timeout Gaming */
