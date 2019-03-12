@@ -24,7 +24,7 @@ use yii\db\ActiveRecord;
  * @property string $tournament_description
  * @property string $dt_starting_time
  * @property string $dt_checkin_begin
- * @property string $dt_checkin_end
+ * @property string $dt_checkin_ends
  * @property bool $has_password
  * @property string $password
  */
@@ -45,7 +45,7 @@ class Tournament extends ActiveRecord
             'tournament_description' => Yii::t('app', 'tournament description'),
             'dt_starting_time' => Yii::t('app', 'dt starting time'),
             'dt_checkin_begin' => Yii::t('app', 'dt checkin begin'),
-            'dt_checkin_end' => Yii::t('app', 'dt checkin end'),
+            'dt_checkin_ends' => Yii::t('app', 'dt checkin end'),
             'has_password' => Yii::t('app', 'has password'),
             'password' => Yii::t('app', 'password')
 
@@ -137,7 +137,7 @@ class Tournament extends ActiveRecord
      */
     public function getDtCheckinEnd()
     {
-        return $this->dt_checkin_end;
+        return $this->dt_checkin_ends;
     }
 
     /**
