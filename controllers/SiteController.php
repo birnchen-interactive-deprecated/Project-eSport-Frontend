@@ -206,7 +206,7 @@ class SiteController extends Controller
     }
 
     /** Rocket League Area **/
-    public function actionTournaments1v1() {
+    public function actionRLTournaments() {
 
         $tournamentList = Tournament::getRLTournaments();
 
