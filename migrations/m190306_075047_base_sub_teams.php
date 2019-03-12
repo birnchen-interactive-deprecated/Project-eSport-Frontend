@@ -1155,7 +1155,7 @@ class m190306_075047_base_sub_teams extends Migration
         ]);
 
         /** Team Safari Force **/
-        /* 3v3 Sub Team Esport BERG */
+        /* 3v3 Sub Team Safari Force */
         $this->insert('sub_team',  [
             'sub_team_id' => '24',
             'main_team_id' => '15',
@@ -1169,34 +1169,34 @@ class m190306_075047_base_sub_teams extends Migration
             'disqualified' => 0,
         ]);
 
-        /* Team Esport BERG 3v3 Team Member */
+        /* Team Safari Force 3v3 Team Member */
         $this->insert('sub_team_member',  [
             'sub_team_id' => '24',
             'user_id' => '71',
             'is_sub' => 0,
         ]);
 
-        /* Team Esport BERG 3v3 Team Member */
+        /* Team Safari Force 3v3 Team Member */
         $this->insert('sub_team_member',  [
             'sub_team_id' => '24',
             'user_id' => '73',
             'is_sub' => 0,
         ]);
 
-        /* Team Esport BERG 3v3 Team Member */
+        /* Team Safari Force 3v3 Team Member */
         $this->insert('sub_team_member',  [
             'sub_team_id' => '24',
             'user_id' => '72',
             'is_sub' => 0,
         ]);
 
-        /* Team Esport BERG main Team member */
+        /* Team Safari Force main Team member */
         $this->insert('team_member',  [
             'team_id' => '15',
             'user_id' => '72',
         ]);
 
-        /* Team Esport BERG main Team member */
+        /* Team Safari Force main Team member */
         $this->insert('team_member',  [
             'team_id' => '15',
             'user_id' => '73',
