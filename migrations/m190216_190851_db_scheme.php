@@ -76,7 +76,7 @@ class m190216_190851_db_scheme extends Migration
                 REFERENCES `nationality` (`nationality_id`)
                 ON DELETE SET NULL
                 ON UPDATE CASCADE)
-            ENGINE = InnoDB;");
+            ENGINE = InnoDB;");//
 
         /* Base languages English and German as standard German */
         $this->insert('language',  [
@@ -284,16 +284,16 @@ class m190216_190851_db_scheme extends Migration
         ]);
 
         /* Creating Admin Users */
-        $this->insert('user', [
-            'language_id' => '1',
-            'gender_id' => '3',
-            'dt_created' => new Expression('NOW()'),
-            'dt_updated' => new Expression('NOW()'),
-            'username' => 'admin',
-            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
-            'email' => 'admin@admin.de'
-            //AdminPW123!.
-        ]);
+        //$this->insert('user', [
+        //    'language_id' => '1',
+        //    'gender_id' => '3',
+        //    'dt_created' => new Expression('NOW()'),
+        //    'dt_updated' => new Expression('NOW()'),
+        //    'username' => 'admin',
+        //    'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
+        //    'email' => 'admin@admin.de'
+        //    //AdminPW123!.
+        //]);
     }
 
     /**
