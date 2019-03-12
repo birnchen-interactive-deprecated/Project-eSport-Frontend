@@ -273,6 +273,11 @@ class User extends AbstractActiveRecord implements IdentityInterface
         $this->password = Yii::$app->security->generatePasswordHash($password);
     }
 
+    public function setProfilePic($profilePic) {
+        $docRoot = $_SERVER['DOCUMENT_ROOT'];
+        $profilePic->moveTo($docRoot . '/images/UserAvatar/' . $this->user_id . '.png');
+    }
+
     /**
      * @inheritdoc
      */

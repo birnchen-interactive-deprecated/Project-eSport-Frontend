@@ -121,8 +121,17 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+        $profilePic = NULL;
+        if (is_array($_FILES) && isset($_FILES['profilePic'])) {
+            $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
+        }
+
         /** @var User $user */
         $user = Yii::$app->user->identity;
+
+        if (NULL !== $profilePic && 0 === $profilePic->getError()) {
+            $user->setProfilePic($profilePic);
+        }
 
         $gender = $user->getGender()->one();
         $language = $user->getLanguage()->one();
