@@ -216,6 +216,7 @@ class SiteController extends Controller
         return $this->render('2v2Tournaments');
 
     }
+    /** End of Rocket League Area **/
 
     /**
      * Displays News.
