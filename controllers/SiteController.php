@@ -206,7 +206,15 @@ class SiteController extends Controller
 
     /** Rocket League Area **/
     public function action1v1Tournament() {
+
         return $this->render('rocketLeague/1v1Tournaments');
+
+    }
+
+    public function action2v2Tournament() {
+
+        return $this->render('2v2Tournaments');
+
     }
 
     /**
