@@ -208,11 +208,11 @@ class SiteController extends Controller
     /** Rocket League Area **/
     public function actionTournaments1v1() {
 
-        $list = Tournament::getRLTournaments();
+        $tournamentList = Tournament::getRLTournaments();
 
-        return $this->render('rocketLeague/1v1Tournaments',
+        return $this->render('rocketLeague/TournamentsOverview',
             [
-                'list' => $list,
+                'tournamentList' => $tournamentList,
             ]
         );
 
