@@ -217,7 +217,7 @@ class SiteController extends Controller
 
     }
 
-    public function actionTournament3v3() {
+    public function actionTournaments3v3() {
 
         return $this->render('rocketLeague/3v3Tournaments');
 
