@@ -8,6 +8,7 @@ use app\modules\core\models\Language;
 use app\modules\core\models\Nationality;
 use app\modules\core\models\User;
 use app\modules\core\models\UserForm;
+use app\modules\core\models\Tournament;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -207,7 +208,13 @@ class SiteController extends Controller
     /** Rocket League Area **/
     public function actionTournaments1v1() {
 
-        return $this->render('rocketLeague/1v1Tournaments');
+        $list = Tournament::getRLTournaments();
+
+        return $this->render('rocketLeague/1v1Tournaments',
+            [
+                'list' => $list,
+            ]
+        );
 
     }
 

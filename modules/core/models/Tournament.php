@@ -53,6 +53,14 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @return string
+     */
+    public static function tableName()
+    {
+        return 'tournaments';
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -158,5 +166,13 @@ class Tournament extends ActiveRecord
     public static function findByTournamentName($tournamentname)
     {
         return static::findOne(['tournament_name' => $tournamentname]);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public static function getRLTournaments()
+    {
+        return static::findAll(['game_id' => '1']);
     }
 }
