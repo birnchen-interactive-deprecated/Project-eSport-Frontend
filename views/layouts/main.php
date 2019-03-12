@@ -28,6 +28,25 @@ switch ($_REQUEST['r']) {
         break;
 }
 
+$navigation = array(
+    array('label' => 'Home', 'visible' => $visible, 'url' => ['/site/index']),
+);
+if (Yii::$app->user->isGuest) {
+    $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
+} else {
+    $navigation[] = array('label' => 'Turniere', 'visible' => $visible, 'items' => array(
+        array('label' => '1v1', 'url' => ['/site/1v1_tournaments']),
+        array('label' => '2v2', 'url' => ['/site/2v2_tournaments']),
+        array('label' => '3v3', 'url' => ['/site/3v3_tournaments']),
+    ));
+    $navigation[] = array('label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => array(
+        array('label' => 'Account', 'url' => ['/site/my-account']),
+        array('label' => 'My Teams', 'url' => ['/site/my-teams']),
+        array('label' => 'My Tournaments', 'url' => ['/site/my-tournaments']),
+        array('label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']),
+    ));
+}
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -54,19 +73,7 @@ switch ($_REQUEST['r']) {
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'visible' => $visible, 'url' => ['/site/index']],
-            Yii::$app->user->isGuest ? (
-            ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-            ['label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => [
-                ['label' => 'Account', 'url' => ['/site/my-account']],
-                ['label' => 'My Teams', 'url' => ['/site/my-teams']],
-                ['label' => 'My Tournaments', 'url' => ['/site/my-tournaments']],
-                ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
-            ]]
-            )
-        ],
+        'items' => $navigation,
     ]);
 
 
