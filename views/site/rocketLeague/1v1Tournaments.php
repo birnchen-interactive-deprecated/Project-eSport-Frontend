@@ -12,4 +12,5 @@ $this->title = '1v1 Tournaments';
 	<?php foreach ($list as $key => $tournament): ?>
 		<div><?= $tournament->getTournamentName(); ?></div>
 	<?php endforeach; ?>
+
 </div>
