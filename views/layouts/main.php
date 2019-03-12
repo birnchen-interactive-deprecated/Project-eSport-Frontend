@@ -35,8 +35,8 @@ if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
 } else {
     $navigation[] = array('label' => 'Turniere', 'visible' => $visible, 'items' => array(
-        array('label' => '1v1', 'url' => ['/site/Tournaments1v1']),
-        array('label' => '2v2', 'url' => ['/site/Tournaments2v2']),
+        array('label' => '1v1', 'url' => ['/site/tournaments1v1']),
+        array('label' => '2v2', 'url' => ['/site/tournaments2v2']),
         array('label' => '3v3', 'url' => ['/site/3v3_tournaments']),
     ));
     $navigation[] = array('label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => array(
