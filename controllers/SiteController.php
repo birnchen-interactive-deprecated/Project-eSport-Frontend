@@ -204,6 +204,11 @@ class SiteController extends Controller
         return $this->render('myTeams');
     }
 
+    /** Rocket League Area **/
+    public function action1v1Tournament() {
+        return $this->render('rocketLeague/1v1Tournaments');
+    }
+
     /**
      * Displays News.
      *
