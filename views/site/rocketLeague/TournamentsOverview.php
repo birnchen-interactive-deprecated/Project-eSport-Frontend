@@ -73,7 +73,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-success">
-				<th colspan="2">Laufende Turniere</th>
+				<th colspan="2">Laufende Turniere <span class="badge"><?= (count($runningTurnier) + count($preRunningTurnier)); ?></span></th>
 			</tr>
 			<tr class="bg-success">
 				<th>Turniername</th>
@@ -104,7 +104,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-success">
-				<th colspan="3">Check In Turniere</th>
+				<th colspan="3">Check In Turniere <span class="badge"><?= (count($checkInTurnier) + count($preCheckInTurnier)); ?></span></th>
 			</tr>
 			<tr class="bg-success">
 				<th>Turniername</th>
@@ -137,7 +137,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-info">
-				<th colspan="4">Registration Turniere</th>
+				<th colspan="4">Registration Turniere <span class="badge"><?= count($registerTurnier); ?></span></th>
 			</tr>
 			<tr class="bg-info">
 				<th>Turniername</th>
@@ -165,7 +165,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-warning">
-				<th colspan="2">Geplante Turniere</th>
+				<th colspan="2">Geplante Turniere <span class="badge"><?= count($plannedTurnier); ?></span></th>
 			</tr>
 			<tr class="bg-warning">
 				<th>Turniername</th>
@@ -187,7 +187,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-warning">
-				<th colspan="2">Turnier Archive</th>
+				<th colspan="2">Turnier Archive <span class="badge"><?= count($archivTurnier); ?></span></th>
 			</tr>
 			<tr class="bg-warning">
 				<th>Turniername</th>
