@@ -41,6 +41,13 @@ class m190306_075111_base_sub_team_member extends Migration
             'is_sub' => 0,
         ]);
 
+        /* REC 3v3 Team Member */
+        $this->insert('sub_team_member',  [
+            'sub_team_id' => '2',
+            'user_id' => '85',
+            'is_sub' => 0,
+        ]);
+
         /** Team CaptainViper **/
         /* CaptainViper 2v2 Team Member */
         $this->insert('sub_team_member',  [

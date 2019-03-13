@@ -25,6 +25,12 @@ class m190306_075100_base_team_member extends Migration
             'user_id' => '69',
         ]);
 
+        /* REC main Team member */
+        $this->insert('team_member',  [
+            'team_id' => '1',
+            'user_id' => '85',
+        ]);
+
         /** Team CaptainViper **/
         /* CaptainViper main Team member */
         $this->insert('team_member',  [
