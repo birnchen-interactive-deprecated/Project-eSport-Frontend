@@ -10,6 +10,7 @@ namespace app\modules\core\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\Html;
 
 /**
  * Class Tournament
@@ -212,6 +213,86 @@ class Tournament extends ActiveRecord
     public static function findByTournamentName($tournamentname)
     {
         return static::findOne(['tournament_name' => $tournamentname]);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function showRegisterBtn($subTeams) {
+        if ($this->getModeId() == 1) {
+            return true;
+        }
+
+        if (count($subTeams) > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegisterBtns($subTeams, $user) {
+        if ($this->getModeId() == 1) {
+            
+            $isParticipating = $this->checkPlayerParticipating($user);
+
+            $btnValue = ($isParticipating) ? 'Abmelden' : 'Registrieren';
+            $btnColor = ($isParticipating) ? 'btn-danger' : 'btn-success';
+
+            $tmp = array(
+                array(
+                    'type' => 'user',
+                    'id' => $user->getId(),
+                    'name' => Html::tag('span', $user->getUsername()),
+                    'btn' => Html::submitInput($btnValue, ['class' => 'btn ' . $btnColor, 'name' => 'submitText']),
+                ),
+            );
+            return $tmp;
+        }
+
+        $retArr = array();
+        foreach ($subTeams as $key => $subTeam) {
+            
+            if ($subTeam->getTournamentModeId() !== $this->getModeId()) {
+                continue;
+            }
+
+            // ToDo: Check if subTeam nötige Anzahl an Spieler hat, wenn nein -> continue
+
+            $isParticipating = $this->checkTeamParticipating($subTeam);
+
+            $btnValue = ($isParticipating) ? 'Abmelden' : 'Registrieren';
+            $btnColor = ($isParticipating) ? 'btn-danger' : 'btn-success';
+
+            $retArr[] = array(
+                'type' => 'subTeam',
+                'id' => $subTeam->getId(),
+                'name' => Html::tag('span', $subTeam->getName()),
+                'btn' => Html::submitInput($btnValue, ['class' => 'btn ' . $btnColor, 'name' => 'submitText']),
+            );
+
+        }
+
+        return $retArr;
+
+    }
+
+    /**
+     * @return boolean
+     */
+    private function checkPlayerParticipating($user) {
+        $playerParticipating = PlayerParticipating::findPlayerParticipating($this->tournament_id, $user->getId());
+        return (NULL === $playerParticipating) ? false : true;
+    }
+
+    /**
+     * @return boolean
+     */
+    private function checkTeamParticipating($subTeam) {
+        $teamParticipating = TeamParticipating::findTeamParticipating($this->tournament_id, $subTeam->getId());
+        return (NULL === $teamParticipating) ? false : true;
     }
 
     /**

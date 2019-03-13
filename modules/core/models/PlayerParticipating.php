@@ -52,4 +52,11 @@ class PlayerParticipating extends ActiveRecord
     {
         return $this->disqualified;
     }
+
+    /**
+     * @return ActiveQuery
+     */
+    public static function findPlayerParticipating($tournamentId, $userId) {
+        return static::findOne(['tournament_id' => $tournamentId, 'user_id' => $userId]);
+    }
 }

@@ -9,6 +9,8 @@ use app\modules\core\models\Nationality;
 use app\modules\core\models\User;
 use app\modules\core\models\UserForm;
 use app\modules\core\models\Tournament;
+use app\modules\core\models\PlayerParticipating;
+use app\modules\core\models\TeamParticipating;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -207,6 +209,50 @@ class SiteController extends Controller
 
     /** Rocket League Area **/
     public function actionRlTournaments() {
+
+        if (is_array($_POST) && isset($_POST['tournamentId'])) {
+
+            if (isset($_POST['user'])) {
+
+                $turnierId = (int) $_POST['tournamentId'];
+                $userId = (int) $_POST['user'];
+
+                if ($_POST['submitText'] === 'Registrieren') {
+
+                    $newPlayer = new PlayerParticipating();
+                    $newPlayer->tournament_id = $turnierId;
+                    $newPlayer->user_id = $userId;
+                    $newPlayer->insert();
+
+                } else if ($_POST['submitText'] === 'Abmelden') {
+                    $playerParticipating = PlayerParticipating::findPlayerParticipating($turnierId, $userId);
+                    if (NULL !== $playerParticipating) {
+                        $playerParticipating->delete();
+                    }
+                }
+
+            } else if (isset($_POST['subTeam'])) {
+
+                $turnierId = (int) $_POST['tournamentId'];
+                $subTeamId = (int) $_POST['subTeam'];
+
+                if ($_POST['submitText'] === 'Registrieren') {
+
+                    $newSubTeam = new TeamParticipating();
+                    $newSubTeam->tournament_id = $turnierId;
+                    $newSubTeam->sub_team_id = $subTeamId;
+                    $newSubTeam->insert();
+
+                } else if ($_POST['submitText'] === 'Abmelden') {
+                    $teamParticipating = TeamParticipating::findTeamParticipating($turnierId, $subTeamId);
+                    if (NULL !== $teamParticipating) {
+                        $teamParticipating->delete();
+                    }
+                }
+
+            }
+
+        }
 
         $tournamentList = Tournament::getRLTournaments();
 
