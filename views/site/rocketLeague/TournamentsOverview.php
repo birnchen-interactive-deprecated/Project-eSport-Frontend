@@ -84,14 +84,14 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($runningTurnier as $key => $tournament): ?>
 				<tr>
-					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td>Running</td>
 				</tr>
 			<?php endforeach; ?>
 			<?php foreach ($preRunningTurnier as $key => $tournament): ?>
 				<tr>
-					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td>Preparing</td>
 				</tr>
@@ -115,7 +115,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($checkInTurnier as $key => $tournament): ?>
 				<tr>
-					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
 					<td>
 						<?= Html::submitButton('Check In', ['class' => 'btn btn-success']); ?>
@@ -124,7 +124,7 @@ $this->title = 'RL Tournament Overview';
 			<?php endforeach; ?>
 			<?php foreach ($preCheckInTurnier as $key => $tournament): ?>
 				<tr>
-					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
 					<td>Preparing</td>
 				</tr>
@@ -153,7 +153,7 @@ $this->title = 'RL Tournament Overview';
 					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 				?>
 				<tr>
-					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
@@ -179,7 +179,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($plannedTurnier as $key => $tournament): ?>
 				<tr class="fold">
-					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>
@@ -201,7 +201,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($archivTurnier as $key => $tournament): ?>
 				<tr class="fold">
-					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>

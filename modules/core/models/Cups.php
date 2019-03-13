@@ -15,7 +15,7 @@ use yii\db\ActiveRecord;
  * @package app\modules\core\models
  *
  * @property int $cup_id
- * @property string $name
+ * @property string $cup_name
  * @property int $season
  */
 class Cups extends ActiveRecord
@@ -33,7 +33,7 @@ class Cups extends ActiveRecord
      */
     public function getName()
     {
-        return $this->name;
+        return $this->cup_name;
     }
 
     /**
