@@ -510,13 +510,6 @@ class m190306_075111_base_sub_team_member extends Migration
             'is_sub' => 0,
         ]);
 
-        /* Team The Dark Start 3v3 Team Member */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '22',
-            'user_id' => '74',
-            'is_sub' => 1,
-        ]);
-
         /** Team Esport BERG **/
         /* Team Esport BERG 3v3 Team Member */
         $this->insert('sub_team_member',  [
