@@ -1,3 +1,55 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Erstellungszeit: 13. Mrz 2019 um 20:38
+-- Server-Version: 5.7.25-0ubuntu0.16.04.2
+-- PHP-Version: 7.1.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Datenbank: `Project-eSport`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `birthday` date NOT NULL,
+  `gender_id` int(11) DEFAULT NULL,
+  `nationality_id` int(11) DEFAULT NULL,
+  `dt_created` datetime NOT NULL,
+  `dt_updated` datetime DEFAULT NULL,
+  `language_id` int(11) DEFAULT NULL,
+  `pre_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `zip_code` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `user`
+--
+
 INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, `nationality_id`, `dt_created`, `dt_updated`, `language_id`, `pre_name`, `last_name`, `zip_code`, `city`, `street`, `email`) VALUES
 (1, 'admin', '$2y$13$oqxRLMe.raZ1vxzyKVl/fOp5PYF7fHVrGp6tbOiYlsJ28yUcJgvIO', '0000-00-00', 3, NULL, '2019-03-11 13:31:45', '2019-03-11 13:31:45', 1, NULL, NULL, NULL, NULL, NULL, 'admin@admin.de'),
 (2, 'Birnchen', '$2y$13$BFuY5ZmWvptagWoiaCg4quNxd5R4HGjkLdibC3r0lYpNLQwNzQ2.6', '1986-03-25', 1, 1, '2019-02-27 22:28:13', '2019-02-27 22:28:13', 1, NULL, NULL, NULL, NULL, NULL, 'p.koehler@birnchen-studios.de'),
@@ -81,6 +133,46 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, 
 (80, 'Phix', '$2y$13$ctjCNPn9nO6crM39AaPUvujzprnBn2F5n8hb7YJ36VIcn01I14tTC', '1970-01-01', 1, NULL, '2019-03-03 21:30:49', '2019-03-03 21:30:49', 1, NULL, NULL, NULL, NULL, NULL, 'officialphixrl@gmail.com'),
 (81, 'Pandastiko ', '$2y$13$4xSAHdxuXQh317sdSxLkjOQxF0vWvrAd0KQR84PpdNqpRfUEByEuy', '1970-01-01', 1, NULL, '2019-03-03 22:04:47', '2019-03-03 22:04:47', 1, NULL, NULL, NULL, NULL, NULL, 'mischakaelin2.0@gmail.com'),
 (82, 'GlaedrOromis', '$2y$13$Espd4EC/G14huBcgXePneuUwGPUKRebIGXqXlm1gy/bDKP8AAYUN.', '1970-01-01', 1, NULL, '2019-03-08 17:28:01', '2019-03-08 17:28:01', 1, NULL, NULL, NULL, NULL, NULL, 'pietwagner02@gmail.com'),
-(83, 'Covari', '$2y$13$s7BvdH9lLfm5DkiLxOABiO57szIYLAi9S/WeICbkxZ/XGOnzsY8O6', '1970-01-01', 1, 1, '2019-03-12 16:08:20', '2019-03-12 16:08:20', 1, NULL, NULL, NULL, NULL, NULL, 'felix.salomo1102@gmail.com');
+(83, 'Covari', '$2y$13$s7BvdH9lLfm5DkiLxOABiO57szIYLAi9S/WeICbkxZ/XGOnzsY8O6', '1970-01-01', 1, 1, '2019-03-12 16:08:20', '2019-03-12 16:08:20', 1, NULL, NULL, NULL, NULL, NULL, 'felix.salomo1102@gmail.com'),
+(84, 'RLRene', '$2y$13$HRhSXAEVLunYr0PZqldoouwblRiy4GL84edIgz7GU3Lr2wFwyy2Uq', '1970-01-01', 1, 1, '2019-03-13 20:03:55', '2019-03-13 20:03:55', 1, NULL, NULL, NULL, NULL, NULL, 'nessaja91@web.de');
 
+--
+-- Indizes der exportierten Tabellen
+--
+
+--
+-- Indizes für die Tabelle `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `username_UNIQUE` (`username`),
+  ADD KEY `FK_user_gender_id_idx` (`gender_id`),
+  ADD KEY `FK_user_language_id_idx` (`language_id`),
+  ADD KEY `FK_user_nationality_id_idx` (`nationality_id`);
+
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+
+--
+-- Constraints der exportierten Tabellen
+--
+
+--
+-- Constraints der Tabelle `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `FK_user_gender_id` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`gender_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_user_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_user_nationality_id` FOREIGN KEY (`nationality_id`) REFERENCES `nationality` (`nationality_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
