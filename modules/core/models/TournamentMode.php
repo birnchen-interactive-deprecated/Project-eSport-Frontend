@@ -17,6 +17,8 @@ use yii\db\ActiveRecord;
  * @property int $mode_id
  * @property int $game_id
  * @property string $name
+ * @property int $main_player
+ * @property int $sub_player
  * @property string $description
  */
 class TournamentMode extends ActiveRecord
@@ -43,6 +45,22 @@ class TournamentMode extends ActiveRecord
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string the gender name
+     */
+    public function getMainPlayer()
+    {
+        return $this->main_player;
+    }
+
+    /**
+     * @return string the gender name
+     */
+    public function getSubPlayer()
+    {
+        return $this->sub_player;
     }
 
     /**
