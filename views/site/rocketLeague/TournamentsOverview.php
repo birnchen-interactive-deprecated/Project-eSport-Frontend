@@ -4,6 +4,8 @@
     @var $tournamentList array<Tournaments>
 */
 
+use yii\helpers\Html;
+
 usort($tournamentList, function($a, $b) {
 	return $a->getDtStartingTime() > $b->getDtStartingTime();
 });
