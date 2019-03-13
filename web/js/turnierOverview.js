@@ -2,10 +2,11 @@
 
 $(document).ready(function() {
 	$('.site-rl-tournament-overview .turnierStatus.foldable .namedHeader').click(function() {
-		if ($(this).hasClass('foldable_open')) {
-			$(this).removeClass('foldable_open');
+		var tableParent = $(this).parents('table.foldable');
+		if (tableParent.hasClass('foldable_open')) {
+			tableParent.removeClass('foldable_open');
 		} else {
-			$(this).addClass('foldable_open');
+			tableParent.addClass('foldable_open');
 		}
 	})
 });
