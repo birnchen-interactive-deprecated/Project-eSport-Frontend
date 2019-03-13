@@ -4,6 +4,8 @@
     @var $tournamentList array<Tournaments>
 */
 
+use yii\helpers\Html;
+
 usort($tournamentList, function($a, $b) {
 	return $a->getDtStartingTime() > $b->getDtStartingTime();
 });
@@ -49,22 +51,31 @@ $this->title = 'RL Tournament Overview';
 
     <h1>Rocket League Tournament Overview</h1>
 
-	<?php if (count($archivTurnier) > 0): ?>
+	<?php if (count($runningTurnier) > 0 || count($preRunningTurnier) > 0): ?>
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
-			<tr class="bg-warning">
-				<th colspan="2">Turnier Archive</th>
+			<tr class="bg-success">
+				<th colspan="2">Laufende Turniere</th>
 			</tr>
-			<tr class="bg-warning">
+			<tr class="bg-success">
 				<th>Turniername</th>
 				<th>Startdatum</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($archivTurnier as $key => $tournament): ?>
+			<?php foreach ($runningTurnier as $key => $tournament): ?>
 				<tr>
 					<td><?= $tournament->getTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
+					<td>Running</td>
+				</tr>
+			<?php endforeach; ?>
+			<?php foreach ($preRunningTurnier as $key => $tournament): ?>
+				<tr>
+					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->getDtStartingTime(); ?></td>
+					<td>Preparing</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
@@ -97,63 +108,47 @@ $this->title = 'RL Tournament Overview';
 	</table>
 	<?php endif; ?>
 
-	<?php if (count($runningTurnier) > 0): ?>
-	<table class="turnierStatus table table-bordered table-striped table-hover">
-		<thead>
-			<tr class="bg-success">
-				<th colspan="2">Laufende Turniere</th>
-			</tr>
-			<tr class="bg-success">
-				<th>Turniername</th>
-				<th>Startdatum</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($runningTurnier as $key => $tournament): ?>
-				<tr>
-					<td><?= $tournament->getTournamentName(); ?></td>
-					<td><?= $tournament->getDtStartingTime(); ?></td>
-				</tr>
-			<?php endforeach; ?>
-		</tbody>
-	</table>
-	<?php endif; ?>
-
 	<?php if (count($registerTurnier) > 0): ?>
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-info">
-				<th colspan="2">Registration möglich</th>
+				<th colspan="4">Registration möglich</th>
 			</tr>
 			<tr class="bg-info">
 				<th>Turniername</th>
+				<th>Checkin Zeitraum</th>
 				<th>Startdatum</th>
+				<th>Register</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($registerTurnier as $key => $tournament): ?>
 				<tr>
 					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
+					<td>
+						<?= Html::submitButton('Registrieren', ['class' => 'btn btn-success']); ?>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
 	</table>
 	<?php endif; ?>
 
-	<?php if (count($preRunningTurnier) > 0): ?>
+	<?php if (count($archivTurnier) > 0): ?>
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
-			<tr class="bg-danger">
-				<th colspan="2">Turnier kurz vor Startbeginn</th>
+			<tr class="bg-warning">
+				<th colspan="2">Turnier Archive</th>
 			</tr>
-			<tr class="bg-danger">
+			<tr class="bg-warning">
 				<th>Turniername</th>
 				<th>Startdatum</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($preRunningTurnier as $key => $tournament): ?>
+			<?php foreach ($archivTurnier as $key => $tournament): ?>
 				<tr>
 					<td><?= $tournament->getTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
