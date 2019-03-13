@@ -85,6 +85,14 @@ class SubTeam extends ActiveRecord
     /**
      * @return int
      */
+    public function getTournamentMode()
+    {
+        return $this->hasOne(TournamentMode::className(), ['mode_id' => 'tournament_mode_id']);
+    }
+
+    /**
+     * @return int
+     */
     public function getTeamCaptainId()
     {
         return $this->team_captain_id;
