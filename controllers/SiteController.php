@@ -158,7 +158,7 @@ class SiteController extends Controller
             ];
         }
 
-        $subTeams = $user->getSubTeamsWithMembers();
+        $subTeams = $user->getAllSubTeamsWithMembers();
 
         // $allSubTeams = $user->getSubTeams()->all();
         // $allMemberTeams = $user->getSubMemberTeams()->all();

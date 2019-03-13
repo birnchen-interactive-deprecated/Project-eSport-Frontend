@@ -236,7 +236,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return array
      */
-    public function getSubTeamsWithMembers() {
+    public function getAllSubTeamsWithMembers() {
 
         $retArr = array();
         $subTeams = $this->hasMany(SubTeamMember::className(), ['user_id' => 'user_id'])->all();
@@ -246,8 +246,26 @@ class User extends AbstractActiveRecord implements IdentityInterface
                 'owner' => ($subTeam->getTeamCaptainId() == $this->getId()),
                 'isSub' => $entry->getIsSubstitute(),
                 'team' => $subTeam,
+                'subTeamId' => $subTeam->getId(),
             );
         }
+
+        $captainTeams = $this->hasMany(SubTeam::className(), ['team_captain_id' => 'user_id'])->all();
+        foreach ($captainTeams as $key => $captainTeam) {
+
+            $key = array_search($captainTeam->getId(), array_column($retArr, 'subTeamId'));
+            if (false !== $key) {
+                continue;
+            }
+
+            $retArr[] = array(
+                'owner' => true,
+                'isSub' => false,
+                'team' => $captainTeam,
+                'subTeamId' => $captainTeam->getId(),
+            );
+        }
+
         return $retArr;
     }
 
