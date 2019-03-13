@@ -96,6 +96,15 @@ class m190228_074605_tournaments extends Migration
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");
 
+        //cups
+        $this->execute("
+            CREATE TABLE IF NOT EXISTS `cups` (
+              `cup_id` INT NOT NULL AUTO_INCREMENT,
+              `cup_name` VARCHAR(45) NULL,
+              `season` INT NULL,
+              PRIMARY KEY (`cup_id`))
+            ENGINE = InnoDB");
+
         //tournaments
         $this->execute("
             CREATE TABLE IF NOT EXISTS `tournaments` (
@@ -104,9 +113,12 @@ class m190228_074605_tournaments extends Migration
               `mode_id` INT NOT NULL,
               `rules_id` INT NOT NULL,
               `bracket_id` INT NOT NULL,
+              `cup_id` INT NOT NULL,
               `tournament_name` VARCHAR(255) NOT NULL,
               `tournament_description` VARCHAR(255) NULL,
               `dt_starting_time` DATETIME NOT NULL,
+              `dt_register_begin` DATETIME NOT NULL,
+              `dt_register_end` DATETIME NOT NULL,
               `dt_checkin_begin` DATETIME NOT NULL,
               `dt_checkin_ends` DATETIME NOT NULL,
               `has_password` TINYINT(1) NOT NULL DEFAULT 0,
@@ -116,6 +128,7 @@ class m190228_074605_tournaments extends Migration
               INDEX `rl_tournnament_rules_id_idx` (`rules_id` ASC),
               INDEX `FK_rl_tournament_game_id_idx` (`game_id` ASC),
               INDEX `FK_tournaments_bracket_id_idx` (`bracket_id` ASC),
+              INDEX `FK_tournaments_cup_id_idx` (`cup_id` ASC),
               CONSTRAINT `FK_tournaments_mode_id`
                 FOREIGN KEY (`mode_id`)
                 REFERENCES `tournament_mode` (`mode_id`)
@@ -134,6 +147,11 @@ class m190228_074605_tournaments extends Migration
               CONSTRAINT `FK_tournaments_bracket_id`
                 FOREIGN KEY (`bracket_id`)
                 REFERENCES `bracket_mode` (`bracket_mode_id`)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+              CONSTRAINT `FK_tournaments_cup_id`
+                FOREIGN KEY (`cup_id`)
+                REFERENCES `cups` (`cup_id`)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE)
             ENGINE = InnoDB");

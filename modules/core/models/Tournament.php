@@ -20,9 +20,12 @@ use yii\db\ActiveRecord;
  * @property int $mode_id
  * @property int $rules_id
  * @property int $bracket_id
+ * @property int $cup_id
  * @property string $tournament_name
  * @property string $tournament_description
  * @property string $dt_starting_time
+ * @property string $dt_register_begin
+ * @property string $dt_register_end
  * @property string $dt_checkin_begin
  * @property string $dt_checkin_ends
  * @property bool $has_password
@@ -44,6 +47,8 @@ class Tournament extends ActiveRecord
             'tournament_name' => Yii::t('app', 'tournament name'),
             'tournament_description' => Yii::t('app', 'tournament description'),
             'dt_starting_time' => Yii::t('app', 'dt starting time'),
+            'dt_register_begin' => Yii::t('app', 'dt register begin'),
+            'dt_register_end' => Yii::t('app', 'dt register end'),
             'dt_checkin_begin' => Yii::t('app', 'dt checkin begin'),
             'dt_checkin_ends' => Yii::t('app', 'dt checkin end'),
             'has_password' => Yii::t('app', 'has password'),
@@ -101,6 +106,14 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @return int
+     */
+    public function getCupId()
+    {
+        return $this->cup_id;
+    }
+
+    /**
      * @return string
      */
     public function getTournamentName()
@@ -122,6 +135,22 @@ class Tournament extends ActiveRecord
     public function getDtStartingTime()
     {
         return $this->dt_starting_time;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDtRegisterBegin()
+    {
+        return $this->dt_register_begin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDtRegisterEnd()
+    {
+        return $this->dt_register_end;
     }
 
     /**
@@ -155,7 +184,6 @@ class Tournament extends ActiveRecord
     {
         return $this->password;
     }
-
 
     /**
      * Finds user by username.
