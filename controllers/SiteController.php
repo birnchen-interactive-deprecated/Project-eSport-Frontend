@@ -158,23 +158,25 @@ class SiteController extends Controller
             ];
         }
 
-        $allSubTeams = $user->getSubTeams()->all();
-        $allMemberTeams = $user->getSubMemberTeams()->all();
+        $subTeams = $user->getSubTeamsWithMembers();
 
-        $subTeams = [];
-        foreach ($allSubTeams as $subTeam) {
-            $subTeams[] = [
-                'owner' => true,
-                'team' => $subTeam,
-            ];
-        }
+        // $allSubTeams = $user->getSubTeams()->all();
+        // $allMemberTeams = $user->getSubMemberTeams()->all();
 
-        foreach ($allMemberTeams as $subMemberTeam) {
-            $subTeams[] = array(
-                'owner' => false,
-                'team' => $subMemberTeam,
-            );
-        }
+        // $subTeams = [];
+        // foreach ($allSubTeams as $subTeam) {
+        //     $subTeams[] = [
+        //         'owner' => true,
+        //         'team' => $subTeam,
+        //     ];
+        // }
+
+        // foreach ($allMemberTeams as $subMemberTeam) {
+        //     $subTeams[] = array(
+        //         'owner' => false,
+        //         'team' => $subMemberTeam,
+        //     );
+        // }
 
         return $this->render('myAccount',
             [

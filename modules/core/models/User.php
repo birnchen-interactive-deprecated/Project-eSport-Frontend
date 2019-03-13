@@ -234,6 +234,24 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
+     * @return array
+     */
+    public function getSubTeamsWithMembers() {
+
+        $retArr = array();
+        $subTeams = $this->hasMany(SubTeamMember::className(), ['user_id' => 'user_id'])->all();
+        foreach ($subTeams as $key => $entry) {
+            $subTeam = $entry->hasOne(SubTeam::className(), ['sub_team_id' => 'sub_team_id'])->one();
+            $retArr[] = array(
+                'owner' => ($subTeam->getTeamCaptainId() == $this->getId()),
+                'isSub' => $entry->getIsSubstitute(),
+                'team' => $subTeam,
+            );
+        }
+        return $retArr;
+    }
+
+    /**
      * @return string
      */
     public function getEmail()
