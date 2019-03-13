@@ -141,17 +141,21 @@ $this->title = 'RL Tournament Overview';
 			</tr>
 			<tr class="bg-info">
 				<th>Turniername</th>
-				<th>Checkin Zeitraum</th>
 				<th>Startdatum</th>
+				<th>Checkin Zeitraum</th>
 				<th>Register</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($registerTurnier as $key => $tournament): ?>
+				<?php
+					$checkInBegin = new DateTime($tournament->getDtCheckinBegin());
+					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
+				?>
 				<tr>
 					<td><?= $tournament->getTournamentName(); ?></td>
-					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
+					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
 						<?= Html::submitButton('Registrieren', ['class' => 'btn btn-success']); ?>
 					</td>
