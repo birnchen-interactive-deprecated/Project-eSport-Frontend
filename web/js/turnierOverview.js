@@ -1,7 +1,7 @@
 "use strict";
 
 $(document).ready(function() {
-	$('.site-rl-tournament-overview .turnierStatus.foldable').click(function() {
+	$('.site-rl-tournament-overview .turnierStatus.foldable .namedHeader').click(function() {
 		if ($(this).hasClass('foldable_open')) {
 			$(this).removeClass('foldable_open');
 		} else {

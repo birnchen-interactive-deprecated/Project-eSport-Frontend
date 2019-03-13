@@ -2,7 +2,7 @@
 	text-align: center;
 }
 
-.site-rl-tournament-overview .turnierStatus.foldable {
+.site-rl-tournament-overview .turnierStatus.foldable .namedHeader {
 	cursor: pointer;
 }
 

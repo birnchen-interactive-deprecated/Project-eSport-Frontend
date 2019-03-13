@@ -73,7 +73,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-success">
-				<th colspan="2">Laufende Turniere <span class="badge"><?= (count($runningTurnier) + count($preRunningTurnier)); ?></span></th>
+				<th class="namedHeader" colspan="2">Laufende Turniere <span class="badge"><?= (count($runningTurnier) + count($preRunningTurnier)); ?></span></th>
 			</tr>
 			<tr class="bg-success">
 				<th>Turniername</th>
@@ -104,7 +104,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-success">
-				<th colspan="3">Check In Turniere <span class="badge"><?= (count($checkInTurnier) + count($preCheckInTurnier)); ?></span></th>
+				<th class="namedHeader" colspan="3">Check In Turniere <span class="badge"><?= (count($checkInTurnier) + count($preCheckInTurnier)); ?></span></th>
 			</tr>
 			<tr class="bg-success">
 				<th>Turniername</th>
@@ -137,7 +137,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-info">
-				<th colspan="4">Registration Turniere <span class="badge"><?= count($registerTurnier); ?></span></th>
+				<th class="namedHeader" colspan="4">Registration Turniere <span class="badge"><?= count($registerTurnier); ?></span></th>
 			</tr>
 			<tr class="bg-info">
 				<th>Turniername</th>
@@ -169,7 +169,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus foldable table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-warning">
-				<th colspan="2">Geplante Turniere <span class="badge"><?= count($plannedTurnier); ?></span></th>
+				<th class="namedHeader" colspan="2">Geplante Turniere <span class="badge"><?= count($plannedTurnier); ?></span></th>
 			</tr>
 			<tr class="bg-warning fold">
 				<th>Turniername</th>
@@ -191,7 +191,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus foldable table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-warning">
-				<th colspan="2">Turnier Archive <span class="badge"><?= count($archivTurnier); ?></span></th>
+				<th class="namedHeader" colspan="2">Turnier Archive <span class="badge"><?= count($archivTurnier); ?></span></th>
 			</tr>
 			<tr class="bg-warning fold">
 				<th>Turniername</th>
