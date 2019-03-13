@@ -11,6 +11,7 @@ namespace app\modules\core\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
+use app\modules\core\models\SubTeamMember;
 
 /**
  * Class Tournament
@@ -259,10 +260,10 @@ class Tournament extends ActiveRecord
                 continue;
             }
 
-            $modeMainPlayers = $this->getMode()->getMainPlayer();
+            $modeMainPlayers = $this->getMode()->one()->getMainPlayer();
 
             $mainFound = 0;
-            $teamMembers = SubTeamMembers::getTeamMembers($subTeam->getId());
+            $teamMembers = SubTeamMember::getTeamMembers($subTeam->getId());
             foreach ($teamMembers as $key => $teamMember) {
                 if ($teamMember->getIsSubstitute() === 0) {
                     $mainFound++;

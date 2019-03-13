@@ -49,7 +49,7 @@ class SubTeamMember extends ActiveRecord
      */
     public function getIsSubstitute()
     {
-        return $this->s_sub;
+        return $this->is_sub;
     }
 
     /**
