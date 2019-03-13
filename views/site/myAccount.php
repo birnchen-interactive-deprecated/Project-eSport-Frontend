@@ -86,12 +86,18 @@ $this->title = 'My Account';
                     <div class="mainTeam"><?= "Main Team: " . $mainTeam['team']->getName(); ?></div>
                     <?php if ($mainTeam['owner']): ?>
                         <div class="teamPosition">(owner)</div>
+                    <?php else : ?>
+                        <div class="teamPosition">(member)</div>
                     <?php endif; ?>
                 <?php endforeach; ?>
                 <?php foreach ($subTeams as $key => $subTeam): ?>
-                    <div class="mainTeam"><?= "Sub Teams: " . $subTeam['team']->getName(); ?></div>
+                    <div class="mainTeam"><?= "Sub Teams: " . $subTeam['team']->getName() . "(" . $subTeam['team']->getTournamentModeId() . ")"; ?></div>
                     <?php if ($subTeam['owner']): ?>
                         <div class="teamPosition">(Captain)</div>
+                    <?php elseif (!$subTeam['owner']): ?>
+                        <div class="teamPosition">(Player)</div>
+                    <?php else : ?>
+                        <div class="teamPosition">(Substitute)</div>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
