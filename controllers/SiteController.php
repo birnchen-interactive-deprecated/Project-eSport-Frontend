@@ -196,6 +196,11 @@ class SiteController extends Controller
      */
     public function actionMyTournaments()
     {
+        if (Yii::$app->user->isGuest) {
+            // return $this->render('index');
+            return $this->goHome();
+        }
+
         return $this->render('myTournaments');
     }
 
@@ -206,11 +211,21 @@ class SiteController extends Controller
      */
     public function actionMyTeams()
     {
+        if (Yii::$app->user->isGuest) {
+            // return $this->render('index');
+            return $this->goHome();
+        }
+
         return $this->render('myTeams');
     }
 
     /** Rocket League Area **/
-    public function actionRlTournaments() {
+    public function actionRlTournaments()
+    {
+        if (Yii::$app->user->isGuest) {
+            // return $this->render('index');
+            return $this->goHome();
+        }
 
         if (is_array($_POST) && isset($_POST['tournamentId'])) {
 
