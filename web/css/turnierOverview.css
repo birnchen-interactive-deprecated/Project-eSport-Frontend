@@ -2,3 +2,11 @@
 	text-align: center;
 }
 
+.site-rl-tournament-overview .turnierStatus.foldable tr.fold {
+	display: none;
+	cursor: pointer;
+}
+
+.site-rl-tournament-overview .turnierStatus.foldable.foldable_open tr.fold {
+	display: table-row;
+}

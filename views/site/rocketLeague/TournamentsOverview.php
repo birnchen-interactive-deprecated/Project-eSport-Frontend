@@ -166,19 +166,19 @@ $this->title = 'RL Tournament Overview';
 	<?php endif; ?>
 
 	<?php if (count($plannedTurnier) > 0): ?>
-	<table class="turnierStatus table table-bordered table-striped table-hover">
+	<table class="turnierStatus foldable table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-warning">
 				<th colspan="2">Geplante Turniere <span class="badge"><?= count($plannedTurnier); ?></span></th>
 			</tr>
-			<tr class="bg-warning">
+			<tr class="bg-warning fold">
 				<th>Turniername</th>
 				<th>Startdatum</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($plannedTurnier as $key => $tournament): ?>
-				<tr>
+				<tr class="fold">
 					<td><?= $tournament->getTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
@@ -188,19 +188,19 @@ $this->title = 'RL Tournament Overview';
 	<?php endif; ?>
 
 	<?php if (count($archivTurnier) > 0): ?>
-	<table class="turnierStatus table table-bordered table-striped table-hover">
+	<table class="turnierStatus foldable table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-warning">
 				<th colspan="2">Turnier Archive <span class="badge"><?= count($archivTurnier); ?></span></th>
 			</tr>
-			<tr class="bg-warning">
+			<tr class="bg-warning fold">
 				<th>Turniername</th>
 				<th>Startdatum</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($archivTurnier as $key => $tournament): ?>
-				<tr>
+				<tr class="fold">
 					<td><?= $tournament->getTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
