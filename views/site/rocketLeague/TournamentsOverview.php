@@ -110,7 +110,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-info">
-				<th colspan="3">Registration möglich</th>
+				<th colspan="4">Registration möglich</th>
 			</tr>
 			<tr class="bg-info">
 				<th>Turniername</th>
