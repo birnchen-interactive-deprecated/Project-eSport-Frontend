@@ -220,7 +220,7 @@ class Tournament extends ActiveRecord
      * @return boolean
      */
     public function showRegisterBtn($subTeams) {
-        if ($this->getModeId() == 1) {
+        if ($this->getMode()->one()->getMainPlayer() == 1) {
             return true;
         }
 
@@ -235,7 +235,7 @@ class Tournament extends ActiveRecord
      * @return string
      */
     public function getRegisterBtns($subTeams, $user) {
-        if ($this->getModeId() == 1) {
+        if ($this->getMode()->one()->getMainPlayer() == 1) {
             
             $isParticipating = $this->checkPlayerParticipating($user);
 
