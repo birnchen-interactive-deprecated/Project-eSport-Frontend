@@ -259,7 +259,19 @@ class Tournament extends ActiveRecord
                 continue;
             }
 
-            // ToDo: Check if subTeam nötige Anzahl an Spieler hat, wenn nein -> continue
+            $modeMainPlayers = $this->getMode()->getMainPlayer();
+
+            $mainFound = 0;
+            $teamMembers = SubTeamMembers::getTeamMembers($subTeam->getId());
+            foreach ($teamMembers as $key => $teamMember) {
+                if ($teamMember->getIsSubstitute() === 0) {
+                    $mainFound++;
+                }
+            }
+
+            if ($mainFound < $modeMainPlayers) {
+                continue;
+            }
 
             $isParticipating = $this->checkTeamParticipating($subTeam);
 
