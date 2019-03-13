@@ -4,11 +4,15 @@
     @var $tournamentList array<Tournaments>
 */
 
+use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 usort($tournamentList, function($a, $b) {
 	return $a->getDtStartingTime() > $b->getDtStartingTime();
 });
+
+$user = Yii::$app->user->identity;
+$subTeams = $user->getSubTeams()->all();
 
 $now = new DateTime();
 
@@ -157,7 +161,23 @@ $this->title = 'RL Tournament Overview';
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
-						<?= Html::submitButton('Registrieren', ['class' => 'btn btn-success']); ?>
+						<?php
+							 if ($tournament->showRegisterBtn($subTeams)) {
+								$btns = $tournament->getRegisterBtns($subTeams, $user);
+								foreach ($btns as $key => $btn) {
+
+									$form = ActiveForm::begin([
+										'id' => 'registerForm',
+									]);
+									echo Html::hiddenInput($btn['type'], $btn['id']);
+									echo Html::hiddenInput('tournamentId', $tournament->getId());
+									echo $btn['btn'];
+									echo ' ';
+									echo $btn['name'];
+									ActiveForm::end();
+								}
+							}
+						?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
