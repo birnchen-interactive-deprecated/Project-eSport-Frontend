@@ -71,11 +71,11 @@ class m190306_075111_base_sub_team_member extends Migration
         ]);
 
         /* CaptainViper 2v2 Team Member - Different Bünzlis Stonie, user ID ändern*/
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '3',
-            'user_id' => '7',
-            'is_sub' => 0,
-        ]);
+        //$this->insert('sub_team_member',  [
+        //    'sub_team_id' => '3',
+        //    'user_id' => '7',
+        //    'is_sub' => 0,
+        //]);
 
         /* CaptainViper 3v3 Team Member */
         $this->insert('sub_team_member',  [
@@ -191,11 +191,7 @@ class m190306_075111_base_sub_team_member extends Migration
         ]);
 
         /* Timeout 3v3 Team Member Yuko user id ändern*/
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '6',
-            'user_id' => '7',
-            'is_sub' => 1,
-        ]);
+        ////]);
 
         /** Team Stealth7 eSports **/
         /* Stealth7 eSports 3v3 Team Member */
@@ -450,11 +446,11 @@ class m190306_075111_base_sub_team_member extends Migration
         ]);
 
         /* Team eSport Rhein-Neckar 3v3 Team Member mrtz user id nachtragen */
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '20',
-            'user_id' => '7',
-            'is_sub' => 0,
-        ]);
+        //$this->insert('sub_team_member',  [
+        //    'sub_team_id' => '20',
+        //    'user_id' => '7',
+        //    'is_sub' => 0,
+        //]);
 
         /* Team eSport Rhein-Neckar 3v3 Team Member */
         $this->insert('sub_team_member',  [
@@ -486,11 +482,11 @@ class m190306_075111_base_sub_team_member extends Migration
         ]);
 
         /* Team Agency 3v3 Team Member Swiches user ID Nachtragen*/
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '21',
-            'user_id' => '7',
-            'is_sub' => 1,
-        ]);
+        //$this->insert('sub_team_member',  [
+        //    'sub_team_id' => '21',
+        //    'user_id' => '7',
+        //    'is_sub' => 1,
+        //]);
 
         /** Team The Dark Start **/
         /* Team The Dark Start 3v3 Team Member */
@@ -507,18 +503,11 @@ class m190306_075111_base_sub_team_member extends Migration
             'is_sub' => 0,
         ]);
 
-        /* Team The Dark Start 3v3 Team Member Nihil user ID Nachtragen*/
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '22',
-            'user_id' => '7',
-            'is_sub' => 0,
-        ]);
-
         /* Team The Dark Start 3v3 Team Member */
         $this->insert('sub_team_member',  [
             'sub_team_id' => '22',
             'user_id' => '74',
-            'is_sub' => 1,
+            'is_sub' => 0,
         ]);
 
         /** Team Esport BERG **/
@@ -551,11 +540,11 @@ class m190306_075111_base_sub_team_member extends Migration
         ]);
 
         /* Team Esport BERG 3v3 Team Member LiFox user ID Nachtragen*/
-        $this->insert('sub_team_member',  [
-            'sub_team_id' => '23',
-            'user_id' => '7',
-            'is_sub' => 1,
-        ]);
+        //$this->insert('sub_team_member',  [
+        //    'sub_team_id' => '23',
+        //    'user_id' => '7',
+        //    'is_sub' => 1,
+        //]);
 
         /** Team Safari Force **/
         /* Team Safari Force 3v3 Team Member */
@@ -579,6 +568,20 @@ class m190306_075111_base_sub_team_member extends Migration
             'is_sub' => 0,
         ]);
 
+        /** Team Stage 5 Gaming Training **/
+        /* Team Stage 5 Gaming Training 3v3 Team Member */
+        $this->insert('sub_team_member',  [
+            'sub_team_id' => '24',
+            'user_id' => '80',
+            'is_sub' => 0,
+        ]);
+
+        /* Team Stage 5 Gaming Training 3v3 Team Member */
+        $this->insert('sub_team_member',  [
+            'sub_team_id' => '24',
+            'user_id' => '57',
+            'is_sub' => 0,
+        ]);//
     }
 
     /**

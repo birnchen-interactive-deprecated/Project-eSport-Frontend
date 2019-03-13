@@ -361,6 +361,21 @@ class m190306_075047_base_sub_teams extends Migration
             'description' => '',
             'disqualified' => 0,
         ]);
+
+        /** Team Stage 5 Gaming Training **/
+        /* 3v3 Sub Team Stage 5 Gaming Training */
+        $this->insert('sub_team',  [
+            'sub_team_id' => '25',
+            'main_team_id' => '14',
+            'game_id' => '1',
+            'tournament_mode_id' => '2',
+            'team_captain_id' => '80',
+            'headquarter_id' => '1',
+            'name' => 'Stage 5 Gaming Training',
+            'short_code' => 'S5GT',
+            'description' => '',
+            'disqualified' => 0,
+        ]);
     }
 
 

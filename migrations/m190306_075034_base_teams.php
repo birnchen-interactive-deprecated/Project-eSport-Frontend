@@ -142,13 +142,13 @@ class m190306_075034_base_teams extends Migration
             'description' => '',
         ]);
 
-        /* Main Team Stage 5 Gaming */
+        /* Main Team Stage 5 Gaming Training */
         $this->insert('main_team',  [
             'team_id' => '14',
-            'owner_id' => '1',
+            'owner_id' => '2',
             'headquarter_id' => '1',
-            'name' => 'Stage 5 Gaming',
-            'short_code' => 'S5G',
+            'name' => 'Stage 5 Gaming Training',
+            'short_code' => 'S5GT',
             'description' => '',
         ]);
 

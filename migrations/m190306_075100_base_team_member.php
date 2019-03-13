@@ -51,10 +51,10 @@ class m190306_075100_base_team_member extends Migration
         ]);
 
         /* CaptainViper main Team member Stonie user id ändern*/
-        $this->insert('team_member',  [
-            'team_id' => '2',
-            'user_id' => '7',
-        ]);
+        //$this->insert('team_member',  [
+        //    'team_id' => '2',
+        //    'user_id' => '7',
+        //]);
 
         /** Team Timeout Gaming **/
         /* Timeout Gaming main Team member */
@@ -106,10 +106,10 @@ class m190306_075100_base_team_member extends Migration
         ]);
 
         /* Timeout Gaming main Team member Yuko user id ändern*/
-        $this->insert('team_member',  [
-            'team_id' => '3',
-            'user_id' => '7',
-        ]);
+        //$this->insert('team_member',  [
+        //    'team_id' => '3',
+        //    'user_id' => '7',
+        //]);
 
         /** Team Stealth7 eSports **/
         /* Stealth7 eSports main Team member */
@@ -233,10 +233,10 @@ class m190306_075100_base_team_member extends Migration
         ]);
 
         /* Team eSport Rhein-Neckar main Team member mrtz user id nachtragen*/
-        $this->insert('team_member',  [
-            'team_id' => '9',
-            'user_id' => '7',
-        ]);
+        //$this->insert('team_member',  [
+        //    'team_id' => '9',
+        //    'user_id' => '7',
+        //]);
 
         /** GHR E-Sports - Team Agency **/
         /* Team Agency main Team member */
@@ -246,10 +246,10 @@ class m190306_075100_base_team_member extends Migration
         ]);
 
         /* Team Agency main Team member Swiches user ID Nachtragen*/
-        $this->insert('team_member',  [
-            'team_id' => '10',
-            'user_id' => '7',
-        ]);
+        //$this->insert('team_member',  [
+        //    'team_id' => '10',
+        //    'user_id' => '7',
+        //]);
 
         /* Team Agency main Team member */
         $this->insert('team_member',  [
@@ -258,12 +258,6 @@ class m190306_075100_base_team_member extends Migration
         ]);
 
         /** Team The Dark Start **/
-        /* Team The Dark Start main Team member Nihil user ID Nachtragen*/
-        $this->insert('team_member',  [
-            'team_id' => '11',
-            'user_id' => '7',
-        ]);
-
         /* Team The Dark Start main Team member */
         $this->insert('team_member',  [
             'team_id' => '11',
@@ -278,10 +272,10 @@ class m190306_075100_base_team_member extends Migration
 
         /** Team Esport BERG **/
         /* Team Esport BERG main Team member LiFox user ID Nachtragen*/
-        $this->insert('team_member',  [
-            'team_id' => '12',
-            'user_id' => '7',
-        ]);
+        //$this->insert('team_member',  [
+        //    'team_id' => '12',
+        //    'user_id' => '7',
+        //]);
 
         /* Team Esport BERG main Team member */
         $this->insert('team_member',  [
@@ -314,7 +308,24 @@ class m190306_075100_base_team_member extends Migration
             'user_id' => '73',
         ]);
 
+        /** Stage 5 Gaming Training **/
+        /* Team Stage 5 Gaming Training main Team member */
+        $this->insert('team_member',  [
+            'team_id' => '14',
+            'user_id' => '80',
+        ]);
 
+        /* Team Stage 5 Gaming Training main Team member */
+        $this->insert('team_member',  [
+            'team_id' => '14',
+            'user_id' => '84',
+        ]);
+
+        /* Team Stage 5 Gaming Training main Team member */
+        $this->insert('team_member',  [
+            'team_id' => '14',
+            'user_id' => '57',
+        ]);
     }
 
     /**
