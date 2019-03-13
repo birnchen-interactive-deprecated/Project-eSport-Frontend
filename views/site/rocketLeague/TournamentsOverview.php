@@ -14,22 +14,40 @@ $now = new DateTime();
 
 $registerTurnier = array();
 $checkInTurnier = array();
+$preCheckInTurnier = array();
 $preRunningTurnier = array();
 $runningTurnier = array();
 $archivTurnier = array();
+$plannedTurnier = array();
 foreach ($tournamentList as $key => $tournament) {
 	
-	$tmp = new DateTime($tournament->getDtStartingTime());
-	$diffStart = $now->diff($tmp);
-	if (1 === $diffStart->invert) {
+	$turnierStart = new DateTime($tournament->getDtStartingTime());
+	$diffStart = $now->diff($turnierStart);
+	if (1 === $diffStart->invert /*&& $checkTurnierCompleted */) {
 		$archivTurnier[] = $tournament;
 		continue;
 	}
 
 	$checkInBegin = new DateTime($tournament->getDtCheckinBegin());
-	$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 	$diffBegin = $now->diff($checkInBegin);
+
+	$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 	$diffEnd = $now->diff($checkInEnd);
+
+	$registerStart = new DateTime($tournament->getDtRegisterBegin());
+	$diffRegBegin = $now->diff($registerStart);
+
+	$registerEnd = new DateTime($tournament->getDtRegisterEnd());
+	$diffRegEnd = $now->diff($registerEnd);
+
+	if (1 === $diffRegBegin->invert && 0 === $diffRegEnd->invert) {
+		$registerTurnier[] = $tournament;
+		continue;
+	}
+	if (1 === $diffRegEnd->invert && 0 === $diffBegin->invert) {
+		$preCheckInTurnier[] = $tournament;
+		continue;
+	}
 	if (1 === $diffBegin->invert && 0 === $diffEnd->invert) {
 		$checkInTurnier[] = $tournament;
 		continue;
@@ -38,11 +56,11 @@ foreach ($tournamentList as $key => $tournament) {
 		$preRunningTurnier[] = $tournament;
 		continue;
 	}
-	if (1 === $diffStart->invert /*&& $checkTurnierCompleted */) {
+	if (1 === $diffStart->invert) {
 		$runningTurnier[] = $tournament;
 		continue;
 	}
-	$registerTurnier[] = $tournament;
+	$plannedTurnier[] = $tournament;
 }
 
 $this->title = 'RL Tournament Overview';
@@ -82,11 +100,11 @@ $this->title = 'RL Tournament Overview';
 	</table>
 	<?php endif; ?>
 
-	<?php if (count($checkInTurnier) > 0): ?>
+	<?php if (count($checkInTurnier) > 0 || count($preCheckInTurnier) > 0): ?>
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-success">
-				<th colspan="3">Check In möglich</th>
+				<th colspan="3">Check In Turniere</th>
 			</tr>
 			<tr class="bg-success">
 				<th>Turniername</th>
@@ -104,6 +122,13 @@ $this->title = 'RL Tournament Overview';
 					</td>
 				</tr>
 			<?php endforeach; ?>
+			<?php foreach ($preCheckInTurnier as $key => $tournament): ?>
+				<tr>
+					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
+					<td>Preparing</td>
+				</tr>
+			<?php endforeach; ?>
 		</tbody>
 	</table>
 	<?php endif; ?>
@@ -112,7 +137,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-info">
-				<th colspan="4">Registration möglich</th>
+				<th colspan="4">Registration Turniere</th>
 			</tr>
 			<tr class="bg-info">
 				<th>Turniername</th>
@@ -130,6 +155,28 @@ $this->title = 'RL Tournament Overview';
 					<td>
 						<?= Html::submitButton('Registrieren', ['class' => 'btn btn-success']); ?>
 					</td>
+				</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+	<?php endif; ?>
+
+	<?php if (count($plannedTurnier) > 0): ?>
+	<table class="turnierStatus table table-bordered table-striped table-hover">
+		<thead>
+			<tr class="bg-warning">
+				<th colspan="2">Geplante Turniere</th>
+			</tr>
+			<tr class="bg-warning">
+				<th>Turniername</th>
+				<th>Startdatum</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($plannedTurnier as $key => $tournament): ?>
+				<tr>
+					<td><?= $tournament->getTournamentName(); ?></td>
+					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
