@@ -91,7 +91,7 @@ $this->title = 'My Account';
                     <?php endif; ?>
                 <?php endforeach; ?>
                 <?php foreach ($subTeams as $key => $subTeam): ?>
-                    <div class="mainTeam"><?= "Sub Teams: " . $subTeam['team']->getName() . "(dies ist ein test" . ")"; ?></div>
+                    <div class="mainTeam"><?= $subTeam['team']->getName() . "(" . $subTeam['team']->getTournamentModeId() . ")"; ?></div>
                     <?php if ($subTeam['owner']): ?>
                         <div class="teamPosition">(Captain)</div>
                     <?php elseif (!$subTeam['owner']): ?>
