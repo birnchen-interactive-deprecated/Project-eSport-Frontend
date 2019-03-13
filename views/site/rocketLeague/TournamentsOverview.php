@@ -116,6 +116,7 @@ $this->title = 'RL Tournament Overview';
 				<th>Turniername</th>
 				<th>Checkin Zeitraum</th>
 				<th>Startdatum</th>
+				<th>Register</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -124,6 +125,9 @@ $this->title = 'RL Tournament Overview';
 					<td><?= $tournament->getTournamentName(); ?></td>
 					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
+					<td>
+						<?= Html::submitButton('Registrieren', ['class' => 'btn btn-success']); ?>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
