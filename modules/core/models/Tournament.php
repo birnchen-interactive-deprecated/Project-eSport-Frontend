@@ -124,6 +124,24 @@ class Tournament extends ActiveRecord
     /**
      * @return string
      */
+    public function showRealTournamentName() {
+
+        $cup = $this->getCup()->one();
+        $tMode = $this->getMode()->one();
+
+        $cupName = $cup->getName();
+        $season = 'S' . $cup->getSeason();
+
+        $modeName = $tMode->getName();
+
+        $dayName = $this->getTournamentName();
+
+        return $cupName . ' ' . $season . ' ' . $modeName . ' ' . $dayName;
+    }
+
+    /**
+     * @return string
+     */
     public function getTournamentDescription()
     {
         return $this->tournament_description;
@@ -194,6 +212,22 @@ class Tournament extends ActiveRecord
     public static function findByTournamentName($tournamentname)
     {
         return static::findOne(['tournament_name' => $tournamentname]);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getCup()
+    {
+        return $this->hasOne(Cups::className(), ['cup_id' => 'cup_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getMode()
+    {
+        return $this->hasOne(TournamentMode::className(), ['mode_id' => 'mode_id']);
     }
 
     /**

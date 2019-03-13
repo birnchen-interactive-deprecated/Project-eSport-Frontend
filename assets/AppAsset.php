@@ -26,10 +26,11 @@ class AppAsset extends AssetBundle
         'css/turnierOverview.css',
     //    'css/iziToast.min.css'//
     ];
-    //public $js = [
+    public $js = [
+        'js/turnierOverview.js',
     //    'js/site.js',
     //    'js/iziToast.min.js'
-    //];
+    ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
