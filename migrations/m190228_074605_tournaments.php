@@ -46,6 +46,8 @@ class m190228_074605_tournaments extends Migration
               `mode_id` INT NOT NULL,
               `game_id` INT NOT NULL,
               `name` VARCHAR(45) NULL,
+              `main_player` INT NOT NULL,
+              `sub_player` INT NOT NULL,
               `description` VARCHAR(255) NULL,
               PRIMARY KEY (`mode_id`, `game_id`),
               INDEX `FK_tournament_mode_game_id_idx` (`game_id` ASC),
@@ -429,6 +431,8 @@ class m190228_074605_tournaments extends Migration
             'mode_id' => '1',
             'game_id' => '1',
             'name' => '1v1',
+            'main_player' => '1',
+            'sub_player' => '0',
             'description' => '1v1 Spieler gegen Spieler'
         ]);
 
@@ -436,6 +440,8 @@ class m190228_074605_tournaments extends Migration
             'mode_id' => '2',
             'game_id' => '1',
             'name' => '2v2',
+            'main_player' => '2',
+            'sub_player' => '1',
             'description' => '2v2 Team mit zwei Leuten gegen Team mit zwei Leuten'
         ]);
 
@@ -443,6 +449,8 @@ class m190228_074605_tournaments extends Migration
             'mode_id' => '3',
             'game_id' => '1',
             'name' => '3v3',
+            'main_player' => '3',
+            'sub_player' => '2',
             'description' => '3v3 Team mit drei Leuten gegen Team mit drei Leuten'
         ]);
 

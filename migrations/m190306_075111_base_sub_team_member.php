@@ -52,27 +52,27 @@ class m190306_075111_base_sub_team_member extends Migration
         /* CaptainViper 2v2 Team Member */
         $this->insert('sub_team_member',  [
             'sub_team_id' => '3',
-            'user_id' => '6',
+            'user_id' => '13',
             'is_sub' => 0,
         ]);
 
         /* CaptainViper 2v2 Team Member */
         $this->insert('sub_team_member',  [
             'sub_team_id' => '3',
-            'user_id' => '13',
+            'user_id' => '6',
             'is_sub' => 1,
         ]);
 
         /* CaptainViper 2v2 Team Member - Different Bünzlis */
         $this->insert('sub_team_member',  [
-            'sub_team_id' => '3',
+            'sub_team_id' => '15',
             'user_id' => '11',
             'is_sub' => 0,
         ]);
 
         /* CaptainViper 2v2 Team Member - Different Bünzlis Stonie, user ID ändern*/
         //$this->insert('sub_team_member',  [
-        //    'sub_team_id' => '3',
+        //    'sub_team_id' => '15',
         //    'user_id' => '7',
         //    'is_sub' => 0,
         //]);
@@ -571,14 +571,14 @@ class m190306_075111_base_sub_team_member extends Migration
         /** Team Stage 5 Gaming Training **/
         /* Team Stage 5 Gaming Training 3v3 Team Member */
         $this->insert('sub_team_member',  [
-            'sub_team_id' => '24',
+            'sub_team_id' => '25',
             'user_id' => '80',
             'is_sub' => 0,
         ]);
 
         /* Team Stage 5 Gaming Training 3v3 Team Member */
         $this->insert('sub_team_member',  [
-            'sub_team_id' => '24',
+            'sub_team_id' => '25',
             'user_id' => '57',
             'is_sub' => 0,
         ]);//
