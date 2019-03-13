@@ -88,7 +88,7 @@ $this->title = 'My Account';
                         <div class="teamPosition">(owner)</div>
                     <?php else : ?>
                         <div class="teamPosition">(member)</div>
-                    <?php endif; ?>
+                    <?php endif; ?> 
                 <?php endforeach; ?>
                 <?php foreach ($subTeams as $key => $subTeam): ?>
                     <div class="mainTeam"><?= "Sub Teams: " . $subTeam['team']->getName() . "(" . $subTeam['team']->getTournamentModeId() . ")"; ?></div>
