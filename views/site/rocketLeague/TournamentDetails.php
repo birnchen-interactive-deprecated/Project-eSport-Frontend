@@ -11,13 +11,6 @@ $this->title = 'Turnier Details';
 
     <h1><?= $tournament->showRealTournamentName(); ?></h1>
 
-    <h2><?= $ruleSet['baseSet']; ?></h2>
-
-    <?php foreach ($ruleSet['subRulesSet'] as $key => $subRuleSet): ?>
-        <div class="rulesBody"><?= $subRuleSet->GetRulesParagraph()." ".$subRuleSet->getSubRuleName(); ?></div>
-        <div class="rulesBody"><?= $subRuleSet->getSubRuleDescription(); ?></div>
-    <?php endforeach; ?>
-
     <?php if ($ruleSet['subRulesSet'] > 0): ?>
         <table class="turnierStatus foldable table table-bordered table-striped table-hover">
             <thead>
