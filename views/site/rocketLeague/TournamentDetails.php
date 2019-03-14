@@ -196,5 +196,7 @@ $this->title = 'Turnier Details';
 
     <?php if ($now->diff($turnierStart)->invert == 1): ?>
         <iframe src="https://challonge.com/de/<?= $challongeId; ?>/module" width="100%" height="500" frameborder="0" scrolling="auto" allowtransparency="true"></iframe>
+    <?php else: ?>
+        <b>!!!</b> Hier erscheint nach Turnierstart der Turnierbaum <b>!!!</b>
     <?php endif; ?>
 </div>
