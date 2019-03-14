@@ -297,7 +297,7 @@ class SiteController extends Controller
 
         $tournament = Tournament::getTournamentById($tournamentId);
 
-        return $this->render('rocketLeague/TournamentsOverview',
+        return $this->render('rocketLeague/TournamentDetails',
             [
                 'tournament' => $tournament,
             ]

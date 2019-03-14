@@ -8,6 +8,6 @@ $this->title = 'Turnier Details';
 ?>
 <div class="site-news">
 
-    Turnier Details Seite: 
+    Turnier Details Seite: <?= $tournament->showRealTournamentName(); ?>
 
 </div>
