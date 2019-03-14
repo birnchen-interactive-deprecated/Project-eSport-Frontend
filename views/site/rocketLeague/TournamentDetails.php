@@ -25,7 +25,7 @@ $this->title = 'Turnier Details';
             <tbody>
             <?php foreach ($ruleSet['subRulesSet'] as $key => $subRuleSet): ?>
                 <tr class="fold">
-                    <td><?= $subRuleSet->GetRulesParagraph()." ".$subRuleSet->getSubRuleName(); ?></td>
+                    <td><?= $subRuleSet->GetRulesParagraph().". ".$subRuleSet->getSubRuleName(); ?></td>
                     <td><?= $subRuleSet->getSubRuleDescription(); ?></td>
                 </tr>
             <?php endforeach; ?>
