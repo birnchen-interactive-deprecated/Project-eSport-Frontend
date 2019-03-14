@@ -12,6 +12,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use app\modules\core\models\SubTeamMember;
+use app\modules\core\models\TournamentRules;
 
 /**
  * Class Tournament
@@ -97,6 +98,18 @@ class Tournament extends ActiveRecord
     public function getRulesId()
     {
         return $this->rules_id;
+    }
+
+    /*
+     * Get Rules Name
+     */
+    public function getRuleSet()
+    {
+        $baseRuleSet = $this->hasOne(TournamentRules::className(), ['rules_id' => 'rules_id']);
+
+        return $baseRuleSet;
+
+        //return $this->hasOne(TournamentRules::className(), ['mode_id' => 'mode_id']);
     }
 
     /**

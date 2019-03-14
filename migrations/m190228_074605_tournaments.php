@@ -471,19 +471,19 @@ class m190228_074605_tournaments extends Migration
         $this->insert('tournamentRules',  [
             'rules_id' => '1',
             'game_id' => '1',
-            'name' => 'Rocket Legaue 1v1 Ruleset'
+            'name' => 'Rocket Legaue 1v1 Rules'
         ]);
 
         $this->insert('tournamentRules',  [
             'rules_id' => '2',
             'game_id' => '1',
-            'name' => 'Rocket Legaue 2v2 Ruleset'
+            'name' => 'Rocket Legaue 2v2 Rules'
         ]);
 
         $this->insert('tournamentRules',  [
             'rules_id' => '3',
             'game_id' => '1',
-            'name' => 'Rocket Legaue 3v3 Ruleset'
+            'name' => 'Rocket Legaue 3v3 Rules'
         ]);
     }
 

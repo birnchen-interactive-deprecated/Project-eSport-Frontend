@@ -19,7 +19,7 @@ use yii\db\ActiveRecord;
  * @property int $game_id
  * @property string $name
  */
-class tournamentRules extends ActiveRecord
+class TournamentRules extends ActiveRecord
 {
     /**
      * @return array the attribute labels
