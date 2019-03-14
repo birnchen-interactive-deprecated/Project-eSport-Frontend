@@ -199,7 +199,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($plannedTurnier as $key => $tournament): ?>
 				<tr class="fold">
-                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>
