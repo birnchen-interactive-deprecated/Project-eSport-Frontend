@@ -84,7 +84,8 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->render('myAccount');
+            return  $this->actionMyAccount();
+            //return $this->render('myAccount');
             //return $this->goHome();
         }
 
