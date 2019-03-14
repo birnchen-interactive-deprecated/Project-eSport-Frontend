@@ -11,7 +11,7 @@ $this->title = 'Turnier Details';
 
     Turnier Details Seite: <?= $tournament->showRealTournamentName(); ?></div>
     </br>
-    Turnier Ruleset: <?= $ruleSet; ?></div>
+    Turnier Ruleset: <?= $ruleSet['baseSet']; ?></div>
 
     <div class="rulesHeader"></div>
     <div class="rulesBody"></div>
