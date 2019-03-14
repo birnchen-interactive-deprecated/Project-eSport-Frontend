@@ -14,6 +14,10 @@ $this->title = 'Turnier Details';
     Turnier Ruleset: <?= $ruleSet['baseSet']; ?></div>
 
     <div class="rulesHeader"><?= $ruleSet['baseSet']; ?></div>
-    <div class="rulesBody"><?= $ruleSet['subRulesSet']; ?></div>
+
+    <?php foreach ($ruleSet as $key => $subRuleSet): ?>
+        <div class="rulesBody"><?= $subRuleSet->GetRulesParagraph()." ".$subRuleSet->getSubRuleName(); ?></div>
+        <div class="rulesBody"><?= $subRuleSet->getSubRuleDescription(); ?></div>
+    <?php endforeach; ?>
 
 </div>
