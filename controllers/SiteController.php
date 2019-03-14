@@ -281,6 +281,16 @@ class SiteController extends Controller
 
     }
 
+    public function actionRlTournamentsDetails ()
+    {
+        if (Yii::$app->user->isGuest) {
+            // return $this->render('index');
+            return $this->goHome();
+        }
+
+        return $this->render('rocketLeague/TournamentDetails');
+    }
+
     /** End of Rocket League Area **/
 
     /**
