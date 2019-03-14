@@ -7,13 +7,29 @@
  */
 
 use yii\helpers\Html;
+use app\modules\core\models\User;
+use app\modules\core\models\SubTeam;
+use app\modules\core\models\PlayerParticipating;
+use app\modules\core\models\TeamParticipating;
 
 $userTeam = '';
 if (isset($participatingEntrys[0])) {
-    if ($participatingEntrys[0] instanceOf app\modules\core\models\User) {
+    if ($participatingEntrys[0] instanceOf User) {
         $userTeam = 'User';
     } else {
         $userTeam = 'Team';
+    }
+}
+
+$countCheckedIn = 0;
+foreach ($participatingEntrys as $key => $entry) {
+    if ($entry instanceOf User) {
+        $checkedIn = $entry->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->one()->getCheckedIn();
+    } else if ($entry instanceOf SubTeam) {
+        $checkedIn = $entry->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->one()->getCheckedIn();
+    }
+    if (1 == $checkedIn) {
+        $countCheckedIn++;
     }
 }
 
@@ -48,7 +64,7 @@ $this->title = 'Turnier Details';
     <table class="participants foldable table table-bordered table-striped table-hover">
         <thead>
             <tr class="bg-success">
-                <th class="namedHeader" colspan="5">Registrierungen</th>
+                <th class="namedHeader" colspan="5">Registrierungen <span class="badge"><?= $countCheckedIn . ' / ' . count($participatingEntrys); ?></span></th>
             </tr>
             <tr class="bg-success fold">
                 <th colspan="2"><?= $userTeam; ?></th>
@@ -63,8 +79,8 @@ $this->title = 'Turnier Details';
             <?php foreach ($participatingEntrys as $key => $entry): ?>
                 <?php
 
-                    $imgPath = ($entry instanceOf app\modules\core\models\User) ? 'images/UserAvatar/' . $entry->user_id . '.png' : 'images/teams/' . $entry->sub_team_id . '.png';
-                    $entryName = ($entry instanceOf app\modules\core\models\User) ? $entry->getUsername() : $entry->getName();
+                    $imgPath = ($entry instanceOf User) ? 'images/UserAvatar/' . $entry->user_id . '.png' : 'images/teams/' . $entry->sub_team_id . '.png';
+                    $entryName = ($entry instanceOf User) ? $entry->getUsername() : $entry->getName();
 
                     $checkInStatus = $entry->getCheckInStatus($tournament->getId());
                     $checkInText = (false === $checkInStatus) ? 'Not Checked In' : 'Checked In';
