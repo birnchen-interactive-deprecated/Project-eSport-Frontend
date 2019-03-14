@@ -12,7 +12,7 @@ $this->title = 'Turnier Details';
     <h1><?= $tournament->showRealTournamentName(); ?></h1>
 
     <?php if ($ruleSet['subRulesSet'] > 0): ?>
-        <table class="turnierStatus foldable table table-bordered table-striped table-hover">
+        <table class="rulesStatus foldable table table-bordered table-striped table-hover">
             <thead>
             <tr class="bg-warning">
                 <th class="namedHeader" colspan="2"><?= $ruleSet['baseSet']; ?></th>
