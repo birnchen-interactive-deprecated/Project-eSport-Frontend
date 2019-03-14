@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View
  * @var $tournament
- * @var $ruleSet
+ * @var $ruleSet array
  */
 
 $this->title = 'Turnier Details';

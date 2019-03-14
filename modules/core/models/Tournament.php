@@ -105,9 +105,13 @@ class Tournament extends ActiveRecord
      */
     public function getRules()
     {
-        $baseRuleSet = $this->getRuleSet()->one();
+        $baseRuleSet = $this->getBaseRuleSet()->one();
+        $subRuleSet = $this->getSubRuleSet();
 
-        $rulesName = $baseRuleSet->getRulesName();
+        $rulesName = [
+            'baseSet' => $baseRuleSet->getRulesName(),
+            'subRulesSet' => $subRuleSet,
+        ];
 
         return $rulesName;
     }
@@ -337,9 +341,17 @@ class Tournament extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getRuleSet()
+    public function getBaseRuleSet()
     {
         return $this->hasOne(TournamentRules::className(), ['rules_id' => 'rules_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getSubRuleSet()
+    {
+        return $this->all(TournamentSubrules::className(), ['rules_id' => 'rules_id']);
     }
 
     /**

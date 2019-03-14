@@ -15,6 +15,7 @@ use yii\db\ActiveRecord;
  * Class TournamentSubrules
  * @package app\modules\core\models
  *
+ * @property int $rules_id
  * @property int $subrule_id
  * @property string $name
  * @property string $description
@@ -27,6 +28,7 @@ class TournamentSubrules extends ActiveRecord
     public function attributeLabels()
     {
         return [
+            'rules_id' => Yii::t('app', 'subrule id'),
             'subrule_id' => Yii::t('app', 'subrule id'),
             'name' => Yii::t('app', 'name'),
             'description' => Yii::t('app', 'description')
@@ -36,7 +38,15 @@ class TournamentSubrules extends ActiveRecord
     /**
      * @return int
      */
-    public function getId()
+    public function getRulesId()
+    {
+        return $this->rules_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSubRulesId()
     {
         return $this->subrule_id;
     }
@@ -44,7 +54,7 @@ class TournamentSubrules extends ActiveRecord
     /**
      * @return string
      */
-    public function getSubruleName()
+    public function getSubRuleName()
     {
         return $this->name;
     }
@@ -52,7 +62,7 @@ class TournamentSubrules extends ActiveRecord
     /**
      * @return string
      */
-    public function getSubruleDescription()
+    public function getSubRuleDescription()
     {
         return $this->description;
     }
