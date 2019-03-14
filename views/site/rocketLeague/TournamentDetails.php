@@ -33,6 +33,14 @@ foreach ($participatingEntrys as $key => $entry) {
     }
 }
 
+$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
+$now = new DateTime();
+if ($now->diff($checkInEnd)->invert == 1) {
+    usort($participatingEntrys, function($a, $b) use ($tournament) {
+        return $a->getCheckInStatus($tournament->getId()) < $b->getCheckInStatus($tournament->getId());
+    });
+}
+
 $this->title = 'Turnier Details';
 ?>
 <div class="site-rl-tournament-details">
