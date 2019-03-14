@@ -103,13 +103,13 @@ class Tournament extends ActiveRecord
     /*
      * Get Rules Name
      */
-    public function getRuleSet()
+    public function getRules()
     {
-        $baseRuleSet = $this->hasOne(TournamentRules::className(), ['rules_id' => 'rules_id']);
+        $baseRuleSet = $this->getRuleSet()->one();
 
-        return $baseRuleSet;
+        $rulesName = $baseRuleSet->getRulesName();
 
-        //return $this->hasOne(TournamentRules::className(), ['mode_id' => 'mode_id']);
+        return $rulesName;
     }
 
     /**
@@ -332,6 +332,14 @@ class Tournament extends ActiveRecord
     public function getCup()
     {
         return $this->hasOne(Cups::className(), ['cup_id' => 'cup_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getRuleSet()
+    {
+        return $this->hasOne(TournamentRules::className(), ['rules_id' => 'rules_id']);
     }
 
     /**

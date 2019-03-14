@@ -296,7 +296,7 @@ class SiteController extends Controller
         $tournamentId = Yii::$app->request->get('id');
 
         $tournament = Tournament::getTournamentById($tournamentId);
-        $ruleSet = $tournament->getRuleSet();
+        $ruleSet = $tournament->getRules();
 
         return $this->render('rocketLeague/TournamentDetails',
             [

@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View
  * @var $tournament
- * $var  $ruleSet
+ * @var $ruleSet
  */
 
 $this->title = 'Turnier Details';
@@ -11,7 +11,7 @@ $this->title = 'Turnier Details';
 
     Turnier Details Seite: <?= $tournament->showRealTournamentName(); ?></div>
     </br>
-    Turnier Ruleset: <?= $ruleSet->getRulesName(); ?></div>
+    Turnier Ruleset: <?= $ruleSet; ?></div>
 
     <div class="rulesHeader"></div>
     <div class="rulesBody"></div>
