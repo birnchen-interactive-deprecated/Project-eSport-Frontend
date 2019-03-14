@@ -64,14 +64,14 @@ $this->title = 'Turnier Details';
     <table class="participants foldable table table-bordered table-striped table-hover">
         <thead>
             <tr class="bg-success">
-                <th class="namedHeader" colspan="5">Registrierungen <span class="badge"><?= $countCheckedIn . ' / ' . count($participatingEntrys); ?></span></th>
+                <th class="namedHeader" colspan="5">Registrierungen</span></th>
             </tr>
             <tr class="bg-success">
-                <th colspan="2"><?= $userTeam; ?></th>
+                <th colspan="2"><?= $userTeam; ?> <span class="badge"><?= count($participatingEntrys); ?></th>
                 <?php if ('Team' === $userTeam): ?>
                     <th>Spieler</th>
                 <?php endif; ?>
-                <th>Checked-In</th>
+                <th>Checked-In <span class="badge"><?= $countCheckedIn . ' / 32'; ?></span></th>
                 <th>Disqualifiziert</th>
             </tr>
         </thead>
