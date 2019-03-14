@@ -9,11 +9,9 @@ $this->title = 'Turnier Details';
 ?>
 <div class="site-rl-tournament-details">
 
-    Turnier Details Seite: <?= $tournament->showRealTournamentName(); ?></div>
-    </br>
-    Turnier Ruleset: <?= $ruleSet['baseSet']; ?></div>
+    <h1><?= $tournament->showRealTournamentName(); ?></h1>
 
-    <div class="rulesHeader"><?= $ruleSet['baseSet']; ?></div>
+    <h2><?= $ruleSet['baseSet']; ?></h2>
 
     <?php foreach ($ruleSet['subRulesSet'] as $key => $subRuleSet): ?>
         <div class="rulesBody"><?= $subRuleSet->GetRulesParagraph()." ".$subRuleSet->getSubRuleName(); ?></div>
