@@ -4,7 +4,7 @@
  * @var $tournament
  * @var $ruleSet array
  */
-echo $ruleSet;
+
 $this->title = 'Turnier Details';
 ?>
 <div class="site-news">
@@ -16,8 +16,7 @@ $this->title = 'Turnier Details';
     <div class="rulesHeader"><?= $ruleSet['baseSet']; ?></div>
 
     <?php foreach ($ruleSet['subRulesSet'] as $key => $subRuleSet): ?>
-        <?php $paragraph = $subRuleSet->GetRulesParagraph(); ?>
-        <div class="rulesBody"><?= " ".$subRuleSet->getSubRuleName(); ?></div>
+        <div class="rulesBody"><?= $subRuleSet->GetRulesParagraph()." ".$subRuleSet->getSubRuleName(); ?></div>
         <div class="rulesBody"><?= $subRuleSet->getSubRuleDescription(); ?></div>
     <?php endforeach; ?>
 
