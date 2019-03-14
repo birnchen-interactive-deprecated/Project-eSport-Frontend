@@ -151,13 +151,14 @@ $this->title = 'RL Tournament Overview';
 			</tr>
 		</thead>
 		<tbody>
+        <? Html::a('Update' , ['/site/rl-tournaments-details', 'id' => 2]) ?>
 			<?php foreach ($registerTurnier as $key => $tournament): ?>
 				<?php
 					$checkInBegin = new DateTime($tournament->getDtCheckinBegin());
 					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 				?>
 				<tr>
-                    <? Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?>
+
 					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
