@@ -15,7 +15,11 @@ $this->title = 'Turnier Details';
         <table class="rulesStatus foldable table table-bordered table-striped table-hover">
             <thead>
             <tr class="bg-warning">
-                <th class="namedHeader" colspan="2"><?= $ruleSet['baseSet']; ?><span class="badge"><?= count($ruleSet['subRulesSet']); ?></span></th>
+                <th class="namedHeader" colspan="2"><?= $ruleSet['baseSet']; ?></th>
+            </tr>
+            <tr class="bg-warning fold">
+                <th>Turniername</th>
+                <th>Startdatum</th>
             </tr>
             </thead>
             <tbody>
