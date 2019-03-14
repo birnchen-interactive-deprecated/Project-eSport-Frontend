@@ -97,9 +97,50 @@ $this->title = 'Turnier Details';
         </thead>
         <tbody>
             <tr class="fold">
-                <td>Platz X</td>
-                <td>Punkte X</td>
+                <td>Platz 1</td>
+                <td>Punkte 20</td>
             </tr>
+            <tr class="fold">
+                <td>Platz 2</td>
+                <td>Punkte 17</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 3</td>
+                <td>Punkte 15</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 4</td>
+                <td>Punkte 13</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 5 - 6</td>
+                <td>Punkte 11</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 7 - 8</td>
+                <td>Punkte 9</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 9 - 12</td>
+                <td>Punkte 7</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 13 - 16</td>
+                <td>Punkte 5</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 17 - 24</td>
+                <td>Punkte 3</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 25 - 32</td>
+                <td>Punkte 1</td>
+            </tr>
+            <tr class="fold">
+                <td>Platz 33+</td>
+                <td>Punkte 0</td>
+            </tr>
+
         </tbody>
     </table>
 
