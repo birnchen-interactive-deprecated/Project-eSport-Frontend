@@ -157,8 +157,8 @@ $this->title = 'RL Tournament Overview';
 					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 				?>
 				<tr>
-
-					<td><? Html::a($tournament->showRealTournamentName() , ['rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
+                    <? Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?>
+					<td><?= $tournament->showRealTournamentName(); ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
