@@ -106,7 +106,7 @@ class Tournament extends ActiveRecord
     public function getRules()
     {
         $baseRuleSet = $this->getBaseRuleSet()->one();
-        $subRuleSet = $this->getSubRuleSet();
+        $subRuleSet = $this->getSubRuleSet()->all();
 
         $rulesName = [
             'baseSet' => $baseRuleSet->getRulesName(),
@@ -351,7 +351,7 @@ class Tournament extends ActiveRecord
      */
     public function getSubRuleSet()
     {
-        return $this->all(TournamentSubrules::className(), ['rules_id' => 'rules_id']);
+        return $this->hasMany(TournamentSubrules::className(), ['rules_id' => 'rules_id']);
     }
 
     /**
