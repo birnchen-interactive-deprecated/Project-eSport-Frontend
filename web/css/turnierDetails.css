@@ -1,15 +1,3 @@
 .site-rl-tournament-details > h1 {
 	text-align: center;
 }
-
-.site-rl-tournament-details .rulesStatus.foldable .namedHeader {
-	cursor: pointer;
-}
-
-.site-rl-tournament-details .rulesStatus.foldable tr.fold {
-	display: none;
-}
-
-.site-rl-tournament-details .rulesStatus.foldable.foldable_open tr.fold {
-	display: table-row;
-}

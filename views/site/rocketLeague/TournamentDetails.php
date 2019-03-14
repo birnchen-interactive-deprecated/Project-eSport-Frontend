@@ -3,6 +3,7 @@
 /* @var $this yii\web\View
  * @var $tournament
  * @var $ruleSet array
+ * @var $teamsParticipating array
  */
 
 $this->title = 'Turnier Details';
