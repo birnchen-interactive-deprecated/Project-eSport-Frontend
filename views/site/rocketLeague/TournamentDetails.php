@@ -66,7 +66,7 @@ $this->title = 'Turnier Details';
             <tr class="bg-success">
                 <th class="namedHeader" colspan="5">Registrierungen <span class="badge"><?= $countCheckedIn . ' / ' . count($participatingEntrys); ?></span></th>
             </tr>
-            <tr class="bg-success fold">
+            <tr class="bg-success">
                 <th colspan="2"><?= $userTeam; ?></th>
                 <?php if ('Team' === $userTeam): ?>
                     <th>Spieler</th>
