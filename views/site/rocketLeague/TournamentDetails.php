@@ -69,6 +69,20 @@ $this->title = 'Turnier Details';
         </table>
     <?php endif; ?>
 
+    <table class="points foldable table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Punktetabelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="fold">
+                <td>Platz X</td>
+                <td>Punkte X</td>
+            </tr>
+        </tbody>
+    </table>
+
     <table class="participants foldable table table-bordered table-striped table-hover">
         <thead>
             <tr class="bg-success">
