@@ -167,6 +167,10 @@ $this->title = 'Turnier Details';
                 <?php
 
                     $imgPath = ($entry instanceOf User) ? 'images/UserAvatar/' . $entry->user_id . '.png' : 'images/teams/' . $entry->sub_team_id . '.png';
+                    if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imgPath)) {
+                        $imgPath = 'images/default.png';
+                    }
+                    
                     $entryName = ($entry instanceOf User) ? $entry->getUsername() : $entry->getName();
 
                     $checkInStatus = $entry->getCheckInStatus($tournament->getId());
