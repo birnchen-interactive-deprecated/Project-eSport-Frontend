@@ -151,9 +151,9 @@ $this->title = 'RL Tournament Overview';
 			</tr>
 		</thead>
 		<tbody>
-        <?= //Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Update' , ['/site/rl-tournaments-details', 'id' => 2]) ?>
-        <? //Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?>
+        <?= //Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary'])
+        Html::a('Update' , ['/site/rl-tournaments-details', 'id' => 2])
+        //Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?>
 			<?php foreach ($registerTurnier as $key => $tournament): ?>
 				<?php
 					$checkInBegin = new DateTime($tournament->getDtCheckinBegin());
