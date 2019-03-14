@@ -69,7 +69,7 @@ class m190228_074605_tournaments extends Migration
 
         //tournamentRules
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `tournamentRules` (
+            CREATE TABLE IF NOT EXISTS `tournament_rules` (
               `rules_id` INT NOT NULL,
               `game_id` INT NULL,
               `name` VARCHAR(45) NULL,
