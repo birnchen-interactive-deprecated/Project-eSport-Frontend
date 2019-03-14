@@ -3,8 +3,19 @@
 /* @var $this yii\web\View
  * @var $tournament
  * @var $ruleSet array
- * @var $teamsParticipating array
+ * @var participatingEntrys array
  */
+
+use yii\helpers\Html;
+
+$userTeam = '';
+if (isset($participatingEntrys[0])) {
+    if ($participatingEntrys[0] instanceOf app\modules\core\models\User) {
+        $userTeam = 'User';
+    } else {
+        $userTeam = 'Team';
+    }
+}
 
 $this->title = 'Turnier Details';
 ?>
@@ -34,6 +45,46 @@ $this->title = 'Turnier Details';
         </table>
     <?php endif; ?>
 
+    <table class="participants foldable table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="bg-success">
+                <th class="namedHeader" colspan="5">Registrierungen</th>
+            </tr>
+            <tr class="bg-success fold">
+                <th colspan="2"><?= $userTeam; ?></th>
+                <?php if ('Team' === $userTeam): ?>
+                    <th>Spieler</th>
+                <?php endif; ?>
+                <th>Checked-In</th>
+                <th>Disqualifiziert</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($participatingEntrys as $key => $entry): ?>
+                <?php
 
+                    $imgPath = ($entry instanceOf app\modules\core\models\User) ? 'images/UserAvatar/' . $entry->user_id . '.png' : 'images/teams/' . $entry->sub_team_id . '.png';
+                    $entryName = ($entry instanceOf app\modules\core\models\User) ? $entry->getUsername() : $entry->getName();
+
+                    $checkInStatus = $entry->getCheckInStatus($tournament->getId());
+                    $checkInText = (false === $checkInStatus) ? 'Not Checked In' : 'Checked In';
+                    $checkInClass = (false === $checkInStatus) ? 'alert-danger' : 'alert-success';
+
+                    $disqStatus = $entry->getDisqualifiedStatus($tournament->getId());
+                    $disqText = (false === $disqStatus) ? '' : 'Disqualifiziert';
+                    $disqClass = (false === $disqStatus) ? '' : 'alert-danger';
+                ?>
+                <tr class="fold">
+                    <td class="imageCell"><?= Html::img($imgPath, ['class' => 'entry-logo']); ?></td>
+                    <td class="nameCell"><?= $entryName; ?></td>
+                    <?php if ('Team' === $userTeam): ?>
+                        <td><?= $entry->getTeamMembersFormatted(); ?></td>
+                    <?php endif; ?>
+                    <td class="checkInCell <?= $checkInClass; ?>"><?= $checkInText ?></td>
+                    <td class="disqCell <?= $disqClass; ?>"><?= $disqText ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
 </div>

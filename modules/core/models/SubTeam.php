@@ -121,4 +121,51 @@ class SubTeam extends ActiveRecord
     {
         return $this->disqualified;
     }
+
+    /**
+     * @return string
+     */
+    public function getCheckInStatus($tournamentId) {
+        $isParticipating = $this->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->where('tournament_id = ' . $tournamentId)->one();
+        if (NULL == $isParticipating->getCheckedIn()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisqualifiedStatus($tournamentId) {
+        $isParticipating = $this->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->where('tournament_id = ' . $tournamentId)->one();
+        if (NULL == $isParticipating->getDisqualified()) {
+            return false;
+        }
+
+        return true;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getTeamMembersFormatted() {
+
+        // $users = $this->hasMany(User::className(), ['user_id' => 'user_id'])->viaTable('sub_team_member', ['sub_team_id' => 'sub_team_id'], function($subTeamMember) {
+        //     $subTeamMember->orderBy('is_sub');
+        // })->orderBy('sub_team_member.is_sub')->all();
+
+        // $users = $this->hasMany(User::className(), ['user_id' => 'user_id'])->joinWith('sub_team_member', true, 'INNER JOIN')->all();
+
+        $users = $this->hasMany(SubTeamMember::className(), ['sub_team_id' => 'sub_team_id'])->orderBy('is_sub')->all();
+
+        $userString = array_map(function($arr) {
+            $userName = $arr->getUser()->one()->getUsername();
+            $isSub = (1 === $arr->getIsSubstitute()) ? 'Substitute' : 'Spieler';
+            return $userName . ' (' . $isSub . ')';
+        }, $users);
+
+        return implode('<br>', $userString);
+    }
+
 }

@@ -369,4 +369,15 @@ class Tournament extends ActiveRecord
     {
         return static::findAll(['game_id' => '1']);
     }
+
+    /**
+     *
+     */
+    public function getParticipants() {
+        if ($this->getMode()->one()->getMainPlayer() == 1) {
+            return $this->hasMany(User::className(), ['user_id' => 'user_id'])->viaTable('player_participating', ['tournament_id' => 'tournament_id']);
+        }
+
+        return $this->hasMany(SubTeam::className(), ['sub_team_id' => 'sub_team_id'])->viaTable('team_participating', ['tournament_id' => 'tournament_id']);
+    }
 }
