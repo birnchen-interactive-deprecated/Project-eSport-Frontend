@@ -101,48 +101,48 @@ $this->title = 'Turnier Details';
         </thead>
         <tbody>
             <tr class="fold">
-                <td align="right">Platz 1</td>
-                <td>Punkte 20</td>
+                <td align="right">1</td>
+                <td>20</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 2</td>
-                <td>Punkte 17</td>
+                <td align="right">2</td>
+                <td>17</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 3</td>
-                <td>Punkte 15</td>
+                <td align="right">3</td>
+                <td>15</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 4</td>
-                <td>Punkte 13</td>
+                <td align="right">4</td>
+                <td>13</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 5 - 6</td>
-                <td>Punkte 11</td>
+                <td align="right">5 - 6</td>
+                <td>11</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 7 - 8</td>
-                <td>Punkte 9</td>
+                <td align="right">7 - 8</td>
+                <td>9</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 9 - 12</td>
-                <td>Punkte 7</td>
+                <td align="right">9 - 12</td>
+                <td>7</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 13 - 16</td>
-                <td>Punkte 5</td>
+                <td align="right">13 - 16</td>
+                <td>5</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 17 - 24</td>
-                <td>Punkte 3</td>
+                <td align="right">17 - 24</td>
+                <td>3</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 25 - 32</td>
-                <td>Punkte 1</td>
+                <td align="right">25 - 32</td>
+                <td>1</td>
             </tr>
             <tr class="fold">
-                <td align="right">Platz 33+</td>
-                <td>Punkte 0</td>
+                <td align="right">33+</td>
+                <td>0</td>
             </tr>
 
         </tbody>
