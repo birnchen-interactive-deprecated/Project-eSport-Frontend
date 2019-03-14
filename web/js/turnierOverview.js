@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-	$('.site-rl-tournament-overview .turnierStatus.foldable .namedHeader').on('click', function() {
+	$('table.foldable .namedHeader').on('click', function() {
 
 		var tableParent = $(this).parents('table.foldable');
 		if (tableParent.hasClass('foldable_open')) {
