@@ -284,6 +284,18 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return string
      */
+    public function getDisqualifiedStatus($tournamentId) {
+        $isParticipating = $this->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->where('tournament_id = ' . $tournamentId)->one();
+        if (NULL == $isParticipating->getDisqualified()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @return string
+     */
     public function getEmail()
     {
         return $this->email;

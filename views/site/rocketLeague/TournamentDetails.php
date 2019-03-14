@@ -48,7 +48,7 @@ $this->title = 'Turnier Details';
     <table class="participants foldable table table-bordered table-striped table-hover">
         <thead>
             <tr class="bg-success">
-                <th class="namedHeader" colspan="4">Registrierungen</th>
+                <th class="namedHeader" colspan="5">Registrierungen</th>
             </tr>
             <tr class="bg-success fold">
                 <th colspan="2"><?= $userTeam; ?></th>
@@ -56,6 +56,7 @@ $this->title = 'Turnier Details';
                     <th>Spieler</th>
                 <?php endif; ?>
                 <th>Checked-In</th>
+                <th>Disqualifiziert</th>
             </tr>
         </thead>
         <tbody>
@@ -68,14 +69,19 @@ $this->title = 'Turnier Details';
                     $checkInStatus = $entry->getCheckInStatus($tournament->getId());
                     $checkInText = (false === $checkInStatus) ? 'Not Checked In' : 'Checked In';
                     $checkInClass = (false === $checkInStatus) ? 'alert-danger' : 'alert-success';
+
+                    $disqStatus = $entry->getDisqualifiedStatus($tournament->getId());
+                    $disqText = (false === $disqStatus) ? '' : 'Disqualifiziert';
+                    $disqClass = (false === $disqStatus) ? '' : 'alert-danger';
                 ?>
                 <tr class="fold">
-                    <td><?= Html::img($imgPath, ['class' => 'entry-logo']); ?></td>
-                    <td><?= $entryName; ?></td>
+                    <td class="imageCell"><?= Html::img($imgPath, ['class' => 'entry-logo']); ?></td>
+                    <td class="nameCell"><?= $entryName; ?></td>
                     <?php if ('Team' === $userTeam): ?>
                         <td><?= $entry->getTeamMembersFormatted(); ?></td>
                     <?php endif; ?>
-                    <td class="<?= $checkInClass; ?>"><?= $checkInText ?></td>
+                    <td class="checkInCell <?= $checkInClass; ?>"><?= $checkInText ?></td>
+                    <td class="disqCell <?= $disqClass; ?>"><?= $disqText ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

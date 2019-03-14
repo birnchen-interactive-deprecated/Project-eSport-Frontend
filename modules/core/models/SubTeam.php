@@ -137,6 +137,18 @@ class SubTeam extends ActiveRecord
     /**
      * @return string
      */
+    public function getDisqualifiedStatus($tournamentId) {
+        $isParticipating = $this->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->where('tournament_id = ' . $tournamentId)->one();
+        if (NULL == $isParticipating->getDisqualified()) {
+            return false;
+        }
+
+        return true;
+    }
+    
+    /**
+     * @return string
+     */
     public function getTeamMembersFormatted() {
 
         // $users = $this->hasMany(User::className(), ['user_id' => 'user_id'])->viaTable('sub_team_member', ['sub_team_id' => 'sub_team_id'], function($subTeamMember) {
