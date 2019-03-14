@@ -298,10 +298,13 @@ class SiteController extends Controller
         $tournament = Tournament::getTournamentById($tournamentId);
         $ruleSet = $tournament->getRules();
 
+        $participatingEntrys = $tournament->getParticipants()->all();
+
         return $this->render('rocketLeague/TournamentDetails',
             [
                 'tournament' => $tournament,
                 'ruleSet' => $ruleSet,
+                'participatingEntrys' => $participatingEntrys
             ]
         );
     }

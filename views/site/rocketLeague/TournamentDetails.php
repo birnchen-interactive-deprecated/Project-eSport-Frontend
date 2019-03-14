@@ -3,7 +3,19 @@
 /* @var $this yii\web\View
  * @var $tournament
  * @var $ruleSet array
+ * @var participatingEntrys array
  */
+
+use yii\helpers\Html;
+
+$userTeam = '';
+if (isset($participatingEntrys[0])) {
+    if ($participatingEntrys[0] instanceOf app\modules\core\models\User) {
+        $userTeam = 'User';
+    } else {
+        $userTeam = 'Team';
+    }
+}
 
 $this->title = 'Turnier Details';
 ?>
@@ -33,6 +45,40 @@ $this->title = 'Turnier Details';
         </table>
     <?php endif; ?>
 
+    <table class="participants foldable table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="bg-success">
+                <th class="namedHeader" colspan="4">Registrierungen</th>
+            </tr>
+            <tr class="bg-success fold">
+                <th colspan="2"><?= $userTeam; ?></th>
+                <?php if ('Team' === $userTeam): ?>
+                    <th>Spieler</th>
+                <?php endif; ?>
+                <th>Checked-In</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($participatingEntrys as $key => $entry): ?>
+                <?php
 
+                    $imgPath = ($entry instanceOf app\modules\core\models\User) ? 'images/UserAvatar/' . $entry->user_id . '.png' : 'images/teams/' . $entry->sub_team_id . '.png';
+                    $entryName = ($entry instanceOf app\modules\core\models\User) ? $entry->getUsername() : $entry->getName();
+
+                    $checkInStatus = $entry->getCheckInStatus($tournament->getId());
+                    $checkInText = (false === $checkInStatus) ? 'Not Checked In' : 'Checked In';
+                    $checkInClass = (false === $checkInStatus) ? 'alert-danger' : 'alert-success';
+                ?>
+                <tr class="fold">
+                    <td><?= Html::img($imgPath, ['class' => 'entry-logo']); ?></td>
+                    <td><?= $entryName; ?></td>
+                    <?php if ('Team' === $userTeam): ?>
+                        <td><?= $entry->getTeamMembersFormatted(); ?></td>
+                    <?php endif; ?>
+                    <td class="<?= $checkInClass; ?>"><?= $checkInText ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
 </div>

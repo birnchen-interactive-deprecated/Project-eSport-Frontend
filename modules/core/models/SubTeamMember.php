@@ -45,6 +45,14 @@ class SubTeamMember extends ActiveRecord
     }
 
     /**
+     * @return int
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['user_id' => 'user_id']);
+    }
+
+    /**
      * @return bool
      */
     public function getIsSubstitute()
