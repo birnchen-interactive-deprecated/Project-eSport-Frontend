@@ -41,6 +41,26 @@ if ($now->diff($checkInEnd)->invert == 1) {
     });
 }
 
+switch ($tournament->getModeId()) {
+    case '1':
+        $challongeId = 'gerta1_190315';
+        break;
+
+    case '2':
+        $challongeId = 'gerta2_190316';
+        break;
+    
+    case '3':
+        $challongeId = 'gerta3_190317';
+        break;
+    
+    default:
+        $challongeId = '';
+        break;
+}
+
+$turnierStart = new DateTime($tournament->getDtStartingTime());
+
 $this->title = 'Turnier Details';
 ?>
 <div class="site-rl-tournament-details">
@@ -125,4 +145,7 @@ $this->title = 'Turnier Details';
         </tbody>
     </table>
 
+    <?php if ($now->diff($turnierStart)->invert == 1): ?>
+        <iframe src="https://challonge.com/de/<?= $challongeId; ?>/module" width="100%" height="500" frameborder="0" scrolling="auto" allowtransparency="true"></iframe>
+    <?php endif; ?>
 </div>
