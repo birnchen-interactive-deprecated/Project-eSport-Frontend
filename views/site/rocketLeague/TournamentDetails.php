@@ -94,7 +94,7 @@ $this->title = 'Turnier Details';
             <tr class="bg-warning">
                 <th class="namedHeader" colspan="2">Punktetabelle</th>
             </tr>
-            <tr class="bg-warning old">
+            <tr class="bg-warning fold">
                 <th width="50%" style="text-align: right">Platzierung</th>
                 <th width="50%">Punkte</th>
             </tr>
