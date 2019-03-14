@@ -17,9 +17,6 @@ $this->title = 'Turnier Details';
             <tr class="bg-warning">
                 <th class="namedHeader" colspan="2"><?= $ruleSet['baseSet']; ?></th>
             </tr>
-            <tr class="bg-warning fold">
-                <th></th>
-            </tr>
             </thead>
             <tbody>
             <?php foreach ($ruleSet['subRulesSet'] as $key => $subRuleSet): ?>
