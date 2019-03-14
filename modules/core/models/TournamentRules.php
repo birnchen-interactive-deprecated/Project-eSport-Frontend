@@ -17,7 +17,6 @@ use yii\db\ActiveRecord;
  *
  * @property int $rules_id
  * @property int $game_id
- * @property int $rules_paragraph
  * @property string $name
  */
 class TournamentRules extends ActiveRecord
@@ -30,7 +29,6 @@ class TournamentRules extends ActiveRecord
         return [
             'rules_id' => Yii::t('app', 'rules id'),
             'game_id' => Yii::t('app', 'game id'),
-            'rules_paragraph' => Yii::t('app', 'rules paragraph'),
             'name' => Yii::t('app', 'name')
         ];
     }
@@ -49,14 +47,6 @@ class TournamentRules extends ActiveRecord
     public function getGameId()
     {
         return $this->game_id;
-    }
-
-    /**
-     * @return int
-     */
-    public function GetRulesParagraph()
-    {
-        return $this->rules_paragraph;
     }
 
     /**

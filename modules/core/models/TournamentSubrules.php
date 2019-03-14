@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
  *
  * @property int $rules_id
  * @property int $subrule_id
+ * @property int $rules_paragraph
  * @property string $name
  * @property string $description
  */
@@ -30,6 +31,7 @@ class TournamentSubrules extends ActiveRecord
         return [
             'rules_id' => Yii::t('app', 'subrule id'),
             'subrule_id' => Yii::t('app', 'subrule id'),
+            'rules_paragraph' => Yii::t('app', 'rules paragraph'),
             'name' => Yii::t('app', 'name'),
             'description' => Yii::t('app', 'description')
         ];
@@ -49,6 +51,14 @@ class TournamentSubrules extends ActiveRecord
     public function getSubRulesId()
     {
         return $this->subrule_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function GetRulesParagraph()
+    {
+        return $this->rules_paragraph;
     }
 
     /**
