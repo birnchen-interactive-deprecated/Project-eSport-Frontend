@@ -72,7 +72,7 @@ $this->title = 'Turnier Details';
     <table class="points foldable table table-bordered table-striped table-hover">
         <thead>
             <tr>
-                <th>Punktetabelle</th>
+                <th class="namedHeader">Punktetabelle</th>
             </tr>
         </thead>
         <tbody>
