@@ -216,6 +216,11 @@ class Tournament extends ActiveRecord
         return static::findOne(['tournament_name' => $tournamentname]);
     }
 
+    public static function getTournamentById($tournamentId)
+    {
+        return static::findOne(['tournament_id' => $tournamentId]);
+    }
+
     /**
      * @return boolean
      */

@@ -88,14 +88,14 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($runningTurnier as $key => $tournament): ?>
 				<tr>
-					<td><?= $tournament->showRealTournamentName(); ?></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td>Running</td>
 				</tr>
 			<?php endforeach; ?>
 			<?php foreach ($preRunningTurnier as $key => $tournament): ?>
 				<tr>
-					<td><?= $tournament->showRealTournamentName(); ?></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td>Preparing</td>
 				</tr>
@@ -119,7 +119,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($checkInTurnier as $key => $tournament): ?>
 				<tr>
-					<td><?= $tournament->showRealTournamentName(); ?></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
 					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
 					<td>
 						<?= Html::submitButton('Check In', ['class' => 'btn btn-success']); ?>
@@ -199,7 +199,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($plannedTurnier as $key => $tournament): ?>
 				<tr class="fold">
-					<td><?= $tournament->showRealTournamentName(); ?></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>
@@ -221,7 +221,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($archivTurnier as $key => $tournament): ?>
 				<tr class="fold">
-					<td><?= $tournament->showRealTournamentName(); ?></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>

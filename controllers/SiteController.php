@@ -293,7 +293,15 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        return $this->render('rocketLeague/TournamentDetails');
+        $tournamentId = Yii::$app->request->get('id');
+
+        $tournament = Tournament::getTournamentById($tournamentId);
+
+        return $this->render('rocketLeague/TournamentsOverview',
+            [
+                'tournament' => $tournament,
+            ]
+        );
     }
 
     /** End of Rocket League Area **/
