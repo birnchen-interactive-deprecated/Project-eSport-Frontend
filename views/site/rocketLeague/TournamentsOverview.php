@@ -80,7 +80,7 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-success">
-				<th class="namedHeader" colspan="2">Laufende Turniere <span class="badge"><?= (count($runningTurnier) + count($preRunningTurnier)); ?></span></th>
+				<th class="namedHeader" colspan="3">Laufende Turniere <span class="badge"><?= (count($runningTurnier) + count($preRunningTurnier)); ?></span></th>
 			</tr>
 			<tr class="bg-success">
 				<th>Turniername</th>
@@ -111,19 +111,25 @@ $this->title = 'RL Tournament Overview';
 	<table class="turnierStatus table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="bg-success">
-				<th class="namedHeader" colspan="3">Check In Turniere <span class="badge"><?= (count($checkInTurnier) + count($preCheckInTurnier)); ?></span></th>
+				<th class="namedHeader" colspan="4">Check In Turniere <span class="badge"><?= (count($checkInTurnier) + count($preCheckInTurnier)); ?></span></th>
 			</tr>
 			<tr class="bg-success">
 				<th>Turniername</th>
+				<th>Checkin Datum</th>
 				<th>Checkin Zeitraum</th>
 				<th>Checkin</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($checkInTurnier as $key => $tournament): ?>
+				<?php
+					$checkInBegin = new DateTime($tournament->getDtCheckinBegin());
+					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
+				?>
 				<tr>
                     <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
-					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
+					<td><?= $checkInBegin->format('Y-m-d'); ?></td>
+					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
 						<?php
 							 if ($tournament->showRegisterBtn($subTeams)) {
@@ -146,9 +152,14 @@ $this->title = 'RL Tournament Overview';
 				</tr>
 			<?php endforeach; ?>
 			<?php foreach ($preCheckInTurnier as $key => $tournament): ?>
+				<?php
+					$checkInBegin = new DateTime($tournament->getDtCheckinBegin());
+					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
+				?>
 				<tr>
 					<td><?= $tournament->showRealTournamentName(); ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
-					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
+					<td><?= $checkInBegin->format('Y-m-d'); ?></td>
+					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>Preparing</td>
 				</tr>
 			<?php endforeach; ?>
