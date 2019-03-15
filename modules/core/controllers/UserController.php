@@ -11,6 +11,7 @@ namespace app\modules\core\controllers;
 use app\components\BaseController;
 use app\modules\core\models\User;
 use Yii;
+use yii\web\BadRequestHttpException;
 use yii\web\Response;
 
 /**
@@ -68,5 +69,47 @@ class UserController extends BaseController
             $out['results'] = ['id' => $id, 'text' => User::findOne($id)->__toString()];
         }
         return $out;
+    }
+
+    /**
+     * @return string
+     */
+    private static function generatePassword()
+    {
+        return str_shuffle(substr(str_shuffle('abcdefghjkmnpqrstuvwxyz'), 0, 4) . substr(str_shuffle('!$%&=?*-:;.,+~@_'), 0, 1) . substr(str_shuffle('123456789'), 0, 1));
+    }
+
+    public static function resetPassword($id)
+    {
+        /** @var User $user */
+        $user = User::find()->where(['user_id' => $id])->one();
+        if (!$user) {
+            throw new BadRequestHttpException("Invalid user id $id");
+        }
+
+        $password = self::generatePassword();
+
+        $user->setPassword($password);
+        $user->is_password_change_required = 1;
+
+        if ($user->save()) {
+            Yii::$app->mailer->compose('passwordChange', ['user' => $user, 'password' => $password])
+                ->setFrom("noresponse@project-esport.de")
+                ->setTo($user->getEmail())
+                ->setSubject(Yii::t('app', 'Your BW account password was reset'))
+                ->send();
+        }
+    }
+
+    /** Resets the password
+     * @param $id
+     * @return \yii\web\Response
+     * @throws BadRequestHttpException
+     */
+    public function actionResetPassword($id)
+    {
+        self::resetPassword($id);
+
+        return self::redirect('index');
     }
 }

@@ -15,6 +15,7 @@ class BaseController extends Controller
      * @param \yii\base\Action $action
      * @return bool|\yii\web\Response
      * @throws \yii\web\BadRequestHttpException
+     * @throws \Throwable
      */
     public function beforeAction($action)
     {
@@ -22,6 +23,9 @@ class BaseController extends Controller
             return false;
         }
 
+        if (!Yii::$app->user->isGuest && Yii::$app->user->getIdentity()->is_password_change_required == 1 && Yii::$app->controller->action->id !== 'password-change') {
+            return $this->redirect(['/site/password-change']);
+        }
 
         return true;
     }

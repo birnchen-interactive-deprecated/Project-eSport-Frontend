@@ -2,15 +2,20 @@
 
 namespace app\controllers;
 
+use app\components\BaseController;
 use app\models\LoginForm;
+use app\models\PasswordChangeForm;
+use app\models\PasswordResetForm;
+use app\modules\core\controllers\UserController;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
 use app\modules\core\models\Nationality;
-use app\modules\core\models\User;
-use app\modules\core\models\UserForm;
-use app\modules\core\models\Tournament;
 use app\modules\core\models\PlayerParticipating;
 use app\modules\core\models\TeamParticipating;
+use app\modules\core\models\Tournament;
+use app\modules\core\models\User;
+use app\modules\core\models\UserForm;
+use app\widgets\Alert;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -18,7 +23,7 @@ use yii\web\Controller;
 use yii\web\Response;
 
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -84,7 +89,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return  $this->actionMyAccount();
+            return $this->actionMyAccount();
             //return $this->render('myAccount');
             //return $this->goHome();
         }
@@ -96,6 +101,41 @@ class SiteController extends Controller
 
         $model->password = '';
         return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Change password action.
+     *
+     * @return string
+     * @throws \Throwable
+     */
+    public function actionPasswordChange()
+    {
+        $model = new PasswordChangeForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->saveNewPassword()) {
+            return $this->goBack();
+        }
+
+        return $this->render('password_change', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionPasswordReset()
+    {
+        $model = new PasswordResetForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            /** @var User $user */
+            $user = User::find()->where(['and', ['username' => $model->username], ['email' => $model->email]])->one();
+            UserController::resetPassword($user->user_id);
+            return $this->redirect(["login"]);
+        }
+
+        return $this->render('password_reset', [
             'model' => $model,
         ]);
     }
@@ -236,8 +276,8 @@ class SiteController extends Controller
 
             if (isset($_POST['user'])) {
 
-                $turnierId = (int) $_POST['tournamentId'];
-                $userId = (int) $_POST['user'];
+                $turnierId = (int)$_POST['tournamentId'];
+                $userId = (int)$_POST['user'];
 
                 if ($_POST['submitText'] === 'Registrieren') {
 
@@ -255,8 +295,8 @@ class SiteController extends Controller
 
             } else if (isset($_POST['subTeam'])) {
 
-                $turnierId = (int) $_POST['tournamentId'];
-                $subTeamId = (int) $_POST['subTeam'];
+                $turnierId = (int)$_POST['tournamentId'];
+                $subTeamId = (int)$_POST['subTeam'];
 
                 if ($_POST['submitText'] === 'Registrieren') {
 
@@ -286,7 +326,7 @@ class SiteController extends Controller
 
     }
 
-    public function actionRlTournamentsDetails ()
+    public function actionRlTournamentsDetails()
     {
         if (Yii::$app->user->isGuest) {
             // return $this->render('index');

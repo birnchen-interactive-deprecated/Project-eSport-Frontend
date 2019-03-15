@@ -36,6 +36,7 @@ $this->title = 'Login';
             <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             <?= Html::a("Registrieren", ['register'], ['class' => 'btn fake-submit']); ?>
         </div>
+        <?= Html::a("Passwort vergessen?", ["password-reset"]); ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>

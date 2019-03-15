@@ -1,3 +1,32 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Erstellungszeit: 15. Mrz 2019 um 11:33
+-- Server-Version: 5.7.25-0ubuntu0.16.04.2
+-- PHP-Version: 7.1.14
+
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Datenbank: `Project-eSport`
+--
+
+--
+-- Daten für Tabelle `user`
+--
+
 INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, `nationality_id`, `dt_created`, `dt_updated`, `language_id`, `pre_name`, `last_name`, `zip_code`, `city`, `street`, `email`) VALUES
 (1, 'admin', '$2y$13$oqxRLMe.raZ1vxzyKVl/fOp5PYF7fHVrGp6tbOiYlsJ28yUcJgvIO', '0000-00-00', 3, NULL, '2019-03-11 13:31:45', '2019-03-11 13:31:45', 1, NULL, NULL, NULL, NULL, NULL, 'admin@admin.de'),
 (2, 'Birnchen', '$2y$13$BFuY5ZmWvptagWoiaCg4quNxd5R4HGjkLdibC3r0lYpNLQwNzQ2.6', '1986-03-25', 1, 1, '2019-02-27 22:28:13', '2019-02-27 22:28:13', 1, NULL, NULL, NULL, NULL, NULL, 'p.koehler@birnchen-studios.de'),
@@ -78,10 +107,18 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `birthday`, `gender_id`, 
 (77, 'Maczii', '$2y$13$z9iBPvzqbvo/7PGr0SYM3.VbeOhecvorXU7.E/r6UezdWJWacRZ5i', '1970-01-01', 1, NULL, '2019-03-03 17:10:34', '2019-03-03 17:10:34', 1, NULL, NULL, NULL, NULL, NULL, 'mirco.marczinzek1@web.de'),
 (78, 'sverin99', '$2y$13$rpdcgMoDyv46eW0vbFRJDuW40IEnWRPjoOUA8hKdHVprzTD24Ukeu', '1970-01-01', 1, NULL, '2019-03-03 17:15:24', '2019-03-03 17:15:24', 1, NULL, NULL, NULL, NULL, NULL, 'sverin99@arcor.de'),
 (79, 'Paddy', '$2y$13$OUhkZUZAJXlpdYsBRt81dOJR9iqnsciaplC5qk1.IRKCbOSfu425W', '1970-01-01', 1, NULL, '2019-03-03 20:10:01', '2019-03-03 20:10:01', 1, NULL, NULL, NULL, NULL, NULL, 'phofleitner23@gmail.com'),
-(80, 'Phix', '$2y$13$ctjCNPn9nO6crM39AaPUvujzprnBn2F5n8hb7YJ36VIcn01I14tTC', '1970-01-01', 1, NULL, '2019-03-03 21:30:49', '2019-03-03 21:30:49', 1, NULL, NULL, NULL, NULL, NULL, 'officialphixrl@gmail.com'),
+(80, 'Phix', '$2y$13$ctjCNPn9nO6crM39AaPUvujzprnBn2F5n8hb7YJ36VIcn01I14tTC', '2003-10-18', 1, NULL, '2019-03-03 21:30:49', '2019-03-03 21:30:49', 1, NULL, NULL, NULL, NULL, NULL, 'officialphixrl@gmail.com'),
 (81, 'Pandastiko ', '$2y$13$4xSAHdxuXQh317sdSxLkjOQxF0vWvrAd0KQR84PpdNqpRfUEByEuy', '1970-01-01', 1, NULL, '2019-03-03 22:04:47', '2019-03-03 22:04:47', 1, NULL, NULL, NULL, NULL, NULL, 'mischakaelin2.0@gmail.com'),
 (82, 'GlaedrOromis', '$2y$13$Espd4EC/G14huBcgXePneuUwGPUKRebIGXqXlm1gy/bDKP8AAYUN.', '1970-01-01', 1, NULL, '2019-03-08 17:28:01', '2019-03-08 17:28:01', 1, NULL, NULL, NULL, NULL, NULL, 'pietwagner02@gmail.com'),
 (83, 'Covari', '$2y$13$s7BvdH9lLfm5DkiLxOABiO57szIYLAi9S/WeICbkxZ/XGOnzsY8O6', '1970-01-01', 1, 1, '2019-03-12 16:08:20', '2019-03-12 16:08:20', 1, NULL, NULL, NULL, NULL, NULL, 'felix.salomo1102@gmail.com'),
-(84, 'RLRene', '$2y$13$HRhSXAEVLunYr0PZqldoouwblRiy4GL84edIgz7GU3Lr2wFwyy2Uq', '1970-01-01', 1, 1, '2019-03-13 20:03:55', '2019-03-13 20:03:55', 1, NULL, NULL, NULL, NULL, NULL, 'nessaja91@web.de');
-
+(84, 'RLRene', '$2y$13$HRhSXAEVLunYr0PZqldoouwblRiy4GL84edIgz7GU3Lr2wFwyy2Uq', '1970-01-01', 1, 1, '2019-03-13 20:03:55', '2019-03-13 20:03:55', 1, NULL, NULL, NULL, NULL, NULL, 'nessaja91@web.de'),
+(85, 'whitefire', '$2y$13$bLs61IbJ3LPHVEEsMibHXeXVTQ6XmMwLyYDnG5DGkq8BcKCn1PxUK', '1970-01-01', 1, 12, '2019-03-13 22:28:23', '2019-03-13 22:28:23', 2, NULL, NULL, NULL, NULL, NULL, 'henning.kvinnesland@gmail.com'),
+(86, 'Stonie', '$2y$13$XmZCx8eFbnrmgsKzMd.PduJvPF0.GxpB0mrC..PJdYIks/0cKE0/K', '1970-01-01', 1, 3, '2019-03-14 17:01:06', '2019-03-14 17:01:06', 1, NULL, NULL, NULL, NULL, NULL, 'dam.bruelhart@gmail.com'),
+(87, 'Swiches', '$2y$13$RnsBRm3sfHxQA/ErAe5mEep3qrmnpnQ69UXh3E2aQV1f74jzf7/OK', '1970-01-01', 1, 1, '2019-03-14 19:42:10', '2019-03-14 19:42:10', 1, NULL, NULL, NULL, NULL, NULL, 'Finn.Lorenz@hotmail.com'),
+(88, 'Xania', '$2y$13$zVjXiQlyfEisIF8oyvFmH.rNbcFMz7G6hp6USftoh3m52lTFRgsdC', '1970-01-01', 1, 1, '2019-03-14 23:11:00', '2019-03-14 23:11:00', 1, NULL, NULL, NULL, NULL, NULL, 'jamursel@gmail.com');
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

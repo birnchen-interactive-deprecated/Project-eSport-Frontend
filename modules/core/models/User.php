@@ -33,6 +33,7 @@ use yii\web\IdentityInterface;
  * @property string $city
  * @property string $street
  * @property string $email
+ * @property bool $is_password_change_required
  */
 class User extends AbstractActiveRecord implements IdentityInterface
 {
@@ -190,6 +191,14 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isPasswordChangeRequired()
+    {
+        return $this->is_password_change_required;
+    }
+
+    /**
      * @return ActiveQuery
      */
     public function getLanguage()
@@ -236,7 +245,8 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return array
      */
-    public function getAllSubTeamsWithMembers() {
+    public function getAllSubTeamsWithMembers()
+    {
 
         $retArr = array();
         $subTeams = $this->hasMany(SubTeamMember::className(), ['user_id' => 'user_id'])->all();
@@ -272,7 +282,8 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return string
      */
-    public function getCheckInStatus($tournamentId) {
+    public function getCheckInStatus($tournamentId)
+    {
         $isParticipating = $this->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->where('tournament_id = ' . $tournamentId)->one();
         if (NULL == $isParticipating->getCheckedIn()) {
             return false;
@@ -284,7 +295,8 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return string
      */
-    public function getDisqualifiedStatus($tournamentId) {
+    public function getDisqualifiedStatus($tournamentId)
+    {
         $isParticipating = $this->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->where('tournament_id = ' . $tournamentId)->one();
         if (NULL == $isParticipating->getDisqualified()) {
             return false;
@@ -333,7 +345,8 @@ class User extends AbstractActiveRecord implements IdentityInterface
         $this->password = Yii::$app->security->generatePasswordHash($password);
     }
 
-    public function setProfilePic($profilePic) {
+    public function setProfilePic($profilePic)
+    {
         $docRoot = $_SERVER['DOCUMENT_ROOT'];
         $profilePic->moveTo($docRoot . '/images/UserAvatar/' . $this->user_id . '.png');
     }
