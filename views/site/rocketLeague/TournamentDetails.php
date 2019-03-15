@@ -35,6 +35,10 @@ foreach ($participatingEntrys as $key => $entry) {
 
 $checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 $now = new DateTime();
+$tz = new DateTimeZone('Europe/Vienna');
+$di = DateInterval::createFromDateString($tz->getOffset($now) . ' seconds');
+$now->add($di);
+
 if ($now->diff($checkInEnd)->invert == 1) {
     usort($participatingEntrys, function($a, $b) use ($tournament) {
         return $a->getCheckInStatus($tournament->getId()) < $b->getCheckInStatus($tournament->getId());
