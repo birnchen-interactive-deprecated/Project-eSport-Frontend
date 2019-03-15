@@ -122,7 +122,23 @@ $this->title = 'RL Tournament Overview';
                     <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
 					<td><?= $tournament->getDtCheckinBegin(); ?> - <?= $tournament->getDtCheckinEnd(); ?></td>
 					<td>
-						<?= Html::submitButton('Check In', ['class' => 'btn btn-success']); ?>
+						<?php
+							 if ($tournament->showRegisterBtn($subTeams)) {
+								$btns = $tournament->getCheckInBtns($subTeams, $user);
+								foreach ($btns as $key => $btn) {
+
+									$form = ActiveForm::begin([
+										'id' => 'registerForm',
+									]);
+									echo Html::hiddenInput($btn['type'], $btn['id']);
+									echo Html::hiddenInput('tournamentId', $tournament->getId());
+									echo $btn['btn'];
+									echo ' ';
+									echo $btn['name'];
+									ActiveForm::end();
+								}
+							}
+						?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

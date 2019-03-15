@@ -315,6 +315,67 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @return string
+     */
+    public function getCheckInBtns($subTeams, $user) {
+        if ($this->getMode()->one()->getMainPlayer() == 1) {
+
+            $isParticipating = $this->checkPlayerCheckedIn($user);
+
+            $btnValue = ($isParticipating) ? 'Check-Out' : 'Check-In';
+            $btnColor = ($isParticipating) ? 'btn-danger' : 'btn-success';
+
+            $tmp = array(
+                array(
+                    'type' => 'user',
+                    'id' => $user->getId(),
+                    'name' => Html::tag('span', $user->getUsername()),
+                    'btn' => Html::submitInput($btnValue, ['class' => 'btn ' . $btnColor, 'name' => 'submitText']),
+                ),
+            );
+            return $tmp;
+        }
+
+        $retArr = array();
+        foreach ($subTeams as $key => $subTeam) {
+
+            if ($subTeam->getTournamentModeId() !== $this->getModeId()) {
+                continue;
+            }
+
+            $modeMainPlayers = $this->getMode()->one()->getMainPlayer();
+
+            $mainFound = 0;
+            $teamMembers = SubTeamMember::getTeamMembers($subTeam->getId());
+            foreach ($teamMembers as $key => $teamMember) {
+                if ($teamMember->getIsSubstitute() === 0) {
+                    $mainFound++;
+                }
+            }
+
+            if ($mainFound < $modeMainPlayers) {
+                continue;
+            }
+
+            $isParticipating = $this->checkTeamCheckedIn($subTeam);
+
+            $btnValue = ($isParticipating) ? 'Check-Out' : 'Check-In';
+            $btnColor = ($isParticipating) ? 'btn-danger' : 'btn-success';
+
+            $retArr[] = array(
+                'type' => 'subTeam',
+                'id' => $subTeam->getId(),
+                'name' => Html::tag('span', $subTeam->getName()),
+                'btn' => Html::submitInput($btnValue, ['class' => 'btn ' . $btnColor, 'name' => 'submitText']),
+            );
+
+        }
+
+        return $retArr;
+
+    }
+
+    /**
      * @return boolean
      */
     private function checkPlayerParticipating($user) {
@@ -327,6 +388,22 @@ class Tournament extends ActiveRecord
      */
     private function checkTeamParticipating($subTeam) {
         $teamParticipating = TeamParticipating::findTeamParticipating($this->tournament_id, $subTeam->getId());
+        return (NULL === $teamParticipating) ? false : true;
+    }
+
+    /**
+     * @return boolean
+     */
+    private function checkPlayerCheckedIn($user) {
+        $playerParticipating = PlayerParticipating::findPlayerCheckedIn($this->tournament_id, $user->getId());
+        return (NULL === $playerParticipating) ? false : true;
+    }
+
+    /**
+     * @return boolean
+     */
+    private function checkTeamCheckedIn($subTeam) {
+        $teamParticipating = TeamParticipating::findTeamCheckedIn($this->tournament_id, $subTeam->getId());
         return (NULL === $teamParticipating) ? false : true;
     }
 

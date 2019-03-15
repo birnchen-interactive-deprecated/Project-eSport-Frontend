@@ -291,6 +291,18 @@ class SiteController extends BaseController
                     if (NULL !== $playerParticipating) {
                         $playerParticipating->delete();
                     }
+                } else if ($_POST['submitText'] === 'Check-In') {
+                    $playerParticipating = PlayerParticipating::findPlayerParticipating($turnierId, $userId);
+                    if (NULL !== $playerParticipating) {
+                        $playerParticipating->checked_in = true;
+                        $playerParticipating->update();
+                    }
+                } else if ($_POST['submitText'] === 'Check-Out') {
+                    $playerParticipating = PlayerParticipating::findPlayerParticipating($turnierId, $userId);
+                    if (NULL !== $playerParticipating) {
+                        $playerParticipating->checked_in = null;
+                        $playerParticipating->update();
+                    }
                 }
 
             } else if (isset($_POST['subTeam'])) {
@@ -309,6 +321,18 @@ class SiteController extends BaseController
                     $teamParticipating = TeamParticipating::findTeamParticipating($turnierId, $subTeamId);
                     if (NULL !== $teamParticipating) {
                         $teamParticipating->delete();
+                    }
+                } else if ($_POST['submitText'] === 'Check-In') {
+                    $teamParticipating = TeamParticipating::findTeamParticipating($turnierId, $subTeamId);
+                    if (NULL !== $teamParticipating) {
+                        $teamParticipating->checked_in = true;
+                        $teamParticipating->update();
+                    }
+                } else if ($_POST['submitText'] === 'Check-Out') {
+                    $teamParticipating = TeamParticipating::findTeamParticipating($turnierId, $subTeamId);
+                    if (NULL !== $teamParticipating) {
+                        $teamParticipating->checked_in = null;
+                        $teamParticipating->update();
                     }
                 }
 
