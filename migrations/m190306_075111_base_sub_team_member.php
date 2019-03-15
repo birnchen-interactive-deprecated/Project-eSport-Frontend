@@ -78,11 +78,11 @@ class m190306_075111_base_sub_team_member extends Migration
         ]);
 
         /* CaptainViper 2v2 Team Member - Different Bünzlis Stonie, user ID ändern*/
-        //$this->insert('sub_team_member',  [
-        //    'sub_team_id' => '15',
-        //    'user_id' => '7',
-        //    'is_sub' => 0,
-        //]);
+        $this->insert('sub_team_member',  [
+            'sub_team_id' => '15',
+            'user_id' => '7',
+            'is_sub' => 0,
+        ]);
 
         /* CaptainViper 3v3 Team Member */
         $this->insert('sub_team_member',  [
@@ -490,10 +490,10 @@ class m190306_075111_base_sub_team_member extends Migration
 
         /* Team Agency 3v3 Team Member Swiches user ID Nachtragen*/
         //$this->insert('sub_team_member',  [
-        //    'sub_team_id' => '21',
-        //    'user_id' => '7',
-        //    'is_sub' => 1,
-        //]);
+            'sub_team_id' => '21',
+            'user_id' => '7',
+            'is_sub' => 1,
+        ]);
 
         /** Team The Dark Start **/
         /* Team The Dark Start 3v3 Team Member */

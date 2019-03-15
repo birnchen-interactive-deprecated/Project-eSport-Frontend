@@ -56,11 +56,11 @@ class m190306_075100_base_team_member extends Migration
             'user_id' => '12',
         ]);
 
-        /* CaptainViper main Team member Stonie user id ändern*/
-        //$this->insert('team_member',  [
-        //    'team_id' => '2',
-        //    'user_id' => '7',
-        //]);
+        /* CaptainViper main Team member */
+        $this->insert('team_member',  [
+            'team_id' => '2',
+            'user_id' => '7',
+        ]);
 
         /** Team Timeout Gaming **/
         /* Timeout Gaming main Team member */
@@ -252,10 +252,10 @@ class m190306_075100_base_team_member extends Migration
         ]);
 
         /* Team Agency main Team member Swiches user ID Nachtragen*/
-        //$this->insert('team_member',  [
-        //    'team_id' => '10',
-        //    'user_id' => '7',
-        //]);
+        $this->insert('team_member',  [
+            'team_id' => '10',
+            'user_id' => '7',
+        ]);
 
         /* Team Agency main Team member */
         $this->insert('team_member',  [
