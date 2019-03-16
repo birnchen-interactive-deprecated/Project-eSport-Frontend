@@ -34,6 +34,9 @@ $navigation = array(
 if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
 } else {
+    $navigation[] = array('label' => 'Teams', 'visible' => $visible, 'items' => array(
+        array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
+    ));
     $navigation[] = array('label' => 'Turniere', 'visible' => $visible, 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
     ));
@@ -69,40 +72,11 @@ if (Yii::$app->user->isGuest) {
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $navigation,
     ]);
-
-
-    //       'items' => [
-    //               ['label' => 'Welcome', 'visible' => $visible, 'url' => ['/site/index']],
-    //    //           ['label' => ''. Yii::$app->user->identity->username .'', 'visible' => $visible, 'items' => [
-    //                   ['label' => 'My Account', 'url' => ['/site/account']],
-    //                   ['label' => 'My Teams', 'url' => ['/site/news']],
-    //                   ['label' => 'My Tournaments', 'url' => ['/site/news']],
-    //               ]],
-    //               ['label' => 'Cups', 'visible' => $visible, 'items' => [
-    //                   ['label' => '1v1 Cup', 'url' => ['/site/news']],
-    //                   ['label' => '2v2 Cup', 'url' => ['/site/account']],
-    //                   ['label' => '3v3 Cup', 'url' => ['/site/tournament']],
-    //               ]],
-    //               ['label' => 'Twitch.tv', 'url' => ['/site/twitch']],
-    //               ['label' => 'Bracket', 'url' => ['/site/bracket']],
-    //           Yii::$app->user->isGuest ? (
-    //               ['label' => 'Login', 'url' => ['/site/login']]
-    //           ) : (
-    //               '<li>'
-    //               . Html::beginForm(['/site/logout'], 'post')
-    //               . Html::submitButton(
-    //                   'Logout (' . Yii::$app->user->identity->username . ')',
-    //                   ['class' => 'btn btn-link logout']
-    //               )
-    //               . Html::endForm()
-    //               . '</li>'
-    //           )
-    //       ],
-    //   ]);
     NavBar::end();
     ?>
 

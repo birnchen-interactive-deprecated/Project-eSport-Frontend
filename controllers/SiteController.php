@@ -11,6 +11,7 @@ use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
 use app\modules\core\models\Nationality;
 use app\modules\core\models\PlayerParticipating;
+use app\modules\core\models\SubTeam;
 use app\modules\core\models\TeamParticipating;
 use app\modules\core\models\Tournament;
 use app\modules\core\models\User;
@@ -89,9 +90,9 @@ class SiteController extends BaseController
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->actionMyAccount();
+            //return $this->actionMyAccount();
             //return $this->render('myAccount');
-            //return $this->goHome();
+            return $this->goHome();
         }
 
         $model = new LoginForm();
@@ -265,6 +266,7 @@ class SiteController extends BaseController
     }
 
     /** Rocket League Area **/
+
     public function actionRlTournaments()
     {
         if (Yii::$app->user->isGuest) {
@@ -373,6 +375,21 @@ class SiteController extends BaseController
         );
     }
 
+    public function actionRlTeamsOverview()
+    {
+        if (Yii::$app->user->isGuest) {
+            // return $this->render('index');
+            return $this->goHome();
+        }
+
+        $subteams = SubTeam::getTeamsByGame(1);
+
+        return $this->render('rocketLeague/TeamsOverview',
+            [
+                'subteams' => $subteams,
+            ]
+        );
+    }
     /** End of Rocket League Area **/
 
     /**
