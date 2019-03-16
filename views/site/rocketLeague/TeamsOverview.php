@@ -29,16 +29,9 @@ $this->title = 'Turnier Details';
 
 				$userClass = $subTeamMember->getUser()->one();
 				$userName = $userClass->getUsername();
+				$substitudeText = ($subTeamMember->getIsSubstitute()) ? 'Substitude' : 'Player';
 
-                echo Html::a($userName , ['/site/team-details', 'id' => $userClass->getId()]) . '<br>';
-                if($subTeamMember->getIsSubstitute())
-                {
-                    echo Html::a('(Substitude)' , ['/site/team-details']) . '<br>';
-                }
-                else
-                {
-                    echo Html::a('(Player)' , ['/site/team-details']) . '<br>';
-                }
+                echo Html::a($userName , ['/site/team-details', 'id' => $userClass->getId()]) . ' (' . $substitudeText . ')<br>';
 			};
 
 		};
