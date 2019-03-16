@@ -1,9 +1,7 @@
 <?php
 
 /* @var $this yii\web\View
- * @var $tournament
- * @var $ruleSet array
- * @var participatingEntrys array
+ * @var $subteams array
  */
 
 use yii\helpers\Html;

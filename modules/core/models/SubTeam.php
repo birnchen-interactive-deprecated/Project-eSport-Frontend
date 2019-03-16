@@ -168,4 +168,12 @@ class SubTeam extends ActiveRecord
         return implode('<br>', $userString);
     }
 
+    /**
+     * @return ActiveQuery
+     */
+    public function getTeamsByGame($gameID)
+    {
+        return static::findOne(['game_id' => $gameID]);
+    }
+
 }
