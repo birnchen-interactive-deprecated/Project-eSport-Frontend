@@ -176,4 +176,32 @@ class SubTeam extends ActiveRecord
         return static::findOne(['game_id' => $gameID]);
     }
 
+    /**
+     * @return array
+     */
+    public function getTeamHierarchyByGame($gameId) {
+
+        $teamHierarchy = array();
+
+        $subTeams = static::findAll(['game_id' => $gameId]);
+        foreach ($subTeams as $key => $subTeam) {
+
+            $mainTeam = $subTeam->hasOne(MainTeam::className(), ['team_id' => 'main_team_id'])->one();
+            $subTeamMember = $subTeam->hasMany(SubTeamMember::className(), ['sub_team_id' => 'sub_team_id'])->orderBy('is_sub')->all();
+
+            if (!array_key_exists($mainTeam->getId(), $teamHierarchy)) {
+                $teamHierarchy[$mainTeam->getId()] = array(
+                    'mainTeam' => $mainTeam,
+                    'subTeams' => array(),
+                );
+            }
+
+            $teamHierarchy[$mainTeam->getId()]['subTeams'][] = array(
+                'subTeam' => $subTeam,
+                'subTeamMember' => $subTeamMember,
+            );
+        }
+
+        return $teamHierarchy;
+    }
 }

@@ -382,11 +382,12 @@ class SiteController extends BaseController
             return $this->goHome();
         }
 
-        $subteams = SubTeam::getTeamsByGame(1);
+        // $subteams = SubTeam::getTeamsByGame(1);
+        $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
         return $this->render('rocketLeague/TeamsOverview',
             [
-                'subteams' => $subteams,
+                'teamHierarchy' => $teamHierarchy,
             ]
         );
     }
