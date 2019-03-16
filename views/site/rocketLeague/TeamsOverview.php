@@ -35,9 +35,7 @@ $this->title = 'Turnier Details';
 
                 echo Html::a($userName , ['/site/team-details', 'id' => $userClass->getId()]) . ' (' . $substitudeText . ')<br>';
 			};
-
 		};
-
     };
 
 	?>
