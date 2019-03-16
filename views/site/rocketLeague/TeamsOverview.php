@@ -16,7 +16,7 @@ $this->title = 'Turnier Details';
 
 		$mainTeam = $hierarchy['mainTeam'];
 		$mainTeamOwner = $mainTeam->getOwner()->one()->getUserName();
-        echo Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]) . '(' . echo Html::a($mainTeamOwner , ['/site/team-details', 'id' => $mainTeam->getOwnerId()]) . ')' .  '<br>';
+        echo Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]) . '(' . Html::a($mainTeamOwner , ['/site/team-details', 'id' => $mainTeam->getOwnerId()]) . ')' .  '<br>';
 
 
         foreach ($hierarchy['subTeams'] as $key => $subHierarchy) {
