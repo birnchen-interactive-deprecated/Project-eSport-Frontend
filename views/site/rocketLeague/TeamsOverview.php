@@ -32,7 +32,6 @@ $this->title = 'Turnier Details';
                 <div class="subTeaMember"><?= Html::a($userName , ['/site/team-details', 'id' => $userClass->getId()]); ?></div><div class="playerPosition"> <?= ' (' . $substitudeText . ')'; ?></div>
 
             <?php  endforeach; ?>
-    <br>
         <?php  endforeach; ?>
     <hr>
 	<?php  endforeach; ?>
