@@ -15,8 +15,10 @@ $this->title = 'Turnier Details';
     foreach($teamHierarchy as $hierarchy )  {
 
 		$mainTeam = $hierarchy['mainTeam'];
+        echo Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]) . '<br>';
 
-		foreach ($hierarchy['subTeams'] as $key => $subHierarchy) {
+
+        foreach ($hierarchy['subTeams'] as $key => $subHierarchy) {
 
 			$subTeam = $subHierarchy['subTeam'];
 			$subTeamName = $subTeam->getName() . ' ' . $subTeam->getTournamentMode()->one()->getName();
