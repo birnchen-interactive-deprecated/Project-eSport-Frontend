@@ -29,7 +29,7 @@ $this->title = 'Turnier Details';
 				$userName = $userClass->getUsername();
 				$substitudeText = ($subTeamMember->getIsSubstitute()) ? 'Substitude' : 'Player'; ?>
 
-                <div class="subTeaMember"><?= Html::a($userName , ['/site/team-details', 'id' => $userClass->getId()]); ?></div><div class="PlayerPosition"> <?= ' (' . $substitudeText . ')'; ?></div>
+                <div class="subTeaMember"><?= Html::a($userName , ['/site/team-details', 'id' => $userClass->getId()]); ?></div><div class="playerPosition"> <?= ' (' . $substitudeText . ')'; ?></div>
 
             <?php  endforeach; ?>
         <?php  endforeach; ?>
