@@ -45,27 +45,11 @@ if ($now->diff($checkInEnd)->invert == 1) {
     });
 }
 
-switch ($tournament->getModeId()) {
-    case '1':
-        $challongeId = 'gerta1_190315';
-        break;
-
-    case '2':
-        $challongeId = 'gerta2_190316';
-        break;
-    
-    case '3':
-        $challongeId = 'gerta3_190317';
-        break;
-    
-    default:
-        $challongeId = '';
-        break;
-}
-
 $turnierStart = new DateTime($tournament->getDtStartingTime());
 $turnierEnd = new DateTime($tournament->getDtStartingTime());
 $turnierEnd->setTime(23, 59, 59);
+
+$challongeId = 'gerta' . $tournament->getModeId() . '_' . $turnierStart->format('ymd');
 
 $this->title = 'Turnier Details';
 ?>
