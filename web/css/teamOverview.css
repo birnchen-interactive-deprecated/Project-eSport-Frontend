@@ -1,3 +1,8 @@
+.site-rl-tournament-details hr  {
+    width: 100%;
+    float: left;
+}
+
 .site-rl-tournament-details  .mainTeam {
     float: left;
     width: 20%;
