@@ -89,9 +89,9 @@ class SiteController extends BaseController
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->actionMyAccount();
+            //return $this->actionMyAccount();
             //return $this->render('myAccount');
-            //return $this->goHome();
+            return $this->goHome();
         }
 
         $model = new LoginForm();
@@ -265,6 +265,7 @@ class SiteController extends BaseController
     }
 
     /** Rocket League Area **/
+
     public function actionRlTournaments()
     {
         if (Yii::$app->user->isGuest) {
@@ -373,6 +374,14 @@ class SiteController extends BaseController
         );
     }
 
+    public function actionRlTeamsOverview()
+    {
+        return $this->render('rocketLeague/TeamsOverview',
+            [
+                //'tournamentList' => $tournamentList,
+            ]
+        );
+    }
     /** End of Rocket League Area **/
 
     /**
