@@ -192,6 +192,10 @@ class SubTeam extends ActiveRecord
         $teamHierarchy = array();
 
         $subTeams = static::findAll(['game_id' => $gameId]);
+        usort($subTeams, function ($a, $b) {
+            return $a->getMainTeamId() > $b->getMainTeamId() && $a->getTournamentModeId() > $b->getTournamentModeId();
+        });
+
         foreach ($subTeams as $key => $subTeam) {
 
             $mainTeam = $subTeam->hasOne(MainTeam::className(), ['team_id' => 'main_team_id'])->one();
