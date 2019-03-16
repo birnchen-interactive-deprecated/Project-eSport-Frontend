@@ -15,7 +15,7 @@ $this->title = 'Turnier Details';
     foreach($teamHierarchy as $hierarchy )  {
 
 		$mainTeam = $hierarchy['mainTeam'];
-		$mainTeamOwner = $mainTeam->GetOwner()->one()->getUserName();
+		$mainTeamOwner = $mainTeam->getOwner()->one()->getUserName();
         echo Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]) . '(' . echo Html::a($mainTeamOwner , ['/site/team-details', 'id' => $mainTeam->getOwnerId()]) . ')' .  '<br>';
 
 
