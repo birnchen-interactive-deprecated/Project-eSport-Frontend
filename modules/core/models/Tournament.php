@@ -254,6 +254,18 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @return boolean
+     */
+    public function showCheckInBtn($subTeams, $user) {
+        if ($this->getMode()->one()->getMainPlayer() == 1) {
+            $isParticipating = $this->checkPlayerParticipating($user);
+            return ($isParticipating) ? true : false;
+        }
+
+        return true;
+    }
+
+    /**
      * @return string
      */
     public function getRegisterBtns($subTeams, $user) {
@@ -354,6 +366,11 @@ class Tournament extends ActiveRecord
             }
 
             if ($mainFound < $modeMainPlayers) {
+                continue;
+            }
+
+            $isParticipating = $this->checkTeamParticipating($subTeam);
+            if (!$isParticipating) {
                 continue;
             }
 

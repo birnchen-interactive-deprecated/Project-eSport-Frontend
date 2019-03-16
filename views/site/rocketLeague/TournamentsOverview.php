@@ -136,7 +136,7 @@ $this->title = 'RL Tournament Overview';
 					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
 						<?php
-							 if ($tournament->showRegisterBtn($subTeams)) {
+							 if ($tournament->showCheckInBtn($subTeams, $user)) {
 								$btns = $tournament->getCheckInBtns($subTeams, $user);
 								foreach ($btns as $key => $btn) {
 
