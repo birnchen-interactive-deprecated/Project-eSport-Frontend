@@ -29,8 +29,11 @@ $plannedTurnier = array();
 foreach ($tournamentList as $key => $tournament) {
 	
 	$turnierStart = new DateTime($tournament->getDtStartingTime());
+	$turnierEnd = new DateTime($tournament->getDtStartingTime());
+	$turnierEnd->setTime(23, 59, 59);
 	$diffStart = $now->diff($turnierStart);
-	if (1 === $diffStart->invert /*&& $checkTurnierCompleted */) {
+	$diffEnd = $now->diff($turnierEnd);
+	if (1 === $diffStart->invert && 1 === $diffEnd->invert ) {
 		$archivTurnier[] = $tournament;
 		continue;
 	}
