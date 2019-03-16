@@ -99,6 +99,14 @@ class SubTeam extends ActiveRecord
     }
 
     /**
+     * @return int
+     */
+    public function getTeamCaptain()
+    {
+        return $this->hasOne(User::className(), ['user_id' =>'team_captain_id']);
+    }
+
+    /**
      * @return string
      */
     public function getName()
