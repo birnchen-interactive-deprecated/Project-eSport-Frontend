@@ -21,7 +21,7 @@ $this->title = 'Turnier Details';
 			$subTeamName = $subTeam->getName() . ' ' . $subTeam->getTournamentMode()->one()->getName();
 			$subTeamManager = $subTeam->GetTeamCaptain()->one()->getUsername(); ?>
 
-            <div class="subTeam"><?= Html::a($subTeamName , ['/site/team-details', 'id' => $subTeam->getId()]); ?></div><div class="subTeamOwner"> <?= 'captain: ' . Html::a($subTeamManager , ['/site/team-details', 'id' => $subTeam->getTeamCaptainId()]; ?></div>
+            <div class="subTeam"><?= Html::a($subTeamName , ['/site/team-details', 'id' => $subTeam->getId()]); ?></div><div class="subTeamOwner"> <?= 'captain: ' . Html::a($subTeamManager , ['/site/team-details', 'id' => $subTeam->getTeamCaptainId()]); ?></div>
 
 
             <?php foreach ($subHierarchy['subTeamMember'] as $key => $subTeamMember) :
