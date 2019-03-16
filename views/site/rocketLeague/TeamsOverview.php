@@ -14,7 +14,8 @@ $this->title = 'Turnier Details';
         $mainTeam = $hierarchy['mainTeam'];
         $mainTeamOwner = $mainTeam->getOwner()->one()->getUsername(); ?>
 
-        <hr><div class="mainTeam"><?= Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]); ?></div><div class="mainTeamOwner"> <?= 'owner:  ' . Html::a($mainTeamOwner , ['/site/team-details', 'id' => $mainTeam->getOwnerId()]); ?></div>
+        <br>
+        <div class="mainTeam"><?= Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]); ?></div><div class="mainTeamOwner"> <?= 'owner:  ' . Html::a($mainTeamOwner , ['/site/team-details', 'id' => $mainTeam->getOwnerId()]); ?></div>
 
         <?php foreach ($hierarchy['subTeams'] as $key => $subHierarchy) :
 			$subTeam = $subHierarchy['subTeam'];
