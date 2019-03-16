@@ -64,6 +64,8 @@ switch ($tournament->getModeId()) {
 }
 
 $turnierStart = new DateTime($tournament->getDtStartingTime());
+$turnierEnd = new DateTime($tournament->getDtStartingTime());
+$turnierEnd->setTime(23, 59, 59);
 
 $this->title = 'Turnier Details';
 ?>
@@ -198,7 +200,7 @@ $this->title = 'Turnier Details';
         </tbody>
     </table>
 
-    <?php if ($now->diff($turnierStart)->invert == 1): ?>
+    <?php if ($now->diff($turnierStart)->invert == 1 && $now->diff($turnierEnd)->invert == 0): ?>
         <iframe src="https://challonge.com/de/<?= $challongeId; ?>/module" width="100%" height="500" frameborder="0" scrolling="auto" allowtransparency="true"></iframe>
     <?php else: ?>
         <b>!!!</b> Hier erscheint nach Turnierstart der Turnierbaum <b>!!!</b>
