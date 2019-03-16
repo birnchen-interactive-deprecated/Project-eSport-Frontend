@@ -46,7 +46,6 @@ if ($now->diff($checkInEnd)->invert == 1) {
 }
 
 $turnierStart = new DateTime($tournament->getDtStartingTime());
-$turnierEnd = new DateTime($tournament->getDtStartingTime());
 $turnierEnd->setTime(23, 59, 59);
 
 $challongeId = 'gerta' . $tournament->getModeId() . '_' . $turnierStart->format('ymd');
