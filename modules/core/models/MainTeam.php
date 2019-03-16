@@ -66,6 +66,14 @@ class MainTeam extends ActiveRecord
     /**
      * @return int
      */
+    public function getOwner()
+    {
+        return $this->hasOne(User::className(), ['user_id' => 'owner_id']);
+    }
+
+    /**
+     * @return int
+     */
     public function getHeadQuarterId()
     {
         return $this->headquarter_id;
