@@ -70,6 +70,10 @@ foreach ($tournamentList as $key => $tournament) {
 	$plannedTurnier[] = $tournament;
 }
 
+usort($archivTurnier, function($a, $b) {
+	return $a->getDtStartingTime() < $b->getDtStartingTime();
+});
+
 $this->title = 'RL Tournament Overview';
 ?>
 <div class="site-rl-tournament-overview">
