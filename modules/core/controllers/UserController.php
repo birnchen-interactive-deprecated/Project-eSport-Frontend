@@ -96,7 +96,7 @@ class UserController extends BaseController
             Yii::$app->mailer->compose('passwordChange', ['user' => $user, 'password' => $password])
                 ->setFrom("noresponse@project-esport.de")
                 ->setTo($user->getEmail())
-                ->setSubject(Yii::t('app', 'Your BW account password was reset'))
+                ->setSubject(Yii::t('app', 'Your Project-eSport.gg account password was reset'))
                 ->send();
         }
     }
