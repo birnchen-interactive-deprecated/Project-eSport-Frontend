@@ -1,23 +1,31 @@
 .site-rl-tournament-details  .mainTeam {
-
+    float: left;
+    width: 20%;
 }
 
 .site-rl-tournament-details .mainTeamOwner {
-
+    float: left;
+    width: 80%;
 }
 
 .site-rl-tournament-details .subTeam {
-
+    float: left;
+    width: 20%;
+    padding-left: 1%;
 }
 
 .site-rl-tournament-details .subTeamOwner {
-
+    float: left;
+    width: 80%;
 }
 
 .site-rl-tournament-details .subTeaMember {
-
+    float: left;
+    width: 20%;
+    padding-left: 2%;
 }
 
 .site-rl-tournament-details .playerPosition {
-
+    float: left;
+    width: 80%;
 }
