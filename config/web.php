@@ -45,7 +45,7 @@ $config = [
                 'host' => 'localhost',
                 'username' => "noreply@project-esport.gg",
                 'password' => 'Birnchen2016',
-                'port' => '587',
+                'port' => '465',
                 'encryption' => 'tls',
             ],
         ],
