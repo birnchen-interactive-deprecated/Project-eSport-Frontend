@@ -12,7 +12,7 @@ usort($tournamentList, function ($a, $b) {
 });
 
 $user = Yii::$app->user->identity;
-$subTeams = $user->getSubTeams()->all();
+$subTeams = $user->getOwnedSubTeams()->all();
 
 $now = new DateTime();
 $tz = new DateTimeZone('Europe/Vienna');
