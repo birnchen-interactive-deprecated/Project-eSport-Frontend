@@ -408,7 +408,7 @@ class Tournament extends ActiveRecord
      */
     private function checkPlayerParticipating($user)
     {
-        return !PlayerParticipating::findPlayerParticipating($this->tournament_id, $user->getId());
+        return PlayerParticipating::findPlayerParticipating($this->tournament_id, $user->getId()) != null;
     }
 
     /**
@@ -417,7 +417,7 @@ class Tournament extends ActiveRecord
      */
     private function checkTeamParticipating($subTeam)
     {
-        return !TeamParticipating::findTeamParticipating($this->tournament_id, $subTeam->getId());
+        return TeamParticipating::findTeamParticipating($this->tournament_id, $subTeam->getId()) != null;
     }
 
     /**
@@ -426,7 +426,7 @@ class Tournament extends ActiveRecord
      */
     private function checkPlayerCheckedIn($user)
     {
-        return !PlayerParticipating::findPlayerCheckedIn($this->tournament_id, $user->getId());
+        return PlayerParticipating::findPlayerCheckedIn($this->tournament_id, $user->getId()) != null;
     }
 
     /**
@@ -435,7 +435,7 @@ class Tournament extends ActiveRecord
      */
     private function checkTeamCheckedIn($subTeam)
     {
-        return !TeamParticipating::findTeamCheckedIn($this->tournament_id, $subTeam->getId());
+        return TeamParticipating::findTeamCheckedIn($this->tournament_id, $subTeam->getId()) != null;
     }
 
     /**
