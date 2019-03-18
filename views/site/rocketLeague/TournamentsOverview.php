@@ -98,14 +98,14 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($runningTurnier as $key => $tournament): ?>
 				<tr>
-                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournament-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td>Running</td>
 				</tr>
 			<?php endforeach; ?>
 			<?php foreach ($preRunningTurnier as $key => $tournament): ?>
 				<tr>
-                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournament-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td>Preparing</td>
 				</tr>
@@ -134,7 +134,7 @@ $this->title = 'RL Tournament Overview';
 					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 				?>
 				<tr>
-                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournament-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
 					<td><?= $checkInBegin->format('Y-m-d'); ?></td>
 					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
@@ -194,7 +194,7 @@ $this->title = 'RL Tournament Overview';
 					$checkInEnd = new DateTime($tournament->getDtCheckinEnd());
 				?>
 				<tr>
-                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournament-details', 'id' => $tournament->getId()]) ?> <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 					<td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
 					<td>
@@ -236,7 +236,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($plannedTurnier as $key => $tournament): ?>
 				<tr class="fold">
-                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournament-details', 'id' => $tournament->getId()]) ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>
@@ -258,7 +258,7 @@ $this->title = 'RL Tournament Overview';
 		<tbody>
 			<?php foreach ($archivTurnier as $key => $tournament): ?>
 				<tr class="fold">
-                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournaments-details', 'id' => $tournament->getId()]) ?></td>
+                    <td><?= Html::a($tournament->showRealTournamentName() , ['/site/rl-tournament-details', 'id' => $tournament->getId()]) ?></td>
 					<td><?= $tournament->getDtStartingTime(); ?></td>
 				</tr>
 			<?php endforeach; ?>

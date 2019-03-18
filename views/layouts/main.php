@@ -41,7 +41,7 @@ if (Yii::$app->user->isGuest) {
         array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
     ));
     $navigation[] = array('label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => array(
-        array('label' => 'Account', 'url' => ['/site/my-account']),
+        array('label' => 'Account', 'url' => ['/site/user-details', 'id' => Yii::$app->user->identity->getId()]),
         array('label' => 'My Teams', 'url' => ['/site/my-teams']),
         array('label' => 'My Tournaments', 'url' => ['/site/my-tournaments']),
         array('label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']),
