@@ -9,6 +9,7 @@ use app\models\PasswordResetForm;
 use app\modules\core\controllers\UserController;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
+use app\modules\core\models\MainTeam;
 use app\modules\core\models\Nationality;
 use app\modules\core\models\PlayerParticipating;
 use app\modules\core\models\SubTeam;
@@ -229,7 +230,14 @@ class SiteController extends BaseController
             return $this->goHome();
         }
 
-        return $this->render('teams/teamDetails');
+        $teamId = Yii::$app->request->get('id');
+
+        $teamDetails = MainTeam::findOne(['team_id' => $teamId]);
+
+        return $this->render('teams/teamDetails',
+            [
+                'teamDetails' => $teamDetails,
+            ]);
     }
 
     /**
