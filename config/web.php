@@ -45,7 +45,7 @@ $config = [
                 'host' => 'mail.birnchen-interactive.de',
                 'username' => "noreply@project-esport.gg",
                 'password' => 'Birnchen2016',
-                'port' => '587',
+                'port' => '25',
                 'encryption' => 'tls',
             ],
         ],
