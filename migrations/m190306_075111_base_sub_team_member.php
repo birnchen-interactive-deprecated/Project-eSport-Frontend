@@ -489,7 +489,7 @@ class m190306_075111_base_sub_team_member extends Migration
         ]);
 
         /* Team Agency 3v3 Team Member Swiches user ID Nachtragen*/
-        //$this->insert('sub_team_member',  [
+        $this->insert('sub_team_member',  [
             'sub_team_id' => '21',
             'user_id' => '7',
             'is_sub' => 1,

@@ -34,6 +34,8 @@ use yii\web\IdentityInterface;
  * @property string $street
  * @property string $email
  * @property bool $is_password_change_required
+ * @property string $access_token
+ * @property string $auth_key
  */
 class User extends AbstractActiveRecord implements IdentityInterface
 {
@@ -429,6 +431,14 @@ class User extends AbstractActiveRecord implements IdentityInterface
     }
 
     /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->access_token;
+    }
+
+    /**
      * Returns a key that can be used to check the validity of a given identity ID.
      *
      * The key should be unique for each individual user, and should be persistent
@@ -447,7 +457,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
      */
     public function getAuthKey()
     {
-        // TODO: Implement getAuthKey() method.
+        return $this->auth_key;
     }
 
     /**
@@ -460,6 +470,6 @@ class User extends AbstractActiveRecord implements IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        // TODO: Implement validateAuthKey() method.
+        return $this->getAuthKey() === $authKey;
     }
 }
