@@ -235,6 +235,73 @@ class SiteController extends BaseController
             ]);
     }
 
+    public function actionShowUser()
+    {
+        if (Yii::$app->user->isGuest) {
+            // return $this->render('index');
+            return $this->goHome();
+        }
+
+        $userId = Yii::$app->request->get('id');
+
+        $profilePic = NULL;
+        if (is_array($_FILES) && isset($_FILES['profilePic'])) {
+            $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
+        }
+
+        /** @var User $user */
+        $user = User::findIdentity($userId);
+        //$user = Yii::$app->user->identity;
+
+        if (NULL !== $profilePic && 0 === $profilePic->getError()) {
+            $user->setProfilePic($profilePic);
+        }
+
+        $gender = $user->getGender()->one();
+        $language = $user->getLanguage()->one();
+        $nationality = $user->getNationality()->one();
+
+        $allMainTeams = $user->getMainTeams()->all();
+        $allMemberTeams = $user->getMemberTeams()->all();
+
+        $mainTeams = [];
+        foreach ($allMainTeams as $mainTeam) {
+            $mainTeams[] = [
+                'owner' => true,
+                'team' => $mainTeam
+            ];
+        }
+
+        foreach ($allMemberTeams as $memberTeam) {
+            $mainTeams[] = [
+                'owner' => false,
+                'team' => $memberTeam
+            ];
+        }
+
+        $subTeams = $user->getAllSubTeamsWithMembers();
+
+        return $this->render('users/userDetails',
+            [
+                'model' => $user,
+                'gender' => $gender,
+                'language' => $language,
+                'nationality' => $nationality,
+                'mainTeams' => $mainTeams,
+                'subTeams' => $subTeams
+            ]);
+    }
+
+    public function actionTeamDetails()
+    {
+        if (Yii::$app->user->isGuest) {
+            // return $this->render('index');
+            return $this->goHome();
+        }
+
+        return $this->render('teams/teamDetails');
+    }
+
     /**
      * Displays User Tournaments.
      *
@@ -251,7 +318,7 @@ class SiteController extends BaseController
     }
 
     /**
-     * Displays User Teams.
+     * Displays User teams.
      *
      * @return string
      */
