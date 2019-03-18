@@ -186,8 +186,8 @@ class SiteController extends BaseController
         $language = $user->getLanguage()->one();
         $nationality = $user->getNationality()->one();
 
-        $allMainTeams = $user->getMainTeams()->all();
-        $allMemberTeams = $user->getMemberTeams()->all();
+        $allMainTeams = $user->getOwnedMainTeams()->all();
+        $allMemberTeams = $user->getMemberMainTeams()->all();
 
         $mainTeams = [];
         foreach ($allMainTeams as $mainTeam) {
@@ -261,8 +261,8 @@ class SiteController extends BaseController
         $language = $user->getLanguage()->one();
         $nationality = $user->getNationality()->one();
 
-        $allMainTeams = $user->getMainTeams()->all();
-        $allMemberTeams = $user->getMemberTeams()->all();
+        $allMainTeams = $user->getOwnedMainTeams()->all();
+        $allMemberTeams = $user->getMemberMainTeams()->all();
 
         $mainTeams = [];
         foreach ($allMainTeams as $mainTeam) {
@@ -411,7 +411,7 @@ class SiteController extends BaseController
 
         $tournamentList = Tournament::getRLTournaments();
 
-        return $this->render('rocketLeague/TournamentsOverview',
+        return $this->render('rocketLeague/tournamentsOverview',
             [
                 'tournamentList' => $tournamentList,
             ]
@@ -433,7 +433,7 @@ class SiteController extends BaseController
 
         $participatingEntrys = $tournament->getParticipants()->all();
 
-        return $this->render('rocketLeague/TournamentDetails',
+        return $this->render('rocketLeague/tournamentDetails',
             [
                 'tournament' => $tournament,
                 'ruleSet' => $ruleSet,
@@ -452,7 +452,7 @@ class SiteController extends BaseController
         // $subteams = SubTeam::getTeamsByGame(1);
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
-        return $this->render('rocketLeague/TeamsOverview',
+        return $this->render('rocketLeague/teamsOverview',
             [
                 'teamHierarchy' => $teamHierarchy,
             ]

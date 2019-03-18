@@ -16,7 +16,7 @@ use yii\db\ActiveRecord;
  *
  * @property int $sub_team_id
  * @property int $user_id
- * @property bool $s_sub
+ * @property bool $is_sub
  */
 class SubTeamMember extends ActiveRecord
 {
@@ -45,7 +45,7 @@ class SubTeamMember extends ActiveRecord
     }
 
     /**
-     * @return int
+     * @return \yii\db\ActiveQuery
      */
     public function getUser()
     {
@@ -61,9 +61,11 @@ class SubTeamMember extends ActiveRecord
     }
 
     /**
-     * @return ActiveQuery
+     * @param $subTeamId
+     * @return SubTeamMember[]
      */
-    public static function getTeamMembers($subTeamId) {
+    public static function getTeamMembers($subTeamId)
+    {
         return static::findAll(['sub_team_id' => $subTeamId]);
     }
 }
