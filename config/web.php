@@ -42,10 +42,10 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'localhost',
+                'host' => 'mail.birnchen-interactive.de',
                 'username' => "noreply@project-esport.gg",
                 'password' => 'Birnchen2016',
-                'port' => '25',
+                'port' => '587',
                 'encryption' => 'tls',
             ],
         ],
