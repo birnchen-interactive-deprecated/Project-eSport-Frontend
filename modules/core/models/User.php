@@ -211,7 +211,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return ActiveQuery
      */
-    public function getMainTeams()
+    public function getOwnedMainTeams()
     {
         return $this->hasMany(MainTeam::className(), ['owner_id' => 'user_id']);
     }
@@ -220,7 +220,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
      * @return ActiveQuery
      * @throws \yii\base\InvalidConfigException
      */
-    public function getMemberTeams()
+    public function getMemberMainTeams()
     {
         return $this->hasMany(MainTeam::className(), ['team_id' => 'team_id'])
             ->viaTable('team_member', ['user_id' => 'user_id']);
@@ -229,7 +229,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
     /**
      * @return ActiveQuery
      */
-    public function getSubTeams()
+    public function getOwnedSubTeams()
     {
         return $this->hasMany(SubTeam::className(), ['team_captain_id' => 'user_id']);
     }
@@ -238,7 +238,7 @@ class User extends AbstractActiveRecord implements IdentityInterface
      * @return ActiveQuery
      * @throws \yii\base\InvalidConfigException
      */
-    public function getSubMemberTeams()
+    public function getMemberSubTeams()
     {
         return $this->hasMany(SubTeam::className(), ['sub_team_id' => 'sub_team_id'])
             ->viaTable('sub_team_member', ['user_id' => 'user_id']);
@@ -246,65 +246,65 @@ class User extends AbstractActiveRecord implements IdentityInterface
 
     /**
      * @return array
+     * @throws \yii\base\InvalidConfigException
      */
     public function getAllSubTeamsWithMembers()
     {
-
         $retArr = array();
-        $subTeams = $this->hasMany(SubTeamMember::className(), ['user_id' => 'user_id'])->all();
-        foreach ($subTeams as $key => $entry) {
-            $subTeam = $entry->hasOne(SubTeam::className(), ['sub_team_id' => 'sub_team_id'])->one();
+        /** @var SubTeam[] $subTeams */
+        $subTeams = $this->getMemberSubTeams()->all();
+        foreach ($subTeams as $subTeam) {
             $retArr[] = array(
                 'owner' => ($subTeam->getTeamCaptainId() == $this->getId()),
-                'isSub' => $entry->getIsSubstitute(),
+                //TODO: isUserSubstitute testen
+                'isSub' => $subTeam->isUserSubstitute($this->getId()),
                 'team' => $subTeam,
                 'subTeamId' => $subTeam->getId(),
             );
         }
 
-        $captainTeams = $this->hasMany(SubTeam::className(), ['team_captain_id' => 'user_id'])->all();
+        $captainTeams = $this->getOwnedMainTeams()->all();
+        /** @var SubTeam $captainTeam */
         foreach ($captainTeams as $key => $captainTeam) {
-
-            $key = array_search($captainTeam->getId(), array_column($retArr, 'subTeamId'));
-            if (false !== $key) {
-                continue;
+            if (array_search($captainTeam->getId(), array_column($retArr, 'subTeamId'))) {
+                $retArr[] = array(
+                    'owner' => true,
+                    'isSub' => false,
+                    'team' => $captainTeam,
+                    'subTeamId' => $captainTeam->getId(),
+                );
             }
-
-            $retArr[] = array(
-                'owner' => true,
-                'isSub' => false,
-                'team' => $captainTeam,
-                'subTeamId' => $captainTeam->getId(),
-            );
         }
 
         return $retArr;
     }
 
     /**
+     * @param $tournamentId
      * @return string
      */
     public function getCheckInStatus($tournamentId)
     {
-        $isParticipating = $this->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->where('tournament_id = ' . $tournamentId)->one();
-        if (NULL == $isParticipating->getCheckedIn()) {
-            return false;
-        }
-
-        return true;
+        /** @var PlayerParticipating $isParticipating */
+        $isParticipating = $this->getPlayerParticipating()->where(['tournament_id' => $tournamentId])->one();
+        return $isParticipating->getCheckedIn() != null;
     }
 
+
     /**
+     * @param $tournamentId
      * @return string
      */
     public function getDisqualifiedStatus($tournamentId)
     {
-        $isParticipating = $this->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->where('tournament_id = ' . $tournamentId)->one();
-        if (NULL == $isParticipating->getDisqualified()) {
-            return false;
-        }
+        /** @var PlayerParticipating $isParticipating */
+        $isParticipating = $this->getPlayerParticipating()->where(['tournament_id' => $tournamentId])->one();
+        return $isParticipating->getDisqualified() != null;
+    }
 
-        return true;
+    public function getPlayerParticipating()
+    {
+        return $this->hasMany(PlayerParticipating::className(), ['user_id' => 'user_id']);
     }
 
     /**

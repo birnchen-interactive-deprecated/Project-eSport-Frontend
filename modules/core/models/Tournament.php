@@ -9,10 +9,9 @@
 namespace app\modules\core\models;
 
 use Yii;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
-use app\modules\core\models\SubTeamMember;
-use app\modules\core\models\TournamentRules;
 
 /**
  * Class Tournament
@@ -143,7 +142,8 @@ class Tournament extends ActiveRecord
     /**
      * @return string
      */
-    public function showRealTournamentName() {
+    public function showRealTournamentName()
+    {
 
         $cup = $this->getCup()->one();
         $tMode = $this->getMode()->one();
@@ -239,9 +239,11 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @param $subTeams
      * @return boolean
      */
-    public function showRegisterBtn($subTeams) {
+    public function showRegisterBtn($subTeams)
+    {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
             return true;
         }
@@ -254,9 +256,11 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @param $user
      * @return boolean
      */
-    public function showCheckInBtn($subTeams, $user) {
+    public function showCheckInBtn($user)
+    {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
             $isParticipating = $this->checkPlayerParticipating($user);
             return ($isParticipating) ? true : false;
@@ -266,11 +270,14 @@ class Tournament extends ActiveRecord
     }
 
     /**
-     * @return string
+     * @param $subTeams
+     * @param $user
+     * @return array
      */
-    public function getRegisterBtns($subTeams, $user) {
+    public function getRegisterBtns($subTeams, $user)
+    {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
-            
+
             $isParticipating = $this->checkPlayerParticipating($user);
 
             $btnValue = ($isParticipating) ? 'Abmelden' : 'Registrieren';
@@ -289,7 +296,7 @@ class Tournament extends ActiveRecord
 
         $retArr = array();
         foreach ($subTeams as $key => $subTeam) {
-            
+
             if ($subTeam->getTournamentModeId() !== $this->getModeId()) {
                 continue;
             }
@@ -298,7 +305,7 @@ class Tournament extends ActiveRecord
 
             $mainFound = 0;
             $teamMembers = SubTeamMember::getTeamMembers($subTeam->getId());
-            foreach ($teamMembers as $key => $teamMember) {
+            foreach ($teamMembers as $teamMemberKey => $teamMember) {
                 if ($teamMember->getIsSubstitute() === 0) {
                     $mainFound++;
                 }
@@ -327,9 +334,12 @@ class Tournament extends ActiveRecord
     }
 
     /**
-     * @return string
+     * @param $subTeams
+     * @param $user
+     * @return array
      */
-    public function getCheckInBtns($subTeams, $user) {
+    public function getCheckInBtns($subTeams, $user)
+    {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
 
             $isParticipating = $this->checkPlayerCheckedIn($user);
@@ -359,7 +369,7 @@ class Tournament extends ActiveRecord
 
             $mainFound = 0;
             $teamMembers = SubTeamMember::getTeamMembers($subTeam->getId());
-            foreach ($teamMembers as $key => $teamMember) {
+            foreach ($teamMembers as $teamMemberKey => $teamMember) {
                 if ($teamMember->getIsSubstitute() === 0) {
                     $mainFound++;
                 }
@@ -393,35 +403,39 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @param $user
      * @return boolean
      */
-    private function checkPlayerParticipating($user) {
-        $playerParticipating = PlayerParticipating::findPlayerParticipating($this->tournament_id, $user->getId());
-        return (NULL === $playerParticipating) ? false : true;
+    private function checkPlayerParticipating($user)
+    {
+        return PlayerParticipating::findPlayerParticipating($this->tournament_id, $user->getId()) != null;
     }
 
     /**
+     * @param $subTeam
      * @return boolean
      */
-    private function checkTeamParticipating($subTeam) {
-        $teamParticipating = TeamParticipating::findTeamParticipating($this->tournament_id, $subTeam->getId());
-        return (NULL === $teamParticipating) ? false : true;
+    private function checkTeamParticipating($subTeam)
+    {
+        return TeamParticipating::findTeamParticipating($this->tournament_id, $subTeam->getId()) != null;
     }
 
     /**
+     * @param $user User
      * @return boolean
      */
-    private function checkPlayerCheckedIn($user) {
-        $playerParticipating = PlayerParticipating::findPlayerCheckedIn($this->tournament_id, $user->getId());
-        return (NULL === $playerParticipating) ? false : true;
+    private function checkPlayerCheckedIn($user)
+    {
+        return PlayerParticipating::findPlayerCheckedIn($this->tournament_id, $user->getId()) != null;
     }
 
     /**
+     * @param $subTeam SubTeam
      * @return boolean
      */
-    private function checkTeamCheckedIn($subTeam) {
-        $teamParticipating = TeamParticipating::findTeamCheckedIn($this->tournament_id, $subTeam->getId());
-        return (NULL === $teamParticipating) ? false : true;
+    private function checkTeamCheckedIn($subTeam)
+    {
+        return TeamParticipating::findTeamCheckedIn($this->tournament_id, $subTeam->getId()) != null;
     }
 
     /**
@@ -457,17 +471,20 @@ class Tournament extends ActiveRecord
     }
 
     /**
-     * @return ActiveQuery
+     * @return Tournament[]
      */
     public static function getRLTournaments()
     {
+        //TODO: Die 1 als RL Id solltet ihr in die Constants auslagern. Im Idealfall solltet ihr sogar ne Spiele Tabelle in der DB haben.
         return static::findAll(['game_id' => '1']);
     }
 
     /**
-     *
+     * @return \yii\db\ActiveQuery
+     * @throws \yii\base\InvalidConfigException
      */
-    public function getParticipants() {
+    public function getParticipants()
+    {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
             return $this->hasMany(User::className(), ['user_id' => 'user_id'])->viaTable('player_participating', ['tournament_id' => 'tournament_id']);
         }

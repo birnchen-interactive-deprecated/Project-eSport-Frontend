@@ -54,16 +54,22 @@ class TeamParticipating extends ActiveRecord
     }
 
     /**
-     * @return ActiveQuery
+     * @param $tournamentId
+     * @param $subTeam
+     * @return TeamParticipating|null
      */
-    public static function findTeamParticipating($tournamentId, $subTeam) {
+    public static function findTeamParticipating($tournamentId, $subTeam)
+    {
         return static::findOne(['tournament_id' => $tournamentId, 'sub_team_id' => $subTeam]);
     }
 
     /**
-     * @return ActiveQuery
+     * @param $tournamentId
+     * @param $subTeam
+     * @return TeamParticipating|null
      */
-    public static function findTeamCheckedIn($tournamentId, $subTeam) {
+    public static function findTeamCheckedIn($tournamentId, $subTeam)
+    {
         return static::findOne(['tournament_id' => $tournamentId, 'sub_team_id' => $subTeam, 'checked_in' => 1]);
     }
 }

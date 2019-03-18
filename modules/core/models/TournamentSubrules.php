@@ -56,7 +56,7 @@ class TournamentSubrules extends ActiveRecord
     /**
      * @return int
      */
-    public function GetRulesParagraph()
+    public function getRulesParagraph()
     {
         return $this->rules_paragraph;
     }

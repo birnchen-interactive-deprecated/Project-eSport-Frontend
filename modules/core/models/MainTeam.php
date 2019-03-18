@@ -9,6 +9,7 @@
 namespace app\modules\core\models;
 
 use Yii;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -64,7 +65,7 @@ class MainTeam extends ActiveRecord
     }
 
     /**
-     * @return int
+     * @return ActiveQuery
      */
     public function getOwner()
     {

@@ -79,6 +79,11 @@ class UserController extends BaseController
         return str_shuffle(substr(str_shuffle('abcdefghjkmnpqrstuvwxyz'), 0, 4) . substr(str_shuffle('!$%&=?*-:;.,+~@_'), 0, 1) . substr(str_shuffle('123456789'), 0, 1));
     }
 
+    /**
+     * @param $id
+     * @throws BadRequestHttpException
+     * @throws \yii\base\Exception
+     */
     public static function resetPassword($id)
     {
         /** @var User $user */
@@ -105,6 +110,7 @@ class UserController extends BaseController
      * @param $id
      * @return \yii\web\Response
      * @throws BadRequestHttpException
+     * @throws \yii\base\Exception
      */
     public function actionResetPassword($id)
     {

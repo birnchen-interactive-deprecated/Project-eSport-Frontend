@@ -17,11 +17,9 @@ use app\modules\core\models\TeamParticipating;
 use app\modules\core\models\Tournament;
 use app\modules\core\models\User;
 use app\modules\core\models\UserForm;
-use app\widgets\Alert;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\Response;
 
 
@@ -164,6 +162,7 @@ class SiteController extends BaseController
      * @throws \yii\base\Exception
      * @throws \yii\db\StaleObjectException
      */
+
     public function actionUserDetails()
     {
         if (Yii::$app->user->isGuest) {
@@ -191,8 +190,8 @@ class SiteController extends BaseController
         $language = $user->getLanguage()->one();
         $nationality = $user->getNationality()->one();
 
-        $allMainTeams = $user->getMainTeams()->all();
-        $allMemberTeams = $user->getMemberTeams()->all();
+        $allMainTeams = $user->getOwnedMainTeams()->all();
+        $allMemberTeams = $user->getMemberMainTeams()->all();
 
         $mainTeams = [];
         foreach ($allMainTeams as $mainTeam) {
@@ -349,7 +348,7 @@ class SiteController extends BaseController
 
         $tournamentList = Tournament::getRLTournaments();
 
-        return $this->render('rocketLeague/TournamentsOverview',
+        return $this->render('rocketLeague/tournamentsOverview',
             [
                 'tournamentList' => $tournamentList,
             ]
@@ -371,7 +370,7 @@ class SiteController extends BaseController
 
         $participatingEntrys = $tournament->getParticipants()->all();
 
-        return $this->render('rocketLeague/TournamentDetails',
+        return $this->render('rocketLeague/tournamentDetails',
             [
                 'tournament' => $tournament,
                 'ruleSet' => $ruleSet,
@@ -390,7 +389,7 @@ class SiteController extends BaseController
         // $subteams = SubTeam::getTeamsByGame(1);
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
-        return $this->render('rocketLeague/TeamsOverview',
+        return $this->render('rocketLeague/teamsOverview',
             [
                 'teamHierarchy' => $teamHierarchy,
             ]

@@ -9,6 +9,7 @@
 namespace app\modules\core\models;
 
 use Yii;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -67,7 +68,7 @@ class SubTeam extends ActiveRecord
     }
 
     /**
-     * @return int
+     * @return \yii\db\ActiveQuery
      */
     public function getMainTeam()
     {
@@ -91,7 +92,7 @@ class SubTeam extends ActiveRecord
     }
 
     /**
-     * @return int
+     * @return ActiveQuery
      */
     public function getTournamentMode()
     {
@@ -107,11 +108,11 @@ class SubTeam extends ActiveRecord
     }
 
     /**
-     * @return int
+     * @return ActiveQuery
      */
     public function getTeamCaptain()
     {
-        return $this->hasOne(User::className(), ['user_id' =>'team_captain_id']);
+        return $this->hasOne(User::className(), ['user_id' => 'team_captain_id']);
     }
 
     /**
@@ -139,33 +140,37 @@ class SubTeam extends ActiveRecord
     }
 
     /**
+     * @param int $tournamentId
      * @return string
      */
-    public function getCheckInStatus($tournamentId) {
-        $isParticipating = $this->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->where('tournament_id = ' . $tournamentId)->one();
-        if (NULL == $isParticipating->getCheckedIn()) {
-            return false;
-        }
+    public function getCheckInStatus($tournamentId)
+    {
+        /** @var TeamParticipating $isParticipating */
+        $isParticipating = $this->getTeamParticipating()->where('tournament_id = ' . $tournamentId)->one();
+        return $isParticipating->getCheckedIn() != null;
+    }
 
-        return true;
+    /**
+     * @param $tournamentId
+     * @return string
+     */
+    public function getDisqualifiedStatus($tournamentId)
+    {
+        /** @var TeamParticipating $isParticipating */
+        $isParticipating = $this->getTeamParticipating()->where('tournament_id = ' . $tournamentId)->one();
+        return $isParticipating->getDisqualified() != null;
+    }
+
+    public function getTeamParticipating()
+    {
+        return $this->hasMany(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id']);
     }
 
     /**
      * @return string
      */
-    public function getDisqualifiedStatus($tournamentId) {
-        $isParticipating = $this->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->where('tournament_id = ' . $tournamentId)->one();
-        if (NULL == $isParticipating->getDisqualified()) {
-            return false;
-        }
-
-        return true;
-    }
-    
-    /**
-     * @return string
-     */
-    public function getTeamMembersFormatted() {
+    public function getTeamMembersFormatted()
+    {
 
         // $users = $this->hasMany(User::className(), ['user_id' => 'user_id'])->viaTable('sub_team_member', ['sub_team_id' => 'sub_team_id'], function($subTeamMember) {
         //     $subTeamMember->orderBy('is_sub');
@@ -173,9 +178,9 @@ class SubTeam extends ActiveRecord
 
         // $users = $this->hasMany(User::className(), ['user_id' => 'user_id'])->joinWith('sub_team_member', true, 'INNER JOIN')->all();
 
-        $users = $this->hasMany(SubTeamMember::className(), ['sub_team_id' => 'sub_team_id'])->orderBy('is_sub')->all();
+        $users = $this->getSubTeamMembers()->orderBy('is_sub')->all();
 
-        $userString = array_map(function($arr) {
+        $userString = array_map(function ($arr) {
             $userName = $arr->getUser()->one()->getUsername();
             $isSub = (1 === $arr->getIsSubstitute()) ? 'Substitute' : 'Spieler';
             return $userName . ' (' . $isSub . ')';
@@ -185,20 +190,33 @@ class SubTeam extends ActiveRecord
     }
 
     /**
-     * @return ActiveQuery
+     * @param $gameID
+     * @return ActiveRecord
      */
     public function getTeamsByGame($gameID)
     {
+        //TODO: getTeams im Plural returned nen einzelnen ActiveRecord?
         return static::findOne(['game_id' => $gameID]);
     }
 
     /**
+     * @return ActiveQuery
+     */
+    public function getSubTeamMembers()
+    {
+        return $this->hasMany(SubTeamMember::className(), ['sub_team_id' => 'sub_team_id']);
+    }
+
+    /**
+     * @param $gameId
      * @return array
      */
-    public function getTeamHierarchyByGame($gameId) {
+    public function getTeamHierarchyByGame($gameId)
+    {
 
         $teamHierarchy = array();
 
+        /** @var SubTeam[] $subTeams */
         $subTeams = static::findAll(['game_id' => $gameId]);
         usort($subTeams, function ($a, $b) {
 
@@ -209,9 +227,9 @@ class SubTeam extends ActiveRecord
         });
 
         foreach ($subTeams as $key => $subTeam) {
-
-            $mainTeam = $subTeam->hasOne(MainTeam::className(), ['team_id' => 'main_team_id'])->one();
-            $subTeamMember = $subTeam->hasMany(SubTeamMember::className(), ['sub_team_id' => 'sub_team_id'])->orderBy('is_sub')->all();
+            /** @var MainTeam $mainTeam */
+            $mainTeam = $subTeam->getMainTeam()->one();
+            $subTeamMember = $subTeam->getSubTeamMembers()->orderBy('is_sub')->all();
 
             if (!array_key_exists($mainTeam->getId(), $teamHierarchy)) {
                 $teamHierarchy[$mainTeam->getId()] = array(
@@ -227,5 +245,14 @@ class SubTeam extends ActiveRecord
         }
 
         return $teamHierarchy;
+    }
+
+    /**
+     * @param $userId
+     * @return bool
+     */
+    public function isUserSubstitute($userId)
+    {
+        return $this->hasOne(SubTeamMember::className(), ['sub_team_id' => 'sub_team_id'])->where(['user_id' => $userId, 'is_sub' => 1])->count() == 1;
     }
 }
