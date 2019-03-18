@@ -18,7 +18,8 @@ $config = [
             'class' => 'yii\i18n\Formatter',
             'defaultTimeZone' => 'Europe/Berlin',
             'timeZone' => 'Europe/Berlin',
-            'nullDisplay' => ''
+            'nullDisplay' => '',
+            'dateFormat' => 'dd.MM.yyyy'
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

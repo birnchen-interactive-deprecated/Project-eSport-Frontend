@@ -203,7 +203,8 @@ $this->title = 'RL Tournament Overview';
                 <tr>
                     <td><?= Html::a($tournament->showRealTournamentName(), ['/site/rl-tournament-details', 'id' => $tournament->getId()]) ?>
                         <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
-                    <td><?= $tournament->getDtStartingTime(); ?></td>
+                    <td><?= //TODO:: Yii::$app->formatter->asDatetime($tournament->getDtStartingTime()) überall
+                         $tournament->getDtStartingTime(); ?></td>
                     <td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
                     <td>
                         <?php
