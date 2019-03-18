@@ -16,11 +16,9 @@ use app\modules\core\models\TeamParticipating;
 use app\modules\core\models\Tournament;
 use app\modules\core\models\User;
 use app\modules\core\models\UserForm;
-use app\widgets\Alert;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\Response;
 
 
@@ -163,79 +161,8 @@ class SiteController extends BaseController
      * @throws \yii\base\Exception
      * @throws \yii\db\StaleObjectException
      */
-    public function actionMyAccount()
-    {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
 
-        $profilePic = NULL;
-        if (is_array($_FILES) && isset($_FILES['profilePic'])) {
-            $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
-        }
-
-        /** @var User $user */
-        $user = Yii::$app->user->identity;
-
-        if (NULL !== $profilePic && 0 === $profilePic->getError()) {
-            $user->setProfilePic($profilePic);
-        }
-
-        $gender = $user->getGender()->one();
-        $language = $user->getLanguage()->one();
-        $nationality = $user->getNationality()->one();
-
-        $allMainTeams = $user->getOwnedMainTeams()->all();
-        $allMemberTeams = $user->getMemberMainTeams()->all();
-
-        $mainTeams = [];
-        foreach ($allMainTeams as $mainTeam) {
-            $mainTeams[] = [
-                'owner' => true,
-                'team' => $mainTeam
-            ];
-        }
-
-        foreach ($allMemberTeams as $memberTeam) {
-            $mainTeams[] = [
-                'owner' => false,
-                'team' => $memberTeam
-            ];
-        }
-
-        $subTeams = $user->getAllSubTeamsWithMembers();
-
-        // $allSubTeams = $user->getSubTeams()->all();
-        // $allMemberTeams = $user->getSubMemberTeams()->all();
-
-        // $subTeams = [];
-        // foreach ($allSubTeams as $subTeam) {
-        //     $subTeams[] = [
-        //         'owner' => true,
-        //         'team' => $subTeam,
-        //     ];
-        // }
-
-        // foreach ($allMemberTeams as $subMemberTeam) {
-        //     $subTeams[] = array(
-        //         'owner' => false,
-        //         'team' => $subMemberTeam,
-        //     );
-        // }
-
-        return $this->render('myAccount',
-            [
-                'model' => $user,
-                'gender' => $gender,
-                'language' => $language,
-                'nationality' => $nationality,
-                'mainTeams' => $mainTeams,
-                'subTeams' => $subTeams
-            ]);
-    }
-
-    public function actionShowUser()
+    public function actionUserDetails()
     {
         if (Yii::$app->user->isGuest) {
             // return $this->render('index');
@@ -243,6 +170,7 @@ class SiteController extends BaseController
         }
 
         $userId = Yii::$app->request->get('id');
+        $isMySelfe = (Yii::$app->user->identity->getId() == $userId) ? true : false;
 
         $profilePic = NULL;
         if (is_array($_FILES) && isset($_FILES['profilePic'])) {
@@ -284,6 +212,7 @@ class SiteController extends BaseController
         return $this->render('users/userDetails',
             [
                 'model' => $user,
+                'isMySelfe' => $isMySelfe,
                 'gender' => $gender,
                 'language' => $language,
                 'nationality' => $nationality,
@@ -419,7 +348,7 @@ class SiteController extends BaseController
 
     }
 
-    public function actionRlTournamentsDetails()
+    public function actionRlTournamentDetails()
     {
         if (Yii::$app->user->isGuest) {
             // return $this->render('index');
