@@ -9,6 +9,7 @@ use app\models\PasswordResetForm;
 use app\modules\core\controllers\UserController;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
+use app\modules\core\models\MainTeam;
 use app\modules\core\models\Nationality;
 use app\modules\core\models\PlayerParticipating;
 use app\modules\core\models\SubTeam;
@@ -156,21 +157,19 @@ class SiteController extends BaseController
     /**
      * Display User Account Informations
      *
+     * @param id
      * @return string
-     * @throws \Throwable
      * @throws \yii\base\Exception
-     * @throws \yii\db\StaleObjectException
      */
 
-    public function actionUserDetails()
+    public function actionUserDetails($id)
     {
         if (Yii::$app->user->isGuest) {
             // return $this->render('index');
             return $this->goHome();
         }
 
-        $userId = Yii::$app->request->get('id');
-        $isMySelfe = (Yii::$app->user->identity->getId() == $userId) ? true : false;
+        $isMySelfe = (Yii::$app->user->identity->getId() == $id) ? true : false;
 
         $profilePic = NULL;
         if (is_array($_FILES) && isset($_FILES['profilePic'])) {
@@ -178,7 +177,7 @@ class SiteController extends BaseController
         }
 
         /** @var User $user */
-        $user = User::findIdentity($userId);
+        $user = User::findIdentity($id);
         //$user = Yii::$app->user->identity;
 
         if (NULL !== $profilePic && 0 === $profilePic->getError()) {
@@ -221,14 +220,28 @@ class SiteController extends BaseController
             ]);
     }
 
-    public function actionTeamDetails()
+    public function actionTeamDetails($id = null, $isSub = false)
     {
         if (Yii::$app->user->isGuest) {
             // return $this->render('index');
             return $this->goHome();
         }
 
-        return $this->render('teams/teamDetails');
+        $teamDetails = (!$isSub) ? MainTeam::findOne(['team_id' => $id]) : SubTeam::findOne(['sub_team_id' => $id]);
+
+        if($isSub)
+        {
+            return $this->render('teams/teamDetails',
+                [
+                    'teamDetails' => $teamDetails,
+                ]);
+        }
+        else {
+            return $this->render('teams/teamDetails',
+                [
+                    'teamDetails' => $teamDetails,
+                ]);
+        }
     }
 
     /**
