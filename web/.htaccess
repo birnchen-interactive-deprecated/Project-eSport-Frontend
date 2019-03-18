@@ -1,9 +1,9 @@
 RewriteEngine On
 
 # if a directory or a file exists, use it directly
-#RewriteBase /
+RewriteBase /
 # local dev config:
-RewriteBase /project-eSport-Frontend/web/
+#RewriteBase /project-eSport-Frontend/web/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
