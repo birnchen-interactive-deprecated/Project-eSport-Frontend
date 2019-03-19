@@ -1,7 +1,6 @@
 <?php
 
 /* @var $this yii\web\View *
- * @param string $view view name or file path, depending on the actual rendering method
  * @var $model app\modules\core\models\User
  * @var $isMySelfe bool
  * @var $gender app\modules\core\models\Gender
@@ -15,11 +14,6 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 $this->title = 'My Account';
-
-$view->registerMetaTag([
-        'name' => 'og:url',
-        'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
-]);
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
