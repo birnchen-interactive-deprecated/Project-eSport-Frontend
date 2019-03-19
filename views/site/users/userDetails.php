@@ -14,11 +14,8 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 $view->registerMetaTag([
-    'og:url' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
-    'og:type' => 'website',
-    'og:image' => Html::img($playerImage, ['class' => 'avatar-logo']),
-    'og:title' => $model->username.'Player profile',
-    'og:description' => 'Spieler Profile Seite'
+        'name' => 'og:url',
+        'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
 ]);
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
