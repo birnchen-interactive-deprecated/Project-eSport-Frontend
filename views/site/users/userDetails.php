@@ -13,6 +13,14 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
+$view->registerMetaTag([
+    'og:url' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
+    'og:type' => 'website',
+    'og:image' => Html::img($playerImage, ['class' => 'avatar-logo']),
+    'og:title' => $model->username.'Player profile',
+    'og:description' => 'Spieler Profile Seite'
+]);
+
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
     $playerImage = '/images/default.png';
