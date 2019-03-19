@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View *
+ * @param string $view view name or file path, depending on the actual rendering method
  * @var $model app\modules\core\models\User
  * @var $isMySelfe bool
  * @var $gender app\modules\core\models\Gender
@@ -12,6 +13,8 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+
+$this->title = 'My Account';
 
 $view->registerMetaTag([
         'name' => 'og:url',
@@ -34,7 +37,6 @@ $now = new DateTime();
 $ageDiff = $memberBirthdayRaw->diff($now);
 $age = $ageDiff->y;
 
-$this->title = 'My Account';
 ?>
 <div class="site-account">
 
