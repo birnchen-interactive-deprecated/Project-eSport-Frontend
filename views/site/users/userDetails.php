@@ -19,7 +19,7 @@ $this->registerMetaTag([
     'name' => 'og:url',
     'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
     'name' => 'og:type',
-    'content' = 'website',
+    'content' => 'website',
 ]);
 
 //$view->registerMetaTag([
