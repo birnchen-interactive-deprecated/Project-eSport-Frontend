@@ -33,7 +33,7 @@ $this->registerMetaTag([
 ]);
 $this->registerMetaTag([
     'name' => 'og:image',
-    'content' => Html::img($playerImage, ['class' => 'avatar-logo']),
+    'content' => '/images/UserAvatar/'.$model->user_id.'.png',
 ]);
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
