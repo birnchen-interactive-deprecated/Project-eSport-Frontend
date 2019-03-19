@@ -14,6 +14,10 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
+if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
+    $playerImage = '/images/default.png';
+}
+
 $playerNationality = '/images/nationality/' . $model->nationality_id . '.png';
 
 $memberDateTime = new DateTime($model->dt_created);
