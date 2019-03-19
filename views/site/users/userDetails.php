@@ -18,6 +18,9 @@ $this->title = 'My Account';
 $this->registerMetaTag([
     'name' => 'og:url',
     'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
+]);
+
+$this->registerMetaTag([
     'name' => 'og:type',
     'content' => 'website',
 ]);
