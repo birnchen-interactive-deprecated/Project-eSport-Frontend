@@ -28,7 +28,7 @@ $this->registerMetaTag([
 ]);
 $this->registerMetaTag([
     'name' => 'og:image',
-    'content' => 'https://birnchen-studios.de/wp-content/uploads/birnchen_logo_.png',
+    'content' => '/images/Twitter_Logo_Blue.png',
 ]);
 
 ?>
