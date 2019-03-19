@@ -208,8 +208,8 @@ class SiteController extends BaseController
 
         $subTeams = $user->getAllSubTeamsWithMembers();
 
-        Yii::app()->clientScript->registerMetaTag('og:url', 'https://project-esport.gg/site/user-details?id='.$user->user_id, null, array('lang' => 'en'));
-        Yii::app()->clientScript->registerMetaTag('og:url', 'https://project-esport.gg/site/user-details?id='.$user->user_id, null, array('lang' => 'de'));
+        Yii::$app()->clientScript->registerMetaTag('og:url', 'https://project-esport.gg/site/user-details?id='.$user->user_id, null, array('lang' => 'en'));
+        Yii::$app()->clientScript->registerMetaTag('og:url', 'https://project-esport.gg/site/user-details?id='.$user->user_id, null, array('lang' => 'de'));
 
         return $this->render('users/userDetails',
             [
