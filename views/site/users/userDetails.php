@@ -13,8 +13,8 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$playerImage = 'images/UserAvatar/' . $model->user_id . '.png';
-$playerNationality = 'images/nationality/' . $model->nationality_id . '.png';
+$playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
+$playerNationality = '/images/nationality/' . $model->nationality_id . '.png';
 
 $memberDateTime = new DateTime($model->dt_created);
 $memberDate = $memberDateTime->format('d.m.y');
