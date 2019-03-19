@@ -18,7 +18,18 @@ $this->title = 'My Account';
 $this->registerMetaTag([
     'name' => 'og:url',
     'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
+    'name' => 'og:type',
+    'content' = 'website',
 ]);
+
+//$view->registerMetaTag([
+//    'name' => 'og:url',
+//    'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
+//    'og:type' => 'website',
+//    'og:image' => Html::img($playerImage, ['class' => 'avatar-logo']),
+//    'og:title' => $model->username.'Player profile',
+//    'og:description' => 'Spieler Profile Seite',
+//]);//
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
