@@ -15,6 +15,11 @@ use yii\helpers\Html;
 
 $this->title = 'My Account';
 
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
+]);
+
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
     $playerImage = '/images/default.png';
