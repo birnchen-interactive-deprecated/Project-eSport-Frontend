@@ -13,26 +13,28 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'My Account';
+$this->title = 'Spieler Profile Seite';
 
+$this->registerMetaTag([
+    'name' => 'og:title',
+    'content' => $model->username.'Player profile',
+]);
+$this->registerMetaTag([
+    'name' => 'og:description',
+    'content' => 'Spieler Profile Seite',
+]);
 $this->registerMetaTag([
     'name' => 'og:url',
     'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
 ]);
-
 $this->registerMetaTag([
     'name' => 'og:type',
     'content' => 'website',
 ]);
-
-//$view->registerMetaTag([
-//    'name' => 'og:url',
-//    'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
-//    'og:type' => 'website',
-//    'og:image' => Html::img($playerImage, ['class' => 'avatar-logo']),
-//    'og:title' => $model->username.'Player profile',
-//    'og:description' => 'Spieler Profile Seite',
-//]);//
+$this->registerMetaTag([
+    'name' => 'og:image',
+    'content' => Html::img($playerImage, ['class' => 'avatar-logo']),
+]);
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
