@@ -100,8 +100,7 @@ $this->registerMetaTag([
 ]);
 $this->registerMetaTag([
     'name' => 'og:type',
-    //'content' => 'website',
-    'content' => 'article',
+    'content' => 'website'
 ]);
 $this->registerMetaTag([
     'name' => 'og:url',
@@ -119,22 +118,6 @@ $this->registerMetaTag([
     'name' => 'og:site_name',
     'content' => $model->username,
 ]);
-/* Testing Purpose :D */
-foreach ($mainTeams as $key => $mainTeam)
-{
-    if($mainTeam['owner'])
-    {
-        $this->registerMetaTag([
-            'name' => 'og:amount',
-            'content' => $nationality->getName(),
-        ]);
-        $this->registerMetaTag([
-            'name' => 'og:currency',
-            'content' => 'Herkunft',
-        ]);
-    }
-}
-
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
