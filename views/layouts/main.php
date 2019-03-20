@@ -32,10 +32,10 @@ $navigation = array(
 if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
 } else {
-    $navigation[] = array('label' => 'Teams', 'visible' => $visible, 'items' => array(
+    $navigation[] = array('label' => 'Teams', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
     ));
-    $navigation[] = array('label' => 'Turniere', 'visible' => $visible, 'items' => array(
+    $navigation[] = array('label' => 'Turniere', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
     ));
     $navigation[] = array('label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => array(
