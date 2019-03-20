@@ -242,10 +242,10 @@ class Tournament extends ActiveRecord
      * @param $subTeams
      * @return boolean
      */
-    public function showRegisterBtn($subTeams)
+    public function showRegisterBtn($subTeams, $user)
     {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
-            return true;
+            return (NULL === $user) ? false : true;
         }
 
         if (count($subTeams) > 0) {
@@ -262,6 +262,11 @@ class Tournament extends ActiveRecord
     public function showCheckInBtn($user)
     {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
+            
+            if (NULL === $user) {
+                return false;
+            }
+
             $isParticipating = $this->checkPlayerParticipating($user);
             return ($isParticipating) ? true : false;
         }
