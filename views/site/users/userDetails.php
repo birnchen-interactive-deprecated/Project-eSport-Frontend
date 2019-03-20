@@ -22,7 +22,7 @@ $this->registerMetaTag([
 ]);
 $this->registerMetaTag([
     'name' => 'og:description',
-    'content' => 'Spieler Profile Seite',
+    'content' => $model->username.'ist ein Spieler aus '.$nationality->getName().'.',
 ]);
 $this->registerMetaTag([
     'name' => 'og:url',
