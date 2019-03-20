@@ -40,7 +40,11 @@ $this->registerMetaTag([
 /* meta Tags for Twitter */
 $this->registerMetaTag([
     'name' => 'twitter:card',
-    'content' => 'summary',
+    'content' => 'summary_large_image',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:site',
+    'content' => '@birnchenstudios',
 ]);
 $this->registerMetaTag([
     'name' => 'twitter:title',
@@ -59,11 +63,6 @@ $this->registerMetaTag([
 $this->registerMetaTag([
     'name' => 'twitter:image:alt',
     'content' => 'no profile pic availabel',
-]);
-
-$this->registerMetaTag([
-    'name' => 'twitter:site',
-    'content' => '@birnchenstudios',
 ]);
 $this->registerMetaTag([
     'name' => 'twitter:creator',
