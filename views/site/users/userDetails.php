@@ -38,7 +38,8 @@ $this->registerMetaTag([
 /* Twitter Card Data */
 $this->registerMetaTag([
     'name' => 'twitter:card',
-    'content' => 'summary',
+    //'content' => 'summary',
+    'content' => 'product',
 ]);
 //$this->registerMetaTag([
 //    'name' => 'twitter:card',
@@ -46,7 +47,7 @@ $this->registerMetaTag([
 //]);
 $this->registerMetaTag([
     'name' => 'twitter:site',
-    'content' => '@birnchenstudios',
+    'content' => '@BirnchenStudios',
 ]);
 $this->registerMetaTag([
     'name' => 'twitter:title',
@@ -55,9 +56,13 @@ $this->registerMetaTag([
 $this->registerMetaTag([
     'name' => 'twitter:description',
     'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
+]); //less then 200 characters
+$this->registerMetaTag([
+    'name' => 'twitter:creator',
+    'content' => '@esport_project',
 ]);
 $this->registerMetaTag([
-    'name' => 'twitter:image:src',
+    'name' => 'twitter:image',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
 ]);
 $this->registerMetaTag([
@@ -65,9 +70,30 @@ $this->registerMetaTag([
     'content' => 'no profile pic availabel',
 ]);
 $this->registerMetaTag([
-    'name' => 'twitter:creator',
-    'content' => '@esport_project',
+    'name' => 'twitter:data1',
+    'content' => $nationality->getName(),
 ]);
+$this->registerMetaTag([
+    'name' => 'twitter:label1',
+    'content' => 'Herkunft',
+]);
+//$mainTeam['team']->getName();
+//if ($mainTeam['owner']):
+foreach ($mainTeams as $key => $mainTeam)
+{
+    if($mainTeam['owner'])
+    {
+        $this->registerMetaTag([
+            'name' => 'twitter:data2',
+            'content' => $mainTeam['team']->getName(),
+        ]);
+
+        $this->registerMetaTag([
+            'name' => 'twitter:label2',
+            'content' => 'Owned Team',
+        ]);
+    }
+}
 
 /* meta Tags for Facebook */
 $this->registerMetaTag([
