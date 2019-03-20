@@ -95,27 +95,27 @@ foreach ($mainTeams as $key => $mainTeam)
 
 /* Open Graph Data (and facebook) */
 $this->registerMetaTag([
-    'name' => 'og:title',
+    'property' => 'og:title',
     'content' => $model->username.'\'s Player profile',
 ]);
 $this->registerMetaTag([
-    'name' => 'og:type',
+    'property' => 'og:type',
     'content' => 'website'
 ]);
 $this->registerMetaTag([
-    'name' => 'og:url',
+    'property' => 'og:url',
     'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
 ]);
 $this->registerMetaTag([
-    'name' => 'og:image',
+    'property' => 'og:image',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
 ]);
 $this->registerMetaTag([
-    'name' => 'og:description',
+    'property' => 'og:description',
     'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
 ]);
 $this->registerMetaTag([
-    'name' => 'og:site_name',
+    'property' => 'og:site_name',
     'content' => $model->username,
 ]);
 
