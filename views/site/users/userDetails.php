@@ -15,6 +15,7 @@ use yii\helpers\Html;
 
 $this->title = 'Spieler Profile Seite';
 
+/* meta Tags for Facebook */
 $this->registerMetaTag([
     'name' => 'og:title',
     'content' => $model->username.'\'s Player profile',
@@ -34,6 +35,20 @@ $this->registerMetaTag([
 $this->registerMetaTag([
     'name' => 'og:image',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
+]);
+
+/* meta Tags for Twitter */
+$this->registerMetaTag([
+    'name' => 'twitter:card',
+    'content' => 'player',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:site',
+    'content' => '@birnchenstudios',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:creator',
+    'content' => '@esport_project',
 ]);
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
