@@ -40,7 +40,7 @@ $this->registerMetaTag([
 /* meta Tags for Twitter */
 $this->registerMetaTag([
     'name' => 'twitter:card',
-    'content' => 'summary_large_image',
+    'content' => 'summary',
 ]);
 //$this->registerMetaTag([
 //    'name' => 'twitter:card',
