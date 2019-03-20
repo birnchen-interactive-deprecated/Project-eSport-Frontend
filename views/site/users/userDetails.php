@@ -40,8 +40,27 @@ $this->registerMetaTag([
 /* meta Tags for Twitter */
 $this->registerMetaTag([
     'name' => 'twitter:card',
-    'content' => 'player',
+    'content' => 'summary',
 ]);
+$this->registerMetaTag([
+    'name' => 'twitter:title',
+    'content' => $model->username.'\'s Player profile',
+]);
+
+$this->registerMetaTag([
+    'name' => 'twitter:description',
+    'content' => 'Spieler Profile Seite',
+]);
+
+$this->registerMetaTag([
+    'name' => 'twitter:image',
+    'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:image:alt',
+    'content' => 'no profile pic availabel',
+]);
+
 $this->registerMetaTag([
     'name' => 'twitter:site',
     'content' => '@birnchenstudios',
