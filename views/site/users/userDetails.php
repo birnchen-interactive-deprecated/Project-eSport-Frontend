@@ -15,6 +15,8 @@ use yii\helpers\Html;
 
 $this->title = $model->username.'\'s Player profile';
 
+$this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]);
+
 /* standart meta tags */
 $this->registerMetaTag([
     'name' => 'description',
