@@ -28,22 +28,16 @@ if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
 
 $navigation = array(
     array('label' => 'Home', 'url' => ['/site/index']),
+    array('label' => 'Teams', 'items' => array(
+        array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
+    )),
+    array('label' => 'Turniere', 'items' => array(
+        array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
+    ));
 );
 if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
-    $navigation[] = array('label' => 'Teams', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
-    ));
-    $navigation[] = array('label' => 'Turniere', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
-    ));
 } else {
-    $navigation[] = array('label' => 'Teams', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
-    ));
-    $navigation[] = array('label' => 'Turniere', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
-    ));
     $navigation[] = array('label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => array(
         array('label' => 'Account', 'url' => ['/site/user-details', 'id' => Yii::$app->user->identity->getId()]),
         array('label' => 'My Teams', 'url' => ['/site/my-teams']),
