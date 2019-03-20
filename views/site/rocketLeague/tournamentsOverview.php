@@ -11,8 +11,12 @@ usort($tournamentList, function ($a, $b) {
     return $a->getDtStartingTime() > $b->getDtStartingTime();
 });
 
-$user = Yii::$app->user->identity;
-$subTeams = $user->getOwnedSubTeams()->all();
+if(Yii::$app->user->identity != null)
+{
+    $user = Yii::$app->user->identity;
+    $subTeams = $user->getOwnedSubTeams()->all();
+}
+
 
 $now = new DateTime();
 $tz = new DateTimeZone('Europe/Vienna');
