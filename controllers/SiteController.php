@@ -164,12 +164,15 @@ class SiteController extends BaseController
 
     public function actionUserDetails($id)
     {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    // return $this->render('index');
+        //    return $this->goHome();
+        //}
 
-        $isMySelfe = (Yii::$app->user->identity->getId() == $id) ? true : false;
+        if(Yii::$app->user->identity != null)
+            $isMySelfe = (Yii::$app->user->identity->getId() == $id) ? true : false;
+        else
+            $isMySelfe = false;
 
         $profilePic = NULL;
         if (is_array($_FILES) && isset($_FILES['profilePic'])) {
@@ -215,7 +218,7 @@ class SiteController extends BaseController
                 'gender' => $gender,
                 'language' => $language,
                 'nationality' => $nationality,
-                'mainTeams' => $mainTeams,
+                'mainTeams' => $mainTeams,//
                 'subTeams' => $subTeams
             ]);
     }
