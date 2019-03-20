@@ -46,32 +46,32 @@ $this->registerMetaTag([
 //]);
 $this->registerMetaTag([
     'name' => 'twitter:site',
-    'content' => '@BirnchenStudios',
-]);
+    'content' => '@esport_project',
+]); // twitter:site
 $this->registerMetaTag([
     'property' => 'twitter:account_id',
-    'content' => '984585634072399872'
-]);
+    'content' => '1063431775995727872'
+]); // twitter:account_id
 $this->registerMetaTag([
     'name' => 'twitter:title',
     'content' => $model->username.'\'s Player profile',
-]);
+]); // twitter:title
 $this->registerMetaTag([
     'name' => 'twitter:description',
     'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-]); //less then 200 characters
+]); // twitter:description - ss then 200 characters
 $this->registerMetaTag([
     'name' => 'twitter:creator',
-    'content' => '@esport_project',
-]);
+    'content' => '@BirnchenStudios',
+]); // twitter:creator - author
 $this->registerMetaTag([
     'name' => 'twitter:image:src',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
-]);
+]); // twitter:image:src
 $this->registerMetaTag([
     'name' => 'twitter:image:alt',
     'content' => 'no profile pic availabel',
-]);
+]); // twitter:image:alt
 
 /* Open Graph Data (and facebook) */
 $this->registerMetaTag([
