@@ -13,7 +13,61 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Spieler Profile Seite';
+$this->title = $model->username.'\'s Player profile';
+
+/* standart meta tags */
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
+]);
+
+/* Schema.org markup for Google+ */
+$this->registerMetaTag([
+    'itemprop' => 'name',
+    'content' => $model->username.'\'s Player profile',
+]);
+$this->registerMetaTag([
+    'itemprop' => 'description',
+    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
+]);
+$this->registerMetaTag([
+    'itemprop' => 'image',
+    'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
+]);
+
+/* Twitter Card Data */
+$this->registerMetaTag([
+    'name' => 'twitter:card',
+    'content' => 'summary',
+]);
+//$this->registerMetaTag([
+//    'name' => 'twitter:card',
+//    'content' => 'summary_large_image',
+//]);
+$this->registerMetaTag([
+    'name' => 'twitter:site',
+    'content' => '@birnchenstudios',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:title',
+    'content' => $model->username.'\'s Player profile',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:description',
+    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:image:src',
+    'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:image:alt',
+    'content' => 'no profile pic availabel',
+]);
+$this->registerMetaTag([
+    'name' => 'twitter:creator',
+    'content' => '@esport_project',
+]);
 
 /* meta Tags for Facebook */
 $this->registerMetaTag([
@@ -35,42 +89,6 @@ $this->registerMetaTag([
 $this->registerMetaTag([
     'name' => 'og:image',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
-]);
-
-/* meta Tags for Twitter */
-$this->registerMetaTag([
-    'name' => 'twitter:card',
-    'content' => 'summary',
-]);
-//$this->registerMetaTag([
-//    'name' => 'twitter:card',
-//    'content' => 'summary_large_image',
-//]);
-$this->registerMetaTag([
-    'name' => 'twitter:site',
-    'content' => '@birnchenstudios',
-]);
-$this->registerMetaTag([
-    'name' => 'twitter:title',
-    'content' => $model->username.'\'s Player profile',
-]);
-
-$this->registerMetaTag([
-    'name' => 'twitter:description',
-    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-]);
-
-$this->registerMetaTag([
-    'name' => 'twitter:image',
-    'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
-]);
-$this->registerMetaTag([
-    'name' => 'twitter:image:alt',
-    'content' => 'no profile pic availabel',
-]);
-$this->registerMetaTag([
-    'name' => 'twitter:creator',
-    'content' => '@esport_project',
 ]);
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
