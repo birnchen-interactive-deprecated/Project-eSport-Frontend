@@ -69,25 +69,23 @@ $this->registerMetaTag([
     'name' => 'twitter:image:alt',
     'content' => 'no profile pic availabel',
 ]);
-$this->registerMetaTag([
-    'name' => 'twitter:data1',
-    'content' => $nationality->getName(),
-]);
-$this->registerMetaTag([
-    'name' => 'twitter:label1',
-    'content' => 'Herkunft',
-]);
-//$mainTeam['team']->getName();
-//if ($mainTeam['owner']):
+/* Testing Purpose :D */
 foreach ($mainTeams as $key => $mainTeam)
 {
     if($mainTeam['owner'])
     {
         $this->registerMetaTag([
+            'name' => 'twitter:data1',
+            'content' => $nationality->getName(),
+        ]);
+        $this->registerMetaTag([
+            'name' => 'twitter:label1',
+            'content' => 'Herkunft',
+        ]);
+        $this->registerMetaTag([
             'name' => 'twitter:data2',
             'content' => $mainTeam['team']->getName(),
         ]);
-
         $this->registerMetaTag([
             'name' => 'twitter:label2',
             'content' => 'Owned Team',
@@ -95,27 +93,48 @@ foreach ($mainTeams as $key => $mainTeam)
     }
 }
 
-/* meta Tags for Facebook */
+/* Open Graph Data (and facebook) */
 $this->registerMetaTag([
     'name' => 'og:title',
     'content' => $model->username.'\'s Player profile',
 ]);
 $this->registerMetaTag([
-    'name' => 'og:description',
-    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
+    'name' => 'og:type',
+    //'content' => 'website',
+    'content' => 'article',
 ]);
 $this->registerMetaTag([
     'name' => 'og:url',
     'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
 ]);
 $this->registerMetaTag([
-    'name' => 'og:type',
-    'content' => 'website',
-]);
-$this->registerMetaTag([
     'name' => 'og:image',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
 ]);
+$this->registerMetaTag([
+    'name' => 'og:description',
+    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
+]);
+$this->registerMetaTag([
+    'name' => 'og:site_name',
+    'content' => $model->username,
+]);
+/* Testing Purpose :D */
+foreach ($mainTeams as $key => $mainTeam)
+{
+    if($mainTeam['owner'])
+    {
+        $this->registerMetaTag([
+            'name' => 'og:amount',
+            'content' => $nationality->getName(),
+        ]);
+        $this->registerMetaTag([
+            'name' => 'og:currency',
+            'content' => 'Herkunft',
+        ]);
+    }
+}
+
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
