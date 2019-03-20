@@ -225,10 +225,10 @@ class SiteController extends BaseController
 
     public function actionTeamDetails($id = null, $isSub = false)
     {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    // return $this->render('index');
+        //    return $this->goHome();
+        //}
 
         $teamDetails = (!$isSub) ? MainTeam::findOne(['team_id' => $id]) : SubTeam::findOne(['sub_team_id' => $id]);
 
@@ -254,10 +254,10 @@ class SiteController extends BaseController
      */
     public function actionMyTournaments()
     {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    // return $this->render('index');
+        //    return $this->goHome();
+        //}
 
         return $this->render('myTournaments');
     }
@@ -269,10 +269,10 @@ class SiteController extends BaseController
      */
     public function actionMyTeams()
     {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    // return $this->render('index');
+        //    return $this->goHome();
+        //}
 
         return $this->render('myTeams');
     }
@@ -281,10 +281,10 @@ class SiteController extends BaseController
 
     public function actionRlTournaments()
     {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    // return $this->render('index');
+        //    return $this->goHome();
+        //}
 
         if (is_array($_POST) && isset($_POST['tournamentId'])) {
 
@@ -366,10 +366,10 @@ class SiteController extends BaseController
 
     public function actionRlTournamentDetails()
     {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    // return $this->render('index');
+        //    return $this->goHome();
+        //}
 
         $tournamentId = Yii::$app->request->get('id');
 
@@ -389,10 +389,10 @@ class SiteController extends BaseController
 
     public function actionRlTeamsOverview()
     {
-        if (Yii::$app->user->isGuest) {
-            // return $this->render('index');
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    // return $this->render('index');
+        //    return $this->goHome();
+        //}
 
         // $subteams = SubTeam::getTeamsByGame(1);
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);

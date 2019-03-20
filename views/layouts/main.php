@@ -57,6 +57,14 @@ if (Yii::$app->user->isGuest) {
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8480651532892152",
+            enable_page_level_ads: true
+        });
+    </script>
 </head>
 <body>
 <?php $this->beginBody() ?>
