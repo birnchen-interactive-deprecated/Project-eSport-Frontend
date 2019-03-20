@@ -38,8 +38,7 @@ $this->registerMetaTag([
 /* Twitter Card Data */
 $this->registerMetaTag([
     'name' => 'twitter:card',
-    //'content' => 'summary',
-    'content' => 'product',
+    'content' => 'summary',
 ]);
 //$this->registerMetaTag([
 //    'name' => 'twitter:card',
@@ -69,29 +68,6 @@ $this->registerMetaTag([
     'name' => 'twitter:image:alt',
     'content' => 'no profile pic availabel',
 ]);
-/* Testing Purpose :D */
-foreach ($mainTeams as $key => $mainTeam)
-{
-    if($mainTeam['owner'])
-    {
-        $this->registerMetaTag([
-            'name' => 'twitter:data1',
-            'content' => $nationality->getName(),
-        ]);
-        $this->registerMetaTag([
-            'name' => 'twitter:label1',
-            'content' => 'Herkunft',
-        ]);
-        $this->registerMetaTag([
-            'name' => 'twitter:data2',
-            'content' => $mainTeam['team']->getName(),
-        ]);
-        $this->registerMetaTag([
-            'name' => 'twitter:label2',
-            'content' => 'Owned Team',
-        ]);
-    }
-}
 
 /* Open Graph Data (and facebook) */
 $this->registerMetaTag([
