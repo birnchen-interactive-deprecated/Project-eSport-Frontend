@@ -31,6 +31,12 @@ $navigation = array(
 );
 if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
+    $navigation[] = array('label' => 'Teams', 'items' => array(
+        array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
+    ));
+    $navigation[] = array('label' => 'Turniere', 'items' => array(
+        array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
+    ));
 } else {
     $navigation[] = array('label' => 'Teams', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
