@@ -17,7 +17,7 @@ $this->title = 'Spieler Profile Seite';
 
 $this->registerMetaTag([
     'name' => 'og:title',
-    'content' => $model->username.' Player profile',
+    'content' => $model->username.'\'s Player profile',
 ]);
 $this->registerMetaTag([
     'name' => 'og:description',
