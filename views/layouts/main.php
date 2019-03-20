@@ -33,7 +33,7 @@ $navigation = array(
     )),
     array('label' => 'Turniere', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
-    ));
+    )),
 );
 if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
