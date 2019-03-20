@@ -13,8 +13,35 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$playerImage = 'images/UserAvatar/' . $model->user_id . '.png';
-$playerNationality = 'images/nationality/' . $model->nationality_id . '.png';
+$this->title = 'Spieler Profile Seite';
+
+$this->registerMetaTag([
+    'name' => 'og:title',
+    'content' => $model->username.'Player profile',
+]);
+$this->registerMetaTag([
+    'name' => 'og:description',
+    'content' => 'Spieler Profile Seite',
+]);
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
+]);
+$this->registerMetaTag([
+    'name' => 'og:type',
+    'content' => 'website',
+]);
+$this->registerMetaTag([
+    'name' => 'og:image',
+    'content' => '/images/UserAvatar/'.$model->user_id.'.png',
+]);
+
+$playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
+if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
+    $playerImage = '/images/default.png';
+}
+
+$playerNationality = '/images/nationality/' . $model->nationality_id . '.png';
 
 $memberDateTime = new DateTime($model->dt_created);
 $memberDate = $memberDateTime->format('d.m.y');
@@ -25,7 +52,6 @@ $now = new DateTime();
 $ageDiff = $memberBirthdayRaw->diff($now);
 $age = $ageDiff->y;
 
-$this->title = 'My Account';
 ?>
 <div class="site-account">
 

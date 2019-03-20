@@ -21,12 +21,20 @@ if (isset($participatingEntrys[0])) {
     }
 }
 
-$countCheckedIn = 0;
 foreach ($participatingEntrys as $key => $entry) {
+    $countCheckedIn = 0;
     if ($entry instanceOf User) {
-        $checkedIn = $entry->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->one()->getCheckedIn();
+        // $checkedIn = $entry->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->one()->getCheckedIn();
+        $tournamentPlayerParticipating = $entry->getPlayerParticipating()->where(['tournament_id' => $tournamentId])->one();
+        if ($tournamentPlayerParticipating instanceOf PlayerParticipating) {
+            $checkedIn = $tournamentPlayerParticipating->getCheckedIn();
+        }
     } else if ($entry instanceOf SubTeam) {
-        $checkedIn = $entry->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->one()->getCheckedIn();
+        // $checkedIn = $entry->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->one()->getCheckedIn();
+        $tournamentTeamParticipating = $entry->getTeamParticipating()->where(['tournament_id' => $tournamentId])->one();
+        if ($tournamentTeamParticipating instanceOf TeamParticipating) {
+            $checkedIn = $tournamentTeamParticipating->getCheckedIn();
+        }
     }
     if (1 == $checkedIn) {
         $countCheckedIn++;
@@ -156,9 +164,9 @@ $this->title = 'Turnier Details';
         <?php foreach ($participatingEntrys as $key => $entry): ?>
             <?php
 
-            $imgPath = ($entry instanceOf User) ? 'images/UserAvatar/' . $entry->user_id . '.png' : 'images/teams/' . $entry->sub_team_id . '.png';
+            $imgPath = ($entry instanceOf User) ? '/images/UserAvatar/' . $entry->user_id . '.png' : '/images/teams/' . $entry->sub_team_id . '.png';
             if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imgPath)) {
-                $imgPath = 'images/default.png';
+                $imgPath = '/images/default.png';
             }
 
             $entryName = ($entry instanceOf User) ? $entry->getUsername() : $entry->getName();

@@ -15,10 +15,10 @@ AppAsset::register($this);
 
 $visible = (Yii::$app->user->isGuest) ? false : true;
 
-$twitterImg = Html::img('../images/Twitter_Logo_Blue.png', ['height' => '50px']);
+$twitterImg = Html::img('../images/Twitter_Logo_Blue.png', ['height' => '49px']);
 $twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank']);
 
-$discordImg = Html::img('../images/Discord-Logo-White.png', ['height' => '50px', 'style' => 'padding: 5px 0; ']);
+$discordImg = Html::img('../images/Discord-Logo-White.png', ['height' => '49px', 'style' => 'padding: 5px 0; ']);
 $discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank']);
 
 $containerClass = '';

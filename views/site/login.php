@@ -9,6 +9,28 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 $this->title = 'Login';
+
+$this->registerMetaTag([
+    'name' => 'og:title',
+    'content' => $model->username.'Login',
+]);
+$this->registerMetaTag([
+    'name' => 'og:description',
+    'content' => 'you must be logged in to see something',
+]);
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => 'https://project-esport.gg/site/login',
+]);
+$this->registerMetaTag([
+    'name' => 'og:type',
+    'content' => 'website',
+]);
+$this->registerMetaTag([
+    'name' => 'og:image',
+    'content' => '/images/Twitter_Logo_Blue.png',
+]);
+
 ?>
 <div class="site-login">
     <h1 class="col-lg-offset-1"><?= Html::encode($this->title) ?></h1>
