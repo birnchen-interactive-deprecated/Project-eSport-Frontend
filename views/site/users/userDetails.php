@@ -38,6 +38,10 @@ $this->registerMetaTag([
 ]);
 
 /* meta Tags for Twitter */
+//$this->registerMetaTag([
+//    'name' => 'twitter:card',
+//    'content' => 'summary_large_image',
+//]);
 $this->registerMetaTag([
     'name' => 'twitter:card',
     'content' => 'summary_large_image',
@@ -53,7 +57,7 @@ $this->registerMetaTag([
 
 $this->registerMetaTag([
     'name' => 'twitter:description',
-    'content' => 'Spieler Profile Seite',
+    'content' => $model->username.'ist ein Spieler aus '.$nationality->getName().'.',
 ]);
 
 $this->registerMetaTag([
