@@ -27,7 +27,7 @@ if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
 }
 
 $navigation = array(
-    array('label' => 'Home', 'visible' => $visible, 'url' => ['/site/index']),
+    array('label' => 'Home', 'url' => ['/site/index']),
 );
 if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
