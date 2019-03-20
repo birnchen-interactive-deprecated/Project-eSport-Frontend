@@ -57,7 +57,7 @@ $this->registerMetaTag([
 
 $this->registerMetaTag([
     'name' => 'twitter:description',
-    'content' => $model->username.'ist ein Spieler aus '.$nationality->getName().'.',
+    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
 ]);
 
 $this->registerMetaTag([
