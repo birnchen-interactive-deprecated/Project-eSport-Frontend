@@ -49,6 +49,10 @@ $this->registerMetaTag([
     'content' => '@BirnchenStudios',
 ]);
 $this->registerMetaTag([
+    'property' => 'twitter:account_id',
+    'content' => '984585634072399872'
+]);
+$this->registerMetaTag([
     'name' => 'twitter:title',
     'content' => $model->username.'\'s Player profile',
 ]);
@@ -61,7 +65,7 @@ $this->registerMetaTag([
     'content' => '@esport_project',
 ]);
 $this->registerMetaTag([
-    'name' => 'twitter:image',
+    'name' => 'twitter:image:src',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
 ]);
 $this->registerMetaTag([
@@ -92,7 +96,7 @@ $this->registerMetaTag([
 ]);
 $this->registerMetaTag([
     'property' => 'og:site_name',
-    'content' => $model->username,
+    'content' => 'Player\'s profile',
 ]);
 
 $playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
