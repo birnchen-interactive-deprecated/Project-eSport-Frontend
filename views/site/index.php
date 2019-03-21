@@ -10,7 +10,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]
 /* standart meta tags */
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Project eSport - Professional Gaming for every Is a Tournament Site for Player from all Countries and all Skill Levels.',
+    'content' => 'Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.',
 ]); // description
 
 /* Schema.org markup for Google+ */
@@ -20,7 +20,7 @@ $this->registerMetaTag([
 ]); // itemprop:name
 $this->registerMetaTag([
     'itemprop' => 'description',
-    'content' => 'Project eSport - Professional Gaming for every Is a Tournament Site for Player from all Countries and all Skill Levels.',
+    'content' => 'Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.',
 ]); // itemprop description
 $this->registerMetaTag([
     'itemprop' => 'image',
@@ -84,7 +84,7 @@ $this->registerMetaTag([
 ]); // og:image
 $this->registerMetaTag([
     'property' => 'og:description',
-    'content' => 'Project eSport - Professional Gaming for every Is a Tournament Site for Player from all Countries and all Skill Levels.',
+    'content' => 'Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.',
 ]); // og:description
 $this->registerMetaTag([
     'property' => 'og:site_name',
