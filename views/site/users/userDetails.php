@@ -149,27 +149,27 @@ $age = $ageDiff->y;
         <div class="userBody">
             <div class="entry clearfix">
                 <div class="col-lg-3">Name</div>
-                <div class="col-lg-9"><?= $model->pre_name; ?></div>
+                <div class="col-lg-9 context"><?= $model->pre_name; ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-lg-3">Nick Name</div>
-                <div class="col-lg-9"><?= $model->username; ?></div>
+                <div class="col-lg-9 context"><?= $model->username; ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-lg-3">Mitglied Seit</div>
-                <div class="col-lg-9"><?= $memberDate; ?></div>
+                <div class="col-lg-9 context"><?= $memberDate; ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-lg-3">Alter / Geschlecht</div>
-                <div class="col-lg-9"><?= $age . " / " . $gender->getName(); ?></div>
+                <div class="col-lg-9 context"><?= $age . " / " . $gender->getName(); ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-lg-3">Nationalität</div>
-                <div class="col-lg-9"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= (NULL === $nationality) ? '' : $nationality->getName(); ?></div>
+                <div class="col-lg-9 context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= (NULL === $nationality) ? '' : $nationality->getName(); ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-lg-3">Ort</div>
-                <div class="col-lg-9"><?= $model->city; ?></div>
+                <div class="col-lg-9 context"><?= $model->city; ?></div>
             </div>
         </div>
 
@@ -178,16 +178,21 @@ $age = $ageDiff->y;
         </div>
 
         <div class="teamBody">
+            <div class="clearfix">
+                <div class="col-lg-12 mainTeam">Main Team:</div>
+            </div>
             <?php foreach ($mainTeams as $key => $mainTeam): ?>
                 <div class="teamEntry clearfix">
-                    <div class="col-lg-7 mainTeam"><?= "Main Team: " . $mainTeam['team']->getName(); ?></div>
-                    <div class="col-lg-5 teamPosition">(<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)</div>
+                    <div class="col-lg-12 teamPosition"><?= $mainTeam['team']->getName(); ?> (<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)</div>
                 </div>
             <?php endforeach; ?>
+
+            <div class="clearfix">
+                <div class="col-lg-12 mainTeam">Sub Teams:</div>
+            </div>
             <?php foreach ($subTeams as $key => $subTeam): ?>
                 <div class="teamEntry clearfix">
-                    <div class="col-lg-7 mainTeam"><?= "Sub teams: " . $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?></div>
-                    <div class="col-lg-5 teamPosition">(<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
+                    <div class="col-lg-12 teamPosition"><?= $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?> (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
                 </div>
             <?php endforeach; ?>
         </div>

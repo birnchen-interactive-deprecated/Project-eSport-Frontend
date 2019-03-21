@@ -36,6 +36,10 @@
     padding: 3px 0;
 }
 
+.site-account .playerPanel .userBody .context {
+    padding: 0 15px 0 30px;
+}
+
 .site-account .playerPanel .userBody .nationality-logo {
     margin: 0 5px 0 0;
     vertical-align: sub;
@@ -56,4 +60,8 @@
 
 .site-account .playerPanel .teamEntry {
     margin: 3px 0;
+}
+
+.site-account .playerPanel .teamPosition {
+    padding: 0 15px 0 30px;
 }
