@@ -68,7 +68,7 @@ $this->registerMetaTag([
 ]); // twitter:creator - author
 $this->registerMetaTag([
     'name' => 'twitter:image:src',
-    'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
+    'content' => 'https://project-esport.gg/images/userAvatar/'.$model->user_id.'.png',
 ]); // twitter:image:src
 $this->registerMetaTag([
     'name' => 'twitter:image:alt',
