@@ -84,7 +84,7 @@ class MetaClass {
 		]); // og:type
 		$view->registerMetaTag([
 		    'property' => 'og:url',
-		    'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
+		    'content' => 'https://project-esport.gg/user/details?id='.$model->user_id,
 		]); // og:url
 		$view->registerMetaTag([
 		    'property' => 'og:image',

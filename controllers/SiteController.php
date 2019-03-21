@@ -156,66 +156,66 @@ class SiteController extends BaseController
      * @throws \yii\base\Exception
      */
 
-    public function actionUserDetails($id)//
-    {
-        //if (Yii::$app->user->isGuest) {
-        //    // return $this->render('index');
-        //    return $this->goHome();
-        //}
+    // public function actionUserDetails($id)//
+    // {
+    //     //if (Yii::$app->user->isGuest) {
+    //     //    // return $this->render('index');
+    //     //    return $this->goHome();
+    //     //}
 
-        if(Yii::$app->user->identity != null)
-            $isMySelfe = (Yii::$app->user->identity->getId() == $id) ? true : false;
-        else
-            $isMySelfe = false;
+    //     if(Yii::$app->user->identity != null)
+    //         $isMySelfe = (Yii::$app->user->identity->getId() == $id) ? true : false;
+    //     else
+    //         $isMySelfe = false;
 
-        $profilePic = NULL;
-        if (is_array($_FILES) && isset($_FILES['profilePic'])) {
-            $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
-        }
+    //     $profilePic = NULL;
+    //     if (is_array($_FILES) && isset($_FILES['profilePic'])) {
+    //         $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
+    //     }
 
-        /** @var User $user */
-        $user = User::findIdentity($id);
-        //$user = Yii::$app->user->identity;
+    //     /** @var User $user */
+    //     $user = User::findIdentity($id);
+    //     //$user = Yii::$app->user->identity;
 
-        if (NULL !== $profilePic && 0 === $profilePic->getError()) {
-            $user->setProfilePic($profilePic);
-        }
+    //     if (NULL !== $profilePic && 0 === $profilePic->getError()) {
+    //         $user->setProfilePic($profilePic);
+    //     }
 
-        $gender = $user->getGender()->one();
-        $language = $user->getLanguage()->one();
-        $nationality = $user->getNationality()->one();
+    //     $gender = $user->getGender()->one();
+    //     $language = $user->getLanguage()->one();
+    //     $nationality = $user->getNationality()->one();
 
-        $allMainTeams = $user->getOwnedMainTeams()->all();
-        $allMemberTeams = $user->getMemberMainTeams()->all();
+    //     $allMainTeams = $user->getOwnedMainTeams()->all();
+    //     $allMemberTeams = $user->getMemberMainTeams()->all();
 
-        $mainTeams = [];
-        foreach ($allMainTeams as $mainTeam) {
-            $mainTeams[] = [
-                'owner' => true,
-                'team' => $mainTeam
-            ];
-        }
+    //     $mainTeams = [];
+    //     foreach ($allMainTeams as $mainTeam) {
+    //         $mainTeams[] = [
+    //             'owner' => true,
+    //             'team' => $mainTeam
+    //         ];
+    //     }
 
-        foreach ($allMemberTeams as $memberTeam) {
-            $mainTeams[] = [
-                'owner' => false,
-                'team' => $memberTeam
-            ];
-        }
+    //     foreach ($allMemberTeams as $memberTeam) {
+    //         $mainTeams[] = [
+    //             'owner' => false,
+    //             'team' => $memberTeam
+    //         ];
+    //     }
 
-        $subTeams = $user->getAllSubTeamsWithMembers();
+    //     $subTeams = $user->getAllSubTeamsWithMembers();
 
-        return $this->render('users/userDetails',
-            [
-                'model' => $user,
-                'isMySelfe' => $isMySelfe,
-                'gender' => $gender,
-                'language' => $language,
-                'nationality' => $nationality,
-                'mainTeams' => $mainTeams,//
-                'subTeams' => $subTeams
-            ]);
-    }
+    //     return $this->render('users/userDetails',
+    //         [
+    //             'model' => $user,
+    //             'isMySelfe' => $isMySelfe,
+    //             'gender' => $gender,
+    //             'language' => $language,
+    //             'nationality' => $nationality,
+    //             'mainTeams' => $mainTeams,//
+    //             'subTeams' => $subTeams
+    //         ]);
+    // }
 
     public function actionTeamDetails($id = null, $isSub = false)
     {
