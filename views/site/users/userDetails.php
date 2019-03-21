@@ -103,7 +103,7 @@ $this->registerMetaTag([
 
 $playerImage = '/images/userAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
-    $playerImage = '/images/default.png';
+    $playerImage = '/images/userAvatar/default.png';
 }
 
 $playerNationality = '/images/nationality/' . $model->nationality_id . '.png';
