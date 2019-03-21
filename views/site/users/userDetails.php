@@ -148,28 +148,28 @@ $age = $ageDiff->y;
 
         <div class="userBody">
             <div class="entry clearfix">
-                <div class="col-xs-5 col-md-3 col-lg-3">Name</div>
-                <div class="col-xs-7 col-md-9 col-lg-9 context"><?= $model->pre_name; ?></div>
+                <div class="col-xs-5 col-sm-3 col-lg-3">Name</div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $model->pre_name; ?></div>
             </div>
             <div class="entry clearfix">
-                <div class="col-xs-5 col-md-3 col-lg-3">Nick Name</div>
-                <div class="col-xs-7 col-md-9 col-lg-9 context"><?= $model->username; ?></div>
+                <div class="col-xs-5 col-sm-3 col-lg-3">Nick Name</div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $model->username; ?></div>
             </div>
             <div class="entry clearfix">
-                <div class="col-xs-5 col-md-3 col-lg-3">Mitglied Seit</div>
-                <div class="col-xs-7 col-md-9 col-lg-9 context"><?= $memberDate; ?></div>
+                <div class="col-xs-5 col-sm-3 col-lg-3">Mitglied Seit</div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $memberDate; ?></div>
             </div>
             <div class="entry clearfix">
-                <div class="col-xs-5 col-md-3 col-lg-3">Alter / Geschlecht</div>
-                <div class="col-xs-7 col-md-9 col-lg-9 context"><?= $age . " / " . $gender->getName(); ?></div>
+                <div class="col-xs-5 col-sm-3 col-lg-3">Alter / Geschlecht</div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $age . " / " . $gender->getName(); ?></div>
             </div>
             <div class="entry clearfix">
-                <div class="col-xs-5 col-md-3 col-lg-3">Nationalität</div>
-                <div class="col-xs-7 col-md-9 col-lg-9 context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= (NULL === $nationality) ? '' : $nationality->getName(); ?></div>
+                <div class="col-xs-5 col-sm-3 col-lg-3">Nationalität</div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= (NULL === $nationality) ? '' : $nationality->getName(); ?></div>
             </div>
             <div class="entry clearfix">
-                <div class="col-xs-5 col-md-3 col-lg-3">Ort</div>
-                <div class="col-xs-7 col-md-9 col-lg-9 context"><?= $model->city; ?></div>
+                <div class="col-xs-5 col-sm-3 col-lg-3">Ort</div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $model->city; ?></div>
             </div>
         </div>
 
@@ -178,7 +178,7 @@ $age = $ageDiff->y;
         </div>
 
         <div class="teamBody clearfix">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-sm-6">
                 <div class="mainTeam">Main Team:</div>
                 <?php foreach ($mainTeams as $key => $mainTeam): ?>
                     <div class="teamEntry clearfix">
@@ -187,7 +187,7 @@ $age = $ageDiff->y;
                 <?php endforeach; ?>
             </div>
 
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-sm-6">
                 <div class="mainTeam">Sub Teams:</div>
                 <?php foreach ($subTeams as $key => $subTeam): ?>
                     <div class="teamEntry clearfix">
