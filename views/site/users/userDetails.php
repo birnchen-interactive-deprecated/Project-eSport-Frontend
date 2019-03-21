@@ -27,21 +27,21 @@ $this->registerMetaTag([
 $this->registerMetaTag([
     'itemprop' => 'name',
     'content' => $model->username.'\'s Player profile',
-]);
+]); // itempro:name
 $this->registerMetaTag([
     'itemprop' => 'description',
     'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-]);
+]); // itemprop description
 $this->registerMetaTag([
     'itemprop' => 'image',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
-]);
+]); // itemprop image
 
 /* Twitter Card Data */
 $this->registerMetaTag([
     'name' => 'twitter:card',
     'content' => 'summary',
-]);
+]); // twitter:card - summary
 //$this->registerMetaTag([
 //    'name' => 'twitter:card',
 //    'content' => 'summary_large_image',
@@ -61,7 +61,7 @@ $this->registerMetaTag([
 $this->registerMetaTag([
     'name' => 'twitter:description',
     'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-]); // twitter:description - ss then 200 characters
+]); // twitter:description - less then 200 characters
 $this->registerMetaTag([
     'name' => 'twitter:creator',
     'content' => '@BirnchenStudios',
@@ -79,27 +79,27 @@ $this->registerMetaTag([
 $this->registerMetaTag([
     'property' => 'og:title',
     'content' => $model->username.'\'s Player profile',
-]);
+]); // og:title
 $this->registerMetaTag([
     'property' => 'og:type',
     'content' => 'website'
-]);
+]); // og:type
 $this->registerMetaTag([
     'property' => 'og:url',
     'content' => 'https://project-esport.gg/site/user-details?id='.$model->user_id,
-]);
+]); // og:url
 $this->registerMetaTag([
     'property' => 'og:image',
     'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
-]);
+]); // og:image
 $this->registerMetaTag([
     'property' => 'og:description',
     'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-]);
+]); // og:description
 $this->registerMetaTag([
     'property' => 'og:site_name',
     'content' => 'Player\'s profile',
-]);
+]); // og:sitename
 
 $playerImage = '/images/userAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
