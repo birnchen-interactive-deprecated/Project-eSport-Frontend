@@ -8,7 +8,7 @@ $this->title = 'Welcome to Project eSport\'s';
 
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]);
 
-Yii::$app->metaClass->writeMetaUser($this, $this->title);
+Yii::$app->metaClass->writeMetaIndex($this, $this->title);
 
 ?>
 <div class="site-index">
