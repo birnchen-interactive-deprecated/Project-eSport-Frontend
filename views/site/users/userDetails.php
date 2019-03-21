@@ -173,19 +173,19 @@ $age = $ageDiff->y;
             </div>
         </div>
 
-        <div class="clearfi">
+        <div class="clearfix">
             <div class="col-lg-12 teamHeader">My Team & Sub-Teams</div>
         </div>
 
         <div class="teamBody">
             <?php foreach ($mainTeams as $key => $mainTeam): ?>
-                <div class="clearfix">
+                <div class="teamEntry clearfix">
                     <div class="col-lg-7 mainTeam"><?= "Main Team: " . $mainTeam['team']->getName(); ?></div>
                     <div class="col-lg-5 teamPosition">(<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)</div>
                 </div>
             <?php endforeach; ?>
             <?php foreach ($subTeams as $key => $subTeam): ?>
-                <div class="clearfix">
+                <div class="teamEntry clearfix">
                     <div class="col-lg-7 mainTeam"><?= "Sub teams: " . $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?></div>
                     <div class="col-lg-5 teamPosition">(<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
                 </div>
