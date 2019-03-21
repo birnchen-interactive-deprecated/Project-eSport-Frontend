@@ -120,7 +120,7 @@ $age = $ageDiff->y;
 ?>
 <div class="site-account">
 
-    <div class="col-lg-3 avatarPanel">
+    <div class="leftPanel clearfix">
         <?= Html::img($playerImage, ['class' => 'avatar-logo']); ?>
         <?php if($isMySelfe) : ?>
         <?php $form = ActiveForm::begin([
@@ -138,63 +138,67 @@ $age = $ageDiff->y;
         <?php endif; ?>
     </div>
 
-    <div class="col-lg-7 playerPanel">
-
-        <div class="header">
-            <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?>
-            <span class="username"><?= $model->username; ?></span>
-            <span class="userid">id: <?= $model->user_id; ?></span>
-        </div>
-
-        <div class="userBody">
-            <div class="entry clearfix">
-                <div class="col-lg-3">Name</div>
-                <div class="col-lg-9"><?= $model->pre_name; ?></div>
-            </div>
-            <div class="entry clearfix">
-                <div class="col-lg-3">Nick Name</div>
-                <div class="col-lg-9"><?= $model->username; ?></div>
-            </div>
-            <div class="entry clearfix">
-                <div class="col-lg-3">Mitglied Seit</div>
-                <div class="col-lg-9"><?= $memberDate; ?></div>
-            </div>
-            <div class="entry clearfix">
-                <div class="col-lg-3">Alter / Geschlecht</div>
-                <div class="col-lg-9"><?= $age . " / " . $gender->getName(); ?></div>
-            </div>
-            <div class="entry clearfix">
-                <div class="col-lg-3">Nationalität</div>
-                <div class="col-lg-9"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= (NULL === $nationality) ? '' : $nationality->getName(); ?></div>
-            </div>
-            <div class="entry clearfix">
-                <div class="col-lg-3">Ort</div>
-                <div class="col-lg-9"><?= $model->city; ?></div>
-            </div>
-        </div>
-
-        <div class="clearfi">
-            <div class="col-lg-12 teamHeader">My Team & Sub-Teams</div>
-        </div>
-
-        <div class="teamBody">
-            <?php foreach ($mainTeams as $key => $mainTeam): ?>
-                <div class="clearfix">
-                    <div class="col-lg-7 mainTeam"><?= "Main Team: " . $mainTeam['team']->getName(); ?></div>
-                    <div class="col-lg-5 teamPosition">(<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)</div>
+    <div class="midPanel clearfix">
+        <div class="clearfix">
+            <div class="header">
+                <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?>
+                <div class="username">
+                    <?= $model->username; ?>
                 </div>
-            <?php endforeach; ?>
-            <?php foreach ($subTeams as $key => $subTeam): ?>
-                <div class="clearfix">
-                    <div class="col-lg-7 mainTeam"><?= "Sub teams: " . $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?></div>
-                    <div class="col-lg-5 teamPosition">(<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
+                <div class="userid">
+                    id: <?= $model->user_id; ?>
                 </div>
-            <?php endforeach; ?>
+            </div>
         </div>
-
+        <hr>
+        <div class="clearfix">
+            <div class="userBody">
+                <div class="accountLabel">Name</div>
+                <div class="context"><?= $model->pre_name; ?></div>
+                <div class="accountLabel">Nick Name</div>
+                <div class="context"><?= $model->username; ?></div>
+                <div class="accountLabel">Mitglied Seit</div>
+                <div class="context"><?= $memberDate; ?></div>
+                <div class="accountLabel">Alter / Geschlecht</div>
+                <div class="context"><?= $age . " / " . $gender->getName(); ?></div>
+                <div class="accountLabel">Nationalität</div>
+                <div class="context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= (NULL === $nationality) ? '' : $nationality->getName(); ?></div>
+                <div class="context"><?= $model->city; ?></div>
+                <!-- /*Main Team*/
+                /*Website*/ -->
+            </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="clearfix">
+            <div class="teamHeader">My Team & Sub-Teams</div>
+        </div>
+        <hr>
+        <div class="clearfix">
+            <div class="teamBody">
+                <?php foreach ($mainTeams as $key => $mainTeam): ?>
+                    <div class="mainTeam"><?= "Main Team: " . $mainTeam['team']->getName(); ?></div>
+                    <?php if ($mainTeam['owner']): ?>
+                        <div class="teamPosition">(owner)</div>
+                    <?php else : ?>
+                        <div class="teamPosition">(member)</div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <?php foreach ($subTeams as $key => $subTeam): ?>
+                    <div class="mainTeam"><?= "Sub teams: " . $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?></div>
+                    <?php if ($subTeam['owner']): ?>
+                        <div class="teamPosition">(Captain)</div>
+                    <?php elseif (!$subTeam['isSub']): ?>
+                        <div class="teamPosition">(Player)</div>
+                    <?php else : ?>
+                        <div class="teamPosition">(Substitute)</div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 
-    <div class="col-lg-2">
+    <div class="rightPanel clearfix">
 
     </div>
 </div>
