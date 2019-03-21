@@ -177,24 +177,24 @@ $age = $ageDiff->y;
             <div class="col-lg-12 teamHeader">My Team & Sub-Teams</div>
         </div>
 
-        <div class="teamBody">
-            <div class="clearfix">
-                <div class="col-lg-12 mainTeam">Main Team:</div>
+        <div class="teamBody clearfix">
+            <div class="col-xs-12 col-md-6">
+                <div class="mainTeam">Main Team:</div>
+                <?php foreach ($mainTeams as $key => $mainTeam): ?>
+                    <div class="teamEntry clearfix">
+                        <div class="col-lg-12"><?= $mainTeam['team']->getName(); ?> (<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)</div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <?php foreach ($mainTeams as $key => $mainTeam): ?>
-                <div class="teamEntry clearfix">
-                    <div class="col-lg-12 teamPosition"><?= $mainTeam['team']->getName(); ?> (<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)</div>
-                </div>
-            <?php endforeach; ?>
 
-            <div class="clearfix">
-                <div class="col-lg-12 mainTeam">Sub Teams:</div>
+            <div class="col-xs-12 col-md-6">
+                <div class="mainTeam">Sub Teams:</div>
+                <?php foreach ($subTeams as $key => $subTeam): ?>
+                    <div class="teamEntry clearfix">
+                        <div class="col-lg-12"><?= $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?> (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <?php foreach ($subTeams as $key => $subTeam): ?>
-                <div class="teamEntry clearfix">
-                    <div class="col-lg-12 teamPosition"><?= $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?> (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
-                </div>
-            <?php endforeach; ?>
         </div>
 
     </div>
