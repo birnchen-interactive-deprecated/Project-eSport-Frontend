@@ -116,7 +116,7 @@ class MetaClass {
             'itemprop' => 'description',
             'content' => 'Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.',
         ]); // itemprop description
-        $this->registerMetaTag([
+        $view->registerMetaTag([
             'itemprop' => 'image',
             'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_small_black.png',
         ]); // itemprop image
