@@ -97,10 +97,11 @@ if (Yii::$app->user->isGuest) {
 
 <footer class="footer">
     <div class="container">
-        <div class="col-lg-2">
-
+        <div class="col-lg-2 left_side">
+            <span><?= Html::a('Impressum', '/site/impressum'); ?></span>
+            <span><?= Html::a('AGB', '/site/agb'); ?></span>
         </div>
-        <div class="col-lg-6 col-lg-offset-1 make-center" style="padding: 15px 0 0;">&copy; Birnchen Interactive 2016
+        <div class="col-lg-6 col-lg-offset-1 middle">&copy; Birnchen Interactive 2016
             - <?= date('Y') ?></div>
         <div class="col-lg-2 col-lg-offset-1">
             <span><?= $twitterLink; ?></span>

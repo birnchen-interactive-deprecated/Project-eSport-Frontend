@@ -87,6 +87,22 @@ ul, li {
     /*padding-top: 20px;*/
 }
 
+.footer .left_side {
+    padding: 15px 0 0;
+}
+
+.footer .left_side span {
+    padding: 0 15px;
+}
+
+.footer .left_side span a{
+    color: #9d9d9d;
+}
+
+.footer .middle {
+    padding: 15px 0 0;
+}
+
 /* captain */
 .make-center {
     text-align: center;
