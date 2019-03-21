@@ -101,7 +101,7 @@ $this->registerMetaTag([
     'content' => 'Player\'s profile',
 ]);
 
-$playerImage = '/images/UserAvatar/' . $model->user_id . '.png';
+$playerImage = '/images/userAvatar/' . $model->user_id . '.png';
 if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
     $playerImage = '/images/default.png';
 }
