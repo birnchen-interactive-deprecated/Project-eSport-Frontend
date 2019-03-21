@@ -22,7 +22,6 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Response;
 
-
 class SiteController extends BaseController
 {
     /**
@@ -74,10 +73,6 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        //if (Yii::$app->user->isGuest) {
-        //    return $this->goHome();
-        //}
-
         return $this->render('index');
     }
 
@@ -89,9 +84,8 @@ class SiteController extends BaseController
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            //return $this->actionMyAccount();
-            //return $this->render('myAccount');
-            return $this->goHome();
+            return $this->render('index');
+            //return $this->goHome();
         }
 
         $model = new LoginForm();
@@ -99,10 +93,10 @@ class SiteController extends BaseController
             return $this->goBack();
         }
 
-        //$model->password = '';
-        //return $this->render('login', [
-        //    'model' => $model,
-        //]);
+        $model->password = '';
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
     /**
