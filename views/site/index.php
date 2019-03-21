@@ -5,6 +5,14 @@
 use yii\helpers\Html;
 
 $this->title = 'Welcome';
+
+$this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]);
+/* standart meta tags */
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Project eSport\nProfessional Gaming for every\nis a Tournament Site for Player from all Countries and all Skill Levels.',
+]);
+
 ?>
 <div class="site-index">
     <div class="welcome">
