@@ -50,7 +50,7 @@ $this->registerMetaTag([
 ]); // twitter:title
 $this->registerMetaTag([
     'name' => 'twitter:description',
-    'content' => 'Project eSport - Professional Gaming for every Is a Tournament Site for Player from all Countries and all Skill Levels.',
+    'content' => 'Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.',
 ]); // twitter:description - less then 200 characters
 $this->registerMetaTag([
     'name' => 'twitter:creator',
