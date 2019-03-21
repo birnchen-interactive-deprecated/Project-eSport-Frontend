@@ -74,9 +74,9 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+        //if (Yii::$app->user->isGuest) {
+        //    return $this->goHome();
+        //}
 
         return $this->render('index');
     }
@@ -162,7 +162,7 @@ class SiteController extends BaseController
      * @throws \yii\base\Exception
      */
 
-    public function actionUserDetails($id)
+    public function actionUserDetails($id)//
     {
         //if (Yii::$app->user->isGuest) {
         //    // return $this->render('index');
