@@ -18,19 +18,18 @@
 }
 @media (min-width: 768px) {
     .site-rl-team-details .teamEntry .teamHeader {
-        text-align: initial;
         padding: 5px 30px;
     }
     .site-rl-team-details .teamEntry .teamHeader .mainTeamOwner {
-        display: initial;
         font-size: 14px;
     }
 }
 @media (min-width: 1200px) {
     .site-rl-team-details .teamEntry .teamHeader {
-        font-size: 32px;
+        font-size: 30px;
     }
     .site-rl-team-details .teamEntry .teamHeader .mainTeamOwner {
+        display: initial;
         font-size: 16px;
     }
 }
