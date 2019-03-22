@@ -49,6 +49,16 @@
 .site-rl-team-details .teamLogo img {
     width: 250px;
 }
+@media (min-width: 992px) {
+    .site-rl-team-details .teamLogo img {
+        width: 180px;
+    }
+}
+@media (min-width: 1200px) {
+    .site-rl-team-details .teamLogo img {
+        width: 250px;
+    }
+}
 
 .site-rl-team-details .modeContainer {
     padding: 15px 0 0;
