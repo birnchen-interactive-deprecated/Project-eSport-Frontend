@@ -174,8 +174,28 @@ class MetaClass {
         ]); // og:url
         $view->registerMetaTag([
             'property' => 'og:image',
-            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_large_black.png',
+            'content' => 'http://project-esport.gg/images/PeSpLogos/pesp_large_black.png',
         ]); // og:image
+        $view->registerMetaTag([
+            'property' => 'og:image:secure_url',
+            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_large_black.png',
+        ]); // og:image:secure_url
+        $view->registerMetaTag([
+        'property' => 'og:image:type',
+            'content' => 'image/jpeg',
+        ]); // og:image:type
+        $view->registerMetaTag([
+            'property' => 'image:width',
+            'content' => '1200',
+        ]); // image:width
+        $view->registerMetaTag([
+            'property' => 'image:height',
+            'content' => '630',
+        ]); // image:height
+        $view->registerMetaTag([
+            'property' => 'og:image:alt',
+            'content' => 'PeSp Logo Large',
+        ]); // og:image:alt
         $view->registerMetaTag([
             'property' => 'og:description',
             'content' => 'Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.',
