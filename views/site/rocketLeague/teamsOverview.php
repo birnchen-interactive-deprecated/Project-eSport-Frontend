@@ -6,37 +6,66 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Turnier Details';
+$this->title = 'Team Details';
 ?>
 
-<div class="site-rl-tournament-details">
-	<?php foreach($teamHierarchy as $hierarchy ):
+<div class="site-rl-team-details">
+
+    <?php foreach($teamHierarchy as $hierarchy ):
         $mainTeam = $hierarchy['mainTeam'];
-        $mainTeamOwner = $mainTeam->getOwner()->one()->getUsername(); ?>
+        $mainTeamOwner = $mainTeam->getOwner()->one()->getUsername();
+        $mainTeamImage = '/images/teams/' . $mainTeam->getId() . '.png';
+        $mainTeamImage = (!file_exists($_SERVER['DOCUMENT_ROOT'] . $mainTeamImage)) ? '/images/userAvatar/default.png' : $mainTeamImage;
+        ?>
 
-        <div class="mainTeam"><?= Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]); ?></div>
-        <div class="mainTeamOwner"> <?= 'owner:  ' . Html::a($mainTeamOwner , ['/user/details', 'id' => $mainTeam->getOwnerId()]); ?></div>
+        <div class="teamEntry clearfix">
 
-        <?php foreach ($hierarchy['subTeams'] as $key => $subHierarchy) :
-			$subTeam = $subHierarchy['subTeam'];
-			$subTeamName = $subTeam->getName() . ' ' . $subTeam->getTournamentMode()->one()->getName();
-			$subTeamManager = $subTeam->GetTeamCaptain()->one()->getUsername(); ?>
+            <div class="teamHeader col-lg-12">
+                <?= Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]); ?>
+                <span class="mainTeamOwner"> (Owner: <?= Html::a($mainTeamOwner , ['/user/details', 'id' => $mainTeam->getOwnerId()]); ?>)</span>
+            </div>
 
-            <div class="subTeam"><?= Html::a($subTeamName , ['/site/team-details', 'id' => $subTeam->getId(), 'isSub' => true]); ?></div>
-            <div class="subTeamOwner"> <?= 'captain: ' . Html::a($subTeamManager , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?></div>
+            <div class="col-sm-4 teamLogo">
+                <?= Html::img($mainTeamImage); ?>
+            </div>
+            <div class="col-sm-8">
+                
+                <?php foreach ($hierarchy['subTeams'] as $tournamentMode => $subTeams): ?>
+                    
+                    <div class="col-sm-6 col-lg-6 modeContainer">
+                        <div class="modeName">Turniermodus: <?= $tournamentMode; ?></div>
+                        <?php foreach ($subTeams as $key => $subHierarchy):
+                			$subTeam = $subHierarchy['subTeam'];
+                			$subTeamName = $subTeam->getName();
+                			$subTeamManager = $subTeam->GetTeamCaptain()->one()->getUsername(); ?>
 
+                            <div class="subTeam">
+                                <?= Html::a($subTeamName , ['/site/team-details', 'id' => $subTeam->getId(), 'isSub' => true]); ?>
+                                <span class="subTeamOwner"> (Captain: <?= Html::a($subTeamManager , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
+                            </div>
 
-            <?php foreach ($subHierarchy['subTeamMember'] as $key => $subTeamMember) :
-				$userClass = $subTeamMember->getUser()->one();
-				$userName = $userClass->getUsername();
-				$substitudeText = ($subTeamMember->getIsSubstitute()) ? 'substitude' : 'player'; ?>
+                            <?php if (false): ?>
+                            <?php foreach ($subHierarchy['subTeamMember'] as $key => $subTeamMember) :
+                				$userClass = $subTeamMember->getUser()->one();
+                				$userName = $userClass->getUsername();
+                				$substitudeText = ($subTeamMember->getIsSubstitute()) ? 'substitude' : 'player'; ?>
 
-                <div class="subTeaMember"><?= Html::a($userName , ['/user/details', 'id' => $userClass->getId()]); ?></div>
-                <div class="playerPosition"> <?= ' (' . $substitudeText . ')'; ?></div>
+                                <div class="subTeaMember">
+                                    <?= Html::a($userName , ['/user/details', 'id' => $userClass->getId()]); ?>
+                                    <span class="playerPosition"> <?= ' (' . $substitudeText . ')'; ?></span>
+                                </div>
 
-            <?php  endforeach; ?>
-        <?php  endforeach; ?>
-    <hr>
-	<?php  endforeach; ?>
+                            <?php  endforeach; ?>
+                            <?php endif; ?>
+
+                        <?php endforeach; ?>
+                    
+                    </div>
+
+                <?php  endforeach; ?>
+
+            </div>
+        </div>
+    <?php  endforeach; ?>
 
 </div>
