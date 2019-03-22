@@ -118,18 +118,18 @@ class MetaClass {
         ]); // itemprop description
         $view->registerMetaTag([
             'itemprop' => 'image',
-            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_small_black.png',
+            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_large_black.png',
         ]); // itemprop image
 
         /* Twitter Card Data */
-        $view->registerMetaTag([
+        /*$view->registerMetaTag([
             'name' => 'twitter:card',
             'content' => 'summary',
-        ]); // twitter:card - summary
-        /*$this->registerMetaTag([
+        ]);*/ // twitter:card - summary
+        $view->registerMetaTag([
             'name' => 'twitter:card',
             'content' => 'summary_large_image',
-        ]); */ // twitter:card - summary_large_immage
+        ]); // twitter:card - summary_large_immage
         $view->registerMetaTag([
             'name' => 'twitter:site',
             'content' => '@esport_project',
@@ -152,7 +152,7 @@ class MetaClass {
         ]); // twitter:creator - author
         $view->registerMetaTag([
             'name' => 'twitter:image:src',
-            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_small_black.png',
+            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_large_black.png',
         ]); // twitter:image:src
         $view->registerMetaTag([
             'name' => 'twitter:image:alt',
@@ -174,7 +174,7 @@ class MetaClass {
         ]); // og:url
         $view->registerMetaTag([
             'property' => 'og:image',
-            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_small_black.png',
+            'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_large_black.png',
         ]); // og:image
         $view->registerMetaTag([
             'property' => 'og:description',
