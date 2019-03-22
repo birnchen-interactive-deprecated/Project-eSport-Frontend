@@ -182,7 +182,7 @@ class MetaClass {
         ]); // og:image:secure_url
         $view->registerMetaTag([
         'property' => 'og:image:type',
-            'content' => 'image/jpeg',
+            'content' => 'image/png',
         ]); // og:image:type
         $view->registerMetaTag([
             'property' => 'image:width',
