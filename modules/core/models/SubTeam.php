@@ -223,13 +223,16 @@ class SubTeam extends ActiveRecord
             $aName = $a->getMainTeam()->one()->getName();
             $bName = $b->getMainTeam()->one()->getName();
 
-            return [$aName, $a->getTournamentModeId()] <=> [$bName, $b->getTournamentModeId()];
+            $aSubName = $a->getName();
+            $bSubName = $b->getName();
+
+            return [$aName, $a->getTournamentModeId(), $aSubName] <=> [$bName, $b->getTournamentModeId(), $bSubName];
         });
 
         foreach ($subTeams as $key => $subTeam) {
             /** @var MainTeam $mainTeam */
             $mainTeam = $subTeam->getMainTeam()->one();
-            $subTeamMember = $subTeam->getSubTeamMembers()->orderBy('is_sub')->all();
+            // $subTeamMember = $subTeam->getSubTeamMembers()->orderBy('is_sub')->all();
 
             if (!array_key_exists($mainTeam->getId(), $teamHierarchy)) {
                 $teamHierarchy[$mainTeam->getId()] = array(
@@ -238,9 +241,11 @@ class SubTeam extends ActiveRecord
                 );
             }
 
-            $teamHierarchy[$mainTeam->getId()]['subTeams'][] = array(
+            $subTeamModeId = $subTeam->getTournamentMode()->one()->getName();
+
+            $teamHierarchy[$mainTeam->getId()]['subTeams'][$subTeamModeId][] = array(
                 'subTeam' => $subTeam,
-                'subTeamMember' => $subTeamMember,
+                // 'subTeamMember' => $subTeamMember,
             );
         }
 
