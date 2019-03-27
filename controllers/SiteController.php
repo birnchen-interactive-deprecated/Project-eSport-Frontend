@@ -9,7 +9,6 @@ use app\models\PasswordResetForm;
 use app\modules\core\controllers\UserController;
 use app\modules\core\models\Gender;
 use app\modules\core\models\Language;
-use app\modules\core\models\MainTeam;
 use app\modules\core\models\Nationality;
 use app\modules\core\models\PlayerParticipating;
 use app\modules\core\models\SubTeam;
@@ -148,98 +147,26 @@ class SiteController extends BaseController
 
     /* All Actions for the Logged In User */
 
-    /**
-     * Display User Account Informations
-     *
-     * @param id
-     * @return string
-     * @throws \yii\base\Exception
-     */
 
-    // public function actionUserDetails($id)//
-    // {
-    //     //if (Yii::$app->user->isGuest) {
-    //     //    // return $this->render('index');
-    //     //    return $this->goHome();
-    //     //}
 
-    //     if(Yii::$app->user->identity != null)
-    //         $isMySelfe = (Yii::$app->user->identity->getId() == $id) ? true : false;
-    //     else
-    //         $isMySelfe = false;
-
-    //     $profilePic = NULL;
-    //     if (is_array($_FILES) && isset($_FILES['profilePic'])) {
-    //         $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
-    //     }
-
-    //     /** @var User $user */
-    //     $user = User::findIdentity($id);
-    //     //$user = Yii::$app->user->identity;
-
-    //     if (NULL !== $profilePic && 0 === $profilePic->getError()) {
-    //         $user->setProfilePic($profilePic);
-    //     }
-
-    //     $gender = $user->getGender()->one();
-    //     $language = $user->getLanguage()->one();
-    //     $nationality = $user->getNationality()->one();
-
-    //     $allMainTeams = $user->getOwnedMainTeams()->all();
-    //     $allMemberTeams = $user->getMemberMainTeams()->all();
-
-    //     $mainTeams = [];
-    //     foreach ($allMainTeams as $mainTeam) {
-    //         $mainTeams[] = [
-    //             'owner' => true,
-    //             'team' => $mainTeam
-    //         ];
-    //     }
-
-    //     foreach ($allMemberTeams as $memberTeam) {
-    //         $mainTeams[] = [
-    //             'owner' => false,
-    //             'team' => $memberTeam
-    //         ];
-    //     }
-
-    //     $subTeams = $user->getAllSubTeamsWithMembers();
-
-    //     return $this->render('users/userDetails',
-    //         [
-    //             'model' => $user,
-    //             'isMySelfe' => $isMySelfe,
-    //             'gender' => $gender,
-    //             'language' => $language,
-    //             'nationality' => $nationality,
-    //             'mainTeams' => $mainTeams,//
-    //             'subTeams' => $subTeams
-    //         ]);
-    // }
-
-    public function actionTeamDetails($id = null, $isSub = false)
-    {
-        //if (Yii::$app->user->isGuest) {
-        //    // return $this->render('index');
-        //    return $this->goHome();
-        //}
-
-        $teamDetails = (!$isSub) ? MainTeam::findOne(['team_id' => $id]) : SubTeam::findOne(['sub_team_id' => $id]);
-
-        if($isSub)
-        {
-            return $this->render('teams/teamDetails',
-                [
-                    'teamDetails' => $teamDetails,
-                ]);
-        }
-        else {
-            return $this->render('teams/teamDetails',
-                [
-                    'teamDetails' => $teamDetails,
-                ]);
-        }
-    }
+    //public function actionTeamDetails($id = null, $isSub = false)
+    //{
+    //    $teamDetails = (!$isSub) ? MainTeam::findOne(['team_id' => $id]) : SubTeam::findOne(['sub_team_id' => $id]);
+    //
+    //    if($isSub)
+    //    {
+    //        return $this->render('teams/teamDetails',
+    //            [
+    //                'teamDetails' => $teamDetails,
+    //            ]);
+    //    }
+    //    else {
+    //        return $this->render('teams/teamDetails',
+    //            [
+    //                'teamDetails' => $teamDetails,
+    //            ]);
+    //    }
+    //}
 
     /**
      * Displays User Tournaments.

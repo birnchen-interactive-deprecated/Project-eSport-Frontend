@@ -21,7 +21,7 @@ $this->title = 'Team Details';
         <div class="teamEntry clearfix">
 
             <div class="teamHeader col-lg-12">
-                <?= Html::a($mainTeam->getName() , ['/site/team-details', 'id' => $mainTeam->getId()]); ?>
+                <?= Html::a($mainTeam->getName() , ['/teams/team-details', 'id' => $mainTeam->getId()]); ?>
                 <span class="mainTeamOwner"> (Owner: <?= Html::a($mainTeamOwner , ['/user/details', 'id' => $mainTeam->getOwnerId()]); ?>)</span>
             </div>
 
@@ -40,7 +40,7 @@ $this->title = 'Team Details';
                 			$subTeamManager = $subTeam->GetTeamCaptain()->one()->getUsername(); ?>
 
                             <div class="subTeam">
-                                <?= Html::a($subTeamName , ['/site/team-details', 'id' => $subTeam->getId(), 'isSub' => true]); ?>
+                                <?= Html::a($subTeamName , ['/teams/sub-team-details', 'id' => $subTeam->getId()]); ?>
                                 <span class="subTeamOwner"> (Captain: <?= Html::a($subTeamManager , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
                             </div>
 

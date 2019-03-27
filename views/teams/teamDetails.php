@@ -15,6 +15,6 @@ use yii\helpers\Html;
 
 ?>
 
-<div class="site-user-details">
+<div class="site-team-details">
     <?php echo $teamDetails->getName() . ' id:' . $teamDetails->getId(); ?>
 </div>
