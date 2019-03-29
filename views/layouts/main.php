@@ -97,14 +97,14 @@ if (Yii::$app->user->isGuest) {
 
 <footer class="footer">
     <div class="container">
-        <div class="col-sm-3 col-lg-2 left_side">
+        <div class="col-sm-3 col-lg-3 left_side">
             <span><?= Html::a('Impressum', ['/company/imprint']); ?></span>
             <span><?= Html::a('AGB', ['/company/gtc']); ?></span>
             <span><?= Html::a('Datenschutz', ['/company/privacy']); ?></span>
         </div>
-        <div class="col-sm-6 col-lg-6 col-lg-offset-1 middle">&copy; Birnchen Interactive 2016
+        <div class="col-sm-6 col-lg-6 middle">&copy; Birnchen Interactive 2016
             - <?= date('Y') ?></div>
-        <div class="col-sm-3 col-lg-2 col-lg-offset-1 right_side">
+        <div class="col-sm-3 col-lg-3 right_side">
             <span><?= $twitterLink; ?></span>
             <span><?= $discordLink; ?></span>
         </div>
