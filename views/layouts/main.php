@@ -102,8 +102,7 @@ if (Yii::$app->user->isGuest) {
             <span><?= Html::a('AGB', ['/company/gtc']); ?></span>
             <span><?= Html::a('Datenschutz', ['/company/privacy']); ?></span>
         </div>
-        <div class="col-sm-6 col-lg-6 middle">Project-eSport ist eine Marke von Birnchen Interactive. &copy; 2016 - <?= date('Y'); ?>
-            - <?= date('Y') ?></div>
+        <div class="col-sm-6 col-lg-6 middle">Project-eSport ist eine Marke von Birnchen Interactive. &copy; 2016 - <?= date('Y'); ?></div>
         <div class="col-sm-3 col-lg-3 right_side">
             <span><?= $twitterLink; ?></span>
             <span><?= $discordLink; ?></span>
