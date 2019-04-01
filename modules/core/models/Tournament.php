@@ -413,7 +413,7 @@ class Tournament extends ActiveRecord
      */
     private function checkPlayerParticipating($user)
     {
-        return PlayerParticipating::findPlayerParticipating($this->tournament_id, $user) != null;
+        return PlayerParticipating::findPlayerParticipating($this->tournament_id, $user->getId()) != null;
     }
 
     /**
