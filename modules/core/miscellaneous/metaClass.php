@@ -40,10 +40,10 @@ class MetaClass {
 		    'name' => 'twitter:card',
 		    'content' => 'summary',
 		]); // twitter:card - summary
-		//$view->registerMetaTag([
-		//    'name' => 'twitter:card',
-		//    'content' => 'summary_large_image',
-		//]);
+		/*$view->registerMetaTag([
+		    'name' => 'twitter:card',
+		    'content' => 'summary_large_image',
+		]);*/
 		$view->registerMetaTag([
 		    'name' => 'twitter:site',
 		    'content' => '@esport_project',
@@ -96,9 +96,96 @@ class MetaClass {
 		]); // og:description
 		$view->registerMetaTag([
 		    'property' => 'og:site_name',
-		    'content' => 'Player\'s profile',
+		    'content' => $model->username.'\'s Player profile',
 		]); // og:sitename
 	}
+
+	public function writeMetaMainTeam($view, $teamDetails, $teamInfo)
+    {
+        /* standart meta tags */
+        $view->registerMetaTag([
+            'name' => 'description',
+            'content' => $teamDetails->getName() . ' ist ein Team aus '  . $teamDetails->getHeadQuarterId() . '.',
+        ]);
+
+        /* Schema.org markup for Google+ */
+        $view->registerMetaTag([
+            'itemprop' => 'name',
+            'content' => $teamDetails->getName() . '\'s Team profile',
+        ]); // itempro:name
+        $view->registerMetaTag([
+            'itemprop' => 'description',
+            'content' => $teamDetails->getDescription(),
+        ]); // itemprop description
+        $view->registerMetaTag([
+            'itemprop' => 'image',
+            'content' => 'https://project-esport.gg/images/teams/mainTeams/' . $teamDetails->getId() . '.png',
+        ]); // itemprop image
+
+        /* Twitter Card Data */
+        $view->registerMetaTag([
+            'name' => 'twitter:card',
+            'content' => 'summary',
+        ]); // twitter:card - summary
+        /*$view->registerMetaTag([
+            'name' => 'twitter:card',
+            'content' => 'summary_large_image',
+        ]);*/
+        $view->registerMetaTag([
+            'name' => 'twitter:site',
+            'content' => '@esport_project',
+        ]); // twitter:site
+        $view->registerMetaTag([
+            'property' => 'twitter:account_id',
+            'content' => '1063431775995727872'
+        ]); // twitter:account_id
+        $view->registerMetaTag([
+            'name' => 'twitter:title',
+            'content' => $teamDetails->getName() . '\'s Team profile',
+        ]); // twitter:title
+        $view->registerMetaTag([
+            'name' => 'twitter:description',
+            'content' => $teamDetails->getDescription(),
+        ]); // twitter:description - less then 200 characters
+        $view->registerMetaTag([
+            'name' => 'twitter:creator',
+            'content' => '@BirnchenStudios',
+        ]); // twitter:creator - author
+        $view->registerMetaTag([
+            'name' => 'twitter:image:src',
+            'content' => 'https://project-esport.gg/images/teams/mainTeams/' . $teamDetails->getId() . '.png',
+        ]); // twitter:image:src
+        $view->registerMetaTag([
+            'name' => 'twitter:image:alt',
+            'content' => 'no team pic availabel',
+        ]); // twitter:image:alt
+
+        /* Open Graph Data (and facebook) */
+        $view->registerMetaTag([
+            'property' => 'og:title',
+            'content' => $teamDetails->getName() . '\'s Team profile',
+        ]); // og:title
+        $view->registerMetaTag([
+            'property' => 'og:type',
+            'content' => 'website'
+        ]); // og:type
+        $view->registerMetaTag([
+            'property' => 'og:url',
+            'content' => 'https://project-esport.gg/teams/team-details?id=' . $teamDetails->getId(),
+        ]); // og:url
+        $view->registerMetaTag([
+            'property' => 'og:image',
+            'content' => 'https://project-esport.gg/images/teams/mainTeams/' . $teamDetails->getId() . '.png',
+        ]); // og:image
+        $view->registerMetaTag([
+            'property' => 'og:description',
+            'content' => $teamDetails->getDescription(),
+        ]); // og:description
+        $view->registerMetaTag([
+            'property' => 'og:site_name',
+            'content' => $teamDetails->getName() . '\'s Team profile',
+        ]); // og:sitename
+    }
 
 	public function writeMetaIndex($view, $title) {
         /* standart meta tags */

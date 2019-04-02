@@ -2,7 +2,6 @@
 
 /* @var $this yii\web\View *
  * @var $model app\modules\core\models\User
- * @var $isMySelfe bool
  * @var $userInfo array
  * @var $mainTeams array
  * @var $subTeams array
