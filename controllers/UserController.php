@@ -4,8 +4,8 @@ namespace app\controllers;
 
 use app\components\BaseController;
 use app\modules\core\models\User;
-use Yii;
 use DateTime;
+use Yii;
 
 class UserController extends BaseController
 {
@@ -19,10 +19,7 @@ class UserController extends BaseController
     public function actionDetails($id)//
     {
         /** Check if user ID my own User ID */
-        if(Yii::$app->user->identity != null)
-            $isMySelfe = (Yii::$app->user->identity->getId() == $id) ? true : false;
-        else
-            $isMySelfe = false;
+        $isMySelfe = (Yii::$app->user->identity != null && Yii::$app->user->identity->getId() == $id) ? true : false;
 
         /** Profile Pic Uploader */
         $profilePic = NULL;
@@ -37,16 +34,12 @@ class UserController extends BaseController
             $user->setProfilePic($profilePic);
         }
 
-        /* Get Register Date and Age */
-        //$memberDateTime = new DateTime($user->dt_created);
-        $memberBirthdayRaw = new DateTime($user->birthday);
-        $tmp = DateTime::createFromFormat('y-m-d H:i:s', $user->dt_created);
         /** @var $userInfo array */
         $userInfo = [
             'isMySelfe' => $isMySelfe,
-            'memberSince' => $tmp->format('d.m.y'),
+            'memberSince' => DateTime::createFromFormat('Y-m-d H:i:s', $user->dt_created)->format('d.m.y'),
             //'memberSince' => $memberDateTime->format('d.m.y'),
-            'age' => $memberBirthdayRaw->diff(new DateTime())->y,
+            'age' => (new DateTime($user->birthday))->diff(new DateTime())->y,
             'gender' => $user->getGender()->one(),
             'language' => $user->getLanguage()->one(),
             'nationality' => $user->getNationality()->one(),
