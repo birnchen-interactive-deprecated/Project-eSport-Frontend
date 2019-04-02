@@ -15,10 +15,10 @@ AppAsset::register($this);
 
 $visible = (Yii::$app->user->isGuest) ? false : true;
 
-$twitterImg = Html::img('../images/socialMedia/Twitter_Logo_Blue.png', ['height' => '49px', 'alt'=> 'twitter.png']);
+$twitterImg = Html::img('../images/socialMedia/Twitter_Logo_Blue.png', ['height' => '49px', 'alt'=> 'twitter.png', 'aria-label' => 'twitter.png']);
 $twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Follow us on twitter', 'label' => 'twitter']);
 
-$discordImg = Html::img('../images/socialMedia/Discord-Logo-White.png', ['height' => '49px', 'alt'=> 'discord.png', 'style' => 'padding: 5px 0; ']);
+$discordImg = Html::img('../images/socialMedia/Discord-Logo-White.png', ['height' => '49px', 'alt'=> 'discord.png', 'aria-label' => 'discord.png', 'style' => 'padding: 5px 0; ']);
 $discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Join our Discord Server']);
 
 $containerClass = '';
