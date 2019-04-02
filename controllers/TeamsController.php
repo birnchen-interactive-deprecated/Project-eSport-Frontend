@@ -17,6 +17,12 @@ use DateTime;
 
 class TeamsController extends BaseController
 {
+
+    /**
+     * @param int $id TeamId
+     * @return string
+     * @throws \Exception
+     */
     public function actionTeamDetails($id = null)
     {
         $teamDetails = MainTeam::findOne(['team_id' => $id]);
@@ -47,6 +53,10 @@ class TeamsController extends BaseController
         ]);
     }
 
+    /**
+     * @param int $id Team Id
+     * @return string
+     */
     public function actionSubTeamDetails($id = null)
     {
         $teamDetails = SubTeam::findOne(['sub_team_id' => $id]);

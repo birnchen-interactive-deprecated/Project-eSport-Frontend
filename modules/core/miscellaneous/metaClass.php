@@ -8,104 +8,122 @@
 
 namespace app\modules\core\miscellaneous;
 
-class MetaClass {
-	
-	public function __construct() {
+use app\modules\core\models\MainTeam;
+use app\modules\core\models\Nationality;
+use app\modules\core\models\User;
+use yii\web\View;
 
-	}
+class MetaClass
+{
 
-	public function writeMetaUser($view, $model, $nationality) {
-		/* standart meta tags */
-		$view->registerMetaTag([
-		    'name' => 'description',
-		    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-		]);
+    public function __construct()
+    {
 
-		/* Schema.org markup for Google+ */
-		$view->registerMetaTag([
-		    'itemprop' => 'name',
-		    'content' => $model->username.'\'s Player profile',
-		]); // itempro:name
-		$view->registerMetaTag([
-		    'itemprop' => 'description',
-		    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-		]); // itemprop description
-		$view->registerMetaTag([
-		    'itemprop' => 'image',
-		    'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
-		]); // itemprop image
+    }
 
-		/* Twitter Card Data */
-		$view->registerMetaTag([
-		    'name' => 'twitter:card',
-		    'content' => 'summary',
-		]); // twitter:card - summary
-		/*$view->registerMetaTag([
-		    'name' => 'twitter:card',
-		    'content' => 'summary_large_image',
-		]);*/
-		$view->registerMetaTag([
-		    'name' => 'twitter:site',
-		    'content' => '@esport_project',
-		]); // twitter:site
-		$view->registerMetaTag([
-		    'property' => 'twitter:account_id',
-		    'content' => '1063431775995727872'
-		]); // twitter:account_id
-		$view->registerMetaTag([
-		    'name' => 'twitter:title',
-		    'content' => $model->username.'\'s Player profile',
-		]); // twitter:title
-		$view->registerMetaTag([
-		    'name' => 'twitter:description',
-		    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-		]); // twitter:description - less then 200 characters
-		$view->registerMetaTag([
-		    'name' => 'twitter:creator',
-		    'content' => '@BirnchenStudios',
-		]); // twitter:creator - author
-		$view->registerMetaTag([
-		    'name' => 'twitter:image:src',
-		    'content' => 'https://project-esport.gg/images/userAvatar/'.$model->user_id.'.png',
-		]); // twitter:image:src
-		$view->registerMetaTag([
-		    'name' => 'twitter:image:alt',
-		    'content' => 'no profile pic availabel',
-		]); // twitter:image:alt
-
-		/* Open Graph Data (and facebook) */
-		$view->registerMetaTag([
-		    'property' => 'og:title',
-		    'content' => $model->username.'\'s Player profile',
-		]); // og:title
-		$view->registerMetaTag([
-		    'property' => 'og:type',
-		    'content' => 'website'
-		]); // og:type
-		$view->registerMetaTag([
-		    'property' => 'og:url',
-		    'content' => 'https://project-esport.gg/user/details?id='.$model->user_id,
-		]); // og:url
-		$view->registerMetaTag([
-		    'property' => 'og:image',
-		    'content' => 'https://project-esport.gg/images/UserAvatar/'.$model->user_id.'.png',
-		]); // og:image
-		$view->registerMetaTag([
-		    'property' => 'og:description',
-		    'content' => $model->username.' ist ein Spieler aus '.$nationality->getName().'.',
-		]); // og:description
-		$view->registerMetaTag([
-		    'property' => 'og:site_name',
-		    'content' => $model->username.'\'s Player profile',
-		]); // og:sitename
-	}
-
-	public function writeMetaMainTeam($view, $teamDetails, $title)
+    /**
+     * @param View $view
+     * @param User $model
+     * @param Nationality $nationality
+     */
+    public function writeMetaUser($view, $model, $nationality)
     {
         /* standart meta tags */
         $view->registerMetaTag([
             'name' => 'description',
-            'content' => $teamDetails->getName() . ' ist ein Team aus '  . $teamDetails->getHeadQuarterId() . '.',
+            'content' => $model->username . ' ist ein Spieler aus ' . $nationality->getName() . '.',
+        ]);
+
+        /* Schema.org markup for Google+ */
+        $view->registerMetaTag([
+            'itemprop' => 'name',
+            'content' => $model->username . '\'s Player profile',
+        ]); // itempro:name
+        $view->registerMetaTag([
+            'itemprop' => 'description',
+            'content' => $model->username . ' ist ein Spieler aus ' . $nationality->getName() . '.',
+        ]); // itemprop description
+        $view->registerMetaTag([
+            'itemprop' => 'image',
+            'content' => 'https://project-esport.gg/images/UserAvatar/' . $model->user_id . '.png',
+        ]); // itemprop image
+
+        /* Twitter Card Data */
+        $view->registerMetaTag([
+            'name' => 'twitter:card',
+            'content' => 'summary',
+        ]); // twitter:card - summary
+        /*$view->registerMetaTag([
+            'name' => 'twitter:card',
+            'content' => 'summary_large_image',
+        ]);*/
+        $view->registerMetaTag([
+            'name' => 'twitter:site',
+            'content' => '@esport_project',
+        ]); // twitter:site
+        $view->registerMetaTag([
+            'property' => 'twitter:account_id',
+            'content' => '1063431775995727872'
+        ]); // twitter:account_id
+        $view->registerMetaTag([
+            'name' => 'twitter:title',
+            'content' => $model->username . '\'s Player profile',
+        ]); // twitter:title
+        $view->registerMetaTag([
+            'name' => 'twitter:description',
+            'content' => $model->username . ' ist ein Spieler aus ' . $nationality->getName() . '.',
+        ]); // twitter:description - less then 200 characters
+        $view->registerMetaTag([
+            'name' => 'twitter:creator',
+            'content' => '@BirnchenStudios',
+        ]); // twitter:creator - author
+        $view->registerMetaTag([
+            'name' => 'twitter:image:src',
+            'content' => 'https://project-esport.gg/images/userAvatar/' . $model->user_id . '.png',
+        ]); // twitter:image:src
+        $view->registerMetaTag([
+            'name' => 'twitter:image:alt',
+            'content' => 'no profile pic availabel',
+        ]); // twitter:image:alt
+
+        /* Open Graph Data (and facebook) */
+        $view->registerMetaTag([
+            'property' => 'og:title',
+            'content' => $model->username . '\'s Player profile',
+        ]); // og:title
+        $view->registerMetaTag([
+            'property' => 'og:type',
+            'content' => 'website'
+        ]); // og:type
+        $view->registerMetaTag([
+            'property' => 'og:url',
+            'content' => 'https://project-esport.gg/user/details?id=' . $model->user_id,
+        ]); // og:url
+        $view->registerMetaTag([
+            'property' => 'og:image',
+            'content' => 'https://project-esport.gg/images/UserAvatar/' . $model->user_id . '.png',
+        ]); // og:image
+        $view->registerMetaTag([
+            'property' => 'og:description',
+            'content' => $model->username . ' ist ein Spieler aus ' . $nationality->getName() . '.',
+        ]); // og:description
+        $view->registerMetaTag([
+            'property' => 'og:site_name',
+            'content' => $model->username . '\'s Player profile',
+        ]); // og:sitename
+    }
+
+    /**
+     * @param View $view
+     * @param MainTeam $teamDetails
+     * @param string $title
+     */
+    public function writeMetaMainTeam($view, $teamDetails, $title)
+    {
+        /* standart meta tags */
+        $view->registerMetaTag([
+            'name' => 'description',
+            'content' => $teamDetails->getName() . ' ist ein Team aus ' . $teamDetails->getHeadQuarterId() . '.',
         ]);
 
         /* Schema.org markup for Google+ */
@@ -187,7 +205,12 @@ class MetaClass {
         ]); // og:sitename
     }
 
-	public function writeMetaIndex($view, $title) {
+    /**
+     * @param View $view
+     * @param string $title
+     */
+    public function writeMetaIndex($view, $title)
+    {
         /* standart meta tags */
         $view->registerMetaTag([
             'name' => 'description',
@@ -268,7 +291,7 @@ class MetaClass {
             'content' => 'https://project-esport.gg/images/PeSpLogos/pesp_large_black.png',
         ]); // og:image:secure_url
         $view->registerMetaTag([
-        'property' => 'og:image:type',
+            'property' => 'og:image:type',
             'content' => 'image/png',
         ]); // og:image:type
         $view->registerMetaTag([
