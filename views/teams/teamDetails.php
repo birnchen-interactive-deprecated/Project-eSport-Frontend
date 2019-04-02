@@ -15,13 +15,13 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 /* Browser Title */
-$this->title = $teamDetails->getName().'\'s Team profile';
+$this->title = $teamDetails->getName() . '\'s Team profile';
 
 /* Site Canonicals */
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]);
 
 /* twitter/facebook/google Metatags */
-Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $teamInfo);
+Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
 
 ?>
 

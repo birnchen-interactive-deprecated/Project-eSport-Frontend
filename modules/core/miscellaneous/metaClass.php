@@ -100,7 +100,7 @@ class MetaClass {
 		]); // og:sitename
 	}
 
-	public function writeMetaMainTeam($view, $teamDetails, $teamInfo)
+	public function writeMetaMainTeam($view, $teamDetails, $title)
     {
         /* standart meta tags */
         $view->registerMetaTag([
@@ -111,7 +111,7 @@ class MetaClass {
         /* Schema.org markup for Google+ */
         $view->registerMetaTag([
             'itemprop' => 'name',
-            'content' => $teamDetails->getName() . '\'s Team profile',
+            'content' => $title,
         ]); // itempro:name
         $view->registerMetaTag([
             'itemprop' => 'description',
@@ -141,7 +141,7 @@ class MetaClass {
         ]); // twitter:account_id
         $view->registerMetaTag([
             'name' => 'twitter:title',
-            'content' => $teamDetails->getName() . '\'s Team profile',
+            'content' => $title,
         ]); // twitter:title
         $view->registerMetaTag([
             'name' => 'twitter:description',
@@ -163,7 +163,7 @@ class MetaClass {
         /* Open Graph Data (and facebook) */
         $view->registerMetaTag([
             'property' => 'og:title',
-            'content' => $teamDetails->getName() . '\'s Team profile',
+            'content' => $title,
         ]); // og:title
         $view->registerMetaTag([
             'property' => 'og:type',
@@ -183,7 +183,7 @@ class MetaClass {
         ]); // og:description
         $view->registerMetaTag([
             'property' => 'og:site_name',
-            'content' => $teamDetails->getName() . '\'s Team profile',
+            'content' => $title,
         ]); // og:sitename
     }
 
