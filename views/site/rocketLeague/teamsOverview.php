@@ -14,7 +14,7 @@ $this->title = 'Team Details';
     <?php foreach($teamHierarchy as $hierarchy ):
         $mainTeam = $hierarchy['mainTeam'];
         $mainTeamOwner = $mainTeam->getOwner()->one()->getUsername();
-        $mainTeamImage = '/images/teams/' . $mainTeam->getId() . '.png';
+        $mainTeamImage = '/images/teams/mainTeams/' . $mainTeam->getId() . '.png';
         $mainTeamImage = (!file_exists($_SERVER['DOCUMENT_ROOT'] . $mainTeamImage)) ? '/images/userAvatar/default.png' : $mainTeamImage;
         ?>
 
