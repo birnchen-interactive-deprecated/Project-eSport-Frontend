@@ -3,9 +3,7 @@
 /* @var $this yii\web\View *
  * @var $model app\modules\core\models\User
  * @var $isMySelfe bool
- * @var $gender app\modules\core\models\Gender
- * @var $language app\modules\core\models\Language
- * @var $nationality app\modules\core\models\Nationality
+ * @var $userInfo array
  * @var $mainTeams array
  * @var $subTeams array
  */
@@ -13,34 +11,21 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
+/* Browser Title */
 $this->title = $model->username.'\'s Player profile';
 
+/* Site Canonicals */
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]);
 
-Yii::$app->metaClass->writeMetaUser($this, $model, $nationality);
-
-$playerImage = '/images/userAvatar/' . $model->user_id . '.png';
-if (!is_file($_SERVER['DOCUMENT_ROOT'] . $playerImage)) {
-    $playerImage = '/images/userAvatar/default.png';
-}
-
-$playerNationality = '/images/nationality/' . $model->nationality_id . '.png';
-
-$memberDateTime = new DateTime($model->dt_created);
-$memberDate = $memberDateTime->format('d.m.y');
-
-$memberBirthdayRaw = new DateTime($model->birthday);
-$now = new DateTime();
-
-$ageDiff = $memberBirthdayRaw->diff($now);
-$age = $ageDiff->y;
+/* twitter/facebook/google Metatags */
+Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
 
 ?>
 <div class="site-account">
 
     <div class="col-lg-3 avatarPanel">
-        <?= Html::img($playerImage, ['class' => 'avatar-logo']); ?>
-        <?php if($isMySelfe) : ?>
+        <?= Html::img($userInfo['playerImage'], ['class' => 'avatar-logo']); ?>
+        <?php if($userInfo['isMySelfe']) : ?>
         <?php $form = ActiveForm::begin([
             'id' => 'profile-pic-form',
             // 'layout' => 'horizontal',
@@ -59,7 +44,7 @@ $age = $ageDiff->y;
     <div class="col-lg-7 playerPanel">
 
         <div class="header">
-            <?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?>
+            <?= Html::img($userInfo['nationalityImg'], ['class' => 'nationality-logo']); ?>
             <span class="username"><?= $model->username; ?></span>
             <span class="userid">id: <?= $model->user_id; ?></span>
         </div>
@@ -75,15 +60,15 @@ $age = $ageDiff->y;
             </div>
             <div class="entry clearfix">
                 <div class="col-xs-5 col-sm-3 col-lg-3">Mitglied Seit</div>
-                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $memberDate; ?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $userInfo['memberSince']; ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-xs-5 col-sm-3 col-lg-3">Alter / Geschlecht</div>
-                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $age . " / " . $gender->getName(); ?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $userInfo['age'] . " / " . $userInfo['gender']->getName(); ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-xs-5 col-sm-3 col-lg-3">Nationalität</div>
-                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::img($playerNationality, ['class' => 'nationality-logo']); ?><?= (NULL === $nationality) ? '' : $nationality->getName(); ?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::img($userInfo['nationalityImg'], ['class' => 'nationality-logo']); ?><?= (NULL === $userInfo['nationality']) ? '' : $userInfo['nationality']->getName(); ?></div>
             </div>
             <div class="entry clearfix">
                 <div class="col-xs-5 col-sm-3 col-lg-3">Ort</div>

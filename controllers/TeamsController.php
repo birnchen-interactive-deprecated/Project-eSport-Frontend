@@ -16,7 +16,7 @@ use Yii;
 
 class TeamsController extends BaseController
 {
-    public function actionTeamDetails($id = null, $isSub = false)
+    public function actionTeamDetails($id = null)
     {
         $teamDetails = MainTeam::findOne(['team_id' => $id]);
 
