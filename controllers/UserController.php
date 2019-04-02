@@ -38,14 +38,14 @@ class UserController extends BaseController
         }
 
         /* Get Register Date and Age */
-        $memberDateTime = new DateTime($user->dt_created);
+        //$memberDateTime = new DateTime($user->dt_created);
         $memberBirthdayRaw = new DateTime($user->birthday);
-
+        $tmp = DateTime::createFromFormat('y-m-d H:i:s', $user->dt_created);
         /** @var $userInfo array */
         $userInfo = [
             'isMySelfe' => $isMySelfe,
-            //'memberSince' => DateTime::createFromFormat('d.m.y', $user->dt_created),
-            'memberSince' => $memberDateTime->format('d.m.y'),
+            'memberSince' => $tmp->format('d.m.y'),
+            //'memberSince' => $memberDateTime->format('d.m.y'),
             'age' => $memberBirthdayRaw->diff(new DateTime())->y,
             'gender' => $user->getGender()->one(),
             'language' => $user->getLanguage()->one(),
