@@ -39,3 +39,22 @@
     font-size: 12px;
     margin: 0 0 0 4px;
 }
+
+.site-account .playerPanel .teamBody {
+    border-bottom: 1px solid #aaa;
+    padding: 10px 0;
+}
+
+.site-account .playerPanel .teamBody .entry {
+    padding: 3px 0;
+}
+
+.site-account .playerPanel .teamBody .context {
+    padding: 0 15px 0 30px;
+}
+
+.site-account .playerPanel .teamBody .nationality-logo {
+    margin: 0 5px 0 0;
+    vertical-align: sub;
+    width: 24px;
+}
