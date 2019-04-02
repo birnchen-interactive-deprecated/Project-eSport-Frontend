@@ -8,6 +8,7 @@
 
 /* @var $this yii\web\View *
  * @var $teamDetails array
+ * @var $teamInfo array
  */
 
 use yii\bootstrap\ActiveForm;
@@ -17,8 +18,8 @@ use yii\helpers\Html;
 
 <div class="site-team-details">
     <div class="col-lg-3 avatarPanel">
-        <?= Html::img($playerImage, ['class' => 'avatar-logo']); ?>
-        <?php if($isMySelfe) : ?>
+        <?= Html::img($teamInfo['teamImage'], ['class' => 'avatar-logo']); ?>
+        <?php if($teamInfo['isOwner']) : ?>
             <?php $form = ActiveForm::begin([
                 'id' => 'profile-pic-form',
                 // 'layout' => 'horizontal',
@@ -35,5 +36,37 @@ use yii\helpers\Html;
     </div>
 
 
-    <?php echo $teamDetails->getName() . ' id:' . $teamDetails->getId(); ?>
+    <div class="col-lg-7 teamPanel">
+
+        <div class="header">
+            <?= Html::img($teamInfo['nationalityImg'], ['class' => 'nationality-logo']); ?>
+            <span class="teamname"><?= $teamDetails->getName(); ?></span>
+            <span class="teamid">id: <?= $teamDetails->getId(); ?></span>
+        </div>
+        <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Name</div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getName(); ?></div>
+        </div>
+        <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Shortcode</div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getShortCode(); ?></div>
+        </div>
+        <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Mitglied Seit</div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamInfo['memberSince']; ?></div>
+        </div>
+        <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Nationalität</div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::img($teamInfo['nationalityImg'], ['class' => 'nationality-logo']); ?></div>
+        </div>
+        <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Description</div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getDescription() ?></div>
+        </div>
+    </div>
+
+    <div class="teamBody">
+
+
+    </div>
 </div>
