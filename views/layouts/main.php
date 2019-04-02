@@ -19,7 +19,7 @@ $twitterImg = Html::img('../images/socialMedia/Twitter_Logo_Blue.png', ['height'
 $twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank', 'rel' =>'noopener']);
 
 $discordImg = Html::img('../images/socialMedia/Discord-Logo-White.png', ['height' => '49px', 'style' => 'padding: 5px 0; ']);
-$discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank']);
+$discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank', 'rel' =>'noopener']);
 
 $containerClass = '';
 if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
