@@ -32,7 +32,7 @@ class TeamsController extends BaseController
             'language' => $teamDetails->getHeadQuarterId(),
             //'nationality' => $teamDetails->getHeadQuarterId(),
             'nationalityImg' => '/images/nationality/' . $teamDetails->getHeadQuarterId() . '.png',
-            'teamImage' => '/images/userAvatar/' . $teamDetails->getId() . '.png'
+            'teamImage' => '/images/teams/mainTeams/' . $teamDetails->getId() . '.png'
         ];
 
         return $this->render('teamDetails',
