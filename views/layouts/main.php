@@ -15,11 +15,11 @@ AppAsset::register($this);
 
 $visible = (Yii::$app->user->isGuest) ? false : true;
 
-$twitterImg = Html::img('../images/socialMedia/Twitter_Logo_Blue.png', ['height' => '49px']);
-$twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank', 'rel' =>'noopener']);
+$twitterImg = Html::img('../images/socialMedia/Twitter_Logo_Blue.png', ['height' => '49px', 'alt'=> 'twitter.png']);
+$twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Follow us on twitter', 'label' => 'twitter']);
 
-$discordImg = Html::img('../images/socialMedia/Discord-Logo-White.png', ['height' => '49px', 'style' => 'padding: 5px 0; ']);
-$discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank', 'rel' =>'noopener']);
+$discordImg = Html::img('../images/socialMedia/Discord-Logo-White.png', ['height' => '49px', 'alt'=> 'discord.png', 'style' => 'padding: 5px 0; ']);
+$discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Join our Discord Server']);
 
 $containerClass = '';
 if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
@@ -27,7 +27,7 @@ if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
 }
 
 $navigation = array(
-    array('label' => 'Home', 'url' => ['/site/index']),
+    array('label' => 'Home', 'url' => ['/site/index'], ['aria-label' => 'Home Button']),
     array('label' => 'Teams', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/site/rl-teams-overview']),
     )),
@@ -57,14 +57,6 @@ if (Yii::$app->user->isGuest) {
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-8480651532892152",
-            enable_page_level_ads: true
-        });
-    </script>
 </head>
 <body>
 <?php $this->beginBody() ?>
