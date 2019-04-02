@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 $this->title = 'Welcome to Project eSport\'s';
 
-$this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]);
+$this->registerLinkTag(['rel' => 'canonical', 'href' => 'https://project-esport.gg' . Yii::$app->request->url]);
 
 Yii::$app->metaClass->writeMetaIndex($this, $this->title);
 

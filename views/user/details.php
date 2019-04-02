@@ -14,7 +14,7 @@ use yii\helpers\Html;
 $this->title = $model->username.'\'s Player profile';
 
 /* Site Canonicals */
-$this->registerLinkTag(['rel' => 'canonical', 'href' => Yii::$app->request->url]);
+$this->registerLinkTag(['rel' => 'canonical', 'href' => 'https://project-esport.gg' . Yii::$app->request->url]);
 
 /* twitter/facebook/google Metatags */
 Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);

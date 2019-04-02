@@ -38,7 +38,6 @@ class UserController extends BaseController
         $userInfo = [
             'isMySelfe' => $isMySelfe,
             'memberSince' => DateTime::createFromFormat('Y-m-d H:i:s', $user->dt_created)->format('d.m.y'),
-            //'memberSince' => $memberDateTime->format('d.m.y'),
             'age' => (new DateTime($user->birthday))->diff(new DateTime())->y,
             'gender' => $user->getGender()->one(),
             'language' => $user->getLanguage()->one(),
