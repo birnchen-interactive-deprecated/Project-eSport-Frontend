@@ -35,6 +35,11 @@ class TeamsController extends BaseController
             'teamImage' => '/images/teams/mainTeams/' . $teamDetails->getId() . '.png'
         ];
 
+        /* Set Correct Image Path */
+        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'])) {
+            $teamInfo['teamImage'] = '/images/userAvatar/default.png';
+        }
+
         return $this->render('teamDetails',
         [
             'teamDetails' => $teamDetails,
