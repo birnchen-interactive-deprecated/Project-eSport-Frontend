@@ -40,20 +40,20 @@
     margin: 0 0 0 4px;
 }
 
-.site-account .playerPanel .teamBody {
+.site-team-details .teamPanel .teamBody {
     border-bottom: 1px solid #aaa;
     padding: 10px 0;
 }
 
-.site-account .playerPanel .teamBody .entry {
+.site-team-details .teamPanel .teamBody .entry {
     padding: 3px 0;
 }
 
-.site-account .playerPanel .teamBody .context {
+.site-team-details .teamPanel .teamBody .context {
     padding: 0 15px 0 30px;
 }
 
-.site-account .playerPanel .teamBody .nationality-logo {
+.site-team-details .teamPanel .teamBody .nationality-logo {
     margin: 0 5px 0 0;
     vertical-align: sub;
     width: 24px;
