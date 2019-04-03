@@ -47,6 +47,10 @@ ul, li {
     line-height: 20px;
 }
 
+.wrap .steamNews img {
+    width: 100%;
+}
+
 .wrap .container > .welcome > .dclink {
     text-align: center;
     font-weight: bold;
