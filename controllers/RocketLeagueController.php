@@ -22,14 +22,11 @@ class RocketLeagueController extends BaseController
         return $this->render('newsDetails');
     }
 
+    /**
+     * @return string
+     */
     public function actionRlTeamsOverview()
     {
-        //if (Yii::$app->user->isGuest) {
-        //    // return $this->render('index');
-        //    return $this->goHome();
-        //}
-
-        // $subteams = SubTeam::getTeamsByGame(1);
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
         return $this->render('teamsOverview',
