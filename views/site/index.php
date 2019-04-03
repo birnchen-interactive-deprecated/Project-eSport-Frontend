@@ -24,8 +24,8 @@ if (false === $data) {
 		}
 
 		$data[$key] = [
-			'title' => $item->title,
-			'html' => $item->description,
+			'title' => (string) $item->title,
+			'html' => (string) $item->description,
 		];
 
 	}
