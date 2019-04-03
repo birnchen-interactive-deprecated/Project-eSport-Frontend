@@ -277,7 +277,7 @@ class SiteController extends BaseController
 
         $tournamentList = Tournament::getRLTournaments();
 
-        return $this->render('rocketLeague/tournamentsOverview',
+        return $this->render('rocket-league/tournamentsOverview',
             [
                 'tournamentList' => $tournamentList,
             ]
@@ -299,7 +299,7 @@ class SiteController extends BaseController
 
         $participatingEntrys = $tournament->getParticipants()->all();
 
-        return $this->render('rocketLeague/tournamentDetails',
+        return $this->render('rocket-league/tournamentDetails',
             [
                 'tournament' => $tournament,
                 'ruleSet' => $ruleSet,
@@ -318,7 +318,7 @@ class SiteController extends BaseController
         // $subteams = SubTeam::getTeamsByGame(1);
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
-        return $this->render('rocketLeague/teamsOverview',
+        return $this->render('rocket-league/teamsOverview',
             [
                 'teamHierarchy' => $teamHierarchy,
             ]
