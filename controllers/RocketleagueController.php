@@ -21,7 +21,7 @@ use app\modules\core\models\Tournament;
 
 class RocketleagueController extends BaseController
 {
-    public function actionNewsDetails($id = null)
+    public function actionNewsDetails()
     {
         return $this->render('newsDetails');
     }
@@ -106,11 +106,9 @@ class RocketleagueController extends BaseController
 
     }
 
-    public function actionRlTournamentDetails()
+    public function actionRlTournamentDetails($id = null)
     {
-        $tournamentId = Yii::$app->request->get('id');
-
-        $tournament = Tournament::getTournamentById($tournamentId);
+        $tournament = Tournament::getTournamentById($id);
         $ruleSet = $tournament->getRules();
 
         $participatingEntrys = $tournament->getParticipants()->all();
