@@ -84,7 +84,8 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
                 <div class="mainTeam">Main Team:</div>
                 <?php foreach ($mainTeams as $key => $mainTeam): ?>
                     <div class="teamEntry clearfix">
-                        <div class="col-lg-12"><?= $mainTeam['team']->getName(); ?> (<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)</div>
+                        <div class="col-lg-12">
+                            <?= Html::a($mainTeam['team']->getName() , ['/teams/team-details', 'id' => $mainTeam['team']->getId()]); ?> (<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>) </div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -93,7 +94,7 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
                 <div class="mainTeam">Sub Teams:</div>
                 <?php foreach ($subTeams as $key => $subTeam): ?>
                     <div class="teamEntry clearfix">
-                        <div class="col-lg-12"><?= $subTeam['team']->getName() . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?> (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
+                        <div class="col-lg-12"><?= Html::a($subTeam['team']->getName() , ['/teams/sub-team-details', 'id' => $subTeam['team']->getId()]) . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?> (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
                     </div>
                 <?php endforeach; ?>
             </div>

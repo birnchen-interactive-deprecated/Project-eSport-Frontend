@@ -71,7 +71,6 @@ class UserController extends BaseController
         }
 
         $subTeams = $user->getAllSubTeamsWithMembers();
-
         return $this->render('details',
             [
                 'model' => $user,

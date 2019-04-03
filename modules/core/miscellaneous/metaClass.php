@@ -123,7 +123,7 @@ class MetaClass
         /* standart meta tags */
         $view->registerMetaTag([
             'name' => 'description',
-            'content' => $teamDetails->getName() . ' ist ein Team aus ' . $teamDetails->getHeadQuarterId() . '.',
+            'content' => $teamDetails->getDescription(),
         ]);
 
         /* Schema.org markup for Google+ */
