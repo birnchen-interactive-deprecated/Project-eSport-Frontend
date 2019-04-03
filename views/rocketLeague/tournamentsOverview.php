@@ -111,7 +111,7 @@ $this->title = 'RL Tournament Overview';
             <?php endforeach; ?>
             <?php foreach ($preRunningTurnier as $tournament): ?>
                 <tr>
-                    <td><?= Html::a($tournament->showRealTournamentName(), ['/site/rocketLeague-tournament-details', 'id' => $tournament->getId()]) ?>
+                    <td><?= Html::a($tournament->showRealTournamentName(), ['/site/rocketleague-tournament-details', 'id' => $tournament->getId()]) ?>
                         <span class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
                     <td><?= $tournament->getDtStartingTime(); ?></td>
                     <td>Preparing</td>

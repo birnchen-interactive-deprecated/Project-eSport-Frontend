@@ -200,29 +200,6 @@ class SiteController extends BaseController
 
     /** Rocket League Area **/
 
-    public function actionRlTournamentDetails()
-    {
-        //if (Yii::$app->user->isGuest) {
-        //    // return $this->render('index');
-        //    return $this->goHome();
-        //}
-
-        $tournamentId = Yii::$app->request->get('id');
-
-        $tournament = Tournament::getTournamentById($tournamentId);
-        $ruleSet = $tournament->getRules();
-
-        $participatingEntrys = $tournament->getParticipants()->all();
-
-        return $this->render('rocketLeague/tournamentDetails',
-            [
-                'tournament' => $tournament,
-                'ruleSet' => $ruleSet,
-                'participatingEntrys' => $participatingEntrys
-            ]
-        );
-    }
-
 
     /** End of Rocket League Area **/
 

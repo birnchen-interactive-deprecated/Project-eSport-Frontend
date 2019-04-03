@@ -102,6 +102,23 @@ class RocketleagueController extends BaseController
 
     }
 
+    public function actionRlTournamentDetails()
+    {
+        $tournamentId = Yii::$app->request->get('id');
+
+        $tournament = Tournament::getTournamentById($tournamentId);
+        $ruleSet = $tournament->getRules();
+
+        $participatingEntrys = $tournament->getParticipants()->all();
+
+        return $this->render('tournamentDetails',
+            [
+                'tournament' => $tournament,
+                'ruleSet' => $ruleSet,
+                'participatingEntrys' => $participatingEntrys
+            ]
+        );
+    }
     /**
      * @return string
      */
