@@ -17,13 +17,14 @@ if (false === $data) {
 
 	$data = [];
 
-	foreach ($xml->channel->item as $key => $item) {
+	$key = 0;
+	foreach ($xml->channel->item as $item) {
 
 		if (3 === $key) {
-			return;
+			break;
 		}
 
-		$data[$key] = [
+		$data[$key++] = [
 			'title' => $item->title->__toString(),
 			'html' => $item->description->__toString(),
 		];
