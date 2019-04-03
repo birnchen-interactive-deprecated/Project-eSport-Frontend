@@ -52,6 +52,7 @@ ul, li {
 }
 
 .wrap .steamNews .bigNews {
+    height: 800px; /* evtl. ueberdenken */
     max-height: 800px;
     overflow-y: hidden;
     cursor: pointer;
