@@ -56,11 +56,17 @@ ul, li {
     overflow-y: hidden;
     cursor: pointer;
 }
+.wrap .steamNews .bigNews:hover {
+    background-color: rgba(220, 220, 220, 0.5);
+}
 
 .wrap .steamNews .smallNews {
     max-height: 400px;
     overflow-y: hidden;
     cursor: pointer;
+}
+.wrap .steamNews .smallNews:hover {
+    background-color: rgba(220, 220, 220, 0.5);
 }
 
 .wrap .steamNews img {
