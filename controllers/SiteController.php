@@ -145,29 +145,6 @@ class SiteController extends BaseController
         return $this->goHome();
     }
 
-    /* All Actions for the Logged In User */
-
-
-
-    //public function actionTeamDetails($id = null, $isSub = false)
-    //{
-    //    $teamDetails = (!$isSub) ? MainTeam::findOne(['team_id' => $id]) : SubTeam::findOne(['sub_team_id' => $id]);
-    //
-    //    if($isSub)
-    //    {
-    //        return $this->render('teams/teamDetails',
-    //            [
-    //                'teamDetails' => $teamDetails,
-    //            ]);
-    //    }
-    //    else {
-    //        return $this->render('teams/teamDetails',
-    //            [
-    //                'teamDetails' => $teamDetails,
-    //            ]);
-    //    }
-    //}
-
     /**
      * Displays User Tournaments.
      *
