@@ -308,22 +308,7 @@ class SiteController extends BaseController
         );
     }
 
-    public function actionRlTeamsOverview()
-    {
-        //if (Yii::$app->user->isGuest) {
-        //    // return $this->render('index');
-        //    return $this->goHome();
-        //}
 
-        // $subteams = SubTeam::getTeamsByGame(1);
-        $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
-
-        return $this->render('rocket-league/teamsOverview',
-            [
-                'teamHierarchy' => $teamHierarchy,
-            ]
-        );
-    }
     /** End of Rocket League Area **/
 
     /**
