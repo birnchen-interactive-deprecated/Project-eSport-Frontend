@@ -198,11 +198,6 @@ class SiteController extends BaseController
         return $this->render('myTeams');
     }
 
-    /** Rocket League Area **/
-
-
-    /** End of Rocket League Area **/
-
     /**
      * Displays News.
      *
