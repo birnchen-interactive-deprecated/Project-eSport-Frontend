@@ -47,6 +47,22 @@ ul, li {
     line-height: 20px;
 }
 
+.wrap .steamNews {
+    padding: 10px 0 0;
+}
+
+.wrap .steamNews .bigNews {
+    max-height: 800px;
+    overflow-y: hidden;
+    cursor: pointer;
+}
+
+.wrap .steamNews .smallNews {
+    max-height: 400px;
+    overflow-y: hidden;
+    cursor: pointer;
+}
+
 .wrap .steamNews img {
     width: 100%;
 }
