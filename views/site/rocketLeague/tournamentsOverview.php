@@ -173,7 +173,7 @@ $this->title = 'RL Tournament Overview';
                 $checkInEnd = new DateTime($tournament->getDtCheckinEnd());
                 ?>
                 <tr>
-                    <td><?= $tournament->showRealTournamentName(); ?> <span
+                    <td><?= Html::a($tournament->showRealTournamentName(), ['/site/rl-tournament-details', 'id' => $tournament->getId()]); ?> <span
                                 class="badge"><?= count($tournament->getParticipants()->all()); ?></span></td>
                     <td><?= $checkInBegin->format('Y-m-d'); ?></td>
                     <td><?= $checkInBegin->format('H:i'); ?> - <?= $checkInEnd->format('H:i'); ?></td>
