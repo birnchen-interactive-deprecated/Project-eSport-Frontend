@@ -32,7 +32,7 @@ class RocketLeagueController extends BaseController
         // $subteams = SubTeam::getTeamsByGame(1);
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
-        return $this->render('rocket-league/teamsOverview',
+        return $this->render('teamsOverview',
             [
                 'teamHierarchy' => $teamHierarchy,
             ]
