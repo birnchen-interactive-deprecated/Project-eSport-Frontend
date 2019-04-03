@@ -15,7 +15,7 @@ use Yii;
 use DateTime;
 
 
-class RLController extends BaseController
+class RocketLeagueController extends BaseController
 {
     public function actionRlNewsDetails($id = null)
     {
