@@ -130,7 +130,7 @@ class MetaClass
         $view->registerMetaTag([
             'itemprop' => 'name',
             'content' => $title,
-        ]); // itempro:name
+        ]); // itemprop:name
         $view->registerMetaTag([
             'itemprop' => 'description',
             'content' => $teamDetails->getDescription(),
