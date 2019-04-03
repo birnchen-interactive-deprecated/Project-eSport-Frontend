@@ -29,7 +29,7 @@ if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
 $navigation = array(
     array('label' => 'Home', 'url' => ['/site/index'], ['aria-label' => 'Home Button']),
     array('label' => 'Teams', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/rocket-league/rl-teams-overview']),
+        array('label' => 'Rocket League', 'url' => ['/rocket_league/rl-teams-overview']),
     )),
     array('label' => 'Turniere', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/site/rl-tournaments']),
