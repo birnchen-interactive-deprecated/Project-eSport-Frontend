@@ -25,7 +25,7 @@ class RocketLeagueController extends BaseController
     /**
      * @return string
      */
-    public function actionRlTeamsOverview()
+    public function actionTeamsOverview()
     {
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
