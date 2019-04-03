@@ -26,7 +26,7 @@ class RocketleagueController extends BaseController
         return $this->render('newsDetails');
     }
 
-    public function actionRlTournaments()
+    public function actionTournaments()
     {
         if (is_array($_POST) && isset($_POST['tournamentId'])) {
 
@@ -106,7 +106,7 @@ class RocketleagueController extends BaseController
 
     }
 
-    public function actionRlTournamentDetails($id = null)
+    public function actionTournamentDetails($id = null)
     {
         $tournament = Tournament::getTournamentById($id);
         $ruleSet = $tournament->getRules();

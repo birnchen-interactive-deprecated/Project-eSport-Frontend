@@ -32,7 +32,7 @@ $navigation = array(
         array('label' => 'Rocket League', 'url' => ['/rocketleague/teams-overview']),
     )),
     array('label' => 'Turniere', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/rocketleague/rl-tournaments']),
+        array('label' => 'Rocket League', 'url' => ['/rocketleague/tournaments']),
     )),
 );
 if (Yii::$app->user->isGuest) {
