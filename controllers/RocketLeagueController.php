@@ -29,7 +29,7 @@ class RLController extends BaseController
     {
         $teamHierarchy = SubTeam::getTeamHierarchyByGame(1);
 
-        return $this->render('rl/teamsOverview',
+        return $this->render('teamsOverview',
             [
                 'teamHierarchy' => $teamHierarchy,
             ]
