@@ -20,7 +20,7 @@ foreach ($matches[1] as $key => $match) {
 
 	$newLink = strstr(substr($match, 1), 'https:');
 
-	str_replace($match, $newLink, $data[$pos]['html']);
+	$data[$pos]['html'] = str_replace($match, $newLink, $data[$pos]['html']);
 }
 
 $this->title = 'Rocket League News';
