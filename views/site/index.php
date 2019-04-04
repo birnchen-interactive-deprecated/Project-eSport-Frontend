@@ -23,7 +23,7 @@ Yii::$app->metaClass->writeMetaIndex($this, $this->title);
         <br>
         Noch kein Team angelegt??? <br>
         Melde dich auf <a class="dclink" href="https://discord.gg/f6NXNFy">Discord</a> bei <b><i><u>Birnchen | Pierre#5366</u></i></b>.
-        <?= Html::a('rlNews' , ['/rocketleague/news-details']); ?>
+        <?= Html::a('rlNews' , ['/rocketleague/news-details', 'pos' => 0 ]); ?>
 
 
     </div>
