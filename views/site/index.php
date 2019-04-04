@@ -12,9 +12,9 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => 'https://project-esport.
 
 Yii::$app->metaClass->writeMetaIndex($this, $this->title);
 
-$bigNews = Html::a('<div><h1>' . $data[0]['title'] . '</h1><p>' . $data[0]['html'] . '</p></div>', ['/rocketleague/news-details', 'pos' => 0], ['class' => 'bigNews col-lg-9']);
-$smallNews1 = Html::a('<div><h1>' . $data[1]['title'] . '</h1><p>' . $data[1]['html'] . '</p></div>', ['/rocketleague/news-details', 'pos' => 1], ['class' => 'smallNews col-lg-3']);
-$smallNews2 = Html::a('<div><h1>' . $data[2]['title'] . '</h1><p>' . $data[2]['html'] . '</p></div>', ['/rocketleague/news-details', 'pos' => 2], ['class' => 'smallNews col-lg-3']);
+$bigNews = Html::a('<h1>' . $data[0]['title'] . '</h1><p>' . $data[0]['html'] . '</p>', ['/rocketleague/news-details', 'pos' => 0]);
+$smallNews1 = Html::a('<h1>' . $data[1]['title'] . '</h1><p>' . $data[1]['html'] . '</p>', ['/rocketleague/news-details', 'pos' => 1]);
+$smallNews2 = Html::a('<h1>' . $data[2]['title'] . '</h1><p>' . $data[2]['html'] . '</p>', ['/rocketleague/news-details', 'pos' => 2]);
 
 ?>
 <div class="site-index">
@@ -32,9 +32,17 @@ $smallNews2 = Html::a('<div><h1>' . $data[2]['title'] . '</h1><p>' . $data[2]['h
 
     <div class="steamNews">
 
-            <?= $bigNews; ?>
-            <?= $smallNews1; ?>
+            <div class="bigNews col-lg-9">
+                <?= $bigNews; ?>
+            </div>
+
+            <div class="smallNews col-lg-3">
+                <?= $smallNews1; ?>
+            </div>
+            
+            <div class="smallNews col-lg-3">
             <?= $smallNews2; ?>
+            </div>
 
     </div>
 
