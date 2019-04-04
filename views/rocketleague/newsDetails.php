@@ -12,7 +12,16 @@
  */
 
 
+preg_match_all('/a.*?href=["\'](.*?)["\']/', $data[$pos]['html'], $matches);
+foreach ($matches[1] as $key => $match) {
+	if (substr_count($match, 'https:') === 1) {
+		continue;
+	}
 
+	$newLink = strstr(substr($match, 1), 'https:');
+
+	str_replace($match, $newLink, $data[$pos]['html']);
+}
 
 $this->title = 'Rocket League News';
 ?>
