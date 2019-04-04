@@ -29,14 +29,12 @@ Yii::$app->metaClass->writeMetaIndex($this, $this->title);
     </div>
 
     <div class="steamNews">
-    	
     	<div class="bigNews col-lg-9">
     		<h1><?= $data[0]['title']; ?></h1>
     		<p>
     			<?= $data[0]['html']; ?>
     		</p>
     	</div>
-
 		<div class="smallNews col-lg-3">
 			<h1><?= $data[1]['title']; ?></h1>
 			<p>
