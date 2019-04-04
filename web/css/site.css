@@ -51,23 +51,25 @@ ul, li {
     padding: 10px 0 0;
 }
 
-.wrap .steamNews .bigNews {
+.wrap .steamNews a.bigNews {
     height: 800px; /* evtl. ueberdenken */
     max-height: 800px;
     overflow-y: hidden;
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
-.wrap .steamNews .bigNews:hover {
+.wrap .steamNews a.bigNews:hover,
+.wrap .steamNews a.smallNews:hover {
     background-color: rgba(220, 220, 220, 0.5);
+    text-decoration: none;
 }
 
-.wrap .steamNews .smallNews {
+.wrap .steamNews a.smallNews {
+
     max-height: 400px;
     overflow-y: hidden;
     cursor: pointer;
-}
-.wrap .steamNews .smallNews:hover {
-    background-color: rgba(220, 220, 220, 0.5);
 }
 
 .wrap .steamNews img {
