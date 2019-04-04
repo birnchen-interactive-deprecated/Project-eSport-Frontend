@@ -270,3 +270,7 @@ li.teamName > ul {
 .site-bracket iframe {
     height: calc(100% - 50px);
 }
+
+.wrap .rocket-League-news img {
+    width: 100%;
+}
