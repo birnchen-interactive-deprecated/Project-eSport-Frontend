@@ -8,10 +8,13 @@ use yii\helpers\Html;
 
 $this->title = 'Welcome to Project eSport\'s';
 
-
 $this->registerLinkTag(['rel' => 'canonical', 'href' => 'https://project-esport.gg' . Yii::$app->request->url]);
 
 Yii::$app->metaClass->writeMetaIndex($this, $this->title);
+
+$bigNews = Html::a('<h1>' . $data[0]['title'] . '</h1><p>' . $data[0]['html'] . '</p>', ['/rocketleague/news-details', 'pos' => 0], ['class' => 'bigNews col-lg-9']);
+$smallNews1 = Html::a('<h1>' . $data[1]['title'] . '</h1><p>' . $data[1]['html'] . '</p>', ['/rocketleague/news-details', 'pos' => 1], ['class' => 'smallNews col-lg-3']);
+$smallNews2 = Html::a('<h1>' . $data[2]['title'] . '</h1><p>' . $data[2]['html'] . '</p>', ['/rocketleague/news-details', 'pos' => 2], ['class' => 'smallNews col-lg-3']);
 
 ?>
 <div class="site-index">
@@ -23,7 +26,6 @@ Yii::$app->metaClass->writeMetaIndex($this, $this->title);
         <br>
         Noch kein Team angelegt??? <br>
         Melde dich auf <a class="dclink" href="https://discord.gg/f6NXNFy">Discord</a> bei <b><i><u>Birnchen | Pierre#5366</u></i></b>.
-        <?= Html::a('rlNews' , ['/rocketleague/news-details', 'pos' => 0 ]); ?>
 
 
     </div>
@@ -31,24 +33,15 @@ Yii::$app->metaClass->writeMetaIndex($this, $this->title);
     <div class="steamNews">
     	
     	<div class="bigNews col-lg-9">
-    		<h1><?= $data[0]['title']; ?></h1>
-    		<p>
-    			<?= $data[0]['html']; ?>
-    		</p>
+            <?= $bigNews; ?>
     	</div>
 
 		<div class="smallNews col-lg-3">
-			<h1><?= $data[1]['title']; ?></h1>
-			<p>
-				<?= $data[1]['html']; ?>
-			</p>
+            <?= $smallNews1; ?>
 		</div>
 
 		<div class="smallNews col-lg-3">
-			<h1><?= $data[2]['title']; ?></h1>
-			<p>
-				<?= $data[2]['html']; ?>
-			</p>
+            <?= $smallNews2; ?>
 		</div>
 
     </div>
