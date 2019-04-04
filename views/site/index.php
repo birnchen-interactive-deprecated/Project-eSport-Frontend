@@ -31,11 +31,9 @@ $smallNews2 = Html::a('<h1>' . $data[2]['title'] . '</h1><p>' . $data[2]['html']
     </div>
 
     <div class="steamNews">
-    	
     	<div class="bigNews col-lg-9">
             <?= $bigNews; ?>
     	</div>
-
 		<div class="smallNews col-lg-3">
             <?= $smallNews1; ?>
 		</div>
