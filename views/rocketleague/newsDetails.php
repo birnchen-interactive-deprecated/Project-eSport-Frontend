@@ -23,6 +23,17 @@ foreach ($matches[1] as $key => $match) {
 	$data[$pos]['html'] = str_replace($match, $newLink, $data[$pos]['html']);
 }
 
+foreach ($matches[1] as $key => $match) {
+	if (substr_count($match, 'http:') === 0) {
+		continue;
+	}
+
+	$newLink = strstr(substr($match, 1), 'http:');
+
+	$data[$pos]['html'] = str_replace($match, $newLink, $data[$pos]['html']);
+}
+
+
 $this->title = 'Rocket League News';
 ?>
 <div class="rocket-League-news">
