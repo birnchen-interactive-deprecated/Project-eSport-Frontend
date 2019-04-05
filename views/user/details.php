@@ -7,8 +7,11 @@
  * @var $subTeams array
  */
 
+use app\assets\UserDetails;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+
+\app\assets\UserDetails::register(($this));
 
 /* Browser Title */
 $this->title = $model->username.'\'s Player profile';
