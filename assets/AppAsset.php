@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
 
     public $css = [
         'css/site.css',
-        'css/accountOverview.css',
+     //   'css/accountOverview.css',
         'css/turnierOverview.css',
         'css/turnierDetails.css',
         'css/teamOverview.css',
@@ -37,5 +37,6 @@ class AppAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        '\app\assets\UserDetails',
     ];
 }
