@@ -29,7 +29,7 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
         <picture>
             <source srcset=" <?php echo $userInfo['playerImage'] . '.webp'; ?> " type="image/webp">
             <source srcset="<?php echo $userInfo['playerImage'] . '.png'; ?>" type="image/png">
-            <img src="<?php echo $userInfo['playerImage'] . '.png'; ?>">
+            <?= Html::img($userInfo['playerImage'] . '.png', ['class' => 'avatar-logo']); ?>
         </picture>
 
         <?php if($userInfo['isMySelfe']) : ?>
