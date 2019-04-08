@@ -26,13 +26,7 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
 <div class="site-account">
 
     <div class="col-lg-3 avatarPanel">
-<!--         <picture>
-            <source srcset=" <?php echo $userInfo['playerImage'] . '.webp'; ?> " type="image/webp">
-            <source srcset="<?php echo $userInfo['playerImage'] . '.png'; ?>" type="image/png">
-            <?//= Html::img($userInfo['playerImage'] . '.png', ['class' => 'avatar-logo']); ?>
-        </picture>
- -->
-        <img src="<?= $userInfo['playerImage']; ?>.webp" alt="" onerror="this.src='<?= $userInfo['playerImage']; ?>.png'">
+        <img class="avatar-logo" src="<?= $userInfo['playerImage']; ?>.webp" alt="" onerror="this.src='<?= $userInfo['playerImage']; ?>.png'">
 
         <?php if($userInfo['isMySelfe']) : ?>
         <?php $form = ActiveForm::begin([
