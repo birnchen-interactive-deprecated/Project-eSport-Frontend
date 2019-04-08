@@ -10,12 +10,12 @@ use Yii;
 class UserController extends BaseController
 {
     /**
-     * Display User Account Informations
-     *
-     * @param $id
-     * @return string
-     * @throws \yii\base\Exception
-     */
+ * Display User Account Informations
+ *
+ * @param $id
+ * @return string
+ * @throws \yii\base\Exception
+ */
     public function actionDetails($id)//
     {
         /** Check if user ID my own User ID */
@@ -43,12 +43,12 @@ class UserController extends BaseController
             'language' => $user->getLanguage()->one(),
             'nationality' => $user->getNationality()->one(),
             'nationalityImg' => '/images/nationality/' . $user->getNationalityId() . '.png',
-            'playerImage' => '/images/userAvatar/' . $user->getId() . '.png'
+            'playerImage' => '/images/userAvatar/' . $user->getId()
         ];
 
         /* Set Correct Image Path */
         if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'])) {
-            $userInfo['playerImage'] = '/images/userAvatar/default.png';
+            $userInfo['playerImage'] = '/images/userAvatar/default';
         }
 
 
