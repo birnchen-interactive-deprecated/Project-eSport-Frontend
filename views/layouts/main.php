@@ -28,15 +28,16 @@ if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
 
 $navigation = array(
     array('label' => 'Home', 'url' => ['/site/index'], ['aria-label' => 'Home Button']),
+    array('label' => 'News', 'items' => array(
+        array('label' => 'Rocket League', 'url' => ['/rocketleague/news']),
+    )),
     array('label' => 'Teams', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/rocketleague/teams-overview']),
     )),
     array('label' => 'Turniere', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/rocketleague/tournaments']),
     )),
-    array('label' => 'News', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/rocketleague/news']),
-    )),
+
 );
 if (Yii::$app->user->isGuest) {
     $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
