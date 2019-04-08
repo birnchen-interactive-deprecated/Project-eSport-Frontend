@@ -10,9 +10,6 @@ namespace app\controllers;
 
 use app\components\BaseController;
 use Yii;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
-use yii\web\Response;
 use app\modules\core\models\SubTeam;
 use app\modules\core\models\PlayerParticipating;
 use app\modules\core\models\TeamParticipating;
@@ -21,6 +18,45 @@ use app\modules\core\models\Tournament;
 
 class RocketleagueController extends BaseController
 {
+    public function actionNews()
+    {
+        $data = Yii::$app->cache->get('RSS_FEED_RL');
+
+        if (false === $data) {
+
+            $curl = curl_init('https://steamcommunity.com/games/252950/rss/');
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            $rssFeed = curl_exec($curl);
+
+            $xml = simplexml_load_string($rssFeed);
+
+            $data = [];
+
+            $key = 0;
+            foreach ($xml->channel->item as $item) {
+
+                if (3 === $key) {
+                    break;
+                }
+
+                $data[$key++] = [
+                    'title' => $item->title->__toString(),
+                    'html' => $item->description->__toString(),
+                ];
+
+            }
+
+            $cacheDuration = 300; // Einheit = Sekunden
+            Yii::$app->cache->set('RSS_FEED_RL', $data, $cacheDuration);
+        }
+
+
+        return $this->render('news',
+            [
+                'data' => $data,
+            ]);
+    }
+
     public function actionNewsDetails($pos)
     {
         $data = Yii::$app->cache->get('RSS_FEED_RL');
@@ -157,6 +193,7 @@ class RocketleagueController extends BaseController
             ]
         );
     }
+
     /**
      * @return string
      */
