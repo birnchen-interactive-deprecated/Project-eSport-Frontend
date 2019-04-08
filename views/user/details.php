@@ -31,7 +31,7 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
             <source srcset="<?php echo $userInfo['playerImage'] . '.png'; ?>" type="image/png">
             <img src="<?php echo $userInfo['playerImage'] . '.png'; ?>">
         </picture>
-        
+
         <?php if($userInfo['isMySelfe']) : ?>
         <?php $form = ActiveForm::begin([
             'id' => 'profile-pic-form',

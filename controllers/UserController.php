@@ -47,8 +47,12 @@ class UserController extends BaseController
         ];
 
         /* Set Correct Image Path */
-        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'])) {
-            $userInfo['playerImage'] = '/images/userAvatar/default';
+        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'] . '.webp'))
+        {
+            if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'] . '.png'))
+            {
+                $userInfo['playerImage'] = '/images/userAvatar/default';
+            }
         }
 
 
