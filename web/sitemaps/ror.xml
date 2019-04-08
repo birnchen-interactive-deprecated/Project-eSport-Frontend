@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://project-esport.gg/</title>
+  <link>https://project-esport.gg/</link>
+
+<item>
+     <link>https://project-esport.gg/</link>
+     <title>Welcome to Project eSport&amp;#039;s</title>
+     <description>Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/site/index</link>
+     <title>Welcome to Project eSport&amp;#039;s</title>
+     <description>Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/news</link>
+     <title>Welcome to Project eSport&amp;#039;s</title>
+     <description>Project eSport - Professional Gaming for everyone - Is a Tournament Site for Player from all Countries and all Skill Levels.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/teams-overview</link>
+     <title>Team Details</title>
+     <description>Team Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournaments</link>
+     <title>RL Tournament Overview</title>
+     <description>RL Tournament Overview</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/site/login</link>
+     <title>Login</title>
+     <description>Login</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/company/imprint</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/company/gtc</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/company/privacy</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/news-details?pos=0</link>
+     <title>Rocket League News</title>
+     <description>Rocket League News</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/news-details?pos=1</link>
+     <title>Rocket League News</title>
+     <description>Rocket League News</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/news-details?pos=2</link>
+     <title>Rocket League News</title>
+     <description>Rocket League News</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=5</link>
+     <title>AcTive&amp;#039;s Team profile</title>
+     <description>AcTive&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=10</link>
+     <title>Miksiplayz&amp;#039;s Player profile</title>
+     <description>Miksiplayz ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=11</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=49</link>
+     <title>Crime&amp;#039;s Player profile</title>
+     <description>Crime ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=30</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=12</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=31</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=16</link>
+     <title>Baby Driver&amp;#039;s Team profile</title>
+     <description>Niyaris Team</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=3</link>
+     <title>Niyari&amp;#039;s Player profile</title>
+     <description>Niyari ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=26</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=27</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=2</link>
+     <title>Captain Viper&amp;#039;s Team profile</title>
+     <description>Ein lockeres Team, welches Spaß am Spiel hat und trotzdem versucht besser zu werden.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=4</link>
+     <title>Captain Salty&amp;#039;s Player profile</title>
+     <description>Captain Salty ist ein Spieler aus Österreich.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=3</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=15</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=4</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=12</link>
+     <title>Esport BERG&amp;#039;s Team profile</title>
+     <description>Esport BERG&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=56</link>
+     <title>pahsi&amp;#039;s Player profile</title>
+     <description>pahsi ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=23</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=10</link>
+     <title>GHR E-Sports&amp;#039;s Team profile</title>
+     <description>GHR E-Sports&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=58</link>
+     <title>leo19993&amp;#039;s Player profile</title>
+     <description>leo19993 ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=21</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=13</link>
+     <title>Orbital Gaming&amp;#039;s Team profile</title>
+     <description>Orbital Gaming&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=42</link>
+     <title>VTrayxX&amp;#039;s Player profile</title>
+     <description>VTrayxX ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=18</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=1</link>
+     <title>Robotic Elite Clan&amp;#039;s Team profile</title>
+     <description>REC is a clan made by P1st0lpr0 aka. Robotic Skillz. Atraya is helping to lead the clan. We are currently searching for all ranks.
+We are a multigaming Clan. We don’t bite, so check out our Discord.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=22</link>
+     <title>P1st0lpr0&amp;#039;s Player profile</title>
+     <description>P1st0lpr0 ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=1</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=2</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=15</link>
+     <title>Safari Force&amp;#039;s Team profile</title>
+     <description>Safari Force&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=71</link>
+     <title>Taubenhaucher&amp;#039;s Player profile</title>
+     <description>Taubenhaucher ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=24</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=14</link>
+     <title>Stage 5 Gaming Training&amp;#039;s Team profile</title>
+     <description>Stage 5 Gaming Training&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=2</link>
+     <title>Birnchen&amp;#039;s Player profile</title>
+     <description>Birnchen ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=25</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=80</link>
+     <title>Phix&amp;#039;s Player profile</title>
+     <description>Phix ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=32</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=4</link>
+     <title>Stealth7 eSports&amp;#039;s Team profile</title>
+     <description>Wir, Stealth7 eSports, sind ein PS4/PC Multigaming Clan wo Fortschritt und Zusammenhalt an erster Stelle steht, was bei einem Teamspiel von hoher Bedeutung ist.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=25</link>
+     <title>Stealth7&amp;#039;s Player profile</title>
+     <description>Stealth7 ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=33</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=106</link>
+     <title>Lusazo_ &amp;#039;s Player profile</title>
+     <description>Lusazo_  ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=9</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=37</link>
+     <title>Flexxy&amp;#039;s Player profile</title>
+     <description>Flexxy ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=8</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=34</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=111</link>
+     <title>S7Xania&amp;#039;s Player profile</title>
+     <description>S7Xania ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=7</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=38</link>
+     <title>NoAvian&amp;#039;s Player profile</title>
+     <description>NoAvian ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=28</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=90</link>
+     <title>AveMaria&amp;#039;s Player profile</title>
+     <description>AveMaria ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=6</link>
+     <title>Team Aspect&amp;#039;s Team profile</title>
+     <description>Team Aspect&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=19</link>
+     <title>ghostkilla.&amp;#039;s Player profile</title>
+     <description>ghostkilla. ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=13</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=14</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=11</link>
+     <title>The Dark Stars&amp;#039;s Team profile</title>
+     <description>The Dark Stars&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=41</link>
+     <title>swefli&amp;#039;s Player profile</title>
+     <description>swefli ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=22</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=8</link>
+     <title>Thinking&amp;#039;s Team profile</title>
+     <description>Thinking&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=9</link>
+     <title>Korazu&amp;#039;s Player profile</title>
+     <description>Korazu ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=16</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=17</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=3</link>
+     <title>Timeout Gaming&amp;#039;s Team profile</title>
+     <description>The time is going out for the Game</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=14</link>
+     <title>ZombieEcki&amp;#039;s Player profile</title>
+     <description>ZombieEcki ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=29</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=15</link>
+     <title>TG KappaKater&amp;#039;s Player profile</title>
+     <description>TG KappaKater ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=10</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=53</link>
+     <title>Hunter.&amp;#039;s Player profile</title>
+     <description>Hunter. ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=6</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=5</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=7</link>
+     <title>eQuality.&amp;#039;s Team profile</title>
+     <description>eQuality.&amp;#039;s Team profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=44</link>
+     <title>serenity&amp;#039;s Player profile</title>
+     <description>serenity ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=19</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=40</link>
+     <title>SoulSynergy&amp;#039;s Player profile</title>
+     <description>SoulSynergy ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/team-details?id=9</link>
+     <title>eSport Rhein Neckar&amp;#039;s Team profile</title>
+     <description>First german amateur sports club with an eSports division @tsvoftersheim | Founding member @ESBD_Verband</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/user/details?id=17</link>
+     <title>StevieT&amp;#039;s Player profile</title>
+     <description>StevieT ist ein Spieler aus Deutschland.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/teams/sub-team-details?id=20</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=10</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=11</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=12</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=13</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=14</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=15</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=16</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=17</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=18</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=9</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=8</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=7</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=6</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=5</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=4</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=3</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=2</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=1</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/rocketleague/tournament-details?id=0</link>
+     <title>Turnier Details</title>
+     <description>Turnier Details</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/site/register</link>
+     <title>Registrieren</title>
+     <description>Registrieren</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://project-esport.gg/site/password-reset</link>
+     <title>reset password</title>
+     <description>reset password</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
