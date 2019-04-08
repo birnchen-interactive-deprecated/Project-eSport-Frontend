@@ -350,7 +350,13 @@ class User extends AbstractActiveRecord implements IdentityInterface
     public function setProfilePic($profilePic)
     {
         $docRoot = $_SERVER['DOCUMENT_ROOT'];
-        $profilePic->moveTo($docRoot . '/images/userAvatar/' . $this->user_id . '.png');
+        $filePathPng = $docRoot . '/images/userAvatar/' . $this->user_id . '.png';
+        $filePathWebp = $docRoot . '/images/userAvatar/' . $this->user_id . '.webp';
+
+        $profilePic->moveTo($filePathPng);
+
+        $im = imagecreatefrompng($filePathPng);
+        imagewebp($im, $filePathWebp);
     }
 
     /**
