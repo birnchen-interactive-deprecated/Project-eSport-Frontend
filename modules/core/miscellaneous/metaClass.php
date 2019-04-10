@@ -79,7 +79,7 @@ class MetaClass
         ]); // twitter:creator - author
         $view->registerMetaTag([
             'name' => 'twitter:image:src',
-            'content' => 'https://project-esport.gg/images/userAvatar/' . $model->user_id . '.png',
+            'content' => 'https://project-esport.gg/images/userAvatar/' . $model->user_id . '.webp',
         ]); // twitter:image:src
         $view->registerMetaTag([
             'name' => 'twitter:image:alt',
@@ -101,7 +101,7 @@ class MetaClass
         ]); // og:url
         $view->registerMetaTag([
             'property' => 'og:image',
-            'content' => 'https://project-esport.gg/images/UserAvatar/' . $model->user_id . '.png',
+            'content' => 'https://project-esport.gg/images/UserAvatar/' . $model->user_id . '.webp',
         ]); // og:image
         $view->registerMetaTag([
             'property' => 'og:description',
