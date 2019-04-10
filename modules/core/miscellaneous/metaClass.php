@@ -45,7 +45,7 @@ class MetaClass
         ]); // itemprop description
         $view->registerMetaTag([
             'itemprop' => 'image',
-            'content' => 'https://project-esport.gg/images/UserAvatar/' . $model->user_id . '.png',
+            'content' => 'https://project-esport.gg/images/UserAvatar/' . $model->user_id . '.webp',
         ]); // itemprop image
 
         /* Twitter Card Data */
