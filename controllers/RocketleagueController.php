@@ -20,11 +20,8 @@ class RocketleagueController extends BaseController
 {
     public function actionNews()
     {
-        try {
-            $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
-        } catch (Exception $e) {
-            $xml = simplexml_load_string('<xml version="1.0"><channel></channel>');
-        }
+        libxml_use_internal_errors(true);
+        $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
 
         $data = [
             [
@@ -41,20 +38,23 @@ class RocketleagueController extends BaseController
             ],
         ];
 
-        $key = 0;
-        foreach ($xml->channel->item as $item) {
+        $xmlError = libxml_get_errors();
+        if (empty($xmlError)) {
 
-            if (3 === $key) {
-                break;
+            $key = 0;
+            foreach ($xml->channel->item as $item) {
+
+                if (3 === $key) {
+                    break;
+                }
+
+                $data[$key++] = [
+                    'title' => $item->title->__toString(),
+                    'html' => $item->description->__toString(),
+                ];
+
             }
-
-            $data[$key++] = [
-                'title' => $item->title->__toString(),
-                'html' => $item->description->__toString(),
-            ];
-
         }
-
 
         return $this->render('news',
             [
@@ -64,11 +64,8 @@ class RocketleagueController extends BaseController
 
     public function actionNewsDetails($pos)
     {
-        try {
-            $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
-        } catch (Exception $e) {
-            $xml = simplexml_load_string('<xml version="1.0"><channel></channel>');
-        }
+        libxml_use_internal_errors(true);
+        $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
 
         $data = [
             [
@@ -85,20 +82,24 @@ class RocketleagueController extends BaseController
             ],
         ];
 
-        $key = 0;
-        foreach ($xml->channel->item as $item) {
+        $xmlError = libxml_get_errors();
+        if (empty($xmlError)) {
 
-            if (3 === $key) {
-                break;
+            $key = 0;
+            foreach ($xml->channel->item as $item) {
+
+                if (3 === $key) {
+                    break;
+                }
+
+                $data[$key++] = [
+                    'title' => $item->title->__toString(),
+                    'html' => $item->description->__toString(),
+                ];
+
             }
-
-            $data[$key++] = [
-                'title' => $item->title->__toString(),
-                'html' => $item->description->__toString(),
-            ];
-
         }
-
+        
         return $this->render('newsDetails',
             [
                 'data' => $data,
