@@ -26,7 +26,20 @@ class RocketleagueController extends BaseController
             $xml = simplexml_load_string('<xml version="1.0"><channel></channel>');
         }
 
-        $data = [];
+        $data = [
+            [
+                'title' => '',
+                'html' => '',
+            ],
+            [
+                'title' => '',
+                'html' => '',
+            ],
+            [
+                'title' => '',
+                'html' => '',
+            ],
+        ];
 
         $key = 0;
         foreach ($xml->channel->item as $item) {
@@ -57,7 +70,20 @@ class RocketleagueController extends BaseController
             $xml = simplexml_load_string('<xml version="1.0"><channel></channel>');
         }
 
-        $data = [];
+        $data = [
+            [
+                'title' => '',
+                'html' => '',
+            ],
+            [
+                'title' => '',
+                'html' => '',
+            ],
+            [
+                'title' => '',
+                'html' => '',
+            ],
+        ];
 
         $key = 0;
         foreach ($xml->channel->item as $item) {
