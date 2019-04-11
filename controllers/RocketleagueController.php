@@ -20,7 +20,11 @@ class RocketleagueController extends BaseController
 {
     public function actionNews()
     {
-        $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
+        try {
+            $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
+        } catch (Exception $e) {
+            $xml = simplexml_load_string('<xml version="1.0"><channel></channel>');
+        }
 
         $data = [];
 
@@ -47,7 +51,11 @@ class RocketleagueController extends BaseController
 
     public function actionNewsDetails($pos)
     {
-        $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
+        try {
+            $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
+        } catch (Exception $e) {
+            $xml = simplexml_load_string('<xml version="1.0"><channel></channel>');
+        }
 
         $data = [];
 
