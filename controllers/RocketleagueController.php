@@ -20,34 +20,22 @@ class RocketleagueController extends BaseController
 {
     public function actionNews()
     {
-        $data = Yii::$app->cache->get('RSS_FEED_RL');
+        $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
 
-        if (false === $data) {
+        $data = [];
 
-            $curl = curl_init('https://steamcommunity.com/games/252950/rss/');
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            $rssFeed = curl_exec($curl);
+        $key = 0;
+        foreach ($xml->channel->item as $item) {
 
-            $xml = simplexml_load_string($rssFeed);
-
-            $data = [];
-
-            $key = 0;
-            foreach ($xml->channel->item as $item) {
-
-                if (3 === $key) {
-                    break;
-                }
-
-                $data[$key++] = [
-                    'title' => $item->title->__toString(),
-                    'html' => $item->description->__toString(),
-                ];
-
+            if (3 === $key) {
+                break;
             }
 
-            $cacheDuration = 300; // Einheit = Sekunden
-            Yii::$app->cache->set('RSS_FEED_RL', $data, $cacheDuration);
+            $data[$key++] = [
+                'title' => $item->title->__toString(),
+                'html' => $item->description->__toString(),
+            ];
+
         }
 
 
@@ -59,34 +47,22 @@ class RocketleagueController extends BaseController
 
     public function actionNewsDetails($pos)
     {
-        $data = Yii::$app->cache->get('RSS_FEED_RL');
+        $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/../modules/rss_feeds/rocketLeague/rl_feed.xml');
 
-        if (false === $data) {
+        $data = [];
 
-            $curl = curl_init('https://steamcommunity.com/games/252950/rss/');
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            $rssFeed = curl_exec($curl);
+        $key = 0;
+        foreach ($xml->channel->item as $item) {
 
-            $xml = simplexml_load_string($rssFeed);
-
-            $data = [];
-
-            $key = 0;
-            foreach ($xml->channel->item as $item) {
-
-                if (3 === $key) {
-                    break;
-                }
-
-                $data[$key++] = [
-                    'title' => $item->title->__toString(),
-                    'html' => $item->description->__toString(),
-                ];
-
+            if (3 === $key) {
+                break;
             }
 
-            $cacheDuration = 300; // Einheit = Sekunden
-            Yii::$app->cache->set('RSS_FEED_RL', $data, $cacheDuration);
+            $data[$key++] = [
+                'title' => $item->title->__toString(),
+                'html' => $item->description->__toString(),
+            ];
+
         }
 
         return $this->render('newsDetails',
