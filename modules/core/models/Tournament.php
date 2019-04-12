@@ -259,7 +259,7 @@ class Tournament extends ActiveRecord
      * @param $user
      * @return boolean
      */
-    public function showCheckInBtn($user)
+    public function showCheckInBtn($subTeams, $user)
     {
         if ($this->getMode()->one()->getMainPlayer() == 1) {
             

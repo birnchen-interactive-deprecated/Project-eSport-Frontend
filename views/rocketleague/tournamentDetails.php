@@ -21,17 +21,18 @@ if (isset($participatingEntrys[0])) {
     }
 }
 
+$countCheckedIn = 0;
 foreach ($participatingEntrys as $key => $entry) {
-    $countCheckedIn = 0;
+
     if ($entry instanceOf User) {
         // $checkedIn = $entry->hasOne(PlayerParticipating::className(), ['user_id' => 'user_id'])->one()->getCheckedIn();
-        $tournamentPlayerParticipating = $entry->getPlayerParticipating()->where(['tournament_id' => $tournamentId])->one();
+        $tournamentPlayerParticipating = $entry->getPlayerParticipating()->where(['tournament_id' => $tournament->getId()])->one();
         if ($tournamentPlayerParticipating instanceOf PlayerParticipating) {
             $checkedIn = $tournamentPlayerParticipating->getCheckedIn();
         }
     } else if ($entry instanceOf SubTeam) {
         // $checkedIn = $entry->hasOne(TeamParticipating::className(), ['sub_team_id' => 'sub_team_id'])->one()->getCheckedIn();
-        $tournamentTeamParticipating = $entry->getTeamParticipating()->where(['tournament_id' => $tournamentId])->one();
+        $tournamentTeamParticipating = $entry->getTeamParticipating()->where(['tournament_id' => $tournament->getId()])->one();
         if ($tournamentTeamParticipating instanceOf TeamParticipating) {
             $checkedIn = $tournamentTeamParticipating->getCheckedIn();
         }
