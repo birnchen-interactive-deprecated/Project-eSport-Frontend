@@ -11,6 +11,7 @@ usort($tournamentList, function ($a, $b) {
     return $a->getDtStartingTime() > $b->getDtStartingTime();
 });
 
+$subTeams = [];
 if(Yii::$app->user->identity != null)
 {
     $user = Yii::$app->user->identity;
