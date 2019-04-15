@@ -37,7 +37,7 @@ $navigation = array(
     array('label' => 'Turniere', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/rocketleague/tournaments'], ['aria-label' => 'RL Tournaments Button']),
     )),
-    array('label' => 'Jobs', 'url' => ['/site/index'], ['aria-label' => 'Jobs Button'], ['aria-label' => 'Jobs Button']),
+    array('label' => 'Jobs', 'url' => ['/site/index'], ['aria-label' => 'Jobs Button']),
 
 );
 if (Yii::$app->user->isGuest) {
