@@ -5,6 +5,7 @@
 /* @var $content string */
 
 use app\assets\AppAsset;
+use app\modules\company\Module;
 use app\widgets\Alert;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -95,7 +96,7 @@ if (Yii::$app->user->isGuest) {
 <footer class="footer">
     <div class="container">
         <div class="col-sm-3 col-lg-3 left_side">
-            <span><?= Html::a('Impressum', ['/company/company/imprint']); ?></span>
+            <span><?= Html::a(Yii::t('app', 'imprint'), ['/company/company/imprint']); ?></span>
             <span><?= Html::a('AGB', ['/company/company/gtc']); ?></span>
             <span><?= Html::a('Datenschutz', ['/company/company/privacy']); ?></span>
         </div>

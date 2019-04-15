@@ -31,4 +31,12 @@ class Module extends \yii\base\Module
             ],
         ];
     }
+
+    /**
+     * @inheritdoc
+     */
+    public static function t($category, $message, $params = [], $language = null)
+    {
+        return Yii::t('modules/company/' . $category, $message, $params, $language);
+    }
 }
