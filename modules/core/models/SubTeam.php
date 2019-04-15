@@ -22,6 +22,7 @@ use yii\db\ActiveRecord;
  * @property int $tournament_mode_id
  * @property int $team_captain_id
  * @property string $name
+ * @property string $short_code
  * @property string $description
  * @property bool $disqualified
  */
@@ -39,6 +40,7 @@ class SubTeam extends ActiveRecord
             'tournament_mode_id' => Yii::t('app', 'tournament mode id'),
             'team_captain_id' => Yii::t('app', 'team captain id'),
             'name' => Yii::t('app', 'name'),
+            'short_code' => Yii::t('app', 'short Code'),
             'description' => Yii::t('app', 'description')
         ];
     }
@@ -126,6 +128,14 @@ class SubTeam extends ActiveRecord
     /**
      * @return string
      */
+    public function getShortCode()
+    {
+        return $this->short_code;
+    }
+
+    /**
+     * @return string
+     */
     public function getDescription()
     {
         return $this->description;
@@ -178,6 +188,18 @@ class SubTeam extends ActiveRecord
         $isSub = (1 === $arr->getIsSubstitute()) ? 'Substitute' : 'Spieler';
         return $userName . ' (' . $isSub . ')';
     }, $users);
+
+        return implode('<br>', $userString);
+    }
+
+    public function getTeamMemberFormatted()
+    {
+        $users = $this->getSubTeamMembers()->orderBy('user_id')->all();
+
+        $userString = array_map(function ($arr) {
+            $userName = $arr->getUser()->one()->getUsername();
+            return $userName;
+        }, $users);
 
         return implode('<br>', $userString);
     }
