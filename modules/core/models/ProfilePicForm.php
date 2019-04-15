@@ -42,7 +42,7 @@ class ProfilePicForm extends FormModel
             [
                 'file',
                 'image',
-                'extensions' => 'png, jpg',
+                'extensions' => 'png',
                 'maxSize' => 1024 * 1024 * 3
             ]
         ];
