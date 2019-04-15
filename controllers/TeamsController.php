@@ -27,12 +27,22 @@ class TeamsController extends BaseController
     {
         $teamDetails = MainTeam::findOne(['team_id' => $id]);
 
+        /** Profile Pic Uploader */
+        $profilePic = NULL;
+        if (is_array($_FILES) && isset($_FILES['profilePic'])) {
+            $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
+        }
+
+        if (NULL !== $profilePic && 0 === $profilePic->getError()) {
+            $teamDetails->setProfilePic($profilePic);
+        }
+
         /* Get Register Date and Age */
         $memberDateTime = new DateTime('2019-03-01');
 
         /** @var $teamInfo array */
         $teamInfo = [
-            'isOwner' => false,
+            'isOwner' => (Yii::$app->user->identity != null && Yii::$app->user->identity->getId() == $teamDetails->owner_id) ? true : false,
             //'memberSince' => DateTime::createFromFormat('d.m.y', $user->dt_created),
             'memberSince' => $memberDateTime->format('d.m.y'),
             'language' => $teamDetails->getHeadQuarterId(),
@@ -42,8 +52,12 @@ class TeamsController extends BaseController
         ];
 
         /* Set Correct Image Path */
-        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'])) {
-            $teamInfo['teamImage'] = '/images/userAvatar/default.png';
+        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'] . '.webp'))
+        {
+            if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'] . '.png'))
+            {
+                $userInfo['playerImage'] = '/images/userAvatar/default';
+            }
         }
 
         return $this->render('teamDetails',

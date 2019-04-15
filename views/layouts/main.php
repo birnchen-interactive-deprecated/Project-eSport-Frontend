@@ -29,24 +29,25 @@ if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
 $navigation = array(
     array('label' => 'Home', 'url' => ['/site/index'], ['aria-label' => 'Home Button']),
     array('label' => 'News', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/rocketleague/news']),
+        array('label' => 'Rocket League', 'url' => ['/rocketleague/news'], ['aria-label' => 'RL News Button']),
     )),
     array('label' => 'Teams', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/rocketleague/teams-overview']),
+        array('label' => 'Rocket League', 'url' => ['/rocketleague/teams-overview'], ['aria-label' => 'Rocket League Button']),
     )),
     array('label' => 'Turniere', 'items' => array(
-        array('label' => 'Rocket League', 'url' => ['/rocketleague/tournaments']),
+        array('label' => 'Rocket League', 'url' => ['/rocketleague/tournaments'], ['aria-label' => 'RL Tournaments Button']),
     )),
+    array('label' => 'Jobs', 'url' => ['/site/index'], ['aria-label' => 'Jobs Button'], ['aria-label' => 'Jobs Button']),
 
 );
 if (Yii::$app->user->isGuest) {
-    $navigation[] = array('label' => 'Login', 'url' => ['/site/login']);
+    $navigation[] = array('label' => 'Login', 'url' => ['/site/login'], ['aria-label' => 'Login Button']);
 } else {
     $navigation[] = array('label' => '' . Yii::$app->user->identity->username . '', 'visible' => $visible, 'items' => array(
-        array('label' => 'Account', 'url' => ['/user/details', 'id' => Yii::$app->user->identity->getId()]),
-        array('label' => 'My Teams', 'url' => ['/site/my-teams']),
-        array('label' => 'My Tournaments', 'url' => ['/site/my-tournaments']),
-        array('label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']),
+        array('label' => 'Account', 'url' => ['/user/details', 'id' => Yii::$app->user->identity->getId()], ['aria-label' => 'Account Button']),
+        array('label' => 'My Teams', 'url' => ['/site/my-teams'], ['aria-label' => 'My Teams Button']),
+        array('label' => 'My Tournaments', 'url' => ['/site/my-tournaments'], ['aria-label' => 'My Tournaments Button']),
+        array('label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post'], ['aria-label' => 'Logout Button']),
     ));
 }
 
