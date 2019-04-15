@@ -49,6 +49,8 @@ return [
     'chairman of the board' => 'Aufsichtsratsvorsitzender',
     'please change your password' => 'Bitte vergen Sie hier nun Ihr neues Passwort',
 
+    /**  */
+
 
     'upload' => 'Hochladen'
 ];
