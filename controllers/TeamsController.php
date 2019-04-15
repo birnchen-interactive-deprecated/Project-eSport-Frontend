@@ -48,7 +48,7 @@ class TeamsController extends BaseController
             'language' => $teamDetails->getHeadQuarterId(),
             //'nationality' => $teamDetails->getHeadQuarterId(),
             'nationalityImg' => '/images/nationality/' . $teamDetails->getHeadQuarterId() . '.png',
-            'teamImage' => '/images/teams/mainTeams/' . $teamDetails->getId() . '.png'
+            'teamImage' => '/images/teams/mainTeams/' . $teamDetails->getId()
         ];
 
         /* Set Correct Image Path */
