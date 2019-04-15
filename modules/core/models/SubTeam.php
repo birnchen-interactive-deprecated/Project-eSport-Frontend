@@ -22,6 +22,7 @@ use yii\db\ActiveRecord;
  * @property int $tournament_mode_id
  * @property int $team_captain_id
  * @property string $name
+ * @property string $short_code
  * @property string $description
  * @property bool $disqualified
  */
@@ -39,6 +40,7 @@ class SubTeam extends ActiveRecord
             'tournament_mode_id' => Yii::t('app', 'tournament mode id'),
             'team_captain_id' => Yii::t('app', 'team captain id'),
             'name' => Yii::t('app', 'name'),
+            'short_code' => Yii::t('app', 'short Code'),
             'description' => Yii::t('app', 'description')
         ];
     }
@@ -121,6 +123,14 @@ class SubTeam extends ActiveRecord
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortCode()
+    {
+        return $this->short_code;
     }
 
     /**
