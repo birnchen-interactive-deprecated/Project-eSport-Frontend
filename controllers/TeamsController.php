@@ -28,7 +28,6 @@ class TeamsController extends BaseController
     public function actionTeamDetails($id = null)
     {
         $teamDetails = MainTeam::findOne(['team_id' => $id]);
-        $teamMember = $teamDetails->getTeamMember();
 
         /** Profile Pic Uploader */
         $profilePic = NULL;
@@ -67,7 +66,6 @@ class TeamsController extends BaseController
         [
             'teamDetails' => $teamDetails,
             'teamInfo' => $teamInfo,
-            'teamMember' => $teamMember,
         ]);
     }
 
