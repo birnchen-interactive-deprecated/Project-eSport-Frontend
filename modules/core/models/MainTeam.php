@@ -103,10 +103,7 @@ class MainTeam extends ActiveRecord
     {
         return $this->description;
     }
-
-    /**
-     *
-     */
+    
     public function setProfilePic($profilePic)
     {
         $docRoot = $_SERVER['DOCUMENT_ROOT'];
