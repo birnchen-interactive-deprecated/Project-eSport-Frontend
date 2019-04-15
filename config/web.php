@@ -68,6 +68,7 @@ $config = [
             'enablePrettyUrl' => true,
             'rules' =>[
                 'company/<action>'=>'company/company/<action>',
+                'teams/<action>'=>'teams/teams/<action>',
             ],
         ],
         'i18n' => [
@@ -91,7 +92,8 @@ $config = [
         'account' => 'app\modules\account\Module',
         'core' => 'app\modules\core\Module',
         'rbac' => 'app\modules\rbac\Module',
-        'company' => 'app\modules\company\Module'
+        'company' => 'app\modules\company\Module',
+        'teams' => 'app\modules\teams\Module',
     ],
     'params' => $params,
 ];

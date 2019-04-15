@@ -38,7 +38,7 @@ $navigation = array(
     array('label' => 'Turniere', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/rocketleague/tournaments'], ['aria-label' => 'RL Tournaments Button']),
     )),
-    array('label' => 'Jobs', 'url' => ['/site/index'], ['aria-label' => 'Jobs Button']),
+    array('label' => 'Jobs', 'url' => ['/company/company/jobs'], ['aria-label' => 'Jobs Button']),
 
 );
 if (Yii::$app->user->isGuest) {
@@ -96,9 +96,9 @@ if (Yii::$app->user->isGuest) {
 <footer class="footer">
     <div class="container">
         <div class="col-sm-3 col-lg-3 left_side">
-            <span><?= Html::a(Yii::t('app', 'imprint'), ['/company/company/imprint']); ?></span>
-            <span><?= Html::a('AGB', ['/company/company/gtc']); ?></span>
-            <span><?= Html::a('Datenschutz', ['/company/company/privacy']); ?></span>
+            <span><?= Html::a(Yii::t('app', 'imprint'), ['/company/imprint']); ?></span>
+            <span><?= Html::a(Yii::t('app', 'gtc'), ['/company/gtc']); ?></span>
+            <span><?= Html::a(Yii::t('app', 'privacy'), ['/company/privacy']); ?></span>
         </div>
         <div class="col-sm-6 col-lg-6 middle">Project-eSport ist eine Marke der Birnchen Interactive. &copy; 2016 - <?= date('Y'); ?></div>
         <div class="col-sm-3 col-lg-3 right_side">

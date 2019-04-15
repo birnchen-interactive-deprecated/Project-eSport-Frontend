@@ -66,6 +66,6 @@ class CompanyController extends BaseController
      */
     public function actionJobs()
     {
-        return $this->render('gtc');
+        return $this->render('jobs');
     }
 }

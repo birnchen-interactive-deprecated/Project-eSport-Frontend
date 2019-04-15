@@ -6,7 +6,7 @@
  * Time: 09:49
  */
 
-namespace app\controllers;
+namespace app\modules\teams\controllers;
 
 use app\components\BaseController;
 use app\modules\core\models\MainTeam;
@@ -19,6 +19,23 @@ use yii\web\UploadedFile;
 
 class TeamsController extends BaseController
 {
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ]
+                ]
+            ]
+        ];
+    }
 
     /**
      * Main Team Details Page
