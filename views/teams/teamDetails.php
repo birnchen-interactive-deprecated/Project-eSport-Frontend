@@ -76,6 +76,14 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <div class="col-xs-5 col-sm-3 col-lg-3">Description</div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getDescription() ?></div>
         </div>
+        <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Team-Members</div>
+            <div class="col-xs-7 col-sm9 col-lg-9 context">
+                <?php foreach($teamDetails->getTeamMember()->orderBy('username')->all() as $userKey => $user): ?>
+                    <div class="col-lg-6"><?= $user->getUsername(); ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 
     <div class="col-lg-2 teamBody">
