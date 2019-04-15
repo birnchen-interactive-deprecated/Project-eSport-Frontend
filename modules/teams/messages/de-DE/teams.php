@@ -7,7 +7,23 @@
  */
 
 return [
-    'imprint' => 'Impressum',
-    'gtc' => 'AGB',
-    'privacy' => 'Datenschutz',
+    /** Image Uploader */
+    'upload' => 'Hochladen',
+
+    /** alt attributes */
+    'teamLogo' => 'Team Logo',
+
+    /** Team Info Labels */
+    'name' => 'Name',
+    'shortcode' => 'Kürzel',
+    'team_captain' => 'Team Manager',
+    'member_since' => 'Mitglied Seit',
+    'nationality' => 'Nationalität',
+    'description' => 'Beschreibung',
+
+    /** Team Mitglieder Bereich */
+    'team_member' => 'Team Mitglieder',
+    'substitude' => 'Ersatz Spieler',
+    'player' => 'Spieler',
+
 ];

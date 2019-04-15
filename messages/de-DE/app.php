@@ -44,13 +44,15 @@ return [
     'bic' => 'BIC',
 
     /** sites */
-    'imprint' => 'Impressum',
     'manager' => 'Geschäftsführer',
     'chairman of the board' => 'Aufsichtsratsvorsitzender',
     'please change your password' => 'Bitte vergen Sie hier nun Ihr neues Passwort',
 
+    /** Company non Modul Objects */
+    'imprint' => 'Impressum',
+    'gtc' => 'AGB',
+    'privacy' => 'Datenschutz',
+
     /**  */
-
-
     'upload' => 'Hochladen'
 ];

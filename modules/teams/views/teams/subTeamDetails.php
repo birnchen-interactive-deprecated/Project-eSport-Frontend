@@ -29,7 +29,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
 
 <div class="site-sub-team-details">
     <div class="col-lg-3 avatarPanel">
-        <img class="avatar-logo" src="<?= $teamInfo['teamImage']; ?>.webp" alt=""
+        <img class="avatar-logo" src="<?= $teamInfo['teamImage']; ?>.webp" alt="<?=\app\modules\teams\Module::t('teams', 'teamLogo')?>" aria-label="<?=\app\modules\teams\Module::t('teams', 'teamLogo')?>"
              onerror="this.src='<?= $teamInfo['teamImage']; ?>.png'">
 
         <?php if ($teamInfo['isOwner']) : ?>
@@ -43,7 +43,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             ]); ?>
             <?= $form->field($profilePicModel, 'id')->hiddenInput()->label(false); ?>
             <?= $form->field($profilePicModel, 'file')->fileInput() ?>
-            <?= Html::submitButton(Yii::t('app', 'upload')); ?>
+            <?= Html::submitButton(\app\modules\teams\Module::t('teams', 'upload')); ?>
             <?php ActiveForm::end(); ?>
         <?php endif; ?>
     </div>
@@ -55,31 +55,31 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <span class="teamid">id: <?= $teamDetails->getId(); ?></span>
         </div>
         <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3">Name</div>
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'name')?></div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getName(); ?></div>
         </div>
         <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3">Shortcode</div>
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'shortcode')?></div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getShortCode(); ?></div>
         </div>
         <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3">Team Captain</div>
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'team_captain')?></div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::a($teamDetails->GetTeamCaptain()->one()->getUsername(), ['/user/details', 'id' => $teamDetails->getTeamCaptainId()]); ?></div>
         </div>
         <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3">Mitglied Seit</div>
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'member_since')?></div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamInfo['memberSince']; ?></div>
         </div>
         <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3">Nationalität</div>
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'nationality')?></div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"></div>
         </div>
         <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3">Description</div>
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'description')?></div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getDescription() ?></div>
         </div>
         <div class="entry entryMembers clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3">Team-Members</div>
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'team_member')?></div>
             <div class="col-xs-7 col-sm9 col-lg-9 context">
                 <?php foreach($teamDetails->getSubTeamMembers()->all() as $userKey => $user): ?>
                     <?php
@@ -87,7 +87,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
                         $userId = $user->getUserId();
                     ?>
                     <div class="col-lg-6 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?>
-                        (<?= ($teamDetails->isUserSubstitute($userId)) ? 'substitute' : 'player'; ?>)
+                        (<?=\app\modules\teams\Module::t('teams', ($teamDetails->isUserSubstitute($userId) ? 'substitude' : 'player'))?>)
                     </div>
                 <?php endforeach; ?>
             </div>
