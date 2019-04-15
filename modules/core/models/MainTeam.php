@@ -103,11 +103,11 @@ class MainTeam extends ActiveRecord
     {
         return $this->description;
     }
-    
+
     public function setProfilePic($profilePic)
     {
         $docRoot = $_SERVER['DOCUMENT_ROOT'];
-        $filePathPng = $docRoot . '/images/teams/mainTeams/' . $this->$team_id . '.png';
+        $filePathPng = $docRoot . '/images/teams/mainTeams/' . $this->team_id . '.png';
         $filePathWebp = $docRoot . '/images/teams/mainTeams/' . $this->$team_id . '.webp';
 
         $profilePic->moveTo($filePathPng);
