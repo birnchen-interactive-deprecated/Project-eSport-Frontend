@@ -7,7 +7,6 @@
  * @var $subTeams array
  */
 
-use app\assets\UserDetails;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -38,7 +37,7 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
             //     'labelOptions' => ['class' => 'col-lg-2 control-label'],
             // ],
         ]); ?>
-        <?= Html::fileInput('profilePic', null, ['accept' => 'image/x-png', 'maxFileSize' => '3000']); ?>
+        <?= Html::fileInput('profilePic', null, ['accept' => 'image/x-png']); ?>
         <?= Html::submitInput('Hochladen'); ?>
         <?php ActiveForm::end(); ?>
         <?php endif; ?>

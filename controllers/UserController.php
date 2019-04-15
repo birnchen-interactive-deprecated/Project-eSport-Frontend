@@ -10,12 +10,12 @@ use Yii;
 class UserController extends BaseController
 {
     /**
- * Display User Account Informations
- *
- * @param $id
- * @return string
- * @throws \yii\base\Exception
- */
+    * Display User Account Informations
+    *
+    * @param $id
+    * @return string
+    * @throws \yii\base\Exception
+    */
     public function actionDetails($id)//
     {
         /** Check if user ID my own User ID */
