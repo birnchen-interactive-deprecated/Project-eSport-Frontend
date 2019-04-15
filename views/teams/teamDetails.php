@@ -78,7 +78,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
         </div>
     </div>
 
-    <div class="teamBody">
+    <div class="col-lg-2 teamBody">
         <?php echo $teamDetails->getTeamMemberFormatted() ?>
 
     </div>
