@@ -104,7 +104,7 @@ class TeamsController extends BaseController
             //'language' => $teamDetails->getHeadQuarterId(),
             //'nationality' => $teamDetails->getHeadQuarterId(),
             //'nationalityImg' => Yii::getAlias("@web") . '/images/nationality/' . $teamDetails->getHeadQuarterId() . '.png',
-            'teamImage' => Yii::getAlias("@web") . '/images/teams/mainTeams/' . $teamDetails->getId()
+            'teamImage' => Yii::getAlias("@web") . '/images/teams/subTeams/' . $teamDetails->getId()
         ];
 
         /* Set Correct Image Path */
