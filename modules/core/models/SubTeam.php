@@ -192,18 +192,6 @@ class SubTeam extends ActiveRecord
         return implode('<br>', $userString);
     }
 
-    public function getTeamMemberFormatted()
-    {
-        $users = $this->getSubTeamMembers()->orderBy('user_id')->all();
-
-        $userString = array_map(function ($arr) {
-            $userName = $arr->getUser()->one()->getUsername();
-            return $userName;
-        }, $users);
-
-        return implode('<br>', $userString);
-    }
-
     /**
      * @param $gameID
      * @return ActiveRecord
