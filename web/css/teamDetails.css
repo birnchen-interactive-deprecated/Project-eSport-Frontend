@@ -59,10 +59,12 @@
     width: 24px;
 }
 
-.site-team-details .teamPanel .entryMembers {
+.site-team-details .teamPanel .entryMembers,
+.site-sub-team-details .teamPanel .entryMembers {
     border-top: 1px solid #aaa;
 }
 
-.site-team-details .teamPanel .teamMembers {
+.site-team-details .teamPanel .teamMembers,
+.site-sub-team-details .teamPanel .teamMembers {
     padding-left: 0;
 }
