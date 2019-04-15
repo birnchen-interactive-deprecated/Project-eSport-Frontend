@@ -108,7 +108,7 @@ class MainTeam extends ActiveRecord
     {
         $docRoot = $_SERVER['DOCUMENT_ROOT'];
         $filePathPng = $docRoot . '/images/teams/mainTeams/' . $this->team_id . '.png';
-        $filePathWebp = $docRoot . '/images/teams/mainTeams/' . $this->$team_id . '.webp';
+        $filePathWebp = $docRoot . '/images/teams/mainTeams/' . $this->team_id . '.webp';
 
         $profilePic->moveTo($filePathPng);
 
