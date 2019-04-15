@@ -8,6 +8,7 @@
  * @var $subTeams array
  */
 
+use app\assets\UserDetails;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
