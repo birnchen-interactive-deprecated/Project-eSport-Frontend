@@ -30,7 +30,7 @@ class Module extends \yii\base\Module
             'sourceLanguage' => 'en-US',
             'basePath' => '@app/modules/account/messages',
             'fileMap' => [
-                'modules/account/account' => 'myAccount.php',
+                'modules/account/account' => 'account.php',
             ],
         ];
     }

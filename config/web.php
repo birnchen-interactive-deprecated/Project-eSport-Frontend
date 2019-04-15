@@ -66,8 +66,9 @@ $config = [
             'showScriptName' => false,
             // Disable r= routes
             'enablePrettyUrl' => true,
-            'rules' => array(),
-
+            'rules' =>[
+                'company/<action>'=>'company/company/<action>',
+            ],
         ],
         'i18n' => [
             'translations' => [
@@ -89,7 +90,8 @@ $config = [
     'modules' => [
         'account' => 'app\modules\account\Module',
         'core' => 'app\modules\core\Module',
-        'rbac' => 'app\modules\rbac\Module'
+        'rbac' => 'app\modules\rbac\Module',
+        'company' => 'app\modules\company\Module'
     ],
     'params' => $params,
 ];
