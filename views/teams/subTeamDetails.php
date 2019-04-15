@@ -77,7 +77,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
         <div class="entry entryMembers clearfix">
             <div class="col-xs-5 col-sm-3 col-lg-3">Team-Members</div>
             <div class="col-xs-7 col-sm9 col-lg-9 context">
-                <?php foreach($teamDetails->getSubTeamMembers()->all as $userKey => $user): ?>
+                <?php foreach($teamDetails->getSubTeamMembers()->all() as $userKey => $user): ?>
                     <?php
                         $username = $user->getUser()->one()->getUsername();
                         $userId = $user->getUserId();
