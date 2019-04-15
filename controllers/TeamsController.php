@@ -21,7 +21,9 @@ class TeamsController extends BaseController
 {
 
     /**
-     * @param int $id TeamId
+     * Main team Details Page
+     *
+     * @param null $id
      * @return string
      * @throws \Exception
      */
@@ -70,7 +72,9 @@ class TeamsController extends BaseController
     }
 
     /**
-     * @param int $id Team Id
+     * Sub Team Details Page
+     *
+     * @param null $id
      * @return string
      */
     public function actionSubTeamDetails($id = null)

@@ -19,6 +19,7 @@ class UserController extends BaseController
      * @throws \yii\base\Exception
      * @throws \Throwable
      */
+
     public function actionDetails($id)//
     {
         /** Check if user ID my own User ID */

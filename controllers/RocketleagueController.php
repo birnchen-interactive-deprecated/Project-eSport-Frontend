@@ -18,6 +18,12 @@ use app\modules\core\models\Tournament;
 
 class RocketleagueController extends BaseController
 {
+
+    /**
+     * Rocket League News Page
+     *
+     * @return string
+     */
     public function actionNews()
     {
         libxml_use_internal_errors(true);
@@ -62,6 +68,12 @@ class RocketleagueController extends BaseController
             ]);
     }
 
+    /**
+     *
+     *
+     * @param $pos
+     * @return string
+     */
     public function actionNewsDetails($pos)
     {
         libxml_use_internal_errors(true);
@@ -109,6 +121,13 @@ class RocketleagueController extends BaseController
         return $this->render('newsDetails');
     }
 
+    /**
+     * Detailed Rocket League News
+     *
+     * @return string
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionTournaments()
     {
         if (is_array($_POST) && isset($_POST['tournamentId'])) {
@@ -189,6 +208,13 @@ class RocketleagueController extends BaseController
 
     }
 
+    /**
+     * Rocket League Tournament Details
+     *
+     * @param null $id
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionTournamentDetails($id = null)
     {
         $tournament = Tournament::getTournamentById($id);
@@ -206,6 +232,8 @@ class RocketleagueController extends BaseController
     }
 
     /**
+     * Rocket League Team list
+     *
      * @return string
      */
     public function actionTeamsOverview()

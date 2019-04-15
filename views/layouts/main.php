@@ -27,7 +27,7 @@ if (array_key_exists("r", $_REQUEST) && $_REQUEST['r'] == "site/bracket") {
 }
 
 $navigation = array(
-    array('label' => 'Home', 'url' => ['/site/index'], ['aria-label' => 'Home Button']),
+    array('label' => 'Home', 'url' => ['/site/index', 'aria-label' => 'Home Button']),
     array('label' => 'News', 'items' => array(
         array('label' => 'Rocket League', 'url' => ['/rocketleague/news'], ['aria-label' => 'RL News Button']),
     )),
