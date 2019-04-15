@@ -27,7 +27,8 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
 
 <div class="site-team-details">
     <div class="col-lg-3 avatarPanel">
-        <?= Html::img($teamInfo['teamImage'], ['class' => 'avatar-logo']); ?>
+        <img class="avatar-logo" src="<?= $teamInfo['teamImage']; ?>.webp" alt="" onerror="this.src='<?= $teamInfo['teamImage']; ?>.png'">
+
         <?php if($teamInfo['isOwner']) : ?>
             <?php $form = ActiveForm::begin([
                 'id' => 'profile-pic-form',
