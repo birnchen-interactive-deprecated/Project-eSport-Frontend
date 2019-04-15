@@ -103,7 +103,7 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
                 <?php foreach ($subTeams as $key => $subTeam): ?>
                     <div class="teamEntry clearfix">
                         <div class="col-lg-12"><?= Html::a($subTeam['team']->getName(), ['/teams/sub-team-details', 'id' => $subTeam['team']->getId()]) . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?>
-                            (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)
+                            (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'substitute' : 'player'); ?>)
                         </div>
                     </div>
                 <?php endforeach; ?>

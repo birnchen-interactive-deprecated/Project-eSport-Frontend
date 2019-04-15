@@ -65,6 +65,10 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getShortCode(); ?></div>
         </div>
         <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Team Captain</div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::a($teamDetails->getOwner()->one()->getUsername(), ['/user/details', 'id' => $teamDetails->getOwnerId()]); ?></div>
+        </div>
+        <div class="entry clearfix">
             <div class="col-xs-5 col-sm-3 col-lg-3">Mitglied Seit</div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamInfo['memberSince']; ?></div>
         </div>

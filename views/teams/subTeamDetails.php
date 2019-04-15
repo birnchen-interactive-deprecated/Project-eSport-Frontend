@@ -63,6 +63,10 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getShortCode(); ?></div>
         </div>
         <div class="entry clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3">Team Captain</div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::a($teamDetails->GetTeamCaptain()->one()->getUsername(), ['/user/details', 'id' => $teamDetails->getTeamCaptainId()]); ?></div>
+        </div>
+        <div class="entry clearfix">
             <div class="col-xs-5 col-sm-3 col-lg-3">Mitglied Seit</div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamInfo['memberSince']; ?></div>
         </div>
@@ -82,7 +86,9 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
                         $username = $user->getUser()->one()->getUsername();
                         $userId = $user->getUserId();
                     ?>
-                    <div class="col-lg-6 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?></div>
+                    <div class="col-lg-6 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?>
+                        (<?= ($teamDetails->isUserSubstitute($userId)) ? 'substitute' : 'player'; ?>)
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
