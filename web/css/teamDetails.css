@@ -59,6 +59,10 @@
     width: 24px;
 }
 
+.site-team-details .teamPanel .entryMembers {
+    border-top: 1px solid #aaa;
+}
+
 .site-team-details .teamPanel .teamMembers {
     padding-left: 0;
 }

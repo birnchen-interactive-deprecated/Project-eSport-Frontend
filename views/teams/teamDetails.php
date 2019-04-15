@@ -76,13 +76,13 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <div class="col-xs-5 col-sm-3 col-lg-3">Description</div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getDescription() ?></div>
         </div>
-        <div class="entry clearfix">
+        <div class="entry entryMembers clearfix">
             <div class="col-xs-5 col-sm-3 col-lg-3">Team-Members</div>
             <div class="col-xs-7 col-sm9 col-lg-9 context">
-                <?php foreach($teamDetails->getTeamMember()->all() as $userKey => $user): ?>
+                <?php foreach($teamDetails->getTeamMemberWithOwner()->all() as $userKey => $user): ?>
                     <?php
-                        $username = $user->getUser()->one()->getUsername();
-                        $userId = $user->getUserId();
+                        $username = $user->getUsername();
+                        $userId = $user->getId();
                     ?>
                     <div class="col-lg-6 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?></div>
                 <?php endforeach; ?>
