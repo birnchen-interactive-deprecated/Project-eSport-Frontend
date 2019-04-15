@@ -43,4 +43,18 @@ class TeamMember extends ActiveRecord
     {
         return $this->user_id;
     }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['user_id' => 'user_id']);
+    }
+
+    /**
+     * @param $teamId
+     * @return TeamMember[]
+     */
+    public static function getTeamMembers($teamId)
+    {
+        return static::findAll(['team_id' => $teamId]);
+    }
 }

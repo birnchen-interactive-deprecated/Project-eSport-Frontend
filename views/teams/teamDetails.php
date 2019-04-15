@@ -79,7 +79,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
     </div>
 
     <div class="teamBody">
-
+        <?php echo $teamDetails->getTeamMemberFormatted() ?>
 
     </div>
 </div>

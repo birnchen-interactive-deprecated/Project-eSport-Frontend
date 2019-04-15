@@ -103,4 +103,27 @@ class MainTeam extends ActiveRecord
     {
         return $this->description;
     }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getTeamMember()
+    {
+        return $this->hasMany(TeamMember::className(), ['team_id' => 'team_id']);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTeamMemberFormatted()
+    {
+        $users = $this->getTeamMember()->orderBy('user_id')->all();
+
+        $userString = array_map(function ($arr) {
+            $userName = $arr->getUser()->one()->getUsername();
+            return $userName;
+        }, $users);
+
+        return implode('<br>', $userString);
+    }
 }
