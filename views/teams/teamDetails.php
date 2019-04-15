@@ -9,7 +9,9 @@
 /* @var $this yii\web\View *
  * @var $teamDetails array
  * @var $teamInfo array
+ * @var $teamMember array
  */
+
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
@@ -45,7 +47,6 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
         <?php endif; ?>
     </div>
 
-
     <div class="col-lg-7 teamPanel">
 
         <div class="header">
@@ -77,6 +78,9 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
 
     <div class="teamBody">
 
+        <?php foreach($teamMember as $member) : ?>
+
+        <?php endforeach; ?>
 
     </div>
 </div>

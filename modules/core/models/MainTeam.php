@@ -104,6 +104,31 @@ class MainTeam extends ActiveRecord
         return $this->description;
     }
 
+    /**
+     * @return string
+     */
+    public function getTeamMembersFormatted()
+    {
+        $users = $this->getTeamMember();
+
+        $userString = array_map(function ($arr) {
+            $userName = $arr->getUser()->one()->getUsername();
+            return $userName;
+        }, $users);
+
+        return implode('<br>', $userString);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getTeamMember()
+    {
+        return $this->hasMany(TeamMember::className(), ['team_id' => 'team_id']);
+        //return TeamMember::findAll(['team_id' => 'team_id']);
+        //return $this->hasMany(TeamMember::find(), ['team_id' => 'team_id']);
+    }
+
     public function setProfilePic($profilePic)
     {
         $docRoot = $_SERVER['DOCUMENT_ROOT'];
