@@ -347,6 +347,23 @@ class User extends AbstractActiveRecord implements IdentityInterface
         $this->password = Yii::$app->security->generatePasswordHash($password);
     }
 
+    public function setProfilePic($profilePic)
+    {
+        $docRoot = $_SERVER['DOCUMENT_ROOT'];
+        $filePathPng = $docRoot . '/images/userAvatar/' . $this->user_id . '.png';
+        $filePathWebp = $docRoot . '/images/userAvatar/' . $this->user_id . '.webp';
+
+        $profilePic->moveTo($filePathPng);
+
+        // Buggy mit 7.0.33, sollte ab 7.1.x aufwärts laufen, wenn "WebP Support === true"
+        // $im = imagecreatefrompng($filePathPng);
+        // imagewebp($im, $filePathWebp);
+
+        // Workaround
+        $cmd = escapeshellcmd('cwebp ' . $filePathPng . ' -o ' . $filePathWebp);
+        shell_exec($cmd);
+    }
+
     /**
      * @inheritdoc
      */
