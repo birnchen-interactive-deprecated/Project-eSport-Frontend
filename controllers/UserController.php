@@ -3,35 +3,39 @@
 namespace app\controllers;
 
 use app\components\BaseController;
+use app\modules\core\models\ProfilePicForm;
 use app\modules\core\models\User;
 use DateTime;
 use Yii;
+use yii\web\UploadedFile;
 
 class UserController extends BaseController
 {
     /**
- * Display User Account Informations
- *
- * @param $id
- * @return string
- * @throws \yii\base\Exception
- */
+     * Display User Account Informations
+     *
+     * @param $id
+     * @return string
+     * @throws \yii\base\Exception
+     * @throws \Throwable
+     */
     public function actionDetails($id)//
     {
         /** Check if user ID my own User ID */
         $isMySelfe = (Yii::$app->user->identity != null && Yii::$app->user->identity->getId() == $id) ? true : false;
 
-        /** Profile Pic Uploader */
-        $profilePic = NULL;
-        if (is_array($_FILES) && isset($_FILES['profilePic'])) {
-            $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
-        }
-
         /** @var User $user */
         $user = User::findIdentity($id);
 
-        if (NULL !== $profilePic && 0 === $profilePic->getError()) {
-            $user->setProfilePic($profilePic);
+        /** @var ProfilePicForm $profilePicModel */
+        $profilePicModel = new ProfilePicForm(ProfilePicForm::SCENARIO_USER);
+        $profilePicModel->id = $id;
+
+        if ($profilePicModel->load(Yii::$app->request->post())) {
+            $profilePicModel->file = UploadedFile::getInstance($profilePicModel, 'file');
+            if ($profilePicModel->validate()) {
+                $profilePicModel->save();
+            }
         }
 
         /** @var $userInfo array */
@@ -42,19 +46,16 @@ class UserController extends BaseController
             'gender' => $user->getGender()->one(),
             'language' => $user->getLanguage()->one(),
             'nationality' => $user->getNationality()->one(),
-            'nationalityImg' => '/images/nationality/' . $user->getNationalityId() . '.png',
-            'playerImage' => '/images/userAvatar/' . $user->getId()
+            'nationalityImg' => Yii::getAlias("@web") . '/images/nationality/' . $user->getNationalityId() . '.png',
+            'playerImage' => Yii::getAlias("@web") . '/images/userAvatar/' . $user->getId()
         ];
 
         /* Set Correct Image Path */
-        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'] . '.webp'))
-        {
-            if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'] . '.png'))
-            {
-                $userInfo['playerImage'] = '/images/userAvatar/default';
+        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'] . '.webp')) {
+            if (!is_file($_SERVER['DOCUMENT_ROOT'] . $userInfo['playerImage'] . '.png')) {
+                $userInfo['playerImage'] = Yii::getAlias("@web") . '/images/userAvatar/default';
             }
         }
-
 
         $MainTeams = $user->getOwnedMainTeams()->all();
         $MemberTeams = $user->getMemberMainTeams()->all();
@@ -75,8 +76,11 @@ class UserController extends BaseController
         }
 
         $subTeams = $user->getAllSubTeamsWithMembers();
+
+
         return $this->render('details',
             [
+                'profilePicModel' => $profilePicModel,
                 'model' => $user,
                 'userInfo' => $userInfo,
                 'mainTeams' => $mainTeams,

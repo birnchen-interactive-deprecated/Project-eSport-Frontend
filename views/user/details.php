@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View *
+ * @var $profilePicModel \app\modules\core\models\ProfilePicForm
  * @var $model app\modules\core\models\User
  * @var $userInfo array
  * @var $mainTeams array
@@ -11,10 +12,10 @@ use app\assets\UserDetails;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-\app\assets\UserDetails::register(($this));
+UserDetails::register(($this));
 
 /* Browser Title */
-$this->title = $model->username.'\'s Player profile';
+$this->title = $model->username . '\'s Player profile';
 
 /* Site Canonicals */
 $this->registerLinkTag(['rel' => 'canonical', 'href' => 'https://project-esport.gg' . Yii::$app->request->url]);
@@ -26,21 +27,22 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
 <div class="site-account">
 
     <div class="col-lg-3 avatarPanel">
-        <img class="avatar-logo" src="<?= $userInfo['playerImage']; ?>.webp" alt="" onerror="this.src='<?= $userInfo['playerImage']; ?>.png'">
+        <img class="avatar-logo" src="<?= $userInfo['playerImage']; ?>.webp" alt=""
+             onerror="this.src='<?= $userInfo['playerImage']; ?>.png'">
 
-        <?php if($userInfo['isMySelfe']) : ?>
-        <?php $form = ActiveForm::begin([
-            'id' => 'profile-pic-form',
-            // 'layout' => 'horizontal',
-            'options' => ['enctype' => 'multipart/form-data'],
-            // 'fieldConfig' => [
-            //     'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-7\">{error}</div>",
-            //     'labelOptions' => ['class' => 'col-lg-2 control-label'],
-            // ],
-        ]); ?>
-        <?= Html::fileInput('profilePic', null, ['accept' => 'image/x-png', 'maxFileSize' => '3000']); ?>
-        <?= Html::submitInput('Hochladen'); ?>
-        <?php ActiveForm::end(); ?>
+        <?php if ($userInfo['isMySelfe']) : ?>
+            <?php $form = ActiveForm::begin([
+                'id' => 'profile-pic-form',
+                // 'layout' => 'horizontal',
+                'options' => ['enctype' => 'multipart/form-data'],
+                'fieldConfig' => [
+                    'template' => "<div class=\"col-lg-12\">{input}</div>\n"
+                ],
+            ]); ?>
+            <?= $form->field($profilePicModel, 'id')->hiddenInput()->label(false); ?>
+            <?= $form->field($profilePicModel, 'file')->fileInput() ?>
+            <?= Html::submitButton(Yii::t('app', 'upload')); ?>
+            <?php ActiveForm::end(); ?>
         <?php endif; ?>
     </div>
 
@@ -89,7 +91,9 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
                 <?php foreach ($mainTeams as $key => $mainTeam): ?>
                     <div class="teamEntry clearfix">
                         <div class="col-lg-12">
-                            <?= Html::a($mainTeam['team']->getName() , ['/teams/team-details', 'id' => $mainTeam['team']->getId()]); ?> (<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>) </div>
+                            <?= Html::a($mainTeam['team']->getName(), ['/teams/team-details', 'id' => $mainTeam['team']->getId()]); ?>
+                            (<?= ($mainTeam['owner']) ? 'owner' : 'member'; ?>)
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -98,7 +102,9 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
                 <div class="mainTeam">Sub Teams:</div>
                 <?php foreach ($subTeams as $key => $subTeam): ?>
                     <div class="teamEntry clearfix">
-                        <div class="col-lg-12"><?= Html::a($subTeam['team']->getName() , ['/teams/sub-team-details', 'id' => $subTeam['team']->getId()]) . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?> (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)</div>
+                        <div class="col-lg-12"><?= Html::a($subTeam['team']->getName(), ['/teams/sub-team-details', 'id' => $subTeam['team']->getId()]) . " (" . $subTeam['team']->getTournamentMode()->one()->getName() . ")"; ?>
+                            (<?= ($subTeam['owner']) ? 'Captain' : (($subTeam['isSub']) ? 'Substitute' : 'Player'); ?>)
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

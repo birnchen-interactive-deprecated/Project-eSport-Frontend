@@ -7,10 +7,12 @@
  */
 
 /* @var $this yii\web\View *
+ * @var $profilePicModel ProfilePicForm
  * @var $teamDetails array
  * @var $teamInfo array
  */
 
+use app\modules\core\models\ProfilePicForm;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -27,20 +29,21 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
 
 <div class="site-team-details">
     <div class="col-lg-3 avatarPanel">
-        <img class="avatar-logo" src="<?= $teamInfo['teamImage']; ?>.webp" alt="" onerror="this.src='<?= $teamInfo['teamImage']; ?>.png'">
+        <img class="avatar-logo" src="<?= $teamInfo['teamImage']; ?>.webp" alt=""
+             onerror="this.src='<?= $teamInfo['teamImage']; ?>.png'">
 
-        <?php if($teamInfo['isOwner']) : ?>
+        <?php if ($teamInfo['isOwner']) : ?>
             <?php $form = ActiveForm::begin([
                 'id' => 'profile-pic-form',
                 // 'layout' => 'horizontal',
                 'options' => ['enctype' => 'multipart/form-data'],
-                // 'fieldConfig' => [
-                //     'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-7\">{error}</div>",
-                //     'labelOptions' => ['class' => 'col-lg-2 control-label'],
-                // ],
+                'fieldConfig' => [
+                    'template' => "<div class=\"col-lg-12\">{input}</div>\n"
+                ],
             ]); ?>
-            <?= Html::fileInput('profilePic', null, ['accept' => 'image/x-png']); ?>
-            <?= Html::submitInput('Hochladen'); ?>
+            <?= $form->field($profilePicModel, 'id')->hiddenInput()->label(false); ?>
+            <?= $form->field($profilePicModel, 'file')->fileInput() ?>
+            <?= Html::submitButton(Yii::t('app', 'upload')); ?>
             <?php ActiveForm::end(); ?>
         <?php endif; ?>
     </div>

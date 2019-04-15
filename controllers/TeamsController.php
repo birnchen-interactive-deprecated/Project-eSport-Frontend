@@ -10,9 +10,11 @@ namespace app\controllers;
 
 use app\components\BaseController;
 use app\modules\core\models\MainTeam;
+use app\modules\core\models\ProfilePicForm;
 use app\modules\core\models\SubTeam;
-use Yii;
 use DateTime;
+use Yii;
+use yii\web\UploadedFile;
 
 
 class TeamsController extends BaseController
@@ -27,14 +29,15 @@ class TeamsController extends BaseController
     {
         $teamDetails = MainTeam::findOne(['team_id' => $id]);
 
-        /** Profile Pic Uploader */
-        $profilePic = NULL;
-        if (is_array($_FILES) && isset($_FILES['profilePic'])) {
-            $profilePic = new \GuzzleHttp\Psr7\UploadedFile($_FILES['profilePic']['tmp_name'], $_FILES['profilePic']['size'], $_FILES['profilePic']['error']);
-        }
+        /** @var ProfilePicForm $profilePicModel */
+        $profilePicModel = new ProfilePicForm(ProfilePicForm::SCENARIO_MAINTEAM);
+        $profilePicModel->id = $id;
 
-        if (NULL !== $profilePic && 0 === $profilePic->getError()) {
-            $teamDetails->setProfilePic($profilePic);
+        if ($profilePicModel->load(Yii::$app->request->post())) {
+            $profilePicModel->file = UploadedFile::getInstance($profilePicModel, 'file');
+            if ($profilePicModel->validate()) {
+                $profilePicModel->save();
+            }
         }
 
         /* Get Register Date and Age */
@@ -47,24 +50,23 @@ class TeamsController extends BaseController
             'memberSince' => $memberDateTime->format('d.m.y'),
             'language' => $teamDetails->getHeadQuarterId(),
             //'nationality' => $teamDetails->getHeadQuarterId(),
-            'nationalityImg' => '/images/nationality/' . $teamDetails->getHeadQuarterId() . '.png',
-            'teamImage' => '/images/teams/mainTeams/' . $teamDetails->getId()
+            'nationalityImg' => Yii::getAlias("@web") . '/images/nationality/' . $teamDetails->getHeadQuarterId() . '.png',
+            'teamImage' => Yii::getAlias("@web") . '/images/teams/mainTeams/' . $teamDetails->getId()
         ];
 
         /* Set Correct Image Path */
-        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'] . '.webp'))
-        {
-            if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'] . '.png'))
-            {
-                $userInfo['playerImage'] = '/images/userAvatar/default';
+        if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'] . '.webp')) {
+            if (!is_file($_SERVER['DOCUMENT_ROOT'] . $teamInfo['teamImage'] . '.png')) {
+                $teamInfo['teamImage'] = Yii::getAlias("@web") . '/images/userAvatar/default';
             }
         }
 
         return $this->render('teamDetails',
-        [
-            'teamDetails' => $teamDetails,
-            'teamInfo' => $teamInfo,
-        ]);
+            [
+                'profilePicModel' => $profilePicModel,
+                'teamDetails' => $teamDetails,
+                'teamInfo' => $teamInfo,
+            ]);
     }
 
     /**
@@ -76,8 +78,8 @@ class TeamsController extends BaseController
         $teamDetails = SubTeam::findOne(['sub_team_id' => $id]);
 
         return $this->render('subTeamDetails',
-        [
-            'subTeamDetails' => $teamDetails,
-        ]);
+            [
+                'subTeamDetails' => $teamDetails,
+            ]);
     }
 }
