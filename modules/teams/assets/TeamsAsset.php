@@ -15,7 +15,7 @@ class TeamsAsset extends AssetBundle
     public $js = [
     //    'js/first-js-file.js',
     ];
-    
+
     // that are the dependencies, for making your Asset bundle work with Yii2 framework
     public $depends = [
         'yii\web\YiiAsset',
