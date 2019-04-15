@@ -115,15 +115,15 @@ class MainTeam extends ActiveRecord
     /**
      * @return string
      */
-    public function getTeamMemberFormatted()
-    {
-        $users = $this->getTeamMember()->orderBy('user_id')->all();
+    // public function getTeamMemberFormatted()
+    // {
+    //     $users = $this->getTeamMember()->orderBy('user_id')->all();
 
-        $userString = array_map(function ($arr) {
-            $userName = $arr->getUser()->one()->getUsername();
-            return $userName;
-        }, $users);
+    //     $userString = array_map(function ($arr) {
+    //         $userName = $arr->getUser()->one()->getUsername();
+    //         return $userName;
+    //     }, $users);
 
-        return implode('<br>', $userString);
-    }
+    //     return implode('<br>', $userString);
+    // }
 }

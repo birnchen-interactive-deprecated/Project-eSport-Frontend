@@ -58,3 +58,7 @@
     vertical-align: sub;
     width: 24px;
 }
+
+.site-team-details .teamPanel .teamMembers {
+    padding-left: 0;
+}
