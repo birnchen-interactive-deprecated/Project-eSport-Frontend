@@ -16,6 +16,8 @@ use app\modules\core\models\ProfilePicForm;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
+\app\modules\teams\assets\TeamsAsset::register($this);
+
 /* Browser Title */
 $this->title = $teamDetails->getName() . '\'s Sub Team profile';
 
