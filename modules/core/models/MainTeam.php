@@ -118,7 +118,7 @@ class MainTeam extends ActiveRecord
     public function getTeamMemberWithOwner()
     {
         $members = [];
-        $members[] = $this->hasOne(User::className(), ['owner_id' => 'user_id'])->one();
+        $members[] = $this->hasOne(User::className(), ['user_id' => 'owner_id'])->one();
         foreach ($this->getTeamMember()->all() as $teamMemberKey => $teamMember) {
             $members[] = $teamMember->getUser()->one();
         }
