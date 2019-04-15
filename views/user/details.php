@@ -36,7 +36,7 @@ Yii::$app->metaClass->writeMetaUser($this, $model, $userInfo['nationality']);
                 // 'layout' => 'horizontal',
                 'options' => ['enctype' => 'multipart/form-data'],
                 'fieldConfig' => [
-                    'template' => "<div class=\"col-lg-12\">{input}</div>\n"
+                    'template' => "<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-7\">{error}</div>"
                 ],
             ]); ?>
             <?= $form->field($profilePicModel, 'id')->hiddenInput()->label(false); ?>
