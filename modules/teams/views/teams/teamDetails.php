@@ -83,18 +83,6 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'description')?></div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getDescription() ?></div>
         </div>
-        <div class="entry entryMembers clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'team_member')?></div>
-            <div class="col-xs-7 col-sm-9 col-lg-9 context">
-                <?php foreach($teamDetails->getTeamMemberWithOwner() as $userKey => $user): ?>
-                    <?php
-                        $username = $user->getUsername();
-                        $userId = $user->getId();
-                    ?>
-                    <div class="col-lg-4 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?></div>
-                <?php endforeach; ?>
-            </div>
-        </div>
         <div class="entry entrySubTeams clearfix">
             <div class="col-xs-5 col-sm-3 col-lg-3">Sub Teams</div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context">
@@ -107,6 +95,18 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
                         </div>
 
                     <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="entry entryMembers clearfix">
+            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'team_member')?></div>
+            <div class="col-xs-7 col-sm-9 col-lg-9 context">
+                <?php foreach($teamDetails->getTeamMemberWithOwner() as $userKey => $user): ?>
+                    <?php
+                        $username = $user->getUsername();
+                        $userId = $user->getId();
+                    ?>
+                    <div class="col-lg-4 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?></div>
                 <?php endforeach; ?>
             </div>
         </div>
