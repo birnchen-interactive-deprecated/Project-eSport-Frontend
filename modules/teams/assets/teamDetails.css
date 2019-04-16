@@ -88,9 +88,14 @@
 }
 
 .site-team-details .teamPanel .tournamentMode {
-    border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    padding-left: 0;
 }
 .site-team-details .teamPanel .tournamentMode:nth-child(1) {
     border-top: 0;
+}
+
+.site-team-details .teamPanel .subTeam {
+    padding-left: 0;
 }

@@ -104,8 +104,6 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
 
                         <div class="col-lg-6 subTeam">
                             <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]); ?>
-
-                            <div class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</div>
                         </div>
 
                     <?php endforeach; ?>
