@@ -86,3 +86,8 @@
     border-top: 1px solid #aaa;
     margin-top: 10px;
 }
+
+.site-team-details .teamPanel .tournamentMode {
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}

@@ -99,7 +99,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <div class="col-xs-5 col-sm-3 col-lg-3">Sub Teams</div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context">
                 <?php foreach ($subTeams as $tournamentMode => $subTeamsPerMode): ?>
-                    <div class="col-lg-12 clearfix"><?= $tournamentMode; ?></div>
+                    <div class="col-lg-12 tournamentMode clearfix"><?= $tournamentMode; ?></div>
                     <?php foreach ($subTeamsPerMode as $subTeam): ?>
 
                         <div class="col-lg-6 subTeam">
