@@ -256,7 +256,8 @@ class SubTeam extends ActiveRecord
         }
 
         usort($teamHierarchy, function($a, $b) {
-            return $a['mainTeam']->getName() > $b['mainTeam']->getName();
+            return strcmp($a['mainTeam']->getName(), $b['mainTeam']->getName());
+            // return $a['mainTeam']->getName() > $b['mainTeam']->getName();
         });
 
         return $teamHierarchy;
