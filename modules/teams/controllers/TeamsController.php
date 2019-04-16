@@ -9,8 +9,8 @@
 namespace app\modules\teams\controllers;
 
 use app\components\BaseController;
-use app\modules\teams\models\MainTeam;
-use app\modules\teams\models\SubTeam;
+use app\modules\core\models\MainTeam;
+use app\modules\core\models\SubTeam;
 use app\modules\core\models\ProfilePicForm;
 use DateTime;
 use Yii;

@@ -97,6 +97,6 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
     </div>
 
     <div class="col-lg-2">
-        <!-- falls hier noch was reinkommen sollte. -->
+        <!-- falls hier noch was reinkommen sollte, auf der rechten Seite ;). -->
     </div>
 </div>

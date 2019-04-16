@@ -95,17 +95,20 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
                 <?php endforeach; ?>
             </div>
         </div>
+        <div class="entry entrySubTeams clearfix">
+            <?php foreach ($subTeams as $subTeam): ?>
+
+                <div class="subTeam">
+                    <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]) . " (" . $subTeam->getTournamentMode()->one()->getName() . ")"; ?>
+
+                    <span class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
+                </div>
+
+            <?php endforeach; ?>
+        </div>
     </div>
 
     <div class="col-lg-2">
-        <?php foreach ($subTeams as $subTeam): ?>
-
-            <div class="subTeam">
-                <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]) . " (" . $subTeam->getTournamentMode()->one()->getName() . ")"; ?>
-
-                <span class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
-            </div>
-
-        <?php endforeach; ?>
+        <!-- falls hier noch was reinkommen sollte, auf der rechten Seite ;). -->
     </div>
 </div>
