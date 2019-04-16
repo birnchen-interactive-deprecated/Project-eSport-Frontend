@@ -51,6 +51,7 @@ class TeamsController extends BaseController
     public function actionTeamDetails($id = null)
     {
         $teamDetails = MainTeam::findOne(['team_id' => $id]);
+        $subTeams = SubTeam::getSubTeams($id);
 
         /** @var ProfilePicForm $profilePicModel */
         $profilePicModel = new ProfilePicForm(ProfilePicForm::SCENARIO_MAINTEAM);
@@ -89,6 +90,7 @@ class TeamsController extends BaseController
                 'profilePicModel' => $profilePicModel,
                 'teamDetails' => $teamDetails,
                 'teamInfo' => $teamInfo,
+                'subTeams' => $subTeams,
             ]);
     }
 

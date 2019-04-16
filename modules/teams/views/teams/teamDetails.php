@@ -10,6 +10,7 @@
  * @var $profilePicModel ProfilePicForm
  * @var $teamDetails array
  * @var $teamInfo array
+ * @var $subTeams array
  */
 
 use app\modules\core\models\ProfilePicForm;
@@ -97,6 +98,14 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
     </div>
 
     <div class="col-lg-2">
-        <!-- falls hier noch was reinkommen sollte. -->
+        <?php foreach ($subTeams as $subTeam): ?>
+
+            <div class="subTeam">
+                <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]) . " (" . $subTeam->getTournamentMode()->one()->getName() . ")"; ?>
+                
+                <span class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
+            </div>
+
+        <?php endforeach; ?>
     </div>
 </div>

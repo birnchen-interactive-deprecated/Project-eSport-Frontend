@@ -184,10 +184,10 @@ class SubTeam extends ActiveRecord
         $users = $this->getSubTeamMembers()->orderBy('is_sub')->all();
 
         $userString = array_map(function ($arr) {
-        $userName = $arr->getUser()->one()->getUsername();
-        $isSub = (1 === $arr->getIsSubstitute()) ? 'Substitute' : 'Spieler';
-        return $userName . ' (' . $isSub . ')';
-    }, $users);
+            $userName = $arr->getUser()->one()->getUsername();
+            $isSub = (1 === $arr->getIsSubstitute()) ? 'Substitute' : 'Spieler';
+            return $userName . ' (' . $isSub . ')';
+        }, $users);
 
         return implode('<br>', $userString);
     }
@@ -253,6 +253,18 @@ class SubTeam extends ActiveRecord
         }
 
         return $teamHierarchy;
+    }
+
+    /**
+     * @param $team_id
+     * @return SubTeam[]
+     */
+    public function getSubTeams($team_id)
+    {
+        /** @var SubTeam[] $subTeams */
+        $subTeams = static::findAll(['main_team_id' => $team_id]);
+
+        return $subTeams;
     }
 
     /**
