@@ -122,6 +122,11 @@ class MainTeam extends ActiveRecord
         foreach ($this->getTeamMember()->all() as $teamMemberKey => $teamMember) {
             $members[] = $teamMember->getUser()->one();
         }
+
+        usort($members, function($a, $b) {
+            return $a->getUsername() < $b->getUsername();
+        });
+        
         return $members;
     }
 
