@@ -126,6 +126,31 @@ class MainTeam extends ActiveRecord
     }
 
     /**
+     * @return ActiveQuery
+     */
+    public function getSubTeams() {
+        return $this->hasMany(SubTeam::className(), ['main_team_id' => 'team_id']);
+    }
+
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getSubTeamsGroupByTournamentMode() {
+        
+        $subTeams = $this->hasMany(SubTeam::className(), ['main_team_id' => 'team_id'])->orderBy('tournament_mode_id')->all();
+
+        $subTeamsGrouped = [];
+        foreach ($subTeams as $subTeamKey => $subTeam) {
+            $tournamentModeName = $subTeam->getTournamentMode()->one()->getName();
+
+            $subTeamsGrouped[$tournamentModeName][] = $subTeam;
+        }
+
+        return $subTeamsGrouped;
+    }
+
+    /**
      * @return string
      */
     // public function getTeamMemberFormatted()

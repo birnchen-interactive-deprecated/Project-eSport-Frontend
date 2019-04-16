@@ -91,21 +91,24 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
                         $username = $user->getUsername();
                         $userId = $user->getId();
                     ?>
-                    <div class="col-lg-6 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?></div>
+                    <div class="col-lg-4 teamMembers"><?= Html::a($username, ['/user/details', 'id' => $userId]); ?></div>
                 <?php endforeach; ?>
             </div>
         </div>
         <div class="entry entrySubTeams clearfix">
             <div class="col-xs-5 col-sm-3 col-lg-3">Sub Teams</div>
             <div class="col-xs-7 col-sm-9 col-lg-9 context">
-                <?php foreach ($subTeams as $subTeam): ?>
+                <?php foreach ($subTeams as $tournamentMode => $subTeamsPerMode): ?>
+                    <div class="col-lg-12 clearfix"><?= $tournamentMode; ?></div>
+                    <?php foreach ($subTeamsPerMode as $subTeam): ?>
 
-                    <div class="subTeam">
-                        <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]) . " (" . $subTeam->getTournamentMode()->one()->getName() . ")"; ?>
+                        <div class="col-lg-6 subTeam">
+                            <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]) . " (" . $subTeam->getTournamentMode()->one()->getName() . ")"; ?>
 
-                        <span class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
-                    </div>
+                            <span class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
+                        </div>
 
+                    <?php endforeach; ?>
                 <?php endforeach; ?>
             </div>
         </div>

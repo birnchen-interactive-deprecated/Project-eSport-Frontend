@@ -258,18 +258,6 @@ class SubTeam extends ActiveRecord
     }
 
     /**
-     * @param $team_id
-     * @return SubTeam[]
-     */
-    public function getSubTeams($team_id)
-    {
-        /** @var SubTeam[] $subTeams */
-        $subTeams = static::findAll(['main_team_id' => $team_id]);
-
-        return $subTeams;
-    }
-
-    /**
      * @param $userId
      * @return bool
      */
