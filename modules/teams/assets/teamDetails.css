@@ -80,3 +80,7 @@
 .site-sub-team-details .teamPanel .teamMembers {
     padding-left: 0;
 }
+
+.site-team-details .teamPanel .entrySubTeams {
+    border-top: 1px solid #aaa;
+}
