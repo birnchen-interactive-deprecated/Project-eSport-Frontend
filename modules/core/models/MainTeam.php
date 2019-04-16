@@ -115,7 +115,7 @@ class MainTeam extends ActiveRecord
     /**
      * @return array
      */
-    public function getTeamMemberWithOwner()
+    public function getTeamMemberWithOwner($sort = true)
     {
         $members = [];
         $members[] = $this->hasOne(User::className(), ['user_id' => 'owner_id'])->one();
@@ -123,10 +123,12 @@ class MainTeam extends ActiveRecord
             $members[] = $teamMember->getUser()->one();
         }
 
-        usort($members, function($a, $b) {
-            return $a->getUsername() < $b->getUsername();
-        });
-        
+        if ($sort) {
+            usort($members, function($a, $b) {
+                return $a->getUsername() > $b->getUsername();
+            });
+        }
+
         return $members;
     }
 
@@ -141,7 +143,7 @@ class MainTeam extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getSubTeamsGroupByTournamentMode() {
+    public function getSubTeamsGroupByTournamentMode($sort = true) {
         
         $subTeams = $this->hasMany(SubTeam::className(), ['main_team_id' => 'team_id'])->orderBy('tournament_mode_id')->all();
 
@@ -150,6 +152,14 @@ class MainTeam extends ActiveRecord
             $tournamentModeName = $subTeam->getTournamentMode()->one()->getName();
 
             $subTeamsGrouped[$tournamentModeName][] = $subTeam;
+        }
+
+        if ($sort) {
+            foreach ($subTeamsGrouped as $subTeamKey => $subTeams) {
+                usort($subTeams, function($a, $b) {
+                    return $a->getName() > $b->getName();
+                });
+            }
         }
 
         return $subTeamsGrouped;
