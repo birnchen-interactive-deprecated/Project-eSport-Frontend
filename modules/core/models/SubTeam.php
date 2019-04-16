@@ -225,13 +225,14 @@ class SubTeam extends ActiveRecord
         $subTeams = static::findAll(['game_id' => $gameId]);
         usort($subTeams, function ($a, $b) {
 
-            $aName = $a->getMainTeam()->one()->getName();
-            $bName = $b->getMainTeam()->one()->getName();
+            // $aName = $a->getMainTeam()->one()->getName();
+            // $bName = $b->getMainTeam()->one()->getName();
 
             $aSubName = $a->getName();
             $bSubName = $b->getName();
 
-            return [$aName, $a->getTournamentModeId(), $aSubName] <=> [$bName, $b->getTournamentModeId(), $bSubName];
+            // return [$aName, $a->getTournamentModeId(), $aSubName] <=> [$bName, $b->getTournamentModeId(), $bSubName];
+            return [$a->getTournamentModeId(), $aSubName] <=> [$b->getTournamentModeId(), $bSubName];
         });
 
         foreach ($subTeams as $key => $subTeam) {
@@ -253,6 +254,10 @@ class SubTeam extends ActiveRecord
                 // 'subTeamMember' => $subTeamMember,
             );
         }
+
+        usort($teamHierarchy, function($a, $b) {
+            return $a['mainTeam']->getName() > $b['mainTeam']->getName();
+        })
 
         return $teamHierarchy;
     }
