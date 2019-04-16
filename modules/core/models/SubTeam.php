@@ -8,6 +8,8 @@
 
 namespace app\modules\core\models;
 
+use app\modules\core\models\Tournament;
+use app\modules\core\models\User;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -98,7 +100,7 @@ class SubTeam extends ActiveRecord
      */
     public function getTournamentMode()
     {
-        return $this->hasOne(TournamentMode::className(), ['mode_id' => 'tournament_mode_id']);
+        return $this->hasOne(Tournament::className(), ['mode_id' => 'tournament_mode_id']);
     }
 
     /**

@@ -99,7 +99,7 @@ class Tournament extends ActiveRecord
         return $this->rules_id;
     }
 
-    /*
+    /**
      * Get Rules Name
      */
     public function getRules()
@@ -240,7 +240,8 @@ class Tournament extends ActiveRecord
 
     /**
      * @param $subTeams
-     * @return boolean
+     * @param $user
+     * @return bool
      */
     public function showRegisterBtn($subTeams, $user)
     {
@@ -256,8 +257,9 @@ class Tournament extends ActiveRecord
     }
 
     /**
+     * @param $subTeams
      * @param $user
-     * @return boolean
+     * @return bool
      */
     public function showCheckInBtn($subTeams, $user)
     {

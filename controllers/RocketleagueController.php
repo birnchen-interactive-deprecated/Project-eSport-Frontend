@@ -9,7 +9,6 @@
 namespace app\controllers;
 
 use app\components\BaseController;
-use Yii;
 use app\modules\core\models\SubTeam;
 use app\modules\core\models\PlayerParticipating;
 use app\modules\core\models\TeamParticipating;

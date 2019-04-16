@@ -102,7 +102,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
 
             <div class="subTeam">
                 <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]) . " (" . $subTeam->getTournamentMode()->one()->getName() . ")"; ?>
-                
+
                 <span class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
             </div>
 
