@@ -156,7 +156,7 @@ class MainTeam extends ActiveRecord
 
         if ($sort) {
             foreach ($subTeamsGrouped as $subTeamKey => $subTeams) {
-                usort($subTeams, function($a, $b) {
+                usort($subTeamsGrouped[$subTeamKey], function($a, $b) {
                     return $a->getName() > $b->getName();
                 });
             }
