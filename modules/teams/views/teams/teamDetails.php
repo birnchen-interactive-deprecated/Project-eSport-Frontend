@@ -103,9 +103,9 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
                     <?php foreach ($subTeamsPerMode as $subTeam): ?>
 
                         <div class="col-lg-6 subTeam">
-                            <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]) . " (" . $subTeam->getTournamentMode()->one()->getName() . ")"; ?>
+                            <?= Html::a($subTeam->getName(), ['/teams/sub-team-details', 'id' => $subTeam->getId()]); ?>
 
-                            <span class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</span>
+                            <div class="subTeamOwner"> (Captain: <?= Html::a($subTeam->GetTeamCaptain()->one()->getUsername() , ['/user/details', 'id' => $subTeam->getTeamCaptainId()]); ?>)</div>
                         </div>
 
                     <?php endforeach; ?>
