@@ -56,7 +56,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <span class="teamname"><?= $teamDetails->getName(); ?></span>
             <span class="teamid">id: <?= $teamDetails->getId(); ?></span>
         </div>
-        <div class="teamDetails">
+        <div class="teamInfos">
             <div class="entry clearfix">
                 <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'name')?></div>
                 <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getName(); ?></div>
