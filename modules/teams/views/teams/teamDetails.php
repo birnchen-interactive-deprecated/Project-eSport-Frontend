@@ -48,6 +48,7 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <?= $form->field($profilePicModel, 'file')->fileInput() ?>
             <?= Html::submitButton(\app\modules\teams\Module::t('teams', 'upload')); ?>
             <?php ActiveForm::end(); ?>
+            <?= Html::a(\app\modules\teams\Module::t('teams', 'change'), ['/teams/change-team-details', 'id' => $teamDetails->getId()]); ?>
         <?php endif; ?>
     </div>
 

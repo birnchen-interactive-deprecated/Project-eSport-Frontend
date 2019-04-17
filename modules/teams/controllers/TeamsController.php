@@ -145,4 +145,23 @@ class TeamsController extends BaseController
                 'teamInfo' => $teamInfo,
             ]);
     }
+
+    public function actionChangeTeamDetails($id = null)
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $teamDetails = MainTeam::findOne(['team_id' => $id]);
+        $myID = Yii::$app->user->identity->getId();
+
+        /** Check if owner ID my own User ID */
+        if($teamDetails->getOwnerId() == $myID)
+        $isMySelfe = (Yii::$app->user->identity != null && Yii::$app->user->identity->getId() == $id) ? true : false;
+
+        return $this->render('changeTeamDetails',
+            [
+
+            ]);
+    }
 }

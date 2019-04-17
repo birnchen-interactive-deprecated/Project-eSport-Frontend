@@ -53,6 +53,6 @@ return [
     'gtc' => 'AGB',
     'privacy' => 'Datenschutz',
 
-    /**  */
-    'upload' => 'Hochladen'
+    /** Globale Buttons */
+    'upload' => 'Hochladen',
 ];

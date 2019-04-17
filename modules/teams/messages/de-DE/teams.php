@@ -9,6 +9,7 @@
 return [
     /** Image Uploader */
     'upload' => 'Hochladen',
+    'change' => 'Bearbeiten',
 
     /** alt attributes */
     'teamLogo' => 'Team Logo',
