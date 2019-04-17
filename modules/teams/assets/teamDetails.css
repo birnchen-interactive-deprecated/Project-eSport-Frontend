@@ -23,6 +23,12 @@
     }
 }
 
+.site-team-details .teamPanel .teamInfos,
+.site-sub-team-details .teamPanel .teamInfos {
+    border-bottom: 1px solid #aaa;
+    padding: 10px 0;
+}
+
 .site-team-details .teamPanel .header,
 .site-sub-team-details .teamPanel .header {
     border-bottom: 1px solid #aaa;

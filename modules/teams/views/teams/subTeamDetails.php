@@ -56,29 +56,31 @@ Yii::$app->metaClass->writeMetaMainTeam($this, $teamDetails, $this->title);
             <span class="teamname"><?= $teamDetails->getName(); ?></span>
             <span class="teamid">id: <?= $teamDetails->getId(); ?></span>
         </div>
-        <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'name')?></div>
-            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getName(); ?></div>
-        </div>
-        <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'shortcode')?></div>
-            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getShortCode(); ?></div>
-        </div>
-        <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'team_captain')?></div>
-            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::a($teamDetails->GetTeamCaptain()->one()->getUsername(), ['/user/details', 'id' => $teamDetails->getTeamCaptainId()]); ?></div>
-        </div>
-        <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'member_since')?></div>
-            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamInfo['memberSince']; ?></div>
-        </div>
-        <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'nationality')?></div>
-            <div class="col-xs-7 col-sm-9 col-lg-9 context"></div>
-        </div>
-        <div class="entry clearfix">
-            <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'description')?></div>
-            <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getDescription() ?></div>
+        <div class="teamInfos">
+            <div class="entry clearfix">
+                <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'name')?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getName(); ?></div>
+            </div>
+            <div class="entry clearfix">
+                <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'shortcode')?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getShortCode(); ?></div>
+            </div>
+            <div class="entry clearfix">
+                <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'team_captain')?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= Html::a($teamDetails->GetTeamCaptain()->one()->getUsername(), ['/user/details', 'id' => $teamDetails->getTeamCaptainId()]); ?></div>
+            </div>
+            <div class="entry clearfix">
+                <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'member_since')?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamInfo['memberSince']; ?></div>
+            </div>
+            <div class="entry clearfix">
+                <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'nationality')?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"></div>
+            </div>
+            <div class="entry clearfix">
+                <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'description')?></div>
+                <div class="col-xs-7 col-sm-9 col-lg-9 context"><?= $teamDetails->getDescription() ?></div>
+            </div>
         </div>
         <div class="entry entryMembers clearfix">
             <div class="col-xs-5 col-sm-3 col-lg-3"><?=\app\modules\teams\Module::t('teams', 'team_member')?></div>
