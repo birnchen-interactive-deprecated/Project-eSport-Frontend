@@ -34,7 +34,7 @@ if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $DiscordImgPath . '.webp')) {
 $twitterImg = Html::img(Yii::getAlias("@web") . $twitterImgPath . '.png', ['height' => '49px', 'alt'=> 'twitter.png', 'aria-label' => 'twitter.png']);
 $twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Follow us on twitter', 'label' => 'twitter']);
 
-$discordImg = Html::img(Yii::getAlias("@web") . $twitterImgPath . '.png', ['height' => '49px', 'alt'=> 'discord.png', 'aria-label' => 'discord.png', 'style' => 'padding: 5px 0; ']);
+$discordImg = Html::img(Yii::getAlias("@web") . $DiscordImgPath . '.png', ['height' => '49px', 'alt'=> 'discord.png', 'aria-label' => 'discord.png', 'style' => 'padding: 5px 0; ']);
 $discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Join our Discord Server']);
 
 $containerClass = '';
