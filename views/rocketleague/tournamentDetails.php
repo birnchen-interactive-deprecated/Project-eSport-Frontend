@@ -165,11 +165,11 @@ $this->title = 'Turnier Details';
         <?php foreach ($participatingEntrys as $key => $entry): ?>
             <?php
 
-            $imgPath = ($entry instanceOf User) ? '/images/UserAvatar/' . $entry->user_id : '/images/teams/subTeams/' . $entry->sub_team_id;
+            $imgPath = ($entry instanceOf User) ? '/images/userAvatar/' . $entry->user_id : '/images/teams/subTeams/' . $entry->sub_team_id;
 
             if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imgPath . '.webp')) {
                 if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imgPath . '.png')) {
-                    $userInfo['playerImage'] = Yii::getAlias("@web") . '/images/userAvatar/default';
+                    $imgPath = Yii::getAlias("@web") . '/images/userAvatar/default';
                 }
             }
 
@@ -184,7 +184,7 @@ $this->title = 'Turnier Details';
             $disqClass = (false === $disqStatus) ? '' : 'alert-danger';
             ?>
             <tr class="fold">
-                
+
                 <td class="imageCell"><?= Html::img($imgPath . '.webp', ['class' => 'entry-logo']); ?></td>
                 <td class="nameCell"><?= $entryName; ?></td>
                 <?php if ('Team' === $userTeam): ?>
