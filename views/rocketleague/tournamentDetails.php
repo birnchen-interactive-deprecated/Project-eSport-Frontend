@@ -165,9 +165,12 @@ $this->title = 'Turnier Details';
         <?php foreach ($participatingEntrys as $key => $entry): ?>
             <?php
 
-            $imgPath = ($entry instanceOf User) ? '/images/UserAvatar/' . $entry->user_id . '.png' : '/images/teams/' . $entry->sub_team_id . '.png';
-            if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imgPath)) {
-                $imgPath = '/images/default.png';
+            $imgPath = ($entry instanceOf User) ? '/images/UserAvatar/' . $entry->user_id : '/images/teams/subTeams/' . $entry->sub_team_id;
+
+            if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imgPath . '.webp')) {
+                if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imgPath . '.png')) {
+                    $userInfo['playerImage'] = Yii::getAlias("@web") . '/images/userAvatar/default';
+                }
             }
 
             $entryName = ($entry instanceOf User) ? $entry->getUsername() : $entry->getName();
@@ -181,6 +184,7 @@ $this->title = 'Turnier Details';
             $disqClass = (false === $disqStatus) ? '' : 'alert-danger';
             ?>
             <tr class="fold">
+                <img class="avatar-logo" src="<?= $imgPath ?>.webp" alt="" onerror="this.src='<?= $imgPath; ?>.png'">
                 <td class="imageCell"><?= Html::img($imgPath, ['class' => 'entry-logo']); ?></td>
                 <td class="nameCell"><?= $entryName; ?></td>
                 <?php if ('Team' === $userTeam): ?>
