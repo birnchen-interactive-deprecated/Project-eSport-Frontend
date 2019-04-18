@@ -32,8 +32,8 @@ class HelperClass
      */
     public function checkImage($imagePath)
     {
-        if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imagePath . '.webp')) {
-            if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $imagePath . '.png')) {
+        if (!is_file($_SERVER['DOCUMENT_ROOT'] . Yii::getAlias("@web") . $imagePath . '.webp')) {
+            if (!is_file($_SERVER['DOCUMENT_ROOT'] . Yii::getAlias("@web") . $imagePath . '.png')) {
                 $imagePath = Yii::getAlias("@web") . '/images/userAvatar/default';
             }
         }
