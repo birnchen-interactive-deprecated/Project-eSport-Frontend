@@ -16,10 +16,25 @@ AppAsset::register($this);
 
 $visible = (Yii::$app->user->isGuest) ? false : true;
 
-$twitterImg = Html::img('../images/socialMedia/Twitter_Logo_Blue.png', ['height' => '49px', 'alt'=> 'twitter.png', 'aria-label' => 'twitter.png']);
+$twitterImgPath = '/images/socialMedia/Twitter_Logo_Blue';
+$DiscordImgPath = '/images/socialMedia/Discord-Logo-White';
+
+if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $twitterImgPath . '.webp')) {
+    if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $twitterImgPath . '.png')) {
+        $twitterImgPath = Yii::getAlias("@web") . '/images/userAvatar/default';
+    }
+}
+
+if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $DiscordImgPath . '.webp')) {
+    if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $DiscordImgPath . '.png')) {
+        $DiscordImgPath = Yii::getAlias("@web") . '/images/userAvatar/default';
+    }
+}
+
+$twitterImg = Html::img(Yii::getAlias("@web") . $twitterImgPath . '.png', ['height' => '49px', 'alt'=> 'twitter.png', 'aria-label' => 'twitter.png']);
 $twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Follow us on twitter', 'label' => 'twitter']);
 
-$discordImg = Html::img('../images/socialMedia/Discord-Logo-White.png', ['height' => '49px', 'alt'=> 'discord.png', 'aria-label' => 'discord.png', 'style' => 'padding: 5px 0; ']);
+$discordImg = Html::img(Yii::getAlias("@web") . $twitterImgPath . '.png', ['height' => '49px', 'alt'=> 'discord.png', 'aria-label' => 'discord.png', 'style' => 'padding: 5px 0; ']);
 $discordLink = Html::a($discordImg, 'https://discord.gg/f6NXNFy', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Join our Discord Server']);
 
 $containerClass = '';

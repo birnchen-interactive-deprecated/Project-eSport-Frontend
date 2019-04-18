@@ -185,7 +185,10 @@ $this->title = 'Turnier Details';
             ?>
             <tr class="fold">
 
-                <td class="imageCell"><?= Html::img($imgPath . '.webp', ['class' => 'entry-logo']); ?></td>
+                <td class="imageCell">
+                    <?= Html::img($imgPath . '.webp', ['class' => 'entry-logo', 'alt' => "profilePic", 'aria-label' => 'profilePic', 'onerror' =>'this.src=' . $imgPath . '.png"' ]); ?>
+                </td>
+
                 <td class="nameCell"><?= $entryName; ?></td>
                 <?php if ('Team' === $userTeam): ?>
                     <td><?= $entry->getTeamMembersFormatted(); ?></td>
