@@ -19,7 +19,7 @@ $visible = (Yii::$app->user->isGuest) ? false : true;
 $twitterImgPath = Yii::$app->helperClass->checkImage('/images/socialMedia/Twitter_Logo_Blue');
 //'/images/socialMedia/Twitter_Logo_Blue';
 
-$DiscordImgPath = Yii::$app->helperClass->checkImage('/images/socialMedia/Twitter_Logo_Blue');
+$DiscordImgPath = Yii::$app->helperClass->checkImage('/images/socialMedia/Discord-Logo-White');
 //'/images/socialMedia/Discord-Logo-White';
 
 $twitterImg = Html::img(Yii::getAlias("@web") . $twitterImgPath . '.png', ['height' => '49px', 'alt'=> 'twitter.png', 'aria-label' => 'twitter.png']);
