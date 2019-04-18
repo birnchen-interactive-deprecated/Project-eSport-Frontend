@@ -40,4 +40,9 @@ class HelperClass
 
         return $imagePath;
     }
+
+    public function createSozialMediaImage()
+    {
+
+    }
 }
