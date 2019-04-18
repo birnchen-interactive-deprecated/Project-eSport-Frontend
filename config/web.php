@@ -88,7 +88,7 @@ $config = [
             'class' => 'app\modules\core\miscellaneous\metaClass',
         ],
         'helperClass' => [
-            'calss' => 'app\modules\core\miscellaneous\helperClass'
+            'class' => 'app\modules\core\miscellaneous\helperClass'
         ]
     ],
     'modules' => [
