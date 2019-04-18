@@ -13,9 +13,15 @@ use app\modules\core\models\Nationality;
 use app\modules\core\models\User;
 use yii\web\View;
 
+/**
+ * Class MetaClass
+ * @package app\modules\core\miscellaneous
+ */
 class MetaClass
 {
-
+    /**
+     * MetaClass constructor.
+     */
     public function __construct()
     {
 

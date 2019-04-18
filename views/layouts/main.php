@@ -5,7 +5,6 @@
 /* @var $content string */
 
 use app\assets\AppAsset;
-use app\modules\company\Module;
 use app\widgets\Alert;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -16,20 +15,12 @@ AppAsset::register($this);
 
 $visible = (Yii::$app->user->isGuest) ? false : true;
 
-$twitterImgPath = '/images/socialMedia/Twitter_Logo_Blue';
-$DiscordImgPath = '/images/socialMedia/Discord-Logo-White';
+/* Check Images and generate Social Media Links */
+$twitterImgPath = Yii::$app->helperClass->checkImage('/images/socialMedia/Twitter_Logo_Blue');
+//'/images/socialMedia/Twitter_Logo_Blue';
 
-if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $twitterImgPath . '.webp')) {
-    if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $twitterImgPath . '.png')) {
-        $twitterImgPath = Yii::getAlias("@web") . '/images/userAvatar/default';
-    }
-}
-
-if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $DiscordImgPath . '.webp')) {
-    if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/' . $DiscordImgPath . '.png')) {
-        $DiscordImgPath = Yii::getAlias("@web") . '/images/userAvatar/default';
-    }
-}
+$DiscordImgPath = Yii::$app->helperClass->checkImage('/images/socialMedia/Twitter_Logo_Blue');
+//'/images/socialMedia/Discord-Logo-White';
 
 $twitterImg = Html::img(Yii::getAlias("@web") . $twitterImgPath . '.png', ['height' => '49px', 'alt'=> 'twitter.png', 'aria-label' => 'twitter.png']);
 $twitterLink = Html::a($twitterImg, 'https://twitter.com/esport_project', ['target' => '_blank', 'rel' =>'noopener', 'aria-label' => 'Follow us on twitter', 'label' => 'twitter']);
