@@ -184,8 +184,8 @@ $this->title = 'Turnier Details';
             $disqClass = (false === $disqStatus) ? '' : 'alert-danger';
             ?>
             <tr class="fold">
-                <td class="avatar-logo" src="<?= $imgPath ?>.webp" alt="" onerror="this.src='<?= $imgPath; ?>.png'"></td>
                 
+                <td class="imageCell"><?= Html::img($imgPath . '.webp', ['class' => 'entry-logo']); ?></td>
                 <td class="nameCell"><?= $entryName; ?></td>
                 <?php if ('Team' === $userTeam): ?>
                     <td><?= $entry->getTeamMembersFormatted(); ?></td>
